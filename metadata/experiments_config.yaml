@@ -1,0 +1,8 @@
+PilotD2Redo:
+    datadir: /oak/stanford/groups/pritch/users/emma/data/GWT/PilotD2Redo/
+    sample_metadata: /oak/stanford/groups/pritch/users/emma/data/GWT/sample_metadata/GWT_sample_metadata.PilotD2Redo.csv
+
+Pilot:
+    datadir: /oak/stanford/groups/pritch/users/emma/data/GWT/TcellsGW_pilot/
+    sample_metadata: 
+
