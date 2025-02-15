@@ -24,38 +24,6 @@ from pathlib import Path
 import warnings
 warnings.filterwarnings('ignore')
 
-# Define valid values
-TIMEPOINTS = ["Day7", "Rest", "Restim_6hr", "Restim_24hr"]
-HYBRID_PARAMS = ["half_million", "one_million", "one_and_half_million", "three_quarter_million"]
-
-def ga_umi(adata_crispr, threshold = 3):   
-    '''
-    Guide assignment with fixed UMI thresholds 
-    
-    Args:
-        input_file (str): path to the stored anndata object with the gRNA counts
-        thresholds (list): list of integers to use as thresholds (create assignment output file for each t in the list)
-        output_dir (str): directory in which to store the resulting assignment
-        
-    Returns:
-        None
-    '''
-    gRNA_list = adata_crispr.var_names.tolist()
-
-    # Get perturbed cells for each gRNA based on a fixed UMI threshold
-    perturbations = pd.DataFrame({'cell': [], 'gRNA': []})
-    print('Get perturbed cells for each gRNA with UMI threshold = ' + str(threshold))
-    for gRNA in gRNA_list:
-        # Get cells with UMI counts higher than the threshold for specified gRNA
-        selected_guide = adata_crispr[:,[gRNA]].X
-        perturbed_cells = adata_crispr.obs_names[selected_guide.toarray().reshape(-1) >= threshold].tolist()
-        UMI_counts = adata_crispr[selected_guide.toarray().reshape(-1) >= threshold, [gRNA]].X.toarray().reshape(-1)
-        
-        if len(perturbed_cells) != 0:
-            df = pd.DataFrame({'cell': perturbed_cells, 'gRNA': gRNA, 'UMI_counts': UMI_counts})
-            perturbations = pd.concat([perturbations, df], ignore_index = True)
-    return(perturbations)
-
 def extract_metadata(sample_name):
     """
     Extract timepoint and hybridization ID from sample names using predefined valid values.
@@ -92,18 +60,13 @@ def extract_metadata(sample_name):
     
     return found_timepoint, found_hybid
 
-def _process_cellranger(f):
+def _process_cellranger_h5(f):
     try:
         f_sample_name = f.split('/')[-1].split('_sample_filtered_feature_bc_matrix')[0]
     except IndexError:
         raise ValueError(f"Filename {f} doesn't match expected format")
     
     a = sc.read_10x_h5(f, gex_only=False)
-    
-    # f_timepoint,f_hybrid = extract_metadata(f_sample_name)
-    # a.obs['hybridization_condition'] = f_hybrid
-    # a.obs['timepoint'] = f_timepoint
-    # a.obs['sample_id'] = f'{f_timepoint}_{f_hybrid}'
     a.obs['sample_id'] = f'{f_sample_name}'
     a.obs_names = a.obs_names + "_" + a.obs['sample_id']
 
@@ -135,8 +98,46 @@ def _compute_nonzero_means_v1(X_mat):
                     out=np.zeros_like(col_sums), 
                     where=nnz_per_col != 0)
 
+def get_sgrna_outliers(crispr_adata, min_sgrna_counts, q):
+    """Calculate outlier bounds for sgRNA cell counts using linear regression.
+    
+    Args:
+        var_df: DataFrame containing sgRNA statistics (must have 'nonz_means' and 'n_cells' columns)
+        min_sgrna_counts: Minimum number of UMI counts to consider a guide
+        q: Quantile threshold for filtering guides
+        
+    Returns:
+        var_df with added 'outside_bounds' column indicating outliers
+    """
+    var_df = crispr_adata.var.copy()
+    # Fit linear model and calculate confidence intervals
+    trend_var = var_df[(var_df['nonz_means'] > min_sgrna_counts) & 
+                      (var_df['nonz_means'] < np.quantile(var_df['nonz_means'], 1 - q))]
+    X = trend_var['nonz_means'].values.reshape(-1, 1)
+    y = trend_var['n_cells'].values
 
-def get_sgrna_qc_metrics(crispr_a):
+    # Fit linear model
+    model = np.polyfit(X.flatten(), y, 1)
+    line_x = np.array([X.min(), X.max()])
+    line_y = model[0] * line_x + model[1]
+
+    # Calculate residuals and standard error for all points
+    y_pred_all = model[0] * var_df['nonz_means'].values + model[1]
+    residuals = var_df['n_cells'].values - y_pred_all
+    std_error = np.sqrt(np.sum(residuals**2) / (len(residuals) - 2))
+
+    # Calculate outlier bounds using IQR method
+    q1, q3 = np.percentile(residuals, [1, 98])
+    iqr = q3 - q1
+    outlier_bounds = 1.5 * iqr
+
+    # Add outlier annotations based on IQR bounds
+    crispr_adata.var['n_cells_outlier'] = False
+    predicted_y = model[0] * crispr_adata.var['nonz_means'] + model[1]
+    residuals = crispr_adata.var['n_cells'] - predicted_y
+    crispr_adata.var['n_cells_outlier'] = np.abs(residuals) > outlier_bounds
+
+def get_sgrna_qc_metrics(crispr_a, min_sgrna_counts=3, q=0.05):
     var_cols = ['sgrna_id','perturbed_gene_name', 'perturbation_type','sgrna_type', 'feature_types', 'genome', 'pattern', 'read', 'sequence',
        'n_cells', 'mean_counts', 'total_counts', 'nonz_means']
     # Sanitize excel problems
@@ -145,7 +146,6 @@ def get_sgrna_qc_metrics(crispr_a):
     # Compute mean of non-zero UMIs
     crispr_a.var['nonz_means'] = _compute_nonzero_means_v1(crispr_a.X)
     sc.pp.calculate_qc_metrics(crispr_a, inplace=True)
-    
     perturb_metadata = crispr_a.var.copy()
     # Annotate perturbed gene
     perturb_metadata['perturbed_gene_name'] = perturb_metadata.index.str.split('-').str[0:-1].str.join('-')
@@ -157,7 +157,14 @@ def get_sgrna_qc_metrics(crispr_a):
     perturb_metadata = perturb_metadata.rename(
         {'n_cells_by_counts':'n_cells'}, 
         axis=1) 
+
     crispr_a.var = perturb_metadata[var_cols].copy()
+    
+    # Annotate inefficient and non-specific probes
+    q_bot, q_top = np.quantile(crispr_a.var[crispr_a.var['nonz_means'] > min_sgrna_counts].n_cells, [q, 1-q])
+    get_sgrna_outliers(crispr_a, min_sgrna_counts, q)
+    crispr_a.var['inefficient'] = (crispr_a.var['nonz_means'] < min_sgrna_counts) & ((crispr_a.var['n_cells'] > q_bot) & ~crispr_a.var['n_cells_outlier'])
+    crispr_a.var['nonspecific'] = crispr_a.var['n_cells_outlier']
 
 def _basic_qc(adata, filter_cells=True):
     """
@@ -175,17 +182,24 @@ def _basic_qc(adata, filter_cells=True):
     
     return adata
 
-def main(datadir):
+def _convert_oak_path(path):
+        """Helper function to convert oak paths between different mount points"""
+        if not os.path.exists(path):
+            return path.replace('/oak/stanford/groups/pritch/', '/mnt/oak/')
+        return path
+
+def process_experiment(exp_config):
+
+    # Make directories
+    datadir = _convert_oak_path(exp_config['datadir'])
     tmpdir = f'{datadir}/tmp/'
     os.makedirs(tmpdir, exist_ok=True)
     experiment_id = os.path.basename(os.path.normpath(datadir))
+    
+    # Read sample metadata
+    sample_metadata_path = _convert_oak_path(exp_config['sample_metadata'])
+    sample_metadata = pd.read_csv(sample_metadata_path)
 
-    # Chekc if f"{tmpdir}TcellsGW_pilot_merged.gex.h5ad" exists
-    # if os.path.exists(f"{tmpdir}/{experiment_id}_merged.gex.h5ad"):
-    #     print(f"{tmpdir}/{experiment_id}_merged.gex.h5ad already exists. Skipping...")
-    #     adata = sc.read_h5ad(f"{tmpdir}/{experiment_id}_merged.gex.h5ad")
-    # else:        
-    # Process files
     h5_files = [f'{datadir}/cellranger_outs/{f}' for f in os.listdir(f'{datadir}/cellranger_outs/') 
                 if f.endswith('_sample_filtered_feature_bc_matrix.h5')]
     
@@ -198,9 +212,11 @@ def main(datadir):
     for f in h5_files:
         print(f"Processing {f}")
         f_sample_name = f.split('/')[-1].split('_sample_filtered_feature_bc_matrix')[0]
-        gex_a, crispr_a = _process_cellranger(f)
+        gex_a, crispr_a = _process_cellranger_h5(f)
         gex_a = _basic_qc(gex_a)
-        get_sgrna_qc_metrics(crispr_a)
+        
+        # Process sgRNA adata
+        get_sgrna_qc_metrics(crispr_a, min_sgrna_counts=3, q=0.05)
         crispr_a.write_h5ad(f'{datadir}/{f_sample_name}.sgRNA.h5ad')
         
         if adata is None:
@@ -208,8 +224,18 @@ def main(datadir):
         else:
             adata = adata.concatenate(gex_a, index_unique=None)
     
+    # Add sample-level metadata
+    missing_samples = set(adata.obs['sample_id']) - set(sample_metadata['sample_id'])
+    if missing_samples:
+        raise ValueError(f"Found samples in data that are missing from metadata: {missing_samples}")
+    
+    obs_names = adata.obs_names.copy()
+    adata.obs = adata.obs.merge(sample_metadata, on='sample_id', how='left')
+    adata.obs.index = obs_names
+
     # Save merged objects
     print("Saving merged objects...")
+    adata.var = adata.var[['gene_ids', 'gene_name', 'mt']].copy()
     adata.write(f"{tmpdir}/{experiment_id}_merged.gex.h5ad")
 
     # Basic dim reduction analysis
@@ -221,6 +247,7 @@ def main(datadir):
     adata.write(f"{datadir}/{experiment_id}_merged.gex.lognorm.h5ad")
     
     return adata
+
 if __name__ == "__main__":
     import argparse
     import yaml
@@ -246,8 +273,6 @@ if __name__ == "__main__":
     
     for exp_id in experiments:
         print(f"\nProcessing experiment: {exp_id}")
-        datadir = config[exp_id]['datadir']
-        if not os.path.exists(datadir):
-            datadir = datadir.replace('/oak/stanford/groups/pritch/', '/mnt/oak/')
-        adata = main(datadir=datadir)
+        exp_config = config[exp_id]
+        adata = process_experiment(exp_config)
         
