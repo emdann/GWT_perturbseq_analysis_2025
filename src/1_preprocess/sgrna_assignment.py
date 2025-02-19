@@ -29,7 +29,7 @@ def assign_sgrna(crispr_adata, min_sgrna_counts = 3, min_sgrna_counts_double = 1
             - top_guide_umi_counts: UMI count of highest sgRNA for each cell
     """
     # Exclude blacklisted sgRNAs
-    crispr_adata.var['exclude_sgrna'] = crispr_adata.var['inefficient'] | crispr_adata.var['nonspecific'] | (crispr_adata.var['sgrna_type'] == 'ProbeNTC')
+    crispr_adata.var['exclude_sgrna'] = crispr_adata.var['nonspecific'] | (crispr_adata.var['sgrna_type'] == 'ProbeNTC')
     # crispr_adata = crispr_adata[:, ~crispr_adata.var['exclude_sgrna']]
 
     # Count sgRNAs at UMI threshold t
