@@ -1,3 +1,7 @@
+'''
+Script to download sample metadata from Google Drive in machine-readable format.
+'''
+
 import pandas as pd
 import yaml
 import subprocess

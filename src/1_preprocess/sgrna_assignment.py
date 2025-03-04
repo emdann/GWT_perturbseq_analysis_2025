@@ -35,7 +35,11 @@ def assign_sgrna(crispr_adata, min_sgrna_counts = 3, min_sgrna_counts_double = 1
     # Count sgRNAs at UMI threshold t
     sgrna_assignment_mat = crispr_adata.X.copy()
     sgrna_assignment_mat[:, crispr_adata.var['exclude_sgrna']] = 0
-    sgrna_assignment_mat[sgrna_assignment_mat < min_sgrna_counts] = 0
+    if scipy.sparse.issparse(sgrna_assignment_mat):
+        mask = sgrna_assignment_mat >= min_sgrna_counts
+        sgrna_assignment_mat = sgrna_assignment_mat.multiply(mask)
+    else:
+        sgrna_assignment_mat[sgrna_assignment_mat < min_sgrna_counts] = 0
 
     sgrna_assignment_bin = sgrna_assignment_mat.copy()
     sgrna_assignment_bin[sgrna_assignment_bin > 0] = 1
@@ -158,7 +162,7 @@ if __name__ == "__main__":
     os.makedirs(results_dir, exist_ok=True)
 
     assignment_merged = pd.DataFrame()
-    for sample_id in sample_metadata['sample_id']:
+    for sample_id in sample_metadata['cell_sample_id']:
         sgrna_h5ad = f"{datadir}{sample_id}.sgRNA.h5ad"
         crispr_a = sc.read_h5ad(sgrna_h5ad)
         assign_sgrna(crispr_a)

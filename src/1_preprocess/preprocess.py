@@ -1,17 +1,5 @@
 '''
-Preprocess and merge CITE-seq data.
-
-conda activate gwc-env
-cd /oak/stanford/groups/pritch/users/emma/bin/tcell_perturbseq_analysis/_TcellsGW_pilot_analysis/
-EXP_DIR=/oak/stanford/groups/pritch/users/emma/data/TcellsGW_PilotD2Redo_newRHSprobe_sample1/
-sbatch --partition=pritch \
-       --job-name=preprocess-TcellsGW \
-       --cpus-per-task=3 \
-       --mem=75000 \
-       --time=2:00:00 \
-       --output=$GROUP_SCRATCH/emma/slurm-pp-%j.out \
-       --error=$GROUP_SCRATCH/emma/slurm-pp-%j.err \
-       --wrap="python preprocess.py --datadir $EXP_DIR"
+Preprocess and merge Perturb-seq data.
 '''
 import os,sys
 import scanpy as sc
@@ -67,8 +55,8 @@ def _process_cellranger_h5(f):
         raise ValueError(f"Filename {f} doesn't match expected format")
     
     a = sc.read_10x_h5(f, gex_only=False)
-    a.obs['sample_id'] = f'{f_sample_name}'
-    a.obs_names = a.obs_names + "_" + a.obs['sample_id']
+    a.obs['cell_sample_id'] = f'{f_sample_name}'
+    a.obs_names = a.obs_names + "_" + a.obs['cell_sample_id']
 
     # split by modality (for Perturb-seq)
     if not all(a.var['feature_types'] == 'Gene Expression'):
@@ -206,40 +194,42 @@ def process_experiment(exp_config):
     if not h5_files:
         raise ValueError(f"No .h5 files found in {datadir}")
     
-    print(f"Processing {len(h5_files)} files...")
-    adata = None
-    
-    for f in h5_files:
-        print(f"Processing {f}")
-        f_sample_name = f.split('/')[-1].split('_sample_filtered_feature_bc_matrix')[0]
-        gex_a, crispr_a = _process_cellranger_h5(f)
-        gex_a = _basic_qc(gex_a)
+    try:
+        adata = sc.read_h5ad(f"{tmpdir}/{experiment_id}_merged.gex.h5ad")
+    except FileNotFoundError:
+        print(f"Processing {len(h5_files)} files...")
+        adata = None
         
-        # Process sgRNA adata
-        get_sgrna_qc_metrics(crispr_a, min_sgrna_counts=3, q=0.05)
-        crispr_a.write_h5ad(f'{datadir}/{f_sample_name}.sgRNA.h5ad')
+        for f in h5_files:
+            print(f"Processing {f}")
+            f_sample_name = f.split('/')[-1].split('_sample_filtered_feature_bc_matrix')[0]
+            gex_a, crispr_a = _process_cellranger_h5(f)
+            gex_a = _basic_qc(gex_a)
+            
+            # Process sgRNA adata
+            get_sgrna_qc_metrics(crispr_a, min_sgrna_counts=3, q=0.05)
+            crispr_a.write_h5ad(f'{datadir}/{f_sample_name}.sgRNA.h5ad')
+            
+            if adata is None:
+                adata = gex_a
+            else:
+                adata = adata.concatenate(gex_a, index_unique=None)
         
-        if adata is None:
-            adata = gex_a
-        else:
-            adata = adata.concatenate(gex_a, index_unique=None)
-    
-    # Add sample-level metadata
-    missing_samples = set(adata.obs['sample_id']) - set(sample_metadata['sample_id'])
-    if missing_samples:
-        raise ValueError(f"Found samples in data that are missing from metadata: {missing_samples}")
-    
-    obs_names = adata.obs_names.copy()
-    adata.obs = adata.obs.merge(sample_metadata, on='sample_id', how='left')
-    adata.obs.index = obs_names
+        # Add sample-level metadata
+        missing_samples = set(adata.obs['cell_sample_id']) - set(sample_metadata['cell_sample_id'])
+        if missing_samples:
+            raise ValueError(f"Found samples in data that are missing from metadata: {missing_samples}")
+        
+        obs_names = adata.obs_names.copy()
+        adata.obs = adata.obs.merge(sample_metadata, on='cell_sample_id', how='left')
+        adata.obs.index = obs_names
 
-    # Save merged objects
-    print("Saving merged objects...")
-    adata.var = adata.var[['gene_ids', 'gene_name', 'mt']].copy()
-    adata.write(f"{tmpdir}/{experiment_id}_merged.gex.h5ad")
+        # Save merged objects
+        print("Saving merged objects...")
+        adata.var = adata.var[['gene_ids', 'gene_name', 'mt']].copy()
+        adata.write(f"{tmpdir}/{experiment_id}_merged.gex.h5ad")
 
     # Basic dim reduction analysis
-    adata.layers['counts'] = adata.X.copy()
     sc.pp.normalize_total(adata)
     sc.pp.log1p(adata)
     sc.pp.highly_variable_genes(adata, n_top_genes=5000)

@@ -3,6 +3,7 @@ import scanpy as sc
 import numpy as np
 import pandas as pd
 import anndata
+import scipy
 
 import matplotlib
 import matplotlib.pyplot as plt
@@ -17,22 +18,22 @@ def load_Tcell_markers(adata: anndata.AnnData) -> Dict[str, List[str]]:
     markers_dict = Tcell_markers.groupby('state_program_name')['gene_name'].apply(list).to_dict()
     return markers_dict
 
-def plot_ncells_sample(adata: anndata.AnnData, color_by: str = 'culture_condition') -> None:
-    cols = [color_by, 'sample_id']
+def plot_ncells_sample(adata: anndata.AnnData, color_by: str = 'culture_condition', sample_col: str = 'cell_sample_id') -> None:
+    cols = [color_by, sample_col]
     pl_df = sc.get.obs_df(adata, cols)
     pl_df = pl_df.groupby(cols).size().reset_index(name='count')
     pl_df = pl_df[pl_df['count'] > 0].copy()
 
-    sns.barplot(data=pl_df, x='sample_id', y='count', hue=color_by)
+    sns.barplot(data=pl_df, x=sample_col, y='count', hue=color_by)
     plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', frameon=False, title=color_by)
     plt.xticks(rotation=90)
     plt.ylabel('# cells (pre-QC)')
 
-def plot_markers_sample_dotplot(adata: anndata.AnnData, group_by: str = 'culture_condition', **kwargs) -> None:
+def plot_markers_sample_dotplot(adata: anndata.AnnData, group_by: str = 'culture_condition', sample_col: str = 'cell_sample_id', **kwargs) -> None:
     markers_dict = load_Tcell_markers(adata)
-    order_samples = adata.obs.sort_values([group_by])['sample_id'].astype(str).unique()
-    adata.obs['sample_id'] = adata.obs['sample_id'].cat.reorder_categories(order_samples)
-    sc.pl.dotplot(adata, markers_dict, groupby='sample_id', **kwargs)
+    order_samples = adata.obs.sort_values([group_by])[sample_col].astype(str).unique()
+    adata.obs[sample_col] = adata.obs[sample_col].cat.reorder_categories(order_samples)
+    sc.pl.dotplot(adata, markers_dict, groupby=sample_col, **kwargs)
 
 def plot_markers_umap(adata: anndata.AnnData, markers_dict: Optional[Dict[str, List[str]]] = None, markers_keys: Optional[List[str]] = None, **kwargs) -> None:
     if markers_dict is None:
@@ -69,25 +70,42 @@ def calculate_perturbed_gene_expression(adata: anndata.AnnData, perturbed_gene_c
         - perturbed_gene_mean_ntc: mean expression in NTC cells
         - perturbed_gene_std_ntc: std dev of expression in NTC cells
     """
+
+    # Get all perturbed genes that are also measured
     all_perturbed_gene_ids = adata.obs[perturbed_gene_col].dropna().unique()
     measured_perturbed_gene_ids = np.intersect1d(all_perturbed_gene_ids, adata.var[var_names])
+    adata.obs[perturbed_gene_col + '_test'] = adata.obs[perturbed_gene_col].copy()
+    adata.obs.loc[~adata.obs[perturbed_gene_col + '_test'].isin(measured_perturbed_gene_ids), perturbed_gene_col + '_test'] = np.nan
+    perturbed_gene_col = perturbed_gene_col + '_test'
 
-    # Get perturbed gene for each cell with perturbation
-    perturbed_gene = adata.obs[perturbed_gene_col].dropna()
-    perturbed_gene = perturbed_gene[perturbed_gene.isin(measured_perturbed_gene_ids)].copy()
+    # Initialize binary matrix (cells × perturbed genes)
+    n_cells = adata.n_obs
+    cell_gene_matrix = scipy.sparse.lil_matrix((adata.n_obs, adata.n_vars), dtype=bool)
+    # Create mapping from gene ID to column index
+    gene_to_idx = {gene: i for i, gene in enumerate(adata.var[var_names])}
 
-    obs_ixs = adata.obs.reset_index(drop=False).reset_index().set_index('index').loc[perturbed_gene.index]['level_0'].values
-    perturbed_genes_ixs = adata.var.reset_index(drop=True).reset_index().set_index(var_names).loc[perturbed_gene]['index'].values
-    perturbed_gene_expr = pd.Series(adata.X[obs_ixs, perturbed_genes_ixs].A1, index=perturbed_gene.index)
+    # Fill the matrix: True if cell has that gene perturbed
+    for cell_idx, gene in enumerate(adata.obs[perturbed_gene_col]):
+        if pd.notna(gene):
+            cell_gene_matrix[cell_idx, gene_to_idx[gene]] = True
+
+    # Get NTC cells mask
+    ntc_mask = adata.obs[ntc_col] == ntc_label
+
+    # Convert to more efficient format for operations
+    cell_gene_matrix = cell_gene_matrix.tocsr()
+    rows, cols = cell_gene_matrix.nonzero()
+    result = np.full(adata.X.shape[0], np.nan)
+    values = np.array(adata.X[rows, cols]).flatten()
+    perturbed_gene_expr = pd.Series(values, index=adata.obs_names[rows])
+    
     # Get summary of expression in NTCs
-    ntc_cells_ixs = np.where(adata.obs[ntc_col] == ntc_label)[0]
-    perturbed_gene_expr_ntc = adata.X[ntc_cells_ixs,:][:, perturbed_genes_ixs]
-
-    perturbed_gene_mean_ntc = perturbed_gene_expr_ntc.mean(axis=0)
+    ntc_values = adata.X[np.where(ntc_mask)[0],:][:, cols]
+    perturbed_gene_mean_ntc = ntc_values.mean(axis=0)
     perturbed_gene_mean_ntc = np.array(perturbed_gene_mean_ntc).flatten()
-    perturbed_gene_mean_ntc = pd.Series(perturbed_gene_mean_ntc, index=perturbed_gene.index)
-    perturbed_gene_std_ntc = np.sqrt(perturbed_gene_expr_ntc.power(2).mean(axis=0).A1 - np.power(perturbed_gene_expr_ntc.mean(axis=0).A1, 2))
-    perturbed_gene_std_ntc = pd.Series(perturbed_gene_std_ntc, index=perturbed_gene.index)
+    perturbed_gene_mean_ntc = pd.Series(perturbed_gene_mean_ntc, index=adata.obs_names[rows])
+    perturbed_gene_std_ntc = np.sqrt(ntc_values.power(2).mean(axis=0).A1 - np.power(ntc_values.mean(axis=0).A1, 2))
+    perturbed_gene_std_ntc = pd.Series(perturbed_gene_std_ntc, index=adata.obs_names[rows])
 
     # Add to adata
     adata.obs['perturbed_gene_expr'] = perturbed_gene_expr
@@ -95,12 +113,12 @@ def calculate_perturbed_gene_expression(adata: anndata.AnnData, perturbed_gene_c
     adata.obs['perturbed_gene_std_ntc'] = perturbed_gene_std_ntc
 
     perturbed_gene_expr_df = pd.DataFrame({
-        'perturbed_gene':perturbed_gene,
+        'perturbed_gene':adata.obs[perturbed_gene_col],
         'perturbed_gene_expr':perturbed_gene_expr, 
         'perturbed_gene_mean_ntc':perturbed_gene_mean_ntc,
         'perturbed_gene_std_ntc':perturbed_gene_std_ntc,
         })
-    perturbed_gene_expr_df['n_ntc_cells'] = ntc_cells_ixs.shape[0]
+    perturbed_gene_expr_df['n_ntc_cells'] = ntc_values.shape[0]
     return(perturbed_gene_expr_df)
 
 
