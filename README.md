@@ -5,6 +5,7 @@ Analysis of genome-wide perturb-seq screen on primary T cells
 
 - `src` - analysis code
     - `1_preprocess/` - ingest and preprocess new experiments from cellranger outputs
+    - `_misc` - miscellaneous old code
 - `metadata` - sample and experimental metadata, configs, gene annotations etc
 
 ## Set-up compute environment
