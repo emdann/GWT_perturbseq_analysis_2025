@@ -49,15 +49,7 @@ def extract_metadata(sample_name):
     return found_timepoint, found_hybid
 
 def _process_cellranger_h5(f):
-    try:
-        f_sample_name = f.split('/')[-1].split('_sample_filtered_feature_bc_matrix')[0]
-    except IndexError:
-        raise ValueError(f"Filename {f} doesn't match expected format")
-    
     a = sc.read_10x_h5(f, gex_only=False)
-    a.obs['cell_sample_id'] = f'{f_sample_name}'
-    a.obs_names = a.obs_names + "_" + a.obs['cell_sample_id']
-
     # split by modality (for Perturb-seq)
     if not all(a.var['feature_types'] == 'Gene Expression'):
         gex_a = a[:, a.var['feature_types'] == 'Gene Expression'].copy()
@@ -190,10 +182,26 @@ def process_experiment(exp_config):
 
     h5_files = [f'{datadir}/cellranger_outs/{f}' for f in os.listdir(f'{datadir}/cellranger_outs/') 
                 if f.endswith('_sample_filtered_feature_bc_matrix.h5')]
-    
     if not h5_files:
         raise ValueError(f"No .h5 files found in {datadir}")
     
+    # Check that h5_sample_names match values in sample_metadata['library_id']
+    h5_sample_names = [f.split('/')[-1].split('_sample_filtered_feature_bc_matrix')[0] for f in h5_files]
+    missing_samples = set(h5_sample_names) - set(sample_metadata['library_id'])
+    if missing_samples:
+        print(f"Warning: Found samples in data that are missing from metadata library_id: {missing_samples}")
+        
+        # Try to map sample names using sample_id_mapping if available
+        if 'sample_id_mapping' in exp_config and exp_config['sample_id_mapping']:
+            sample_id_mapping = exp_config['sample_id_mapping']
+            
+            # Check if all missing samples are in the mapping
+            unmapped_samples = missing_samples - set(sample_id_mapping.keys())
+            if unmapped_samples:
+                raise ValueError(f"Samples {unmapped_samples} not found in metadata or sample_id_mapping")
+        else:
+            raise ValueError(f"Samples {missing_samples} not found in metadata and no sample_id_mapping provided")
+
     try:
         adata = sc.read_h5ad(f"{tmpdir}/{experiment_id}_merged.gex.h5ad")
     except FileNotFoundError:
@@ -203,7 +211,12 @@ def process_experiment(exp_config):
         for f in h5_files:
             print(f"Processing {f}")
             f_sample_name = f.split('/')[-1].split('_sample_filtered_feature_bc_matrix')[0]
+            f_sample_name = sample_id_mapping[f_sample_name]
             gex_a, crispr_a = _process_cellranger_h5(f)
+            gex_a.obs['library_id'] = f_sample_name
+            gex_a.obs_names = gex_a.obs_names + "_" + gex_a.obs['library_id']
+            crispr_a.obs['library_id'] = f_sample_name
+            crispr_a.obs_names = crispr_a.obs_names + "_" + crispr_a.obs['library_id']
             gex_a = _basic_qc(gex_a)
             
             # Process sgRNA adata
@@ -216,12 +229,12 @@ def process_experiment(exp_config):
                 adata = adata.concatenate(gex_a, index_unique=None)
         
         # Add sample-level metadata
-        missing_samples = set(adata.obs['cell_sample_id']) - set(sample_metadata['cell_sample_id'])
+        missing_samples = set(adata.obs['library_id']) - set(sample_metadata['library_id'])
         if missing_samples:
             raise ValueError(f"Found samples in data that are missing from metadata: {missing_samples}")
         
         obs_names = adata.obs_names.copy()
-        adata.obs = adata.obs.merge(sample_metadata, on='cell_sample_id', how='left')
+        adata.obs = adata.obs.merge(sample_metadata, on='library_id', how='left')
         adata.obs.index = obs_names
 
         # Save merged objects

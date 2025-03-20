@@ -162,7 +162,7 @@ if __name__ == "__main__":
     os.makedirs(results_dir, exist_ok=True)
 
     assignment_merged = pd.DataFrame()
-    for sample_id in sample_metadata['cell_sample_id']:
+    for sample_id in sample_metadata['library_id']:
         sgrna_h5ad = f"{datadir}{sample_id}.sgRNA.h5ad"
         crispr_a = sc.read_h5ad(sgrna_h5ad)
         assign_sgrna(crispr_a)
