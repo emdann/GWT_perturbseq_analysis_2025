@@ -10,6 +10,7 @@ dependencies:
     - rapids-singlecell
     - jupyter
     - git+https://github.com/scverse/anndata.git
+    - pydeseq2
     # - anndata>=0.12
     - genomic_features
     - ibis-framework==8.0.0
