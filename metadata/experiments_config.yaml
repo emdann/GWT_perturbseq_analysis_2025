@@ -8,6 +8,16 @@ PilotD2Redo_Lane2:
     sample_metadata: /oak/stanford/groups/pritch/users/emma/data/GWT/sample_metadata/GWT_sample_metadata.PilotD2Redo_Lane2.csv
     sample_id_mapping:
 
+PilotD2Redo_Lane2_Ultima:
+    datadir: /oak/stanford/groups/pritch/users/emma/data/GWT/PilotD2Redo_Lane2_Ultima/
+    sample_metadata: /oak/stanford/groups/pritch/users/emma/data/GWT/sample_metadata/GWT_sample_metadata.PilotD2Redo_Lane2_Ultima.csv
+    sample_id_mapping:
+        PilotD2Redo_Day7: PilotD2Redo_Day7_Lane2_Ultima
+        PilotD2Redo_Rest: PilotD2Redo_Rest_Lane2_Ultima
+        PilotD2Redo_Restim6hr: PilotD2Redo_Restim6hr_Lane2_Ultima
+        PilotD2Redo_Restim24hr: PilotD2Redo_Restim24hr_Lane2_Ultima
+
+
 CRiCD4IL2_Illumina:
     datadir: /oak/stanford/groups/pritch/users/emma/data/GWT/CRiCD4IL2_Illumina/
     sample_metadata: /oak/stanford/groups/pritch/users/emma/data/GWT/sample_metadata/GWT_sample_metadata.CRiCD4IL2_Illumina.csv
@@ -16,6 +26,25 @@ CRiCD4IL2_Illumina:
         CRiCD4IL2D1_Stim8hr: CRiCD4IL2D1_Stim8hr_10Xlane1_Illumina
         CRiCD4IL2D2_Rest: CRiCD4IL2D2_Rest_10Xlane1_Illumina
         CRiCD4IL2D2_Stim8hr: CRiCD4IL2D2_Stim8hr_10Xlane1_Illumina
+
+CRiCD4IL2_Illumina_lane5:
+    datadir: /oak/stanford/groups/pritch/users/emma/data/GWT/CRiCD4IL2_Illumina_lane5/
+    sample_metadata: /oak/stanford/groups/pritch/users/emma/data/GWT/sample_metadata/GWT_sample_metadata.CRiCD4IL2_Illumina_lane5.csv
+    sample_id_mapping:
+        CRiCD4IL2D1_Rest: CRiCD4IL2D1_Rest_10Xlane1_Illumina
+        CRiCD4IL2D1_Stim8hr: CRiCD4IL2D1_Stim8hr_10Xlane1_Illumina
+        CRiCD4IL2D2_Rest: CRiCD4IL2D2_Rest_10Xlane1_Illumina
+        CRiCD4IL2D2_Stim8hr: CRiCD4IL2D2_Stim8hr_10Xlane1_Illumina
+
+CRiCD4IL2_Illumina_lane13:
+    datadir: /oak/stanford/groups/pritch/users/emma/data/GWT/CRiCD4IL2_Illumina_lane13/
+    sample_metadata: /oak/stanford/groups/pritch/users/emma/data/GWT/sample_metadata/GWT_sample_metadata.CRiCD4IL2_Illumina_lane13.csv
+    sample_id_mapping:
+        CRiCD4IL2D1_Rest: CRiCD4IL2D1_Rest_10Xlane1_Illumina
+        CRiCD4IL2D1_Stim8hr: CRiCD4IL2D1_Stim8hr_10Xlane1_Illumina
+        CRiCD4IL2D2_Rest: CRiCD4IL2D2_Rest_10Xlane1_Illumina
+        CRiCD4IL2D2_Stim8hr: CRiCD4IL2D2_Stim8hr_10Xlane1_Illumina
+
 
 Pilot:
     datadir: /oak/stanford/groups/pritch/users/emma/data/GWT/TcellsGW_pilot/
