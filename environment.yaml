@@ -7,9 +7,12 @@ dependencies:
   - python=3.11
   - pip:
     - scanpy
+    - rapids-singlecell
+    - anndata>=0.12
     - genomic_features
     - ibis-framework==8.0.0
     - scipy
-    - crispat
     - openpyxl
-    - git+https://github.com/emdann/perturbseq-tools.git@main
+    - mudata
+    - scvi
+    # - git+https://github.com/emdann/perturbseq-tools.git@main
