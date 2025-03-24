@@ -8,7 +8,9 @@ dependencies:
   - pip:
     - scanpy
     - rapids-singlecell
-    - anndata>=0.12
+    - jupyter
+    - git+https://github.com/scverse/anndata.git
+    # - anndata>=0.12
     - genomic_features
     - ibis-framework==8.0.0
     - scipy
