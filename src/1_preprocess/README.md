@@ -2,15 +2,16 @@
 
 ```bash
 # Setup folders in Sherlock
-EXPERIMENT_NAME=CRiCD4IL2_Illumina
+EXPERIMENT_NAME=CRiCD4IL2_Illumina_lane13
 DATADIR=/mnt/oak/users/emma/data/GWT/
 EXPDIR=${DATADIR}/${EXPERIMENT_NAME}/
 
 mkdir ${EXPDIR}/
 mkdir ${EXPDIR}/cellranger_outs/
 
-DROPBOX_PATH=GRNPerturbSeq/3_expts/CRiCD4IL2/lane21_10x/
-rclone copy dropbox:${DROPBOX_PATH}${EXPERIMENT_NAME}/ ${EXPDIR}/cellranger_outs/ --include "_filtered_feature_bc_matrix.h5"
+DROPBOX_PATH=GRNPerturbSeq/3_expts/CRiCD4IL2_Illumina/lane13_10x/
+rclone copy dropbox:${DROPBOX_PATH}/ ${EXPDIR}/cellranger_outs/
+# rclone copy dropbox:${DROPBOX_PATH}/ ${EXPDIR}/cellranger_outs/ --include "_filtered_feature_bc_matrix.h5"
 ```
 
 ## Processing data from a new experiment
@@ -38,7 +39,8 @@ python sgrna_assignment.py $EXPERIMENT_NAME --config ../../metadata/experiments_
 5. Basic QC plots and analysis
 ```bash
 # Copy notebook to run analysis
-cp qc_PilotD2Redo.ipynb qc_${EXPERIMENT_NAME}.ipynb
+cp qc_PilotD2Redo_Lane2.ipynb qc_${EXPERIMENT_NAME}.ipynb
+cp qc_PilotD2Redo_Lane2.ipynb qc_${EXPERIMENT_NAME}.ipynb
 
 # To convert to report after editing
 jupyter nbconvert qc_${EXPERIMENT_NAME}.ipynb --to html
@@ -57,7 +59,7 @@ From Comino:
 ```bash
 DROPBOX_PATH=GRNPerturbSeq/3_expts/processed_data/
 rclone mkdir dropbox:${DROPBOX_PATH}${EXPERIMENT_NAME}/
-for f in ${EXPERIMENT_NAME}_merged.gex.lognorm.postQC.h5ad knockdown_efficacy_simple.csv; do 
+for f in ${EXPERIMENT_NAME}_merged.gex.lognorm.postQC.h5ad ${EXPERIMENT_NAME}_merged.gex.counts.postQC.h5ad knockdown_efficacy_simple.csv; do 
     rclone copy ${EXPDIR}/${f} dropbox:${DROPBOX_PATH}${EXPERIMENT_NAME}/ --checksum --ignore-times
     done
 ```

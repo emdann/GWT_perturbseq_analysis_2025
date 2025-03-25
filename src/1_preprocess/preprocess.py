@@ -202,6 +202,8 @@ def process_experiment(exp_config):
         else:
             raise ValueError(f"Samples {missing_samples} not found in metadata and no sample_id_mapping provided")
 
+    print('Im here')
+    print(f"{tmpdir}/{experiment_id}_merged.gex.h5ad")
     try:
         adata = sc.read_h5ad(f"{tmpdir}/{experiment_id}_merged.gex.h5ad")
     except FileNotFoundError:
