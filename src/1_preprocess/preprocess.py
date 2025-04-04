@@ -12,42 +12,6 @@ from pathlib import Path
 import warnings
 warnings.filterwarnings('ignore')
 
-def extract_metadata(sample_name):
-    """
-    Extract timepoint and hybridization ID from sample names using predefined valid values.
-    
-    Args:
-        sample_name (str): Full sample name (e.g., "Day7_half_million")
-        
-    Returns:
-        tuple: (timepoint, hybridization_id)
-        
-    Raises:
-        ValueError: If timepoint or hybridization parameter is not recognized
-    """
-    # First try to find which timepoint is in the sample name
-    found_timepoint = None
-    for timepoint in TIMEPOINTS:
-        if sample_name.startswith(timepoint+"_"):
-            found_timepoint = timepoint
-            remaining = sample_name[len(timepoint)+1:]  # +1 for the underscore
-            break
-    
-    if not found_timepoint:
-        raise ValueError(f"Unknown timepoint in sample name: {sample_name}\nValid timepoints are: {TIMEPOINTS}")
-    
-    # Find hybridization parameter in remaining string
-    found_hybid = None
-    for hybid in HYBRID_PARAMS:
-        if remaining == hybid:
-            found_hybid = hybid
-            break
-    
-    if not found_hybid:
-        raise ValueError(f"Unknown hybridization parameter in sample name: {remaining}\nValid parameters are: {HYBRID_PARAMS}")
-    
-    return found_timepoint, found_hybid
-
 def _process_cellranger_h5(f):
     a = sc.read_10x_h5(f, gex_only=False)
     # split by modality (for Perturb-seq)
@@ -78,44 +42,6 @@ def _compute_nonzero_means_v1(X_mat):
                     out=np.zeros_like(col_sums), 
                     where=nnz_per_col != 0)
 
-def get_sgrna_outliers(crispr_adata, min_sgrna_counts, q):
-    """Calculate outlier bounds for sgRNA cell counts using linear regression.
-    
-    Args:
-        var_df: DataFrame containing sgRNA statistics (must have 'nonz_means' and 'n_cells' columns)
-        min_sgrna_counts: Minimum number of UMI counts to consider a guide
-        q: Quantile threshold for filtering guides
-        
-    Returns:
-        var_df with added 'outside_bounds' column indicating outliers
-    """
-    var_df = crispr_adata.var.copy()
-    # Fit linear model and calculate confidence intervals
-    trend_var = var_df[(var_df['nonz_means'] > min_sgrna_counts) & 
-                      (var_df['nonz_means'] < np.quantile(var_df['nonz_means'], 1 - q))]
-    X = trend_var['nonz_means'].values.reshape(-1, 1)
-    y = trend_var['n_cells'].values
-
-    # Fit linear model
-    model = np.polyfit(X.flatten(), y, 1)
-    line_x = np.array([X.min(), X.max()])
-    line_y = model[0] * line_x + model[1]
-
-    # Calculate residuals and standard error for all points
-    y_pred_all = model[0] * var_df['nonz_means'].values + model[1]
-    residuals = var_df['n_cells'].values - y_pred_all
-    std_error = np.sqrt(np.sum(residuals**2) / (len(residuals) - 2))
-
-    # Calculate outlier bounds using IQR method
-    q1, q3 = np.percentile(residuals, [1, 98])
-    iqr = q3 - q1
-    outlier_bounds = 1.5 * iqr
-
-    # Add outlier annotations based on IQR bounds
-    crispr_adata.var['n_cells_outlier'] = False
-    predicted_y = model[0] * crispr_adata.var['nonz_means'] + model[1]
-    residuals = crispr_adata.var['n_cells'] - predicted_y
-    crispr_adata.var['n_cells_outlier'] = np.abs(residuals) > outlier_bounds
 
 def get_sgrna_qc_metrics(crispr_a, min_sgrna_counts=3, q=0.05):
     var_cols = ['sgrna_id','perturbed_gene_name', 'perturbation_type','sgrna_type', 'feature_types', 'genome', 'pattern', 'read', 'sequence',
@@ -140,12 +66,6 @@ def get_sgrna_qc_metrics(crispr_a, min_sgrna_counts=3, q=0.05):
 
     crispr_a.var = perturb_metadata[var_cols].copy()
     
-    # Annotate inefficient and non-specific probes
-    q_bot, q_top = np.quantile(crispr_a.var[crispr_a.var['nonz_means'] > min_sgrna_counts].n_cells, [q, 1-q])
-    get_sgrna_outliers(crispr_a, min_sgrna_counts, q)
-    crispr_a.var['inefficient'] = (crispr_a.var['nonz_means'] < min_sgrna_counts) & ((crispr_a.var['n_cells'] > q_bot) & ~crispr_a.var['n_cells_outlier'])
-    crispr_a.var['nonspecific'] = crispr_a.var['n_cells_outlier']
-
 def _basic_qc(adata, filter_cells=True):
     """
     Perform basic QC on gene expression data
@@ -180,29 +100,35 @@ def process_experiment(exp_config):
     sample_metadata_path = _convert_oak_path(exp_config['sample_metadata'])
     sample_metadata = pd.read_csv(sample_metadata_path)
 
-    h5_files = [f'{datadir}/cellranger_outs/{f}' for f in os.listdir(f'{datadir}/cellranger_outs/') 
-                if f.endswith('_sample_filtered_feature_bc_matrix.h5')]
-    if not h5_files:
-        raise ValueError(f"No .h5 files found in {datadir}")
-    
-    # Check that h5_sample_names match values in sample_metadata['library_id']
-    h5_sample_names = [f.split('/')[-1].split('_sample_filtered_feature_bc_matrix')[0] for f in h5_files]
-    missing_samples = set(h5_sample_names) - set(sample_metadata['library_id'])
-    if missing_samples:
-        print(f"Warning: Found samples in data that are missing from metadata library_id: {missing_samples}")
-        
-        # Try to map sample names using sample_id_mapping if available
-        if 'sample_id_mapping' in exp_config and exp_config['sample_id_mapping']:
-            sample_id_mapping = exp_config['sample_id_mapping']
-            
-            # Check if all missing samples are in the mapping
-            unmapped_samples = missing_samples - set(sample_id_mapping.keys())
-            if unmapped_samples:
-                raise ValueError(f"Samples {unmapped_samples} not found in metadata or sample_id_mapping")
-        else:
-            raise ValueError(f"Samples {missing_samples} not found in metadata and no sample_id_mapping provided")
+    if exp_config['lane_ids'] is not None:
+        all_lanes = exp_config['lane_ids']
 
-    print('Im here')
+    h5_files = []
+    for lane in all_lanes:
+        h5_files_lane = [f'{datadir}/cellranger_outs/{lane}/{f}' for f in os.listdir(f'{datadir}/cellranger_outs/{lane}/') 
+                    if f.endswith('_sample_filtered_feature_bc_matrix.h5')]
+        if not h5_files_lane:
+            raise ValueError(f"No .h5 files found in {datadir}")
+        
+        # Check that h5_sample_names match values in sample_metadata['library_id']
+        h5_sample_names = [f.split('/')[-1].split('_sample_filtered_feature_bc_matrix')[0] for f in h5_files_lane]
+        missing_samples = set(h5_sample_names) - set(sample_metadata['library_id'])
+        if missing_samples:
+            print(f"Warning: Found samples in data that are missing from metadata library_id: {missing_samples}")
+            
+            # Try to map sample names using sample_id_mapping if available
+            if 'sample_id_mapping' in exp_config and exp_config['sample_id_mapping']:
+                sample_id_mapping = exp_config['sample_id_mapping']
+                
+                # Check if all missing samples are in the mapping
+                unmapped_samples = missing_samples - set(sample_id_mapping.keys())
+                if unmapped_samples:
+                    raise ValueError(f"Samples {unmapped_samples} not found in metadata or sample_id_mapping")
+            else:
+                raise ValueError(f"Samples {missing_samples} not found in metadata and no sample_id_mapping provided")
+        
+        h5_files.extend(h5_files_lane)
+
     print(f"{tmpdir}/{experiment_id}_merged.gex.h5ad")
     try:
         adata = sc.read_h5ad(f"{tmpdir}/{experiment_id}_merged.gex.h5ad")
@@ -213,17 +139,20 @@ def process_experiment(exp_config):
         for f in h5_files:
             print(f"Processing {f}")
             f_sample_name = f.split('/')[-1].split('_sample_filtered_feature_bc_matrix')[0]
+            lane_id = f.split('/')[-2]
             f_sample_name = sample_id_mapping[f_sample_name]
             gex_a, crispr_a = _process_cellranger_h5(f)
             gex_a.obs['library_id'] = f_sample_name
-            gex_a.obs_names = gex_a.obs_names + "_" + gex_a.obs['library_id']
+            gex_a.obs['lane_id'] = lane_id
             crispr_a.obs['library_id'] = f_sample_name
-            crispr_a.obs_names = crispr_a.obs_names + "_" + crispr_a.obs['library_id']
+            crispr_a.obs['lane_id'] = lane_id
+            gex_a.obs_names = gex_a.obs_names + "_" + gex_a.obs['lane_id'] + "_" + gex_a.obs['library_id'] 
+            crispr_a.obs_names = crispr_a.obs_names + "_" + crispr_a.obs['lane_id'] + "_" + crispr_a.obs['library_id']
             gex_a = _basic_qc(gex_a)
             
             # Process sgRNA adata
             get_sgrna_qc_metrics(crispr_a, min_sgrna_counts=3, q=0.05)
-            crispr_a.write_h5ad(f'{datadir}/{f_sample_name}.sgRNA.h5ad')
+            crispr_a.write_h5ad(f'{datadir}/{f_sample_name}.{lane_id}.sgRNA.h5ad')
             
             if adata is None:
                 adata = gex_a

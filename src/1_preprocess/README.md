@@ -2,16 +2,14 @@
 
 ```bash
 # Setup folders in Sherlock
-EXPERIMENT_NAME=CRiCD4IL2_Illumina_lane13
-DATADIR=/mnt/oak/users/emma/data/GWT/
-EXPDIR=${DATADIR}/${EXPERIMENT_NAME}/
+EXPERIMENT_NAME=CRiCD4_Run1_Illumina
+python make_GWT_directories.py $EXPERIMENT_NAME
 
-mkdir ${EXPDIR}/
-mkdir ${EXPDIR}/cellranger_outs/
-
-DROPBOX_PATH=GRNPerturbSeq/3_expts/CRiCD4IL2_Illumina/lane13_10x/
-rclone copy dropbox:${DROPBOX_PATH}/ ${EXPDIR}/cellranger_outs/
+# DROPBOX_PATH=GRNPerturbSeq/3_expts/CRiCD4IL2_Illumina/lane13_10x/
+DROPBOX_PATH=correct_spikein_sequence/lane5_10x_puro_sequence_corrected
+rclone copy dropbox:"${DROPBOX_PATH}" "${EXPDIR}/cellranger_outs/" --progress
 # rclone copy dropbox:${DROPBOX_PATH}/ ${EXPDIR}/cellranger_outs/ --include "_filtered_feature_bc_matrix.h5"
+done
 ```
 
 ## Processing data from a new experiment
@@ -33,13 +31,24 @@ python preprocess.py --config ../../metadata/experiments_config.yaml --experimen
 
 4. Guide RNA assignment 
 ```bash
+# Compute all assignments 
 python sgrna_assignment.py $EXPERIMENT_NAME --config ../../metadata/experiments_config.yaml
+
+# To submit with SLURM (parallelize)
+conda activate perturb-vs-tissue-env
+EXPDIR=/oak/stanford/groups/pritch/users/emma/data/GWT/${EXPERIMENT_NAME}/
+for h5ad_file in $(ls $EXPDIR*.sgRNA.h5ad); do
+  ./submit_sgrna_assignment.sh $EXPERIMENT_NAME $h5ad_file
+done 
+
+# Merge to cell-level assignment for each sample
+python sgrna_assignment.py $EXPERIMENT_NAME --merge
+
 ```
 
 5. Basic QC plots and analysis
 ```bash
 # Copy notebook to run analysis
-cp qc_PilotD2Redo_Lane2.ipynb qc_${EXPERIMENT_NAME}.ipynb
 cp qc_PilotD2Redo_Lane2.ipynb qc_${EXPERIMENT_NAME}.ipynb
 
 # To convert to report after editing
