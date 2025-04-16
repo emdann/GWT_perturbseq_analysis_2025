@@ -18,4 +18,8 @@ dependencies:
     - openpyxl
     - mudata
     - scvi
+    - crispat
+    - pertpy
+    - pydeseq2
+    - formulaic_contrasts
     # - git+https://github.com/emdann/perturbseq-tools.git@main

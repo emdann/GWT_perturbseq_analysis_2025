@@ -256,6 +256,35 @@ def plot_sgrna_assignment(crispr_adata, min_sgrna_counts = 3, figsize=(15,5)):
     
     return fig
 
+def sgrna_assignments2adata(
+    adata, 
+    datadir, 
+    sgrna_library_metadata=None):
+    '''Utility function to merge finalized assignments with anndata for scRNA-seq data.'''
+
+    if sgrna_library_metadata is None:
+        sgrna_library_metadata = pd.read_csv('../../metadata/sgRNA_library_curated.csv', index_col=0)
+    
+    # Concatenate sgrna_assignment files
+    sgrna_assignment = pd.concat([pd.read_csv(datadir + f) for f in os.listdir(datadir) if f.endswith('.sgrna_assignment.csv')])
+    assert sgrna_assignment.cell.is_unique
+
+    # Get guide metadata
+    sgrna_assignment = sgrna_assignment[~sgrna_assignment['guide_id'].str.startswith('ProbeNTC-')].copy() # Exclude probe NTCs
+    sgrna_assignment = pd.merge(sgrna_assignment, sgrna_library_metadata.rename({"sgrna_id":'guide_id'}, axis=1), how='left')
+    sgrna_assignment['perturbed_gene_id'] = np.where(sgrna_assignment['perturbed_gene_id'].isna(), sgrna_assignment['perturbed_gene_name'], sgrna_assignment['perturbed_gene_id'])
+    sgrna_assignment = sgrna_assignment.drop('gRNA', axis=1).rename({"UMI_counts":'top_guide_UMI_counts'}, axis=1)
+    sgrna_assignment['guide_type'] = np.where(sgrna_assignment['guide_id'].str.startswith("NTC-"), 'non-targeting', 'targeting')
+    sgrna_assignment = sgrna_assignment.set_index('cell')
+    sgrna_assignment = sgrna_assignment[sgrna_assignment.index.isin(adata.obs_names)].copy()
+
+    # Merge with scRNA-seq anndata
+    existing_cols = [col for col in sgrna_assignment.columns if col in adata.obs.columns]
+    adata.obs.drop(columns=existing_cols, inplace=True)
+    adata.obs = pd.concat([adata.obs, sgrna_assignment], axis=1)
+
+    return sgrna_assignment
+
 if __name__ == "__main__":
     import argparse
     import yaml
