@@ -55,20 +55,12 @@ cp qc_PilotD2Redo_Lane2.ipynb qc_${EXPERIMENT_NAME}.ipynb
 jupyter nbconvert qc_${EXPERIMENT_NAME}.ipynb --to html
 ```
 
+6. Estimate effect of each guide (to exclude ineffective from DE analysis) - see `estimate_guide_effect.ipynb`
+
+
 ## Outputs
 
-- `{EXPERIMENT_NAME}_merged.gex.lognorm.h5ad` - merged count matrices (output of `preprocess.py`)
-- `{EXPERIMENT_NAME}_merged.gex.lognorm.postQC.h5ad` - merged count matrices after filtering of low quality cells, clustering and sgRNA assignment (output of `qc_{EXPERIMENT_NAME}.ipynb`)
+- `{EXPERIMENT_NAME}_merged.gex.h5ad` - merged raw count matrices (output of `preprocess.py`)
+- `{EXPERIMENT_NAME}_merged.gex.lognorm.postQC_obs.csv` - cell-level metadata after QC, with sgRNA assignment and mask for high quality cells (`QC_mask`) (output of `qc_{EXPERIMENT_NAME}.ipynb`)
 - `knockdown_efficacy_simple.csv` - coarse estimate of knock-down efficiency for each perturbed gene 
-- `sgRNA_assignment.csv` - estimate of knock-down efficiency for each perturbed gene 
-
-## Sharing outputs on Dropbox
-
-From Comino:
-```bash
-DROPBOX_PATH=GRNPerturbSeq/3_expts/processed_data/
-rclone mkdir dropbox:${DROPBOX_PATH}${EXPERIMENT_NAME}/
-for f in ${EXPERIMENT_NAME}_merged.gex.lognorm.postQC.h5ad ${EXPERIMENT_NAME}_merged.gex.counts.postQC.h5ad knockdown_efficacy_simple.csv; do 
-    rclone copy ${EXPDIR}/${f} dropbox:${DROPBOX_PATH}${EXPERIMENT_NAME}/ --checksum --ignore-times
-    done
-```
+- `guide_ontarget_effect_simple.csv` - estimate of knock-down efficiency for each guide

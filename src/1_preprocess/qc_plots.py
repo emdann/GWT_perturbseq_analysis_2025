@@ -122,13 +122,13 @@ def calculate_perturbed_gene_expression(adata: anndata.AnnData, perturbed_gene_c
     return(perturbed_gene_expr_df)
 
 
-def test_knockdown_simple(perturbed_gene_expr_df):
+def test_knockdown_simple(perturbed_gene_expr_df, group_col='perturbed_gene'):
     """
     Test for significant knockdown of perturbed genes using Welch's t-test.
     
     Args:
         perturbed_gene_expr_df: DataFrame with perturbed gene expression data (output of `calculate_perturbed_gene_expression`)
-        ntc_cells_ixs: Index of non-targeting control cells
+        group_col: Column name to use for grouping (default: 'perturbed_gene')
         
     Returns:
         DataFrame with test statistics and knockdown significance results
@@ -136,9 +136,9 @@ def test_knockdown_simple(perturbed_gene_expr_df):
     from scipy import stats
     from statsmodels.stats.multitest import multipletests
 
-    mean_perturbed_gene_expr_df = perturbed_gene_expr_df.groupby('perturbed_gene').mean()
-    mean_perturbed_gene_expr_df['perturbed_gene_expr_std'] = perturbed_gene_expr_df.groupby('perturbed_gene')['perturbed_gene_expr'].std()
-    mean_perturbed_gene_expr_df['n_perturbed_cells'] = perturbed_gene_expr_df.groupby('perturbed_gene').size()
+    mean_perturbed_gene_expr_df = perturbed_gene_expr_df.groupby(group_col).mean()
+    mean_perturbed_gene_expr_df['perturbed_gene_expr_std'] = perturbed_gene_expr_df.groupby(group_col)['perturbed_gene_expr'].std()
+    mean_perturbed_gene_expr_df['n_perturbed_cells'] = perturbed_gene_expr_df.groupby(group_col).size()
     mean_perturbed_gene_expr_df['n_ntc_cells'] = perturbed_gene_expr_df['n_ntc_cells'].mean()
     mean_perturbed_gene_expr_df = mean_perturbed_gene_expr_df.reset_index()
 

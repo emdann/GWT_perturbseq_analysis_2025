@@ -1,0 +1,29 @@
+# Configuration for Differential Expression Analysis
+experiment_name: "CRiCD4_Run1_Illumina" 
+datadir: "/oak/stanford/groups/pritch/users/emma/data/GWT/{experiment_name}"
+
+# Perturbation selection params
+min_replicates: 3 # Minimum number of replicates required per perturbation to test
+min_cells_per_guide: 5 # Minimum number of cells required per guide in each condition/sample
+n_hvgs: 10000 # Number of highly variable genes to select 
+
+# DE chunking params
+chunk_size: 50 # Chunk size for splitting targets in DE analysis
+chunk_split_seed: 1423 # Random seed for chunk splitting
+
+# Feature selection params
+feature_selection:
+  highx_min_mean_counts: 2000 # Minimum mean counts for high-expression outlier genes
+  highx_min_pct_dropouts: 0.5 # Minimum percentage of dropouts for high-expression outlier genes
+  lowx_max_pct_dropouts: 99.9 # Maximum percentage of dropouts for low-expression outlier genes
+
+# File paths (relative to datadir)
+file_paths:
+  # Input files
+  obs_file: "{experiment_name}_merged.gex.lognorm.postQC_obs.csv"
+  pseudobulk_file: "{experiment_name}_merged.DE_pseudobulk.h5ad"
+  no_effect_guides_file: "no_effect_guides.txt"
+  
+  # Output files
+  de_test_genes_file: "DE_test_genes.txt"
+  target2chunk_file: "DE_target2chunk.csv.gz"
