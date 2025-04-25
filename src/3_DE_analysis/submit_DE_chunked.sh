@@ -6,9 +6,20 @@ if [ -z "$1" ] || [ -z "$2" ]; then
     exit 1
 fi
 
-EXPERIMENT_NAME=$1
+CONFIG=$1
 CONDITION=$2
 DATADIR=${3:-"/oak/stanford/groups/pritch/users/emma/data/GWT/"}  # Default path or override with arg
+
+# Extract experiment_name and datadir from the config file
+EXPERIMENT_NAME=$(grep "experiment_name:" "$CONFIG" | cut -d ":" -f2 | tr -d ' "')
+DATADIR_CONFIG=$(grep "datadir:" "$CONFIG" | cut -d ":" -f2 | tr -d ' "')
+if [ -z "$EXPERIMENT_NAME" ]; then
+    echo "Error: Could not extract experiment_name from config file"
+    exit 1
+fi
+if [ -n "$DATADIR_CONFIG" ]; then
+    DATADIR=$DATADIR_CONFIG
+fi
 
 # Check if the chunk file exists
 CHUNK_FILE="${DATADIR}/${EXPERIMENT_NAME}/DE_target2chunk.csv.gz"
@@ -36,12 +47,45 @@ sbatch \
     --error=$GROUP_SCRATCH/emma/slurm-DE_%A_%a.err \
     --nodes=1 \
     --ntasks=1 \
-    --cpus-per-task=1 \
-    --mem=32G \
+    --cpus-per-task=3 \
+    --mem=50G \
     --time=2:00:00 \
     --array=0-$((N_CHUNKS-1)) \
     --wrap="python run_DE_chunk.py \
-        --datadir $DATADIR \
-        --experiment_name $EXPERIMENT_NAME \
+        --config $CONFIG \
         --test_chunk \$SLURM_ARRAY_TASK_ID \
         --culture_condition $CONDITION"
+
+# # Create output directory if it doesn't exist
+# OUTPUT_DIR="${DATADIR}/${EXPERIMENT_NAME}/DE_results/tmp"
+# mkdir -p "$OUTPUT_DIR"
+
+# # Find missing chunks
+# MISSING_CHUNKS=()
+# for ((i=0; i<N_CHUNKS; i++)); do
+#     for CONDITION in Stim8hr Rest; do
+#         OUTPUT_FILE="${OUTPUT_DIR}/DE_results.${CONDITION}.chunk_${i}.csv.gz"
+#         if [ ! -f "$OUTPUT_FILE" ]; then
+#             echo "Missing output file for chunk $i: $OUTPUT_FILE"
+#             MISSING_CHUNKS+=($i)
+#         fi
+#     done
+# done
+
+# CONDITION=Stim8hr
+# for c in $MISSING_CHUNKS; do 
+#     sbatch \
+#     --partition=pritch \
+#     --job-name=DE_${EXPERIMENT_NAME}_${CONDITION}_missingchunk${c} \
+#     --output=$GROUP_SCRATCH/emma/slurm-DE_%A_missingchunk.out \
+#     --error=$GROUP_SCRATCH/emma/slurm-DE_%A_missingchunk.err \
+#     --nodes=1 \
+#     --ntasks=1 \
+#     --cpus-per-task=3 \
+#     --mem=50G \
+#     --time=2:00:00 \
+#     --wrap="python run_DE_chunk.py \
+#         --datadir $DATADIR \
+#         --experiment_name $EXPERIMENT_NAME \
+#         --test_chunk \$SLURM_ARRAY_TASK_ID \
+#         --culture_condition $CONDITION"

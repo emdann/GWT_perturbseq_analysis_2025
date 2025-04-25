@@ -43,6 +43,7 @@ def feature_selection(
     subset_obs: str = 'integration_sample_id',
     highx_min_mean_counts = 15,
     highx_min_pct_dropouts_by_counts = 5,
+    lowx_min_counts = 10,
     lowx_max_pct_dropouts_by_counts = 99.5,
     return_all = False
     ):
@@ -66,7 +67,7 @@ def feature_selection(
 
     # Filter out highly and lowly expressed outlier genes
     highly_expressed_outiers = adata.var_names[(adata.var['mean_counts'] > highx_min_mean_counts) & (adata.var['pct_dropout_by_counts'] < highx_min_pct_dropouts_by_counts)].tolist()
-    lowly_expressed_outliers = adata.var_names[adata.var['pct_dropout_by_counts'] > lowx_max_pct_dropouts_by_counts].tolist()
+    lowly_expressed_outliers = adata.var_names[(adata.var['total_counts'] < lowx_min_counts) & (adata.var['pct_dropout_by_counts'] > lowx_max_pct_dropouts_by_counts)].tolist()
     filter_genes.extend(highly_expressed_outiers)
     filter_genes.extend(lowly_expressed_outliers)
 

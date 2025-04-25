@@ -63,18 +63,25 @@ git push origin new-branch-name
 To sync processed data with Dropbox
 
 ```bash
-DATADIR=/oak/stanford/groups/pritch/users/emma/data/GWT/
+# DATADIR=/oak/stanford/groups/pritch/users/emma/data/GWT/
+DATADIR=/mnt/oak/users/emma/data/GWT/
 EXPERIMENT_NAME=CRiCD4_Run1_Illumina
 EXPDIR=${DATADIR}/${EXPERIMENT_NAME}/
 DROPBOX_PATH=GRNPerturbSeq/3_expts/processed_data/
 
 # Define list of files to copy
 FILES_TO_COPY=(
+    "${EXPERIMENT_NAME}_merged.DE_pseudobulk.h5ad"
+    "DE_results/${EXPERIMENT_NAME}.merged_DE_results.h5ad"
+)
+
+
+FILES_TO_COPY=(
     "${EXPERIMENT_NAME}_merged.gex.lognorm.postQC_obs.csv"
     "${EXPERIMENT_NAME}_merged.DE_pseudobulk.h5ad"
+    "DE_results/${EXPERIMENT_NAME}.merged_DE_results.h5ad"
     "knockdown_efficacy_simple.csv"
     "guide_ontarget_effect_simple.csv"
-    "DE_results/${EXPERIMENT_NAME}.merged_DE_results.h5ad"
     "${EXPERIMENT_NAME}_merged.gex.h5ad"
 )
 

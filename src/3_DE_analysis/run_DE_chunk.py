@@ -7,6 +7,8 @@ import scanpy as sc
 
 import matplotlib.pyplot as plt
 import seaborn as sns
+import yaml
+import shutil
 
 from copy import deepcopy
 import argparse
@@ -15,19 +17,26 @@ from MultiStatePerturbSeqDataset import *
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Create pseudobulk data from single-cell RNA-seq data')
-    parser.add_argument('--datadir', type=str, required=True, help='Directory containing the data files')
-    parser.add_argument('--experiment_name', type=str, required=True, help='Name of the experiment')
+    parser.add_argument('--config', type=str, required=True, help='Path to config YAML file')
     parser.add_argument('--test_chunk', type=int, required=True, help='Chunk of targets to test')
     parser.add_argument('--culture_condition', type=str, required=True, help='Which condition to test in')
     args = parser.parse_args()
 
-    datadir = f'{args.datadir}/{args.experiment_name}'
-    experiment_name = args.experiment_name
+    # Load configuration from YAML file
+    with open(args.config, 'r') as config_file:
+        config = yaml.safe_load(config_file)
+    
+    # Extract parameters from config
+    datadir = config['datadir']
+    experiment_name = config['experiment_name']
+    run_name = config.get('run_name', 'default')
+    
+    datadir = f'{datadir}/{experiment_name}'
     chunk_ix = args.test_chunk
     cond = args.culture_condition
 
     # Create directories for results
-    de_results_dir = f'{datadir}/DE_results/'
+    de_results_dir = f'{datadir}/DE_results_{run_name}/'
     de_results_tmp_dir = f'{de_results_dir}/tmp/'
     os.makedirs(de_results_dir, exist_ok=True)
     os.makedirs(de_results_tmp_dir, exist_ok=True)
@@ -52,11 +61,44 @@ if __name__ == "__main__":
     # Run DE analysis
     ms_perturb_data = MultistatePerturbSeqDataset(pbulk_adata)
     
-    results = ms_perturb_data.run_target_DE(
-        design_formula = '~ donor_id + target',
-        test_state = [cond], test_targets=test_targets)
+    # Get DE parameters from config
+    run_de_params = config.get('run_DE_params', {})
+    design_formula = run_de_params.get('design_formula', '~ log10_n_cells + target')
+    min_counts_per_gene = run_de_params.get('min_counts_per_gene', 10)
+    
+    model, results = ms_perturb_data.run_target_DE(
+        design_formula = design_formula,
+        test_state = [cond], test_targets=test_targets,
+        min_counts_per_gene = min_counts_per_gene,
+        return_model = True
+        )
     
     print('Saving results...')
     results.to_csv(de_results_tmp_dir + f"DE_results.{cond}.chunk_{chunk_ix}.csv.gz", compression='gzip')
     
-    
+    # Copy the config file to the results directory for reproducibility
+    print('Copying config file to results directory...')
+    shutil.copy(args.config, os.path.join(de_results_dir, 'DE_config.yaml'))
+
+    # Test effect of confounder covariates
+    covs = design_formula.replace('~', '').strip().split("+")
+    covs = [x.strip() for x in covs]
+    covs = [x for x in covs if x != 'target']
+
+    confounder_results_df = pd.DataFrame()
+    if 'donor_id' in covs:
+        all_donors = model.dds.obs['donor_id'].unique().tolist()[1:]
+        for d in all_donors:
+            conf_contrast = model.cond(donor_id=d)
+            conf_res_df = model.test_contrasts(conf_contrast)        
+            conf_res_df['contrast'] = f'donor_id_{d}'
+            confounder_results_df = pd.concat([confounder_results_df, conf_res_df])
+            
+    if 'log10_n_cells' in covs:
+        conf_contrast = model.cond(log10_n_cells=1)
+        conf_res_df = model.test_contrasts(conf_contrast)        
+        conf_res_df['contrast'] = f'log10_n_cells'
+        confounder_results_df = pd.concat([confounder_results_df, conf_res_df])
+
+    confounder_results_df.to_csv(de_results_tmp_dir + f"DE_results_confounders.{cond}.chunk_{chunk_ix}.csv.gz", compression='gzip')    
+

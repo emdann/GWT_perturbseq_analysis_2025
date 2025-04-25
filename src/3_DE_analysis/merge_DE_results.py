@@ -5,9 +5,13 @@ import pandas as pd
 import scanpy as sc
 import glob
 from tqdm import tqdm
+import yaml
 
 from copy import deepcopy
 import argparse
+
+sys.path.append(os.path.abspath('../'))
+from utils import _convert_oak_path
 
 def parse_DE_results_2_adata(df):
     all_dfs = {}
@@ -29,33 +33,45 @@ def parse_DE_results_2_adata(df):
 def main():
     # Parse command line arguments
     parser = argparse.ArgumentParser(description='Prepare data for differential expression analysis')
-    parser.add_argument('--experiment_name', type=str, required=True, help='Name of the experiment')
-    parser.add_argument('--datadir', type=str, default='/mnt/oak/users/emma/data/GWT/', help='Directory containing the GWT data files')
+    parser.add_argument('--config', type=str, required=True, help='Path to config YAML file')
+    parser.add_argument('--force_combine', action='store_true', help='Force recombination of DE results even if merged file exists')
     args = parser.parse_args()
 
-    # Extract parameters from command line arguments
-    experiment_name = args.experiment_name
-    datadir = args.datadir + experiment_name + '/'
+    # Load configuration from YAML file
+    with open(args.config, 'r') as config_file:
+        config = yaml.safe_load(config_file)
+
+    # Extract parameters from config
+    datadir = _convert_oak_path(config['datadir'])
+    experiment_name = config['experiment_name']
+    datadir = f'{datadir}/{experiment_name}/'
+    run_name = config.get('run_name', 'default')
+    force_combine = args.force_combine
 
     # Read cell-level metadata
     obs_df = pd.read_csv(f'{datadir}/{experiment_name}_merged.gex.lognorm.postQC_obs.csv', compression='gzip', index_col=0)
     gene_name_to_id = dict(zip(obs_df['perturbed_gene_id'], obs_df['perturbed_gene_name']))
     var_df = sc.read_h5ad(f'{datadir}/{experiment_name}_merged.DE_pseudobulk.h5ad', backed=True).var.copy()
 
-    de_results_dir = datadir + '/DE_results/tmp/'
+    de_results_dir = datadir + f'/DE_results_{run_name}/tmp/'
 
-    try:
-        combined_de_adata = sc.read_h5ad(datadir + f'/DE_results/{experiment_name}.merged_DE_results.h5ad')
-    except:
+    file_exists = os.path.exists(datadir + f'/DE_results_{run_name}/{experiment_name}.merged_DE_results.h5ad')
+    
+    if file_exists and not force_combine:
+        combined_de_adata = sc.read_h5ad(datadir + f'/DE_results_{run_name}/{experiment_name}.merged_DE_results.h5ad')
+    else:
         # Read all csv.gz files from the DE results directory
-        de_results_files = glob.glob(de_results_dir + '*.csv.gz')
+        de_results_files = glob.glob(de_results_dir + 'DE_results.*.csv.gz')
         de_results_adatas = []
 
         for file in tqdm(de_results_files, desc="Processing DE result files"):
-            df = pd.read_csv(file, compression='gzip', index_col=0)
-            df = df.rename({'contrast': 'target_contrast'}, axis=1)
-            df['target_contrast_gene_name'] = df['target_contrast'].map(lambda x: gene_name_to_id.get(x, x))
-            de_results_adatas.append(parse_DE_results_2_adata(df))
+            try:
+                df = pd.read_csv(file, compression='gzip', index_col=0)
+                df = df.rename({'contrast': 'target_contrast'}, axis=1)
+                df['target_contrast_gene_name'] = df['target_contrast'].map(lambda x: gene_name_to_id.get(x, x))
+                de_results_adatas.append(parse_DE_results_2_adata(df))
+            except EOFError:
+                continue
 
         combined_de_adata = anndata.concat(de_results_adatas, label='chunk')
         combined_de_adata.obs_names = combined_de_adata.obs_names.str.split('-').str[0]
@@ -70,8 +86,20 @@ def main():
     # Add gene names
     combined_de_adata.var = var_df.loc[combined_de_adata.var_names]
 
+    # Add MASH results
+    mash_results_files = glob.glob(de_results_dir + 'MASH_results*.csv.gz')
+    mash_results = pd.DataFrame()
+    for f in mash_results_files:
+        mash_results_gr = pd.read_csv(f, compression='gzip', index_col=0)
+        mash_results = pd.concat([mash_results, mash_results_gr])
+
+    mash_results['obs_names'] = mash_results['target_contrast'] + '_' + mash_results['culture_condition']
+    for stat in ['PosteriorMean', 'PosteriorSD', 'lfsr']:
+        stat_layer = mash_results.pivot(index='obs_names', columns = 'var_names', values=stat)
+        combined_de_adata.layers[f'MASH_{stat}'] = stat_layer.loc[combined_de_adata.obs_names, combined_de_adata.var_names].values
+
     # Save as anndata object
-    combined_de_adata.write_h5ad(datadir + f'/DE_results/{experiment_name}.merged_DE_results.h5ad')
+    combined_de_adata.write_h5ad(datadir + f'/DE_results_{run_name}/{experiment_name}.merged_DE_results.h5ad')
 
 if __name__ == "__main__":
     main()

@@ -147,7 +147,7 @@ class MultistatePerturbSeqDataset:
             adata_bulk.X = scipy.sparse.csr_matrix(adata_bulk.X)
 
             total_cells_sample = self.calculate_cell_state_fractions()['total_cells']
-            keep_samples = total_cells_sample[total_cells_sample >= 3].index.tolist()
+            keep_samples = total_cells_sample[total_cells_sample >= min_cells].index.tolist()
             adata_bulk = adata_bulk[adata_bulk.obs_names.isin(keep_samples)].copy()
             self.design_matrix = self.design_matrix.loc[adata_bulk.obs_names].copy()
             
@@ -188,12 +188,25 @@ class MultistatePerturbSeqDataset:
         design_formula: str = '~ donor_id + target', 
         test_targets: List[str] = None,
         test_state=None, 
-        min_counts_per_gene = 3):
+        min_counts_per_gene = 3,
+        return_model = False
+        ):
         '''
-        Run DE test per target
+        Run differential expression analysis for each target compared to control.
+        
+        Args:
+            design_formula: Formula string for the design matrix (default: '~ donor_id + target')
+            test_targets: List of target names to test. If None, all targets will be tested.
+            test_state: Cell state(s) to test. Can be a string or list of strings. 
+                        If None, all states will be tested.
+            min_counts_per_gene: Minimum number of counts required for a gene to be included in analysis.
+            return_model: If True, returns the fitted model along with results.
+            
+        Returns:
+            pandas.DataFrame with differential expression results for each tested target, or
+            tuple of (model, pandas.DataFrame) if return_model is True.
         '''
         adata = self.adata
-
 
         all_res_df = pd.DataFrame()
         # Convert test_state to a list if it's a string
@@ -212,7 +225,7 @@ class MultistatePerturbSeqDataset:
 
             model = pertpy.tl.PyDESeq2(adata_state, design=design_formula)
             model.fit(quiet=True)
-
+    
             all_targets = adata_state.obs['target'].unique().tolist()
             all_targets.remove(self.control_level)
 
@@ -224,71 +237,74 @@ class MultistatePerturbSeqDataset:
                 all_res_df = pd.concat([all_res_df, res_df])
         
         all_res_df = all_res_df.reset_index().drop('index', axis=1)
-        return all_res_df
-
-
-    def run_target_DE_comparison(
-        self,
-        comparison: Dict,
-        force_fit_model: bool = False
-        ) -> pd.DataFrame:
-        """
-        Run differential expression analysis for a given comparison.
         
-        Args:
-            comparison: Dictionary containing comparison configuration with keys:
-                - name: Name of the comparison
-                - experimental: Dict of experimental condition values
-                - control: Dict of control condition values 
-                - covariates: Optional list of covariates
-                
-        Returns:
-            DataFrame containing differential expression results
-        """
-        test_covs = list(set(list(comparison['experimental'].keys()) + list(comparison['control'].keys())))
-        covariates = comparison.get('covariates', []) or []
-
-        temp_col = '_temp_comparison'
-        self.adata.obs[temp_col] = self.adata.obs[test_covs].astype(str).agg('_'.join, axis=1)
-        experimental_level = "_".join([comparison['experimental'][c] for c in test_covs])
-        control_level = "_".join([comparison['control'][c] for c in test_covs])
-
-        # Check other models with the same covariates
-        existing_model = None
-        if not force_fit_model:
-            for model_name, model_config in self.fitted_models.items():
-                if (set(model_config['test_covs']) == set(test_covs) and 
-                    set(model_config['covariates']) == set(covariates)):
-                    existing_model = model_config['model']
-                    break
-
-        # Fit new model if needed
-        if existing_model is not None:
-            model = existing_model
+        if return_model:
+            return model, all_res_df    
         else:
-            design_formula = f"~{' + '.join(covariates)} + {self.cell_state_obs} + {self.cell_state_obs}*{temp_col}"
-            model = pertpy.tl.PyDESeq2(self.adata, design=design_formula)
-            model.fit(quiet=True)
-            
-            self.fitted_models[comparison['name']] = {
-                'model': model,
-                'test_covs': test_covs,
-                'covariates': covariates
-            }
+            return all_res_df
 
-        # Test contrasts
-        all_res_df = pd.DataFrame()
-        for ct in self.cell_states:
-            contrast = model.cond(**{self.cell_state_obs:ct, temp_col:experimental_level}) - model.cond(**{self.cell_state_obs:ct, temp_col:control_level})
-            res_df = model.test_contrasts(contrast)
-            res_df = res_df.set_index("variable")
-            res_df = pd.concat([res_df, self.adata.var], axis=1)
-            res_df['cell_state'] = ct
-            res_df['comparison'] = comparison['name']
-            res_df['contrast'] = ct
-            all_res_df = pd.concat([all_res_df, res_df])
+    # def run_target_DE_comparison(
+    #     self,
+    #     comparison: Dict,
+    #     force_fit_model: bool = False
+    #     ) -> pd.DataFrame:
+    #     """
+    #     Run differential expression analysis for a given comparison.
         
-        return all_res_df
+    #     Args:
+    #         comparison: Dictionary containing comparison configuration with keys:
+    #             - name: Name of the comparison
+    #             - experimental: Dict of experimental condition values
+    #             - control: Dict of control condition values 
+    #             - covariates: Optional list of covariates
+                
+    #     Returns:
+    #         DataFrame containing differential expression results
+    #     """
+    #     test_covs = list(set(list(comparison['experimental'].keys()) + list(comparison['control'].keys())))
+    #     covariates = comparison.get('covariates', []) or []
+
+    #     temp_col = '_temp_comparison'
+    #     self.adata.obs[temp_col] = self.adata.obs[test_covs].astype(str).agg('_'.join, axis=1)
+    #     experimental_level = "_".join([comparison['experimental'][c] for c in test_covs])
+    #     control_level = "_".join([comparison['control'][c] for c in test_covs])
+
+    #     # Check other models with the same covariates
+    #     existing_model = None
+    #     if not force_fit_model:
+    #         for model_name, model_config in self.fitted_models.items():
+    #             if (set(model_config['test_covs']) == set(test_covs) and 
+    #                 set(model_config['covariates']) == set(covariates)):
+    #                 existing_model = model_config['model']
+    #                 break
+
+    #     # Fit new model if needed
+    #     if existing_model is not None:
+    #         model = existing_model
+    #     else:
+    #         design_formula = f"~{' + '.join(covariates)} + {self.cell_state_obs} + {self.cell_state_obs}*{temp_col}"
+    #         model = pertpy.tl.PyDESeq2(self.adata, design=design_formula)
+    #         model.fit(quiet=True)
+            
+    #         self.fitted_models[comparison['name']] = {
+    #             'model': model,
+    #             'test_covs': test_covs,
+    #             'covariates': covariates
+    #         }
+
+    #     # Test contrasts
+    #     all_res_df = pd.DataFrame()
+    #     for ct in self.cell_states:
+    #         contrast = model.cond(**{self.cell_state_obs:ct, temp_col:experimental_level}) - model.cond(**{self.cell_state_obs:ct, temp_col:control_level})
+    #         res_df = model.test_contrasts(contrast)
+    #         res_df = res_df.set_index("variable")
+    #         res_df = pd.concat([res_df, self.adata.var], axis=1)
+    #         res_df['cell_state'] = ct
+    #         res_df['comparison'] = comparison['name']
+    #         res_df['contrast'] = ct
+    #         all_res_df = pd.concat([all_res_df, res_df])
+        
+    #     return all_res_df
     
     def _build_design_matrix(self) -> pd.DataFrame:
         """
