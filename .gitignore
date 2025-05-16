@@ -1,5 +1,6 @@
 **/*.html
 **/*.h5ad
+.vscode
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
