@@ -285,6 +285,88 @@ def sgrna_assignments2adata(
 
     return sgrna_assignment
 
+def get_long_sgrna_umi_counts(grna_ad):
+    """
+    Convert sgRNA AnnData object to long format DataFrame with UMI counts.
+    
+    Parameters
+    ----------
+    grna_ad : anndata.AnnData
+        AnnData object containing sgRNA UMI counts
+        
+    Returns
+    -------
+    pandas.DataFrame
+        Long format DataFrame with columns:
+        - cell: cell barcode
+        - guide: guide ID
+        - UMI_counts: number of UMIs
+    """
+    # Get the UMI count matrix
+    X = grna_ad.X
+
+    # Convert sparse matrix to coordinate format if needed
+    if hasattr(X, 'tocoo'):
+        X_coo = X.tocoo()
+    else:
+        # If X is dense, convert to sparse first
+        X_coo = csr_matrix(X).tocoo()
+
+    long_df = pd.DataFrame({
+        'cell': grna_ad.obs_names[X_coo.row],
+        'gRNA': grna_ad.var_names[X_coo.col], 
+        'UMI_counts': X_coo.data
+    })
+    
+    # Filter out zero counts and reset index
+    long_df = long_df[long_df['UMI_counts'] > 0].reset_index(drop=True)
+    
+    return long_df
+
+def get_background_vs_signal_guide_counts(datadir, return_summary=False):
+    '''
+    Analyze sgRNA counts to distinguish between background and signal for all samples in a directory.
+    
+    Args:
+        datadir: Directory containing sgRNA assignment files
+        return_summary: If True, also return a summary dataframe with mean UMI counts
+        
+    Returns:
+        If return_summary is False: DataFrame with cell, gRNA, UMI counts and signal/background classification
+        If return_summary is True: Tuple of (all_guides_df, summary_df)
+    '''
+    # Find all assignment files
+    all_assignment_files = [f for f in os.listdir(datadir) if f.endswith('.sgrna_assignment_all.csv')]
+    samples = set([f.split('.sgrna_assignment_all.csv')[0] for f in all_assignment_files])
+    
+    all_guides_combined = pd.DataFrame()
+    all_multi_sgrna_cells = []
+    for sample in samples:
+        # Get all UMI counts (not just passing assignment thresholds)
+        grna_ad = sc.read_h5ad(f'{datadir}/{sample}.sgRNA.h5ad')
+        all_umi_counts = get_long_sgrna_umi_counts(grna_ad)
+        
+        clean_assignment = f'{datadir}/{sample}.sgrna_assignment_all.csv'
+        assigned_guides = pd.read_csv(clean_assignment)
+
+        all_guides = pd.merge(all_umi_counts, assigned_guides, on=['cell','gRNA'], how='left', suffixes=['_all', '_assigned'])
+        all_guides['signal_vs_bg'] = np.where(all_guides['UMI_counts_assigned'].isna(), 'background', 'signal')
+        all_guides['sample'] = sample
+        
+        all_guides_combined = pd.concat([all_guides_combined, all_guides], ignore_index=True)
+    
+    if return_summary:
+        # Exclude multi guide, because we can't distinguish background here
+        all_guides_combined_sum = all_guides_combined[~all_guides_combined['cell'].isin(all_multi_sgrna_cells)]
+        all_guides_combined_sum = all_guides_combined_sum[['cell', 'gRNA', 'UMI_counts_all', 'signal_vs_bg']].copy()
+        summary_df = all_guides_combined_sum.groupby(['signal_vs_bg', 'gRNA'])['UMI_counts_all'].median().reset_index()
+        summary_df = summary_df.pivot_table(columns='signal_vs_bg', index=['gRNA'], values='UMI_counts_all')
+        summary_df = summary_df.fillna(0)
+        return(all_guides_combined, summary_df)
+    else:
+        return(all_guides_combined)
+
+
 if __name__ == "__main__":
     import argparse
     import yaml

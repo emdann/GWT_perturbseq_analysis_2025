@@ -71,12 +71,6 @@ DROPBOX_PATH=GRNPerturbSeq/3_expts/processed_data/
 
 # Define list of files to copy
 FILES_TO_COPY=(
-    "${EXPERIMENT_NAME}_merged.DE_pseudobulk.h5ad"
-    "DE_results/${EXPERIMENT_NAME}.merged_DE_results.h5ad"
-)
-
-
-FILES_TO_COPY=(
     "${EXPERIMENT_NAME}_merged.gex.lognorm.postQC_obs.csv"
     "${EXPERIMENT_NAME}_merged.DE_pseudobulk.h5ad"
     "DE_results/${EXPERIMENT_NAME}.merged_DE_results.h5ad"

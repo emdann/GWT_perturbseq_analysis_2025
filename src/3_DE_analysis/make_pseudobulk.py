@@ -20,7 +20,7 @@ def make_pseudobulk(datadir, experiment_name, condition_col='culture_condition',
     sgrna_col : str, optional
         Column name for sgRNA information, default is 'guide_id'
     """
-    adata = sc.read_h5ad(f'{datadir}/tmp/{experiment_name}_merged.gex.h5ad', backed=True)
+    adata = sc.read_h5ad(f'{datadir}/{experiment_name}_merged.gex.h5ad', backed=True)
     adata.obs = pd.read_csv(f'{datadir}/{experiment_name}_merged.gex.lognorm.postQC_obs.csv', compression='gzip', index_col=0)
     adata = adata[adata.obs['QC_mask']].to_memory()
 
