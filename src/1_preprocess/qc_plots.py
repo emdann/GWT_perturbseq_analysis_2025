@@ -163,3 +163,43 @@ def test_knockdown_simple(perturbed_gene_expr_df, group_col='perturbed_gene'):
     mean_perturbed_gene_expr_df['signif_knockdown'] = (mean_perturbed_gene_expr_df['adj_p_value'] < 0.1) & (mean_perturbed_gene_expr_df['t_statistic'] < 0)
     
     return mean_perturbed_gene_expr_df
+
+def get_qc_summary(adata):
+    '''
+    Get QC metrics per adata object with sgRNA assignment 
+    '''
+    mean_qc_stats = adata.obs.groupby(['library_id', 'lane_id'])[['total_counts', 'n_genes_by_counts', 'pct_counts_mt', 'top_guide_UMI_counts']].mean().reset_index()
+    mean_qc_stats = mean_qc_stats.rename(columns={
+        'total_counts': 'mean_total_counts',
+        'n_genes_by_counts': 'mean_n_genes', 
+        'pct_counts_mt': 'mean_pct_counts_mt',
+        'top_guide_UMI_counts': 'mean_top_guide_UMI_counts'
+    })
+
+
+    # Low quality mask
+    adata.obs['low_quality'] = (adata.obs['pct_counts_mt'] > 5) | (adata.obs['n_genes'] < 500)
+
+    mean_qc_stats['n_cells'] = adata.obs.groupby(['library_id', 'lane_id']).size().reset_index()[0]
+    mean_qc_stats['n_low_quality_cells'] = adata.obs[adata.obs['low_quality']].groupby(['library_id', 'lane_id']).size().reset_index()[0]
+
+    # Count groups of cells by guide assignment
+    pl_df = adata.obs[['guide_id','perturbed_gene_id', 'low_quality', 'library_id', 'lane_id']]
+    pl_df['group'] = ''
+    pl_df.loc[adata.obs['guide_id'].isna(), 'group'] = 'no sgRNA (>= 3 UMIs)'
+    pl_df.loc[adata.obs['guide_id'].str.startswith('NTC', na=False), 'group'] = 'NTC single sgRNA'
+    pl_df.loc[(~adata.obs['guide_id'].isna()) & 
+            (~adata.obs['guide_id'].str.startswith('NTC', na=False)) & 
+            (adata.obs['guide_id'] != 'multi_sgRNA'), 'group'] = 'targeting single sgRNA'
+    pl_df.loc[adata.obs['guide_id'] == 'multi_sgRNA', 'group'] = 'multi sgRNA'
+    pl_df = pl_df[~pl_df['low_quality']].copy()
+    group_counts = pl_df.groupby(['library_id', 'lane_id', 'group']).size().unstack().reset_index()
+    mean_qc_stats = pd.merge(mean_qc_stats, group_counts)
+
+
+    mean_qc_stats['n_unique_guides'] = pl_df[pl_df['group'].isin(['targeting single sgRNA', 'NTC single sgRNA'])]['guide_id'].nunique()
+    mean_qc_stats['n_unique_perturbed_genes'] = pl_df[pl_df['group'].isin(['targeting single sgRNA', 'NTC single sgRNA'])]['perturbed_gene_id'].nunique()
+
+    mean_qc_stats['mean_cells_x_guide'] = pl_df[pl_df['group'].isin(['targeting single sgRNA', 'NTC single sgRNA'])].groupby(['guide_id']).size().mean()
+    mean_qc_stats['mean_cells_x_perturbed_gene'] = pl_df[pl_df['group'].isin(['targeting single sgRNA', 'NTC single sgRNA'])].groupby(['perturbed_gene_id']).size().mean()
+    return mean_qc_stats

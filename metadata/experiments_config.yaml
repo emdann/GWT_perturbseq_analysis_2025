@@ -17,6 +17,40 @@ PilotD2Redo_Lane2_Ultima:
         PilotD2Redo_Restim6hr: PilotD2Redo_Restim6hr_Lane2_Ultima
         PilotD2Redo_Restim24hr: PilotD2Redo_Restim24hr_Lane2_Ultima
 
+
+CD4iR1_Psomagen:
+    datadir: /oak/stanford/groups/pritch/users/emma/data/GWT/CD4iR1_Psomagen/
+    sample_metadata: /oak/stanford/groups/pritch/users/emma/data/GWT/sample_metadata/GWT_sample_metadata.CD4iR1_Psomagen.csv
+    lane_ids:
+      - CD4i_R1L01
+      - CD4i_R1L02
+      - CD4i_R1L03
+      - CD4i_R1L04
+      - CD4i_R1L05
+      - CD4i_R1L06
+      - CD4i_R1L07
+      - CD4i_R1L08
+      - CD4i_R1L09
+      - CD4i_R1L10
+      - CD4i_R1L11
+      - CD4i_R1L13
+      - CD4i_R1L14
+      - CD4i_R1L15
+      - CD4i_R1L16
+      - CD4i_R1L17
+      - CD4i_R1L18
+      - CD4i_R1L19
+      - CD4i_R1L20
+      - CD4i_R1L21
+      - CD4i_R1L22
+      - CD4i_R1L12
+      - CD4i_R1L23
+    sample_id_mapping:
+        CD4i_R1_D1_Rest: CD4i_R1_D1_Rest_CD4i_R1_Ultima
+        CD4i_R1_D2_Rest: CD4i_R1_D2_Rest_CD4i_R1_Ultima
+        CD4i_R1_D1_Stim8hr: CD4i_R1_D1_Stim8hr_CD4i_R1_Ultima
+        CD4i_R1_D2_Stim8hr: CD4i_R1_D2_Stim8hr_CD4i_R1_Ultima
+
 CRiCD4_Run1_Illumina:
     datadir: /oak/stanford/groups/pritch/users/emma/data/GWT/CRiCD4_Run1_Illumina/
     sample_metadata: /oak/stanford/groups/pritch/users/emma/data/GWT/sample_metadata/GWT_sample_metadata.CRiCD4_Run1_Illumina.csv

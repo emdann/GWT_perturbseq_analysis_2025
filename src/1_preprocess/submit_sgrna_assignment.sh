@@ -9,7 +9,7 @@ fi
 EXPERIMENT_NAME=$1
 H5AD_FILE=$2
 SAMPLE=$(basename $H5AD_FILE .sgRNA.h5ad)
-CHUNK_SIZE=200                          # Number of sgRNAs per chunk
+CHUNK_SIZE=1000                          # Number of sgRNAs per chunk
 MAX_CORES_PER_NODE=10                   # Maximum CPUs available on your nodes
 TOTAL_GUIDES=22000                      # Total number of guides
 

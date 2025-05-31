@@ -8,7 +8,9 @@ import seaborn as sns
 import os
 import time
 import sys
+import shutil
 import multiprocessing as mp
+import re
 
 from preprocess import _convert_oak_path
 from crispat.poisson_gauss import fit_PGMM
@@ -259,14 +261,35 @@ def plot_sgrna_assignment(crispr_adata, min_sgrna_counts = 3, figsize=(15,5)):
 def sgrna_assignments2adata(
     adata, 
     datadir, 
-    sgrna_library_metadata=None):
-    '''Utility function to merge finalized assignments with anndata for scRNA-seq data.'''
+    sgrna_library_metadata=None,
+    sample_id=None):
+    '''Utility function to merge finalized assignments with anndata for scRNA-seq data.
+    
+    Parameters
+    ----------
+    adata : anndata.AnnData
+        AnnData object containing scRNA-seq data
+    datadir : str
+        Directory containing sgRNA assignment files
+    sgrna_library_metadata : pandas.DataFrame, optional
+        DataFrame containing sgRNA library metadata. If None, loads from default location
+    sample_id : str, optional
+        If provided, only process sgRNA assignments for this sample
+    '''
 
     if sgrna_library_metadata is None:
         sgrna_library_metadata = pd.read_csv('../../metadata/sgRNA_library_curated.csv', index_col=0)
     
+    # Get list of assignment files to process
+    if sample_id is not None:
+        assignment_files = [f for f in os.listdir(datadir) if f.endswith('.sgrna_assignment.csv') and sample_id in f]
+        if not assignment_files:
+            raise ValueError(f"No sgRNA assignment files found for sample {sample_id}")
+    else:
+        assignment_files = [f for f in os.listdir(datadir) if f.endswith('.sgrna_assignment.csv')]
+    
     # Concatenate sgrna_assignment files
-    sgrna_assignment = pd.concat([pd.read_csv(datadir + f) for f in os.listdir(datadir) if f.endswith('.sgrna_assignment.csv')])
+    sgrna_assignment = pd.concat([pd.read_csv(os.path.join(datadir, f)) for f in assignment_files])
     assert sgrna_assignment.cell.is_unique
 
     # Get guide metadata
@@ -378,7 +401,7 @@ if __name__ == "__main__":
     parser.add_argument('--config', type=str,
                        default='../../metadata/experiments_config.yaml',
                        help='Path to experiment config YAML file')
-    parser.add_argument('--plot_dir', type=str, default='../../results/',
+    parser.add_argument('--plot_dir', type=str, default='/scratch/groups/pritch/emma/sgrna_assignment_outs/',
                        help='Path to store plots')
     parser.add_argument('--n_cores', type=int, default=5,
                        help='Number of cores')
@@ -396,6 +419,8 @@ if __name__ == "__main__":
                        help='Identifier for this chunk (used in output filenames)')
     parser.add_argument('--merge', action='store_true',
                        help='Merge chunk results into final assignment file.')
+    parser.add_argument('--expected_n_chunks',type=int, default=18,
+                       help='Expected chunk number for merge.')
     args = parser.parse_args()
 
     # Load config file
@@ -405,11 +430,7 @@ if __name__ == "__main__":
     config = config[experiment]    
 
     datadir = _convert_oak_path(config['datadir'])
-    results_dir = f'{args.plot_dir}/{experiment}/'
-    os.makedirs(results_dir + 'sgrna_assignment_crispat/', exist_ok=True)
-    # os.makedirs(results_dir + 'sgrna_assignment_crispat/' + "loss_plots/", exist_ok=True)
-    # os.makedirs(results_dir + 'sgrna_assignment_crispat/' + "fitted_model_plots/", exist_ok=True)
-
+ 
     # Find all CRISPR h5ad files or use the specified one
     if args.crispr_h5ad:
         crispr_files = [args.crispr_h5ad]
@@ -425,12 +446,6 @@ if __name__ == "__main__":
         sample_lane_id = os.path.basename(sgrna_h5ad).replace('.sgRNA.h5ad', '')
         print(f"\nProcessing {sample_lane_id} from {sgrna_h5ad}")
         
-        # Create sample-specific output directory
-        sample_output_dir = results_dir + f'sgrna_assignment_crispat/{sample_lane_id}/'
-        os.makedirs(sample_output_dir, exist_ok=True)
-        os.makedirs(sample_output_dir + "loss_plots/", exist_ok=True)
-        os.makedirs(sample_output_dir + "fitted_model_plots/", exist_ok=True)
-        
         if args.merge:
             # Merge all chunk results
             print(f"Merging chunk results for sample {sample_lane_id}...")
@@ -438,15 +453,27 @@ if __name__ == "__main__":
             if not chunk_files:
                 print(f"No chunk files found for sample {sample_lane_id}")
                 continue
+            if len(chunk_files) < args.expected_n_chunks:
+                print(f"Missing chunk files found for sample {sample_lane_id}")
+                continue
                 
             try:
+                # Check chunk numbers and expected chunk size from filenames
+                chunk_info = [re.search(r'chunk_(\d+)_(\d+)\.csv$', f) for f in chunk_files]
+                chunk_numbers = [int(m.group(1)) for m in chunk_info if m]
+                chunk_numbers.sort()
+                # Compute cumulative difference between chunk numbers to check for gaps
+                chunk_diffs = np.diff(chunk_numbers)
+                if len(np.unique(chunk_diffs)) > 1:
+                    raise FileNotFoundError(f'missing chunk files for sample {sample_lane_id}')
+                
                 all_perturbations = []
                 for chunk_file in sorted(chunk_files):
                     chunk_data = pd.read_csv(chunk_file)
                     if len(chunk_data) > 0:
                         all_perturbations.append(chunk_data)
                     else:
-                        print(f"Warning: Empty chunk file found: {chunk_file}")
+                        raise ValueError(f"Warning: Empty chunk file found: {chunk_file}")
                 
                 if not all_perturbations:
                     print(f"No valid perturbation data found for sample {sample_lane_id}")
@@ -473,12 +500,25 @@ if __name__ == "__main__":
                 print(f"Successfully saved merged assignments to {output_dir}/{sample_lane_id}.sgrna_assignment.csv")
                 print(f"Total cells assigned: {len(assignment_crispat)}")
                 print(f"Unique guides assigned: {assignment_crispat['guide_id'].nunique()}")
-                
+
+                # # Remove chunk files after successful merge
+                # for chunk_file in chunk_files:
+                #     os.remove(chunk_file)
+                    
             except Exception as e:
                 print(f"Error merging results for sample {sample_lane_id}: {str(e)}")
                 continue
         
         else:
+            # Create sample-specific output directory
+            results_dir = f'{args.plot_dir}/{experiment}/'
+            os.makedirs(results_dir + 'sgrna_assignment_crispat/', exist_ok=True)
+    
+            sample_output_dir = results_dir + f'sgrna_assignment_crispat/{sample_lane_id}/'
+            os.makedirs(sample_output_dir, exist_ok=True)
+            os.makedirs(sample_output_dir + "loss_plots/", exist_ok=True)
+            os.makedirs(sample_output_dir + "fitted_model_plots/", exist_ok=True)
+
             crispr_a = sc.read_h5ad(sgrna_h5ad)
             crispr_a = crispr_a[:, crispr_a.var['n_cells'] > 3].copy()
             n_guides_parallel=args.n_guides_parallel
