@@ -1,7 +1,4 @@
-## Moving cellranger outs from Dropbox to Sherlock
-
-1. Update experiment config file: add new experiment in `metadata/experiments_config.yaml` - new entry should be called as EXPERIMENT_NAME
-
+<!-- ## Moving cellranger outs from Dropbox to Sherlock
 ```bash
 # Setup folders in Sherlock
 EXPERIMENT_NAME=CD4iR1_Psomagen
@@ -12,26 +9,49 @@ DROPBOX_PATH=correct_spikein_sequence/lane5_10x_puro_sequence_corrected
 rclone copy dropbox:"${DROPBOX_PATH}" "${EXPDIR}/cellranger_outs/" --progress
 # rclone copy dropbox:${DROPBOX_PATH}/ ${EXPDIR}/cellranger_outs/ --include "_filtered_feature_bc_matrix.h5"
 done
-```
+``` -->
 
-## Processing data from a new experiment
+# Data ingestion and preprocessing
+
+## Set up 
 
 1. Update experiment config file: add new experiment in `metadata/experiments_config.yaml` - new entry should be called as EXPERIMENT_NAME
-
-2. Download sample metadata 
+2. Make folder structure
+```bash
+# Setup folders in Sherlock
+EXPERIMENT_NAME=CD4iR1_Psomagen
+python make_GWT_directories.py $EXPERIMENT_NAME
+```
+3. Download sample metadata 
 ```bash
 # Often easier to first download GWT_sample_metadata.xlsx separately:
 # rclone copy gdrive:GWT_perturbseq_analysis/metadata/GWT_sample_metadata.xlsx /oak/stanford/groups/pritch/users/emma/data/GWT/
 python process_sample_metadata.py --experiment_name $EXPERIMENT_NAME --datadir /mnt/oak/users/emma/data/GWT/
 ```
 
-3. Ingest and basic preprocessing of cellranger outputs
+## Run preprocessing workflow locally
+
+No parallelization and no SLURM (suitable only for small experiments)
 
 ```bash
-## All at once (works on small experiments)
-python preprocess.py --config ../../metadata/experiments_config.yaml --experiment $EXPERIMENT_NAME
+# Ingest cellranger outputs and merge
+python preprocess.py --config ../../metadata/experiments_config.yaml --experiment $EXPERIMENT_NAME --merge --embedding
 
-## Process each h5 file in parallel
+# Guide assignments
+python sgrna_assignment.py $EXPERIMENT_NAME --config ../../metadata/experiments_config.yaml
+
+# QC analysis
+# see example notebook qc_PilotD2Redo_Lane2.ipynb 
+```
+
+## Run preprocessing workflow with SLURM
+
+This runs preprocessing and QC on each .h5 cellranger output in parallel.
+
+1. Ingest and basic preprocessing of cellranger outputs
+```bash
+conda activate perturb-vs-tissue-env
+EXPERIMENT_NAME=CD4iR1_Psomagen
 DATADIR=/oak/stanford/groups/pritch/users/emma/data/GWT/
 for H5_FILE in $(ls ${DATADIR}/${EXPERIMENT_NAME}/cellranger_outs/*/*); do
   BASENAME=$(basename ${H5_FILE} .h5)
@@ -54,26 +74,8 @@ for H5_FILE in $(ls ${DATADIR}/${EXPERIMENT_NAME}/cellranger_outs/*/*); do
 done
 ```
 
-<!-- Merging
+2. Guide RNA assignment in chunks
 ```bash
-conda activate pertpy-milo
-sbatch \
-    --partition=pritch \
-    --job-name=merge_${EXPERIMENT_NAME} \
-    --output=$GROUP_SCRATCH/emma/slurm-merge_%j.out \
-    --error=$GROUP_SCRATCH/emma/slurm-merge_%j.err \
-    --mem=24G  \
-    --time=12:00:00 \
-    --wrap="python merge_samples.py"
-``` -->
-
-4. Guide RNA assignment 
-```bash
-# Compute all assignments (for small experiments)
-python sgrna_assignment.py $EXPERIMENT_NAME --config ../../metadata/experiments_config.yaml
-
-# Compute assignment for each sample-lane in parallel
-conda activate perturb-vs-tissue-env
 EXPDIR=/oak/stanford/groups/pritch/users/emma/data/GWT/${EXPERIMENT_NAME}/
 for h5ad_file in $(ls $EXPDIR*.sgRNA.h5ad); do
   SAMPLE_NAME=$(basename $h5ad_file .sgRNA.h5ad)
@@ -83,23 +85,21 @@ for h5ad_file in $(ls $EXPDIR*.sgRNA.h5ad); do
       echo "Skipping ${SAMPLE_NAME} - assignment file already exists"
   fi
 done
-
-# Merge to cell-level assignment for each sample
+```
+3. Merge to cell-level guide assignment for each sample 
+```bash
 python sgrna_assignment.py $EXPERIMENT_NAME --merge
 ```
 
-5. Compute QC stats and exclude low quality cells
+4. Compute QC stats and exclude low quality cells
 ```bash
-# Quality control filtering
-DATADIR=/oak/stanford/groups/pritch/users/emma/data/GWT/
-EXPERIMENT_NAME=CD4iR1_Psomagen
 H5AD_FILES=$(ls ${DATADIR}/${EXPERIMENT_NAME}/tmp/*.scRNA.h5ad)
 for f in $H5AD_FILES; do
   SAMPLE_NAME=$(basename ${f} .scRNA.h5ad)
   INPUT_CSV="${DATADIR}/${EXPERIMENT_NAME}/${SAMPLE_NAME}.sgrna_assignment.csv"
   OUTPUT_H5AD="${DATADIR}/${EXPERIMENT_NAME}/tmp/${SAMPLE_NAME}.scRNA.postQC.h5ad"
   
-  # if [ ! -f "${OUTPUT_H5AD}" ] && [ -f "${INPUT_CSV}" ]; then
+  if [ ! -f "${OUTPUT_H5AD}" ] && [ -f "${INPUT_CSV}" ]; then
     echo $SAMPLE_NAME
     sbatch \
           --partition=pritch \
@@ -109,19 +109,14 @@ for f in $H5AD_FILES; do
           --mem=24G  \
           --time=00:30:00 \
           --wrap="python qc_samples.py --experiment_name=${EXPERIMENT_NAME} --sample_id=${SAMPLE_NAME}"
-  # fi
+  fi
 done
 ```
 
-```bash
-# Copy notebook to run analysis
-cp qc_PilotD2Redo_Lane2.ipynb qc_${EXPERIMENT_NAME}.ipynb
+## QC analysis
 
-# To convert to report after editing
-jupyter nbconvert qc_${EXPERIMENT_NAME}.ipynb --to html
-```
-
-6. Estimate effect of each guide (to exclude ineffective from DE analysis) - see `estimate_guide_effect.ipynb`
+- `qc_${EXPERIMENT_NAME}.ipynb` - Plots on quality control stats
+- `estimate_guide_effect.ipynb` - Estimate KD effect of each guide (to exclude ineffective from DE analysis)
 
 
 ## Outputs

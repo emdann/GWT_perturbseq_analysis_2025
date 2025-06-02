@@ -310,12 +310,10 @@ if __name__ == "__main__":
             else:
                 process_cellranger_h5(f, exp_config['datadir'], exp_config['sample_id_mapping'])
         else:
-            if not args.merge:
-                process_experiment(exp_config, force=args.force)
-            else:
+            process_experiment(exp_config, force=args.force)
+            if args.merge:
                 adata = merge_experiment(exp_config, force=args.force)
                 print('Merged object saved.')
-            
             if args.embedding:
                 run_pca_rapids(adata)
                 output_file = f"{datadir}/{args.experiment}_merged.gex.lognorm.h5ad"
