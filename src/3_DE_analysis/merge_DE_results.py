@@ -49,8 +49,8 @@ def main():
     force_combine = args.force_combine
 
     # Read cell-level metadata
-    obs_df = pd.read_csv(f'{datadir}/{experiment_name}_merged.gex.lognorm.postQC_obs.csv', compression='gzip', index_col=0)
-    gene_name_to_id = dict(zip(obs_df['perturbed_gene_id'], obs_df['perturbed_gene_name']))
+    sgrna_library_metadata = pd.read_csv('../../metadata/sgRNA_library_curated.csv', index_col=0)
+    gene_name_to_id = dict(zip(sgrna_library_metadata['perturbed_gene_id'], sgrna_library_metadata['perturbed_gene_name']))
     var_df = sc.read_h5ad(f'{datadir}/{experiment_name}_merged.DE_pseudobulk.h5ad', backed=True).var.copy()
 
     de_results_dir = datadir + f'/DE_results_{run_name}/tmp/'
@@ -78,25 +78,32 @@ def main():
         assert combined_de_adata.obs_names.is_unique
 
     # Annotate number of cells per target gene
-    guide_cell_counts = obs_df[['perturbed_gene_id', 'guide_id', 'library_id', 'culture_condition']].value_counts().reset_index()
-    n_cells_target_contrast = guide_cell_counts.groupby(['perturbed_gene_id', 'culture_condition'])['count'].sum().reset_index()
+    all_conditions = combined_de_adata.obs['culture_condition'].unique()
+    guide_cell_counts = pd.DataFrame()
+    for culture_condition in all_conditions:
+        guide_cell_counts_c = pd.read_csv(f'{datadir}/{experiment_name}.guide_effect.{culture_condition}.csv', index_col=0)[['guide_n']]
+        guide_cell_counts_c['culture_condition'] = culture_condition
+        guide_cell_counts_c['perturbed_gene_id'] = sgrna_library_metadata.set_index('sgrna_id').loc[guide_cell_counts_c.index]['perturbed_gene_id']
+        guide_cell_counts = pd.concat([guide_cell_counts, guide_cell_counts_c])
+    n_cells_target_contrast = guide_cell_counts.groupby(['perturbed_gene_id', 'culture_condition'])['guide_n'].sum().reset_index()
     n_cells_target_contrast.index = n_cells_target_contrast['perturbed_gene_id'] + '_' + n_cells_target_contrast['culture_condition']
-    combined_de_adata.obs['n_cells_target'] = n_cells_target_contrast['count'].loc[combined_de_adata.obs_names]
+    combined_de_adata.obs['n_cells_target'] = n_cells_target_contrast['guide_n'].loc[combined_de_adata.obs_names]
 
     # Add gene names
     combined_de_adata.var = var_df.loc[combined_de_adata.var_names]
 
     # Add MASH results
     mash_results_files = glob.glob(de_results_dir + 'MASH_results*.csv.gz')
-    mash_results = pd.DataFrame()
-    for f in mash_results_files:
-        mash_results_gr = pd.read_csv(f, compression='gzip', index_col=0)
-        mash_results = pd.concat([mash_results, mash_results_gr])
+    if mash_results_files:  # Only process if MASH results exist
+        mash_results = pd.DataFrame()
+        for f in mash_results_files:
+            mash_results_gr = pd.read_csv(f, compression='gzip', index_col=0)
+            mash_results = pd.concat([mash_results, mash_results_gr])
 
-    mash_results['obs_names'] = mash_results['target_contrast'] + '_' + mash_results['culture_condition']
-    for stat in ['PosteriorMean', 'PosteriorSD', 'lfsr']:
-        stat_layer = mash_results.pivot(index='obs_names', columns = 'var_names', values=stat)
-        combined_de_adata.layers[f'MASH_{stat}'] = stat_layer.loc[combined_de_adata.obs_names, combined_de_adata.var_names].values
+        mash_results['obs_names'] = mash_results['target_contrast'] + '_' + mash_results['culture_condition']
+        for stat in ['PosteriorMean', 'PosteriorSD', 'lfsr']:
+            stat_layer = mash_results.pivot(index='obs_names', columns = 'var_names', values=stat)
+            combined_de_adata.layers[f'MASH_{stat}'] = stat_layer.loc[combined_de_adata.obs_names, combined_de_adata.var_names].values
 
     # Save as anndata object
     combined_de_adata.write_h5ad(datadir + f'/DE_results_{run_name}/{experiment_name}.merged_DE_results.h5ad')

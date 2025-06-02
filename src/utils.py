@@ -45,7 +45,8 @@ def feature_selection(
     highx_min_pct_dropouts_by_counts = 5,
     lowx_min_counts = 10,
     lowx_max_pct_dropouts_by_counts = 99.5,
-    return_all = False
+    return_all = False,
+    use_rapids = True
     ):
     '''Save table of selected features to use for integration.'''
     filter_genes = []
@@ -59,9 +60,9 @@ def feature_selection(
         adata = sc.pp.sample(adata, fraction=0.1, copy=True)
     
     # Use rapids if available, otherwise use scanpy
-    if HAS_RAPIDS:
+    if HAS_RAPIDS and use_rapids:
         rsc.get.anndata_to_GPU(adata)
-        rsc.pp.calculate_qc_metrics(adata, inplace=True)
+        rsc.pp.calculate_qc_metrics(adata)
     else:
         sc.pp.calculate_qc_metrics(adata, inplace=True)
 
@@ -77,7 +78,7 @@ def feature_selection(
     # Get HVGs
     # sc.pp.normalize_total(adata, target_sum=1e4)
     # sc.pp.log1p(adata)
-    if HAS_RAPIDS:
+    if HAS_RAPIDS and use_rapids:
         rsc.pp.highly_variable_genes(adata, n_top_genes=n_hvgs, flavor='seurat_v3')
     else:
         sc.pp.highly_variable_genes(adata, n_top_genes=n_hvgs, flavor='seurat_v3')

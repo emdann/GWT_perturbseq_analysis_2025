@@ -236,7 +236,7 @@ def get_ontarget_effect(adata_de, signif_estimate='MASH_lfsr', signif_alpha=0.1)
     ontarget_df = get_DE_results_long(
         adata_de, 
         targets=measured_targets, genes=measured_targets_names, 
-        effect_estimates=['MASH_PosteriorMean', 'log_fc', 'zscore', 'baseMean', 'adj_p_value'],
+        effect_estimates=['log_fc', 'zscore', 'baseMean'],
         signif_estimate=signif_estimate,
         signif_alpha=signif_alpha,
         target_id_col='target_contrast', 
@@ -378,7 +378,7 @@ def plot_gene_expression_by_target(pbulk_adata, target_id, gene_id, condition='S
     
     return ax
 
-def plot_effect_comparison(adata_de, comparison_params, n_top_genes=15, plot_correlation=False, ax=None):
+def plot_effect_comparison(adata_de, comparison_params, n_top_genes=15, plot_correlation=False, axis_label = 'DE effect', corr_coords_xy = (0.01, 0.95), figsize=(8, 8), ax=None):
     """
     Scatter plot comparing DE effects on all tested genes for a pair of conditions, targets or stats.
     
@@ -434,7 +434,7 @@ def plot_effect_comparison(adata_de, comparison_params, n_top_genes=15, plot_cor
     # Create figure if ax is not provided
     fig = None
     if ax is None:
-        fig, ax = plt.subplots(figsize=(8, 8))
+        fig, ax = plt.subplots(figsize=figsize)
 
     # Get column names for x and y axis labels
     x_col = pl_df.columns[0]  # First column (likely 'Rest')
@@ -452,12 +452,12 @@ def plot_effect_comparison(adata_de, comparison_params, n_top_genes=15, plot_cor
         corr, pval = scipy.stats.pearsonr(pl_df[x_col], pl_df[y_col])
 
         # Add correlation information as text
-        ax.annotate(f'Correlation: {corr:.3f} (p={pval:.3e})', 
-                    xy=(0.05, 0.95), xycoords='axes fraction', fontsize=12)
+        ax.annotate(f'Correlation: {corr:.3f}\n(p{" < 10e-16" if pval < 1e-16 else f" = {pval:.3e}"})', 
+                    xy=corr_coords_xy, xycoords='axes fraction', fontsize=12)
 
     # Add axis labels and title
-    ax.set_xlabel(f'DE effect ({x_col})', fontsize=12)
-    ax.set_ylabel(f'DE effect ({y_col})', fontsize=12)
+    ax.set_xlabel(f'{axis_label} ({x_col})', fontsize=12)
+    ax.set_ylabel(f'{axis_label} ({y_col})', fontsize=12)
     ax.set_title(f'{comparison_params["target_contrast_gene_name"][0]} knock-out effect\n{x_col} vs {y_col} comparison', fontsize=14)
 
 

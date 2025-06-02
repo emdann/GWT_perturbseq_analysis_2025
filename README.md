@@ -47,17 +47,18 @@ git push origin new-branch-name
 - On oak: `/oak/stanford/groups/pritch/users/emma/data/GWT/{experiment_name}`
 
 ### Count matrices / AnnData objects
-- `{experiment_name}.gex.lognorm.h5ad` - merged log-normalized count matrices (all cells, including low quality)
-- `{experiment_name}.gex.h5ad` - merged raw count matrices (all cells, including low quality)
-- `{experiment_name}_merged.gex.lognorm.postQC_obs.csv` - cell-level metadata after QC, with sgRNA assignment and mask for high quality cells (”QC_mask”)
+- `{sample}.{lane}scRNA.postQC_obs.h5ad` - count matrices and annotations after QC with sgRNA assignment
 
-### Knock-down efficiency stats
-- `knockdown_efficacy_simple.csv` - stats for knock-down efficiency with t-test for each perturbed gene
-- `guide_ontarget_effect_simple.csv` - stats for knock-down efficiency with t-test for each guide (used to filter putative ineffective guides)
+### QC stats
+- `QC_summary_stats.csv` - summary of QC metric statistics for each sample and lane
+- `perturbation_counts.csv` - count of number of cells per perturbation for each sample and lane
+- `{EXPERIMENT_NAME}.guide_effect.{culture_condition}.csv` - summary stats to assess sgRNA effect on target gene compared to expression of gene in NTC controls
+- `no_effect_guides.txt` - guides with no significant effect in any condition
 
 ### Differential expression analysis files
 - `{experiment_name}_merged.DE_pseudobulk.h5ad` - pseudobulked gene expression counts per guide+sample+condition (summing expression profile)
-- `DE_results/{experiment_name}.gex.lognorm.h5ad` - DE analysis results (obs are perturbations x condition, vars are transcriptome genes)
+- `DE_results_{run_name}/{experiment_name}.gex.lognorm.h5ad` - DE analysis results (obs are perturbations x condition, vars are transcriptome genes)
+- `{datadir}/DE_results_{run_name}/DE_summary_stats_per_target.csv` - Summary of on-target effects and overall effect for each perturbation and condition
 
 
 To sync processed data with Dropbox
@@ -65,7 +66,7 @@ To sync processed data with Dropbox
 ```bash
 # DATADIR=/oak/stanford/groups/pritch/users/emma/data/GWT/
 DATADIR=/mnt/oak/users/emma/data/GWT/
-EXPERIMENT_NAME=CRiCD4_Run1_Illumina
+EXPERIMENT_NAME=CD4iR1_Psomagen
 EXPDIR=${DATADIR}/${EXPERIMENT_NAME}/
 DROPBOX_PATH=GRNPerturbSeq/3_expts/processed_data/
 
@@ -86,6 +87,18 @@ for f in "${FILES_TO_COPY[@]}"; do
     rclone copy ${EXPDIR}/${f} dropbox:${DROPBOX_PATH}${EXPERIMENT_NAME}/ --checksum --ignore-times
 done
 
+# Sync raw outputs
+DATADIR=/mnt/oak/users/emma/data/GWT/
+EXPERIMENT_NAME=CD4iR1_Psomagen
+DROPBOX_PATH=GRNPerturbSeq/3_expts/
+LOCAL_DATA_DIR="$DATADIR/czi-psomagen"
+rclone mkdir dropbox:${DROPBOX_PATH}${EXPERIMENT_NAME}/
+
+find "$LOCAL_DATA_DIR" -name "web_summary.html" -type f | while read file; do
+    relative_path=${file#$LOCAL_DATA_DIR/}
+    relative_dir=$(dirname "$relative_path")
+    rclone copy "$file" "dropbox:${DROPBOX_PATH}${EXPERIMENT_NAME}/${relative_dir}/" --checksum --ignore-times
+done
 ```
 
 

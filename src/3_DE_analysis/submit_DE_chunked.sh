@@ -22,7 +22,7 @@ if [ -n "$DATADIR_CONFIG" ]; then
 fi
 
 # Check if the chunk file exists
-CHUNK_FILE="${DATADIR}/${EXPERIMENT_NAME}/DE_target2chunk.csv.gz"
+CHUNK_FILE="${DATADIR}/${EXPERIMENT_NAME}/DE_target2chunk.${CONDITION}.csv.gz"
 if [ ! -f "$CHUNK_FILE" ]; then
     echo "Error: Chunk file not found at $CHUNK_FILE"
     exit 1
@@ -57,35 +57,47 @@ sbatch \
         --culture_condition $CONDITION"
 
 # # Create output directory if it doesn't exist
-# OUTPUT_DIR="${DATADIR}/${EXPERIMENT_NAME}/DE_results/tmp"
-# mkdir -p "$OUTPUT_DIR"
+# OUTPUT_DIR="${DATADIR}/${EXPERIMENT_NAME}/DE_results_all_confounders/tmp/"
+# # mkdir -p "$OUTPUT_DIR"
 
 # # Find missing chunks
+# CONDITION=Rest
+# # Check if the chunk file exists
+# CHUNK_FILE="${DATADIR}/${EXPERIMENT_NAME}/DE_target2chunk.${CONDITION}.csv.gz"
+# if [ ! -f "$CHUNK_FILE" ]; then
+#     echo "Error: Chunk file not found at $CHUNK_FILE"
+#     exit 1
+# fi
+
+# # Get number of chunks from the header of the gzipped CSV file
+# N_CHUNKS=$(zcat "$CHUNK_FILE" | head -n 1 | tr ',' '\n' | grep -c "chunk_")
+# if [ $N_CHUNKS -eq 0 ]; then
+#     echo "Error: No chunks found in $CHUNK_FILE"
+#     exit 1
+# fi
+
 # MISSING_CHUNKS=()
 # for ((i=0; i<N_CHUNKS; i++)); do
-#     for CONDITION in Stim8hr Rest; do
-#         OUTPUT_FILE="${OUTPUT_DIR}/DE_results.${CONDITION}.chunk_${i}.csv.gz"
-#         if [ ! -f "$OUTPUT_FILE" ]; then
-#             echo "Missing output file for chunk $i: $OUTPUT_FILE"
-#             MISSING_CHUNKS+=($i)
-#         fi
-#     done
+#     OUTPUT_FILE="${OUTPUT_DIR}/DE_results.${CONDITION}.chunk_${i}.csv.gz"
+#     if [ ! -f "$OUTPUT_FILE" ]; then
+#         echo "Missing output file for chunk $i: $OUTPUT_FILE"
+#         MISSING_CHUNKS+=("$i")
+#     fi
 # done
 
-# CONDITION=Stim8hr
-# for c in $MISSING_CHUNKS; do 
+# for i in "${MISSING_CHUNKS[@]}"; do 
 #     sbatch \
 #     --partition=pritch \
-#     --job-name=DE_${EXPERIMENT_NAME}_${CONDITION}_missingchunk${c} \
-#     --output=$GROUP_SCRATCH/emma/slurm-DE_%A_missingchunk.out \
-#     --error=$GROUP_SCRATCH/emma/slurm-DE_%A_missingchunk.err \
+#     --job-name=DE_${EXPERIMENT_NAME}_${CONDITION}_missingchunk \
+#     --output=$GROUP_SCRATCH/emma/slurm-DE_%j_missingchunk.out \
+#     --error=$GROUP_SCRATCH/emma/slurm-DE_%j_missingchunk.err \
 #     --nodes=1 \
 #     --ntasks=1 \
 #     --cpus-per-task=3 \
 #     --mem=50G \
-#     --time=2:00:00 \
+#     --time=3:00:00 \
 #     --wrap="python run_DE_chunk.py \
-#         --datadir $DATADIR \
-#         --experiment_name $EXPERIMENT_NAME \
-#         --test_chunk \$SLURM_ARRAY_TASK_ID \
+#         --config $CONFIG \
+#         --test_chunk ${i} \
 #         --culture_condition $CONDITION"
+#     done

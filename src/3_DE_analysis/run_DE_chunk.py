@@ -1,14 +1,15 @@
 import os,sys
 import numpy as np
-import anndata
 import pandas as pd
-import mudata as md
 import scanpy as sc
 
 import matplotlib.pyplot as plt
 import seaborn as sns
 import yaml
 import shutil
+
+sys.path.append(os.path.abspath('../'))
+from utils import _convert_oak_path
 
 from copy import deepcopy
 import argparse
@@ -27,7 +28,7 @@ if __name__ == "__main__":
         config = yaml.safe_load(config_file)
     
     # Extract parameters from config
-    datadir = config['datadir']
+    datadir = _convert_oak_path(config['datadir'])
     experiment_name = config['experiment_name']
     run_name = config.get('run_name', 'default')
     
@@ -46,26 +47,38 @@ if __name__ == "__main__":
 
     # Read list of genes for DE testing
     try:
-        with open(f'{datadir}/DE_test_genes.txt', 'r') as f:
+        with open(f'{datadir}/DE_test_genes.{cond}.txt', 'r') as f:
             de_test_genes = [line.strip() for line in f if line.strip()]
         print(f"Loaded {len(de_test_genes)} genes for DE testing")
     except FileNotFoundError:
         raise(FileNotFoundError, f"Warning: DE test genes file not found at {datadir}/DE_test_genes.txt - run feature selection first.")
-    
+
     pbulk_adata = pbulk_adata[:, de_test_genes].copy()
 
     # Get targets to test
-    target_chunk_matrix = pd.read_csv(f'{datadir}/DE_target2chunk.csv.gz', compression='gzip', index_col=0)
+    target_chunk_matrix = pd.read_csv(f'{datadir}/DE_target2chunk.{cond}.csv.gz', compression='gzip', index_col=0)
     test_targets = target_chunk_matrix.index[target_chunk_matrix[f'chunk_{chunk_ix}'] == 1].tolist()
     
     # Run DE analysis
-    ms_perturb_data = MultistatePerturbSeqDataset(pbulk_adata)
+    ms_perturb_data = MultistatePerturbSeqDataset(
+        pbulk_adata,
+        sample_cols = ['cell_sample_id'],
+        perturbation_type = 'CRISPRi',
+        target_col = 'perturbed_gene_id',
+        sgrna_col = 'guide_id',
+        state_col = 'culture_condition',
+        control_level = 'NTC'
+        )
     
     # Get DE parameters from config
     run_de_params = config.get('run_DE_params', {})
     design_formula = run_de_params.get('design_formula', '~ log10_n_cells + target')
     min_counts_per_gene = run_de_params.get('min_counts_per_gene', 10)
     
+    print(f"Running DE analysis on pseudobulk data with shape {pbulk_adata.shape}")
+    print(f"Testing condition: {cond}")
+    print(f"Number of targets to test: {len(test_targets)}")
+
     model, results = ms_perturb_data.run_target_DE(
         design_formula = design_formula,
         test_state = [cond], test_targets=test_targets,
