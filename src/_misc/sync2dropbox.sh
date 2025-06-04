@@ -26,13 +26,14 @@ done
 # Summary files
 FILES_TO_COPY=(
     # "${EXPERIMENT_NAME}_merged.gex.lognorm.postQC_obs.csv"
-    "DE_results_all_confounders/${EXPERIMENT_NAME}.merged_DE_results.h5ad"
+    # "DE_results_all_confounders/${EXPERIMENT_NAME}.merged_DE_results.h5ad"
+    # "DE_results_all_confounders/DE_summary_stats_per_target.csv"
     # "QC_summary_stats.csv"
     # "perturbation_counts.csv"
     # "${EXPERIMENT_NAME}.guide_effect.Stim8hr.csv"
     # "${EXPERIMENT_NAME}.guide_effect.Rest.csv"
     # "no_effect_guides.txt"
-    # "${EXPERIMENT_NAME}_merged.DE_pseudobulk.h5ad"
+    "${EXPERIMENT_NAME}_merged.DE_pseudobulk.h5ad"
 )
 
 # Copy each file to Dropbox
