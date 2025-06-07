@@ -58,7 +58,7 @@ git push origin new-branch-name
 ### Differential expression analysis files
 - `{experiment_name}_merged.DE_pseudobulk.h5ad` - pseudobulked gene expression counts per guide+sample+condition (summing expression profile)
 - `DE_results_{run_name}/{experiment_name}.gex.lognorm.h5ad` - DE analysis results (obs are perturbations x condition, vars are transcriptome genes)
-- `{datadir}/DE_results_{run_name}/DE_summary_stats_per_target.csv` - Summary of on-target effects and overall effect for each perturbation and condition
+- `DE_results_{run_name}/DE_summary_stats_per_target.csv` - Summary of on-target effects and overall effect for each perturbation and condition
 
 
 To sync processed data with Dropbox
