@@ -41,10 +41,10 @@ def feature_selection(
     filter_ribo_mito: bool = True, 
     subset_adata: bool = True, 
     subset_obs: str = 'integration_sample_id',
-    highx_min_mean_counts = 15,
-    highx_min_pct_dropouts_by_counts = 5,
-    lowx_min_counts = 10,
-    lowx_max_pct_dropouts_by_counts = 99.5,
+    highx_min_mean_counts = 1000,
+    highx_min_pct_dropouts_by_counts = 0.5,
+    lowx_min_counts = 1,
+    lowx_max_pct_dropouts_by_counts = 99.9,
     return_all = False,
     use_rapids = True
     ):

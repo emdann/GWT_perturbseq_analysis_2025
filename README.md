@@ -7,7 +7,8 @@ Analysis of genome-wide perturb-seq screen on primary T cells
     - `1_preprocess/` - ingest and preprocess new experiments from cellranger outputs
     - `2_embedding` - cell state embedding
     - `3_DE_analysis` - differential expression analysis
-    - `_misc` - miscellaneous old code
+    - `4_polarization_analysis` - analysis of polarization signatures
+    - `_misc` - miscellaneous / old code
 - `metadata` - sample and experimental metadata, configs, gene annotations etc
 
 ## Set-up compute environment
