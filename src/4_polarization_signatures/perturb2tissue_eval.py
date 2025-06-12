@@ -6,7 +6,6 @@ from sklearn.model_selection import RepeatedKFold
 from sklearn.decomposition import TruncatedSVD
 from sklearn.preprocessing import StandardScaler
 
-
 from scipy.stats import spearmanr, pearsonr, kendalltau
 from sklearn.metrics import r2_score
 import scipy
@@ -258,7 +257,7 @@ class Perturb2TissueModel:
         all_res['residual_sem'] = all_res.sem(axis=1)
         return(all_res[['residual_mean', 'residual_sem']])
     
-    def get_prediction(self, X, return_splits=False):
+    def get_prediction(self, X, subset_regulators = None, return_splits=False):
         """Get mean and SEM of predictions across models.
         
         Args:
@@ -271,9 +270,20 @@ class Perturb2TissueModel:
             X_array = X.values if hasattr(X, 'values') else X
             # Scale the data
             X_scaled = scaler.transform(X_array)
-            # Apply PCA transformation if needed
-            X_input = pca.transform(X_scaled) if pca is not None else X_array
-            preds = pd.DataFrame(mod.predict(X_input), index=X.index)
+            if subset_regulators is not None:
+                subset_ixs = [i for i, col in enumerate(X.columns) if col in subset_regulators]
+                if pca is not None:
+                    coefs = np.matmul(
+                        pca.components_.T, 
+                        mod.coef_
+                    )
+                else:
+                    coefs = mod.coef_
+                preds = pd.DataFrame(np.dot(X_scaled[:, subset_ixs], coefs[subset_ixs]), index=X.index)
+            else:
+                # Apply PCA transformation if needed
+                X_input = pca.transform(X_scaled) if pca is not None else X_array
+                preds = pd.DataFrame(mod.predict(X_input), index=X.index)
             all_preds = pd.concat([all_preds, preds], axis=1)
         
         if return_splits:
@@ -314,6 +324,13 @@ class Perturb2TissueModel:
             
         # Sort by r2 values and return
         return r2_df.sort_values('r2', ascending=False)
+
+    def get_genelevel_error(self, X, y, subset_regulators=None):
+        '''Compute shrink adjusted error for prediction on each gene.'''
+        pred_y = self.get_prediction(X, subset_regulators=subset_regulators)['pred_mean']
+        slope, intercept, r_value, p_value, std_err = scipy.stats.linregress(y, pred_y)
+        shrink_adjusted_error = np.abs(pred_y - (y*slope + intercept))
+        return(shrink_adjusted_error)
 
     def plot_residuals(self, X, y, annotate_top_n=0):
         """Plot residuals vs predicted values using mean residuals across models.
