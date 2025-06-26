@@ -9,6 +9,10 @@ import numpy as np
 import scanpy as sc
 from typing import Optional, Union, List
 import genomic_features as gf
+import glob
+from tqdm.notebook import tqdm
+
+SPARSE_CHUNK_SIZE = 1_000_000
 
 # Try to import rapids_singlecell, fall back to scanpy if not available
 try:
@@ -89,3 +93,41 @@ def feature_selection(
         hvg_df = adata.var[adata.var['highly_variable']][['gene_name', 'gene_ids']]
     
     return(hvg_df)
+
+# -- Utilities to read dataset -- #
+
+def _make_obs_mask(obs_data, obs_filt):
+    mask = True
+    for col, value in obs_filt.items():
+        condition = obs_data[col].isin(value) if isinstance(value, list) else (obs_data[col] == value)
+        mask = mask & condition
+    return mask
+
+def load_cells(h5ad_files: List[str], obs_filt: dict):
+    """Load cells from multiple h5ad files based on obs filter
+
+    Parameters
+    ----------
+    h5ad_files : List[str]
+        List of paths to h5ad files to load
+    obs_filt : dict
+        Dictionary specifying filtering criteria for observations/cells
+        Keys are column names in obs, values are either single values or lists
+        of values to keep
+
+    Returns
+    -------
+    anndata.AnnData
+        Combined AnnData object containing cells matching filter criteria
+        from all input files, with var indices containing gene_ids and gene_name
+    """
+    a_ls = []
+    for f in tqdm(h5ad_files, 'Reading files'):
+        a = anndata.read_h5ad(f, backed='r')
+        mask = _make_obs_mask(a.obs, obs_filt)
+        a = a[mask].to_memory()
+        if a.n_obs > 0:
+            a_ls.append(a)
+    adata = anndata.concat(a_ls, join='outer')
+    adata.var = pd.concat([a.var[['gene_ids', 'gene_name']] for a in a_ls]).drop_duplicates().loc[adata.var_names]
+    return(adata)
