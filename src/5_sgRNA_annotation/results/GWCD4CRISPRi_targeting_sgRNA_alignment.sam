@@ -454,7 +454,7 @@
 @SQ	SN:chrX	LN:156040895
 @SQ	SN:chrY	LN:57227415
 @SQ	SN:chrY_KI270740v1_random	LN:37240
-@PG	ID:bowtie2	PN:bowtie2	VN:2.5.4	CL:"/Users/rzhu/miniconda3/envs/deseq/bin/bowtie2-align-s --wrapper basic-0 -x hg38 -f GWCD4CRISPRi_sgRNA_list.fa --end-to-end -D 20 -R 3 -L 5 -N 0 -k 100 -i S,1,0.50 --score-min C,0,0 --no-1mm-upfront --passthrough"
+@PG	ID:bowtie2	PN:bowtie2	VN:2.5.4	CL:"/Users/rzhu/miniconda3/envs/gwt-env/bin/bowtie2-align-s --wrapper basic-0 -x /Users/rzhu/Gladstone Dropbox/Ronghui Zhu/GRNPerturbSeq/2_files/hg38_genome/hg38 -f genome/GWCD4CRISPRi_targeting_sgRNA_list.fa --end-to-end -D 20 -R 3 -L 5 -N 0 -k 100 -i S,1,0.50 --score-min C,0,0 --no-1mm-upfront --passthrough"
 ARMC5-1	0	chr16	31459567	255	19M	*	0	0	TGCCTCGCGCAGCTCGCGG	IIIIIIIIIIIIIIIIIII	AS:i:0	XN:i:0	XM:i:0	XO:i:0	XG:i:0	NM:i:0	MD:Z:19	YT:Z:UU
 DDB1-1	16	chr11	61333048	255	19M	*	0	0	AACAGCGCGCAGCGAACTC	IIIIIIIIIIIIIIIIIII	AS:i:0	XN:i:0	XM:i:0	XO:i:0	XG:i:0	NM:i:0	MD:Z:19	YT:Z:UU
 FNDC10-1	0	chr1	1600079	255	19M	*	0	0	GCCCGCTCCCCGCGATCCC	IIIIIIIIIIIIIIIIIII	AS:i:0	XN:i:0	XM:i:0	XO:i:0	XG:i:0	NM:i:0	MD:Z:19	YT:Z:UU

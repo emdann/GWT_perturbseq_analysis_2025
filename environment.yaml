@@ -5,13 +5,12 @@ channels:
   - defaults
 dependencies:
   - python=3.11
+  - bowtie2
   - pip:
     - scanpy
     - rapids-singlecell
     - jupyter
     - git+https://github.com/scverse/anndata.git
-    - pydeseq2
-    # - anndata>=0.12
     - genomic_features
     - ibis-framework==8.0.0
     - scipy
@@ -22,4 +21,9 @@ dependencies:
     - pertpy
     - pydeseq2
     - formulaic_contrasts
+    - Bio
+    - pysam
+    - gffutils
+    - pysam
+    - pyfaidx
     # - git+https://github.com/emdann/perturbseq-tools.git@main
