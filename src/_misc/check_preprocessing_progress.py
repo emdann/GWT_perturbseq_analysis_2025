@@ -50,7 +50,6 @@ def check_file_exists(filepath):
         return colored_text("✓", Colors.GREEN)
     else:
         return colored_text("✗", Colors.RED)
-
 def check_pipeline_status(datadir, experiment_name):
     """
     Check the status of all pipeline outputs for each sample-lane combination.
@@ -59,7 +58,7 @@ def check_pipeline_status(datadir, experiment_name):
     
     if not samples_lanes:
         print(f"No samples found for experiment {experiment_name}")
-        print(f"Searched in: {os.path.join(datadir, experiment_name, 'tmp', '*_CD4i_R1_Ultima.*.scRNA.h5ad')}")
+        print(f"Searched in: {os.path.join(datadir, experiment_name, 'tmp', '*_CD4i_R*.*.scRNA.h5ad')}")
         return
     
     print(colored_text(f"Pipeline Status for Experiment: {experiment_name}", Colors.BOLD + Colors.BLUE))
@@ -83,19 +82,21 @@ def check_pipeline_status(datadir, experiment_name):
     missing_step3_postqc = []
     
     for sample_name, lane_id in samples_lanes:
+        # Determine if R1 or R2 from lane_id
+        run_id = "R1" if "R1" in lane_id else "R2"
+        
         # Define file paths for each step
         step1_scrna = os.path.join(datadir, experiment_name, "tmp", 
-                                  f"{sample_name}_CD4i_R1_Ultima.{lane_id}.scRNA.h5ad")
+                                  f"{sample_name}_CD4i_{run_id}_Ultima.{lane_id}.scRNA.h5ad")
         
         step1_sgrna = os.path.join(datadir, experiment_name, 
-                                  f"{sample_name}_CD4i_R1_Ultima.{lane_id}.sgRNA.h5ad")
+                                  f"{sample_name}_CD4i_{run_id}_Ultima.{lane_id}.sgRNA.h5ad")
         
         step2_assign = os.path.join(datadir, experiment_name, 
-                                   f"{sample_name}_CD4i_R1_Ultima.{lane_id}.sgrna_assignment.csv")
+                                   f"{sample_name}_CD4i_{run_id}_Ultima.{lane_id}.sgrna_assignment.csv")
         
         step3_postqc = os.path.join(datadir, experiment_name, "tmp", 
-                                   f"{sample_name}_CD4i_R1_Ultima.{lane_id}.scRNA.postQC.h5ad")
-        
+                                   f"{sample_name}_CD4i_{run_id}_Ultima.{lane_id}.scRNA.postQC.h5ad")
         # Check file existence
         status1_scrna = check_file_exists(step1_scrna)
         status1_sgrna = check_file_exists(step1_sgrna)

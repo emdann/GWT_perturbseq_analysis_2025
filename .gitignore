@@ -1,6 +1,11 @@
 **/*.html
 **/*.h5ad
+**/*.h5mu
+**/czi-psomagen/
 .vscode
+# SLURM files
+**/*.err
+**/*.out
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
