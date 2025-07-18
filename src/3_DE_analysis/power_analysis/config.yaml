@@ -1,0 +1,22 @@
+## Configuration for powes-analysis
+selected_perturbed_genes:
+  - GATA3
+  - KLF2
+  - MED12
+  - PTEN
+
+subset_size: 5
+random_seeds: 
+  - 432
+  - 5435
+  - 3214
+
+sample_ids:
+    D1_Rest:
+        datadir: /oak/stanford/groups/pritch/users/emma/data/GWT/CD4iR1_Psomagen/
+    D2_Rest:
+        datadir: /oak/stanford/groups/pritch/users/emma/data/GWT/CD4iR1_Psomagen/
+    D3_Rest:
+        datadir: /oak/stanford/groups/pritch/users/emma/data/GWT/CD4iR2_Psomagen/
+    D4_Rest:
+        datadir: /oak/stanford/groups/pritch/users/emma/data/GWT/CD4iR2_Psomagen/
