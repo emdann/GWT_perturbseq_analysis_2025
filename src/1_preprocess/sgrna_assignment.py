@@ -444,20 +444,21 @@ if __name__ == "__main__":
     for sgrna_h5ad in crispr_files:
         # Extract sample identifier from file path
         sample_lane_id = os.path.basename(sgrna_h5ad).replace('.sgRNA.h5ad', '')
-        print(f"\nProcessing {sample_lane_id} from {sgrna_h5ad}")
+        # print(f"\nProcessing {sample_lane_id} from {sgrna_h5ad}")
         
         if args.merge:
             # Merge all chunk results
-            print(f"Merging chunk results for sample {sample_lane_id}...")
+            
             chunk_files = glob.glob(f'{datadir}/tmp/{sample_lane_id}.sgrna_assignment_chunk_*.csv')
             if not chunk_files:
-                print(f"No chunk files found for sample {sample_lane_id}")
+                # print(f"No chunk files found for sample {sample_lane_id}")
                 continue
             if len(chunk_files) < args.expected_n_chunks:
                 print(f"Missing chunk files found for sample {sample_lane_id}")
                 continue
                 
             try:
+                print(f"Merging chunk results for sample {sample_lane_id}...")
                 # Check chunk numbers and expected chunk size from filenames
                 chunk_info = [re.search(r'chunk_(\d+)_(\d+)\.csv$', f) for f in chunk_files]
                 chunk_numbers = [int(m.group(1)) for m in chunk_info if m]

@@ -11,7 +11,7 @@ H5AD_FILE=$2
 SAMPLE=$(basename $H5AD_FILE .sgRNA.h5ad)
 CHUNK_SIZE=1000                          # Number of sgRNAs per chunk
 MAX_CORES_PER_NODE=10                   # Maximum CPUs available on your nodes
-TOTAL_GUIDES=22000                      # Total number of guides
+TOTAL_GUIDES=28000                      # Total number of guides
 
 # Calculate the number of chunks
 N_CHUNKS=$(( ($TOTAL_GUIDES + $CHUNK_SIZE - 1) / $CHUNK_SIZE ))
@@ -30,7 +30,7 @@ sbatch \
     --ntasks=1 \
     --cpus-per-task=$MAX_CORES_PER_NODE \
     --mem=24G \
-    --time=1:00:00 \
+    --time=2:30:00 \
     --array=0-$(($N_CHUNKS-1)) \
     --export=ALL,EXPERIMENT_NAME=$EXPERIMENT_NAME,H5AD_FILE=$H5AD_FILE,CHUNK_SIZE=$CHUNK_SIZE,TOTAL_GUIDES=$TOTAL_GUIDES,MAX_CORES_PER_NODE=$MAX_CORES_PER_NODE \
     --wrap="i=\$SLURM_ARRAY_TASK_ID; \

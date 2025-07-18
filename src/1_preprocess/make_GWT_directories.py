@@ -15,7 +15,9 @@ def create_directories(config_path, experiment_name):
     # Create main directories
     exp_dir = os.path.dirname(base_dir) if base_dir.endswith('/') else base_dir
     cellranger_dir = os.path.join(exp_dir, "cellranger_outs")
+    tmp_dir = os.path.join(exp_dir, "tmp")
     os.makedirs(cellranger_dir, exist_ok=True)
+    os.makedirs(tmp_dir, exist_ok=True)
     
     # Create lane subdirectories
     for lane_id in exp_config.get('lane_ids', []):

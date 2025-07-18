@@ -19,7 +19,7 @@ done
 2. Make folder structure
 ```bash
 # Setup folders in Sherlock
-EXPERIMENT_NAME=CD4iR1_Psomagen
+EXPERIMENT_NAME=CD4iR2_Psomagen
 python make_GWT_directories.py $EXPERIMENT_NAME
 ```
 3. Download sample metadata 
@@ -51,13 +51,13 @@ This runs preprocessing and QC on each .h5 cellranger output in parallel.
 1. Ingest and basic preprocessing of cellranger outputs
 ```bash
 conda activate perturb-vs-tissue-env
-EXPERIMENT_NAME=CD4iR1_Psomagen
+EXPERIMENT_NAME=CD4iR2_Psomagen
 DATADIR=/oak/stanford/groups/pritch/users/emma/data/GWT/
 for H5_FILE in $(ls ${DATADIR}/${EXPERIMENT_NAME}/cellranger_outs/*/*); do
   BASENAME=$(basename ${H5_FILE} .h5)
   SAMPLE_NAME=$(echo ${BASENAME} | sed 's/_sample_filtered_feature_bc_matrix//')
   LANE_ID=$(basename $(dirname ${H5_FILE}))
-  OUTPUT_FILE="${DATADIR}/${EXPERIMENT_NAME}/tmp/${SAMPLE_NAME}_CD4i_R1_Ultima.${LANE_ID}.scRNA.h5ad"
+  OUTPUT_FILE="${DATADIR}/${EXPERIMENT_NAME}/tmp/${SAMPLE_NAME}_CD4i_R2_Ultima.${LANE_ID}.scRNA.h5ad"
   # Check if output file already exists
   if [ ! -f "${OUTPUT_FILE}" ]; then
     sbatch \
@@ -107,7 +107,7 @@ for f in $H5AD_FILES; do
           --output=$GROUP_SCRATCH/emma/slurm-qc_%j.out \
           --error=$GROUP_SCRATCH/emma/slurm-qc_%j.err \
           --mem=24G  \
-          --time=00:30:00 \
+          --time=01:00:00 \
           --wrap="python qc_samples.py --experiment_name=${EXPERIMENT_NAME} --sample_id=${SAMPLE_NAME}"
   fi
 done
