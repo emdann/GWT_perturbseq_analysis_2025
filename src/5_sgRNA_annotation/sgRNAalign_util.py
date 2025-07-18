@@ -213,3 +213,73 @@ def is_near_cds_start(pos, cds_starts_list, distance_threshold=2000):
     except TypeError:
         return False
     return False
+
+def find_nearest_nontarget(sgrna_row, genes_df):
+    """
+    Finds the nearest non-target gene for an sgRNA by checking its primary
+    and other alignment positions against a gene database.
+    
+    Args:
+        sgrna_row (pd.Series): A single row from the sgrna_df_final DataFrame.
+        genes_df (pd.DataFrame): The genes_df_subset DataFrame for searching.
+        
+    Returns:
+        pd.Series: A series containing the ID, name, and distance of the 
+                   nearest non-target gene.
+    """
+    # Get the ID of the gene this sgRNA was designed to target
+    designed_target_id = sgrna_row['designed_target_gene_id']
+    
+    # --- 1. Collect all genomic positions to search ---
+    search_locations = []
+    
+    # Add the primary sgRNA alignment location
+    search_locations.append((sgrna_row['chromosome'], sgrna_row['pos']))
+    
+    # Add other alignment locations if they exist and are valid lists
+    other_pos = sgrna_row['other_alignment_pos']
+    other_chrom = sgrna_row['other_alignment_chromosome']
+    
+    if isinstance(other_pos, list) and isinstance(other_chrom, list):
+        search_locations.extend(list(zip(other_chrom, other_pos)))
+
+    # --- 2. Search for the closest non-target gene across all locations ---
+    overall_best_dist = float('inf')
+    overall_best_gene_id = np.nan
+    overall_best_gene_name = np.nan
+
+    for chrom, pos in search_locations:
+        # Filter genes to the correct chromosome and exclude the designed target
+        candidate_genes = genes_df[
+            (genes_df['chromosome'] == chrom) &
+            (genes_df['gene_id'] != designed_target_id)
+        ].copy() # Use .copy() to prevent SettingWithCopyWarning
+        
+        # If no potential non-target genes exist on this chromosome, skip
+        if candidate_genes.empty:
+            continue
+            
+        # For each candidate gene, find the minimum distance from the sgRNA
+        # position to any of its transcription start sites (TSS)
+        # The lambda function efficiently handles the list of TSSs for each gene
+        distances = candidate_genes['tss'].apply(
+            lambda tss_list: min([abs(pos - tss) for tss in tss_list])
+        )
+        
+        # Find the closest gene at this specific location
+        if not distances.empty:
+            local_min_dist = distances.min()
+            
+            # If this location's best is better than our overall best, update it
+            if local_min_dist < overall_best_dist:
+                overall_best_dist = local_min_dist
+                # Get the details of the new best gene
+                best_gene_series = candidate_genes.loc[distances.idxmin()]
+                overall_best_gene_id = best_gene_series['gene_id']
+                overall_best_gene_name = best_gene_series['gene_name']
+
+    # Convert infinity back to NaN for cleaner output if no gene was found
+    if overall_best_dist == float('inf'):
+        overall_best_dist = np.nan
+
+    return pd.Series([overall_best_gene_id, overall_best_gene_name, overall_best_dist])
