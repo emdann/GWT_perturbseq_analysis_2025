@@ -73,21 +73,16 @@ def main():
             except EOFError:
                 continue
 
-        combined_de_adata = anndata.concat(de_results_adatas, label='chunk')
+        combined_de_adata = anndata.concat(de_results_adatas, label='chunk', join='outer')
         combined_de_adata.obs_names = combined_de_adata.obs_names.str.split('-').str[0]
         assert combined_de_adata.obs_names.is_unique
 
     # Annotate number of cells per target gene
-    all_conditions = combined_de_adata.obs['culture_condition'].unique()
-    guide_cell_counts = pd.DataFrame()
-    for culture_condition in all_conditions:
-        guide_cell_counts_c = pd.read_csv(f'{datadir}/{experiment_name}.guide_effect.{culture_condition}.csv', index_col=0)[['guide_n']]
-        guide_cell_counts_c['culture_condition'] = culture_condition
-        guide_cell_counts_c['perturbed_gene_id'] = sgrna_library_metadata.set_index('sgrna_id').loc[guide_cell_counts_c.index]['perturbed_gene_id']
-        guide_cell_counts = pd.concat([guide_cell_counts, guide_cell_counts_c])
-    n_cells_target_contrast = guide_cell_counts.groupby(['perturbed_gene_id', 'culture_condition'])['guide_n'].sum().reset_index()
-    n_cells_target_contrast.index = n_cells_target_contrast['perturbed_gene_id'] + '_' + n_cells_target_contrast['culture_condition']
-    combined_de_adata.obs['n_cells_target'] = n_cells_target_contrast['guide_n'].loc[combined_de_adata.obs_names]
+    pbulk_adata_obs = anndata.experimental.read_lazy(f'{datadir}/{experiment_name}_merged.DE_pseudobulk.h5ad').obs.to_dataframe()
+    n_cells_target_contrast = pbulk_adata_obs[['perturbed_gene_id', 'culture_condition', 'n_cells']].copy()
+    n_cells_target_contrast['test'] = n_cells_target_contrast['perturbed_gene_id'].astype(str) + '_' + n_cells_target_contrast['culture_condition'].astype(str)
+    n_cells_target_contrast = n_cells_target_contrast.groupby('test')['n_cells'].sum().reset_index().set_index('test')
+    combined_de_adata.obs['n_cells_target'] = n_cells_target_contrast['n_cells'].loc[combined_de_adata.obs_names]
 
     # Add gene names
     combined_de_adata.var = var_df.loc[combined_de_adata.var_names]

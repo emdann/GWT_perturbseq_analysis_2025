@@ -1,0 +1,32 @@
+# Configuration for Differential Expression Analysis
+experiment_name: "CD4i_final" 
+datadir: "/oak/stanford/groups/pritch/users/emma/data/GWT/"
+run_name: "single_guide"
+
+# Perturbation selection params
+min_replicates: 3 # Minimum number of replicates required per perturbation to test
+min_cells_per_guide: 5 # Minimum number of cells required per guide in each condition/sample
+n_hvgs: 10000 # Number of highly variable genes to select 
+min_counts_quantile: 0.005
+
+# DE chunking params
+chunk_size: 50 # Chunk size for splitting targets in DE analysis
+chunk_split_seed: 1423 # Random seed for chunk splitting
+
+# Feature selection params
+feature_selection:
+  highx_min_mean_counts: 10000 # Minimum mean counts for high-expression outlier genes
+  highx_min_pct_dropouts: 0.9 # Minimum percentage of dropouts for high-expression outlier genes
+  lowx_min_counts: 1 # Maximum mean log-norm expression for low-expression outlier genes
+  lowx_max_pct_dropouts: 99.9 # Maximum percentage of dropouts for low-expression outlier genes
+
+# DE testing params
+run_DE_params:
+  min_counts_per_gene: 10 # Min total counts per gene in the same condition for testing
+  design_formula: '~ log10_n_cells + target' # DE analysis model
+
+# File paths (relative to datadir)
+file_paths:
+  no_effect_guides_file: "no_effect_guides.txt"
+  de_test_genes_file: "DE_single_guide_test_genes.txt"
+  target2chunk_file: "DE_single_guide_target2chunk.csv.gz"

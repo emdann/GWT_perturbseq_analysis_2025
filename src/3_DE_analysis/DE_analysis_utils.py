@@ -378,10 +378,20 @@ def plot_gene_expression_by_target(pbulk_adata, target_id, gene_id, condition='S
     
     return ax
 
-def plot_effect_comparison(adata_de, comparison_params, n_top_genes=15, plot_correlation=False, axis_label = 'DE effect', corr_coords_xy = (0.01, 0.95), figsize=(8, 8), ax=None):
+def plot_effect_comparison(
+    adata_de,
+    comparison_params,
+    n_top_genes=15,
+    plot_correlation=False,
+    axis_label='DE effect',
+    corr_coords_xy=(0.01, 0.95),
+    figsize=(8, 8),
+    ax=None,
+    annotate_genes=None
+):
     """
     Scatter plot comparing DE effects on all tested genes for a pair of conditions, targets or stats.
-    
+
     Parameters:
     -----------
     adata_de : AnnData
@@ -392,12 +402,14 @@ def plot_effect_comparison(adata_de, comparison_params, n_top_genes=15, plot_cor
         - 'stat': list of statistics to use (e.g., 'MASH_PosteriorMean')
         - 'culture_condition': list of conditions to compare
     n_top_genes : int, default=15
-        Number of top/bottom genes to annotate on each axis
+        Number of top/bottom genes to annotate on each axis (ignored if annotate_genes is provided)
     plot_correlation : bool, default=False
         Whether to plot correlation statistics
     ax : matplotlib.axes.Axes, optional
         Pre-existing axes for the plot. If None, a new figure and axes will be created.
-        
+    annotate_genes : list or None, optional
+        List of gene names to annotate on the plot. If None, will annotate top/bottom genes as before.
+
     Returns:
     --------
     fig : matplotlib.figure.Figure
@@ -408,7 +420,7 @@ def plot_effect_comparison(adata_de, comparison_params, n_top_genes=15, plot_cor
         The dataframe used for plotting
     """
     # Validate parameters
-    compare = [k for k,v in comparison_params.items() if len(v) == 2]
+    compare = [k for k, v in comparison_params.items() if len(v) == 2]
     if len(compare) > 1:
         raise ValueError(f"More than one parameter has length 2: {', '.join(compare)}")
     else:
@@ -416,10 +428,10 @@ def plot_effect_comparison(adata_de, comparison_params, n_top_genes=15, plot_cor
 
     # Get DE results
     res_df = get_DE_results_long(
-        adata_de, 
-        targets=comparison_params['target_contrast_gene_name'], 
-        effect_estimates=comparison_params['stat'], 
-        gene_id_col='gene_name', 
+        adata_de,
+        targets=comparison_params['target_contrast_gene_name'],
+        effect_estimates=comparison_params['stat'],
+        gene_id_col='gene_name',
         target_id_col='target_contrast_gene_name',
         target_metadata_cols=['culture_condition']
     )
@@ -452,50 +464,51 @@ def plot_effect_comparison(adata_de, comparison_params, n_top_genes=15, plot_cor
         corr, pval = scipy.stats.pearsonr(pl_df[x_col], pl_df[y_col])
 
         # Add correlation information as text
-        ax.annotate(f'Correlation: {corr:.3f}\n(p{" < 10e-16" if pval < 1e-16 else f" = {pval:.3e}"})', 
-                    xy=corr_coords_xy, xycoords='axes fraction', fontsize=12)
+        ax.annotate(
+            f'Correlation: {corr:.3f}\n(p{" < 10e-16" if pval < 1e-16 else f" = {pval:.3e}"})',
+            xy=corr_coords_xy, xycoords='axes fraction', fontsize=12
+        )
 
     # Add axis labels and title
     ax.set_xlabel(f'{axis_label} ({x_col})', fontsize=12)
     ax.set_ylabel(f'{axis_label} ({y_col})', fontsize=12)
     ax.set_title(f'{comparison_params["target_contrast_gene_name"][0]} knock-out effect\n{x_col} vs {y_col} comparison', fontsize=14)
 
-
-    # Annotate genes with extreme values
-    # Get top and bottom genes based on y-axis values
-    # Find top and bottom genes for y-axis
-    top_genes_y = pl_df.nlargest(n_top_genes, y_col)
-    bottom_genes_y = pl_df.nsmallest(n_top_genes, y_col)
-    
-    # Find top and bottom genes for x-axis
-    top_genes_x = pl_df.nlargest(n_top_genes, x_col)
-    bottom_genes_x = pl_df.nsmallest(n_top_genes, x_col)
-    
-    # Combine all extreme genes (will automatically remove duplicates when used as index)
-    extreme_genes = pd.concat([top_genes_y, bottom_genes_y, top_genes_x, bottom_genes_x]).drop_duplicates()
-    
-    # Create text annotations for extreme genes
+    # Annotate genes
     texts = []
-    for idx, row in extreme_genes.iterrows():
-        # Color based on which category the gene falls into
-        if idx in top_genes_y.index or idx in top_genes_x.index:
-            color = 'darkred'
-        else:
-            color = 'darkblue'
-            
-        # Create annotation and add to list
-        texts.append(ax.text(row[x_col], row[y_col], idx,
-                    fontsize=8,
-                    color=color))
-    
+    if annotate_genes is not None:
+        # Only annotate the specified genes if they are present in pl_df
+        for gene in annotate_genes:
+            if gene in pl_df.index:
+                row = pl_df.loc[gene]
+                # Use a default color for user-specified genes
+                color = 'darkgreen'
+                texts.append(ax.text(row[x_col], row[y_col], gene, fontsize=8, color=color))
+    else:
+        # Annotate genes with extreme values (top/bottom)
+        top_genes_y = pl_df.nlargest(n_top_genes, y_col)
+        bottom_genes_y = pl_df.nsmallest(n_top_genes, y_col)
+        top_genes_x = pl_df.nlargest(n_top_genes, x_col)
+        bottom_genes_x = pl_df.nsmallest(n_top_genes, x_col)
+        extreme_genes = pd.concat([top_genes_y, bottom_genes_y, top_genes_x, bottom_genes_x]).drop_duplicates()
+        for idx, row in extreme_genes.iterrows():
+            # Color based on which category the gene falls into
+            if idx in top_genes_y.index or idx in top_genes_x.index:
+                color = 'darkred'
+            else:
+                color = 'darkblue'
+            texts.append(ax.text(row[x_col], row[y_col], idx, fontsize=8, color=color))
+
     # Use adjustText to avoid overlapping labels
     from adjustText import adjust_text
-    adjust_text(texts, 
-                arrowprops=dict(arrowstyle='-', color='gray', lw=0.5),
-                expand_points=(1.5, 1.5),
-                force_points=(0.5, 0.5),
-                ax=ax)
-    
+    adjust_text(
+        texts,
+        arrowprops=dict(arrowstyle='-', color='gray', lw=0.5),
+        expand_points=(1.5, 1.5),
+        force_points=(0.5, 0.5),
+        ax=ax
+    )
+
     if fig is not None:
         return fig, ax, pl_df
     else:

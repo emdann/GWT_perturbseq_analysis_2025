@@ -9,6 +9,8 @@ fi
 CONFIG=$1
 CONDITION=$2
 DATADIR=${3:-"/oak/stanford/groups/pritch/users/emma/data/GWT/"}  # Default path or override with arg
+NCPUS=${4:-"10"}  # Default path or override with arg
+NCPUS_USED=$((NCPUS - 2))
 
 # Extract experiment_name and datadir from the config file
 EXPERIMENT_NAME=$(grep "experiment_name:" "$CONFIG" | cut -d ":" -f2 | tr -d ' "')
@@ -35,26 +37,75 @@ if [ $N_CHUNKS -eq 0 ]; then
     exit 1
 fi
 
+# Find missing chunks
+RUN_NAME=$(grep "run_name:" "$CONFIG" | sed 's/.*run_name:[[:space:]]*//' | sed 's/[[:space:]]*$//' | tr -d '"')
+RESULTS_DIR="${DATADIR}/${EXPERIMENT_NAME}/DE_results_${RUN_NAME}/tmp"
+
+MISSING_CHUNKS=()
+for chunk_id in $(seq 0 $((N_CHUNKS-1))); do
+    OUTPUT_FILE="${RESULTS_DIR}/DE_results.${CONDITION}.chunk_${chunk_id}.csv.gz"
+    if [ ! -f "$OUTPUT_FILE" ]; then
+        MISSING_CHUNKS+=($chunk_id)
+    fi
+done
+echo "Found ${#MISSING_CHUNKS[@]} missing chunks: ${MISSING_CHUNKS[*]}"
+# Convert missing chunks array to comma-separated list for SLURM array
+if [ ${#MISSING_CHUNKS[@]} -eq 1 ]; then
+    ARRAY_SPEC="${MISSING_CHUNKS[0]}" # Single chunk
+else
+    ARRAY_SPEC=$(IFS=,; echo "${MISSING_CHUNKS[*]}") # Multiple chunks - create comma-separated list
+fi
+
+
 conda activate pertpy-milo
-
-echo "Submitting $N_CHUNKS DE analysis jobs for experiment $EXPERIMENT_NAME, condition $CONDITION"
-
 # Create a job array for all chunks (0-based indexing for chunks)
+export OMP_NUM_THREADS=1
+export MKL_NUM_THREADS=1
+export OPENBLAS_NUM_THREADS=1
+export NUMEXPR_NUM_THREADS=1
 sbatch \
     --partition=pritch \
+    --exclude=sh04-16n13,sh04-16n16 \
     --job-name=DE_${EXPERIMENT_NAME}_${CONDITION} \
     --output=$GROUP_SCRATCH/emma/slurm-DE_%A_%a.out \
     --error=$GROUP_SCRATCH/emma/slurm-DE_%A_%a.err \
     --nodes=1 \
     --ntasks=1 \
-    --cpus-per-task=3 \
-    --mem=50G \
+    --cpus-per-task=$NCPUS \
+    --mem=100G \
     --time=2:00:00 \
-    --array=0-$((N_CHUNKS-1)) \
+    --array=$ARRAY_SPEC \
     --wrap="python run_DE_chunk.py \
         --config $CONFIG \
         --test_chunk \$SLURM_ARRAY_TASK_ID \
-        --culture_condition $CONDITION"
+        --culture_condition $CONDITION \
+        --n_cpus $NCPUS" 
+
+
+# --- Test --- 
+# NCPUS=20
+# NCPUS_USED=$((NCPUS - 5))
+# export OMP_NUM_THREADS=1
+# export MKL_NUM_THREADS=1
+# export OPENBLAS_NUM_THREADS=1
+# export NUMEXPR_NUM_THREADS=1
+# sbatch \
+#     --hold \
+#     --partition=pritch \
+#     --job-name=DE_test \
+#     --output=$GROUP_SCRATCH/emma/slurm-DE_%A_%a.out \
+#     --error=$GROUP_SCRATCH/emma/slurm-DE_%A_%a.err \
+#     --nodes=1 \
+#     --ntasks=1 \
+#     --cpus-per-task=$NCPUS \
+#     --mem=100G \
+#     --time=2:00:00 \
+#     --wrap="python run_DE_chunk.py \
+#         --config $CONFIG \
+#         --test_chunk 100 \
+#         --culture_condition Rest \
+#         --n_cpus $NCPUS_USED" 
+        
 
 # # Create output directory if it doesn't exist
 # OUTPUT_DIR="${DATADIR}/${EXPERIMENT_NAME}/DE_results_all_confounders/tmp/"

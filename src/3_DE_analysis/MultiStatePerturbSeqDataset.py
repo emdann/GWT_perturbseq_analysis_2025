@@ -189,7 +189,8 @@ class MultistatePerturbSeqDataset:
         test_targets: List[str] = None,
         test_state=None, 
         min_counts_per_gene = 3,
-        return_model = False
+        return_model = False,
+        n_cpus = 10
         ):
         '''
         Run differential expression analysis for each target compared to control.
@@ -224,7 +225,7 @@ class MultistatePerturbSeqDataset:
             adata_state = adata_state[:, adata_state.X.sum(0) >= min_counts_per_gene].copy()
 
             model = pertpy.tl.PyDESeq2(adata_state, design=design_formula)
-            model.fit(quiet=True)
+            model.fit(n_cpus = n_cpus, quiet=True)
     
             all_targets = adata_state.obs['target'].unique().tolist()
             all_targets.remove(self.control_level)
