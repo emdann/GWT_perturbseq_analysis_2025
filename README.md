@@ -44,65 +44,29 @@ git push origin new-branch-name
 
 ## Processed data
 
-- On Dropbox: `GRNPerturbSeq/3_expts/processed_data/{experiment_name}` 
-- On oak: `/oak/stanford/groups/pritch/users/emma/data/GWT/{experiment_name}`
-
 ### Count matrices / AnnData objects
-- `{sample}.{lane}scRNA.postQC_obs.h5ad` - count matrices and annotations after QC with sgRNA assignment
 
-### QC stats
+These objects are saved and processed by 10X lane. For now they are stored under two separate experiment names, one for each data drop (`CD4iR1_Psomagen` and `CD4iR2_Psomagen`)
+
+- Base path on Dropbox: `GRNPerturbSeq/3_expts/processed_data/{experiment_name}` 
+- Base path on oak: `/oak/stanford/groups/pritch/users/emma/data/GWT/{experiment_name}`
+
+- `{sample}.{lane}scRNA.postQC_obs.h5ad` - count matrices and annotations after QC with sgRNA assignment
 - `QC_summary_stats.csv` - summary of QC metric statistics for each sample and lane
 - `perturbation_counts.csv` - count of number of cells per perturbation for each sample and lane
-- `{EXPERIMENT_NAME}.guide_effect.{culture_condition}.csv` - summary stats to assess sgRNA effect on target gene compared to expression of gene in NTC controls
+
+### Guide effect estimates 
+
+- Base path on Dropbox: `GRNPerturbSeq/3_expts/processed_data/CD4i_final/` 
+- Base path on oak: `/oak/stanford/groups/pritch/users/emma/data/GWT/CD4i_final/`
+
+- `CD4i_final.guide_effect.{culture_condition}.csv` - summary stats to assess sgRNA effect on target gene compared to expression of gene in NTC controls
 - `no_effect_guides.txt` - guides with no significant effect in any condition
 
 ### Differential expression analysis files
-- `{experiment_name}_merged.DE_pseudobulk.h5ad` - pseudobulked gene expression counts per guide+sample+condition (summing expression profile)
-- `DE_results_{run_name}/{experiment_name}.gex.lognorm.h5ad` - DE analysis results (obs are perturbations x condition, vars are transcriptome genes)
-- `DE_results_{run_name}/DE_summary_stats_per_target.csv` - Summary of on-target effects and overall effect for each perturbation and condition
+- `CD4i_final_merged.DE_pseudobulk.h5ad` - pseudobulked gene expression counts per guide+sample+condition (summing expression profile)
+- `DE_results_all_confounders/CD4i_final.gex.lognorm.h5ad` - DE analysis results (obs are perturbations x condition, vars are transcriptome genes)
+- `DE_results_all_confounders/DE_summary_stats_per_target.csv` - Summary of on-target effects and overall effect for each perturbation and condition
 
 
-To sync processed data with Dropbox
-
-```bash
-# DATADIR=/oak/stanford/groups/pritch/users/emma/data/GWT/
-DATADIR=/mnt/oak/users/emma/data/GWT/
-EXPERIMENT_NAME=CD4iR1_Psomagen
-EXPDIR=${DATADIR}/${EXPERIMENT_NAME}/
-DROPBOX_PATH=GRNPerturbSeq/3_expts/processed_data/
-
-# Define list of files to copy
-FILES_TO_COPY=(
-    "${EXPERIMENT_NAME}_merged.gex.lognorm.postQC_obs.csv"
-    "${EXPERIMENT_NAME}_merged.DE_pseudobulk.h5ad"
-    "DE_results/${EXPERIMENT_NAME}.merged_DE_results.h5ad"
-    "knockdown_efficacy_simple.csv"
-    "guide_ontarget_effect_simple.csv"
-    "${EXPERIMENT_NAME}_merged.gex.h5ad"
-)
-
-rclone mkdir dropbox:${DROPBOX_PATH}${EXPERIMENT_NAME}/
-
-# Copy each file to Dropbox
-for f in "${FILES_TO_COPY[@]}"; do 
-    rclone copy ${EXPDIR}/${f} dropbox:${DROPBOX_PATH}${EXPERIMENT_NAME}/ --checksum --ignore-times
-done
-
-# Sync raw outputs
-DATADIR=/mnt/oak/users/emma/data/GWT/
-EXPERIMENT_NAME=CD4iR1_Psomagen
-DROPBOX_PATH=GRNPerturbSeq/3_expts/
-LOCAL_DATA_DIR="$DATADIR/czi-psomagen"
-rclone mkdir dropbox:${DROPBOX_PATH}${EXPERIMENT_NAME}/
-
-find "$LOCAL_DATA_DIR" -name "web_summary.html" -type f | while read file; do
-    relative_path=${file#$LOCAL_DATA_DIR/}
-    relative_dir=$(dirname "$relative_path")
-    rclone copy "$file" "dropbox:${DROPBOX_PATH}${EXPERIMENT_NAME}/${relative_dir}/" --checksum --ignore-times
-done
-```
-
-
-
-
-
+To sync processed data with Dropbox, see [example script](https://github.com/emdann/GWT_perturbseq_analysis/blob/master/src/_misc/sync2dropbox.sh).  
