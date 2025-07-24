@@ -48,18 +48,22 @@ git push origin new-branch-name
 
 These objects are saved and processed by 10X lane. For now they are stored under two separate experiment names, one for each data drop (`CD4iR1_Psomagen` and `CD4iR2_Psomagen`)
 
-- Base path on Dropbox: `GRNPerturbSeq/3_expts/processed_data/{experiment_name}` 
-- Base path on oak: `/oak/stanford/groups/pritch/users/emma/data/GWT/{experiment_name}`
+Base path:
+- Dropbox `GRNPerturbSeq/3_expts/processed_data/{experiment_name}` 
+- oak `/oak/stanford/groups/pritch/users/emma/data/GWT/{experiment_name}`
 
+Files:
 - `{sample}.{lane}scRNA.postQC_obs.h5ad` - count matrices and annotations after QC with sgRNA assignment
 - `QC_summary_stats.csv` - summary of QC metric statistics for each sample and lane
 - `perturbation_counts.csv` - count of number of cells per perturbation for each sample and lane
 
 ### Guide effect estimates 
 
-- Base path on Dropbox: `GRNPerturbSeq/3_expts/processed_data/CD4i_final/` 
-- Base path on oak: `/oak/stanford/groups/pritch/users/emma/data/GWT/CD4i_final/`
+Base path:
+- Dropbox: `GRNPerturbSeq/3_expts/processed_data/CD4i_final/` 
+- oak: `/oak/stanford/groups/pritch/users/emma/data/GWT/CD4i_final/`
 
+Files:
 - `CD4i_final.guide_effect.{culture_condition}.csv` - summary stats to assess sgRNA effect on target gene compared to expression of gene in NTC controls
 - `no_effect_guides.txt` - guides with no significant effect in any condition
 
