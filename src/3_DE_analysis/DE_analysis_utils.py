@@ -341,10 +341,14 @@ def plot_gene_expression_by_target(pbulk_adata, target_id, gene_id, condition='S
             mean_value = row[gene_var_names[0]]
             target_idx = target_order.index(target)
             
-            # Determine the x-position with dodge
-            hue_idx = list(means[hue].unique()).index(hue_val)
-            dodge_width = 0.25  # adjust this value as needed
-            x_pos = target_idx + (hue_idx - 0.5) * dodge_width
+            # Determine the x-position with dodge based on positions in sns.stripplot
+            hue_levels = list(means[hue].unique())
+            n_hue = len(hue_levels)
+            hue_idx = hue_levels.index(hue_val)
+            # Get dodge width from the stripplot (default is 0.8 in seaborn)
+            dodge_width = 0.8 / n_hue if n_hue > 1 else 0
+            # Center the means within each target group
+            x_pos = target_idx - 0.4 + (hue_idx + 0.5) * dodge_width
             
             ax.scatter(x_pos, mean_value, 
                       s=150,  # larger size for mean dots
