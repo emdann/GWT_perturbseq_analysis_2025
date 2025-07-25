@@ -230,12 +230,18 @@ class MultistatePerturbSeqDataset:
             all_targets = adata_state.obs['target'].unique().tolist()
             all_targets.remove(self.control_level)
 
-            for t in tqdm(all_targets, desc="Testing targets"):
-                t_contrast = (model.cond(target = t) - model.cond(target = self.control_level)) 
-                res_df = model.test_contrasts(t_contrast)
-                res_df[self.cell_state_obs] = st
-                res_df['contrast'] = t
-                all_res_df = pd.concat([all_res_df, res_df])
+            contrasts = {t:(model.cond(target = t) - model.cond(target = self.control_level)) for t in all_targets}
+            res_df = model.test_contrasts(contrasts, n_cpus=n_cpus)
+            res_df[self.cell_state_obs] = st
+            all_res_df = pd.concat([all_res_df, res_df])
+        
+
+            # for t in tqdm(all_targets, desc="Testing targets"):
+            #     t_contrast = (model.cond(target = t) - model.cond(target = self.control_level)) 
+            #     res_df = model.test_contrasts(t_contrast)
+            #     res_df[self.cell_state_obs] = st
+            #     res_df['contrast'] = t
+            #     all_res_df = pd.concat([all_res_df, res_df])
         
         all_res_df = all_res_df.reset_index().drop('index', axis=1)
         
