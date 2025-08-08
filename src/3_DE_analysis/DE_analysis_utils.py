@@ -328,6 +328,8 @@ def plot_gene_expression_by_target(pbulk_adata, target_id, gene_id, condition='S
         # Calculate means for each target
         means = pl_df[pl_df['culture_condition'] == condition].groupby(
             [target_name_col])[gene_var_names[0]].mean().reset_index()
+
+    means[gene_var_names[0]] = means[gene_var_names[0]].fillna(0)
     
     # Get the order of targets as they appear in the stripplot
     target_order = ax.get_xticklabels()
