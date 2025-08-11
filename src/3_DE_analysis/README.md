@@ -139,7 +139,7 @@ sbatch \
 
 Merge outputs in AnnData object
 ```bash
-python merge_DE_results.py --config DE_config_CD4iR1_Psomagen.yaml
+python merge_DE_results.py --config DE_config_full.yaml
 ```
 
 ## Analysing DE results
