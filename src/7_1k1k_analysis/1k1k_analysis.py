@@ -1,23 +1,9 @@
-import time
-start = time.time()
 import numpy as np
-nptime = time.time()
-print('numpy:',nptime-start)
 import pandas as pd
-pdtime = time.time()
-print('pandas:',pdtime-nptime)
 import matplotlib.pyplot as plt
-plttime = time.time()
-print('plt:',plttime-pdtime)
-import anndata 
-anntime = time.time()
-print('anndata:',anntime-plttime)
+import anndata
 import scanpy as sc
-sctime = time.time()
-print('scanpy:',sctime-anntime)
 import seaborn as sns
-snstime = time.time()
-print('sns:',snstime-sctime)
 import os
 from scipy.stats import median_abs_deviation
 from sys import exit
@@ -63,11 +49,9 @@ figdir = 'figures/'
 resultsdir = 'results/'
 
 load_processed_data = True
-ct = 'CD8T'
+ct = 'B'
 
 h5ad_file_processed = datadir + f"Yazar2022_{ct}_processed.h5ad"
-
-print('loading processed 1k1k dataset')
 adata_1k1k = anndata.experimental.read_lazy(h5ad_file_processed)
 adata = anndata.AnnData(
         obs=adata_1k1k.obs.to_dataframe(),
@@ -76,30 +60,20 @@ adata = anndata.AnnData(
     )
 adata = adata.to_memory()
 adata.var['highly_variable'] = adata.var_names.isin(adata.var['dispersions_norm'].nlargest(10000).index)
-
-print('counting cells')
+# Compute perc of T cells 
 cell_type_counts_full, total_counts_sum_full = process.read_total_counts(h5ad_file, datadir)
-
-adata.X.data = adata.X.data.astype(float)
-
-# process by cell type
-cell_type_counts, total_counts_sum = process.compute_cell_type_counts(adata)
-
-counts_sum_sparse, counts_sum, mean_var_expression_donor = process.gene_expression_sum_mean_var(adata)
-metadata = process.calculate_metadata_by_donor_celltype(adata)
 B_T_pct_df = process.calculate_B_T_pct(cell_type_counts_full)
-metadata = metadata.reset_index().merge(B_T_pct_df, on="donor_id", how="left").set_index('donor+cell_type')
-
-metadata_donors = process.calculate_metadata_by_donor(adata, cell_type_counts, cell_type_counts_full, total_counts_sum_full, B_T_pct_df)
-
-adata_sums = anndata.AnnData(
-	X=counts_sum_sparse,
-	obs=metadata,	
-	var=adata.var.loc[counts_sum.columns][['feature_name']]  
-)
-
+adata.X.data = adata.X.data.astype(float)
+adata_sums = sc.get.aggregate(adata, by='donor_id', func=['sum'])
+metadata_donors = process.calculate_metadata_by_donor(adata, cell_type_counts_full, total_counts_sum_full, B_T_pct_df)
+adata_sums.obs = pd.merge(adata_sums.obs, metadata_donors.reset_index())
+adata_sums.X = adata_sums.layers['sum'].copy()
+del adata_sums.layers['sum']
 adata_sums = process.dimensionality_reduction_summed(adata_sums, figdir)
+adata_sums.obs_names = adata_sums.obs['donor_id'].values
+metadata = metadata_donors.copy()
 adata_sums.write_h5ad(datadir + f"Yazar2022_{ct}_processed.pbulk.h5ad")
+
 gene_names_dict = dict(zip(adata.var.index, adata.var['feature_name']))
 chromosome_dict = process.create_chromosome_dict(adata.var.index)
 
@@ -113,13 +87,15 @@ else:
     pcs_df = metadata_df[['donor_id'] + [f'PC{i}' for i in range(1,6)]].drop_duplicates()
 
 metadata = metadata.merge(pcs_df, on="donor_id", how="left").set_index(metadata.index)
+metadata.index.name = None
 
 # DEseqs
 print('testing')
-metadata = metadata.loc[:,~metadata.columns.str.startswith('pool')]
-metadata.to_csv(datadir + f'Yazar2022_{ct}_processed.metadata.csv')
+# Set random seed for reproducibility
+np.random.seed(4432)
 
-# Split donors into train (80%) and validation (20%) sets with stratification by age_cat
+metadata = metadata.loc[:,~metadata.columns.str.startswith('pool')]
+# Split donors into train (90%) and validation (10%) sets with stratification by age_cat
 unique_donors = metadata['donor_id'].unique()
 donor_age_cats = metadata.groupby('donor_id')['age_cat'].first()
 
@@ -138,13 +114,23 @@ for age_cat in donor_age_cats.unique():
 train_donors = np.array(train_donors)
 val_donors = np.array(val_donors)
 
+# Add train/test split column
+metadata['split'] = 'validation'
+metadata.loc[metadata['donor_id'].isin(train_donors), 'split'] = 'train'
+
+metadata.to_csv(datadir + f'Yazar2022_{ct}_processed.metadata.csv')
+
 # Create train and validation metadata/counts
 train_metadata = metadata[metadata['donor_id'].isin(train_donors)]
 val_metadata = metadata[metadata['donor_id'].isin(val_donors)]
-train_counts = counts_sum.loc[train_metadata.index]
-val_counts = counts_sum.loc[val_metadata.index]
+train_counts = sc.get.obs_df(adata_sums, adata_sums.var_names.tolist()).loc[train_metadata.index]
+val_counts = sc.get.obs_df(adata_sums, adata_sums.var_names.tolist()).loc[val_metadata.index]
 
-covars = list(metadata.columns.drop(['age','donor_id','predicted.celltype.l2','total_counts','cell_counts','avg_count_per_cell','log_counts_per_cell']))
+
+cols_to_drop = ['age', 'donor_id', 'predicted.celltype.l2', 'total_counts', 'cell_counts', 
+                'avg_count_per_cell', 'log_counts_per_cell', 'split', 'percent_B_cells']
+covars = list(metadata.columns.drop([col for col in cols_to_drop if col in metadata.columns]))
+print(covars)
 
 # Fit DESeq for training and validation sets
 train_dds = process.fit_DEseql(train_metadata, train_counts, cols=covars)
@@ -156,3 +142,4 @@ for covar in covars:
     
     train_results = run_deseq_analysis(train_dds, covar, f'{ct}_train', figdir, resultsdir)
     val_results = run_deseq_analysis(val_dds, covar, f'{ct}_validation', figdir, resultsdir)
+

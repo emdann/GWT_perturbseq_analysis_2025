@@ -123,7 +123,6 @@ def compute_cell_type_counts(adata):
 	cell_type_counts['Total'] = cell_type_counts.sum(axis=1)
 	total_counts_sum = pd.crosstab(df['donor_id'], df['cell_type'], values=df['total_counts'], aggfunc=sum)
 	total_counts_sum['Total'] = total_counts_sum.sum(axis=1)
-	# cell_type_counts['pct naive'] = cell_type_counts['CD4 Naive'] / cell_type_counts[['CD4 Naive','CD4 TCM']].sum(axis=1)
 	return cell_type_counts, total_counts_sum
 
 
@@ -249,6 +248,21 @@ def calculate_metadata_by_donor_celltype(adata):
 	metadata = pd.concat([metadata, pool_one_hot], axis=1)
 	return metadata
 
+def calculate_metadata_by_donor(adata, cell_type_counts_full, total_counts_sum_full, B_T_pct_df):
+	adata.obs['male'] = adata.obs['sex']=='male'
+	metadata_donors = adata.obs.groupby(adata.obs['donor_id']).first()[['male','age', 'pool_number']]
+	metadata_donors["age_cat"] = metadata_donors["age"].apply(categorize_age)
+	pool_one_hot = pd.get_dummies(metadata_donors['pool_number'], prefix='pool')
+	metadata = pd.concat([metadata_donors, pool_one_hot], axis=1)
+	
+	metadata_donors["total_cells"] = cell_type_counts_full.sum(axis=1)
+	metadata_donors["total_counts"] = total_counts_sum_full.sum(axis=1)
+	metadata_donors['avg_count_per_cell'] = metadata_donors['total_counts'] / metadata_donors['total_cells']
+	metadata_donors['log_counts_per_cell'] = np.log10(metadata_donors['avg_count_per_cell'])
+	metadata_donors = metadata_donors.reset_index().merge(B_T_pct_df, on="donor_id", how="left").set_index('donor_id')
+
+	return metadata_donors
+
 def calculate_metadata_by_target_condition(adata):
 	adata.obs['Stimulated'] = adata.obs['condition']=='Stimulated'
 	adata.obs['Teff'] = adata.obs['cell_type']=='Teff'
@@ -288,16 +302,6 @@ def calculate_B_T_pct(cell_type_counts_full):
 	percentages_df = percentages_df.reset_index()
 
 	return percentages_df
-
-def calculate_metadata_by_donor(adata, cell_type_counts, cell_type_counts_full, total_counts_sum_full, B_T_pct_df):
-	metadata_donors = adata.obs.groupby(adata.obs['donor_id']).first()[['sex','age']]
-	metadata_donors = metadata_donors.reset_index().merge(cell_type_counts, on="donor_id", how="left").set_index('donor_id')
-
-	metadata_donors["total_cells"] = cell_type_counts_full.sum(axis=1)
-	metadata_donors["total_counts"] = total_counts_sum_full.sum(axis=1)
-	metadata_donors = metadata_donors.reset_index().merge(B_T_pct_df, on="donor_id", how="left").set_index('donor_id')
-
-	return metadata_donors
 
 def dimensionality_reduction_summed(adata_sums, figdir, plot=False):
 	scales_counts = sc.pp.normalize_total(adata_sums, target_sum=None, inplace=False)
@@ -339,7 +343,10 @@ def dimensionality_reduction_summed(adata_sums, figdir, plot=False):
 	#return adata_sums
 
 def pool_differences_PCA(adata_sums, chromosome_dict, figdir):
-	adata_pcs = adata_sums[adata_sums.obs['predicted.celltype.l2']=='CD4 Naive']
+	if 'predicted.celltype.l2' in adata_sums.obs:
+		adata_pcs = adata_sums[adata_sums.obs['predicted.celltype.l2']=='CD4 Naive']
+	else:
+		adata_pcs = adata_sums.copy()
 	adata_pcs.var['chromosome'] = adata_pcs.var.index.map(chromosome_dict)
 	adata_pcs = adata_pcs[:, ~adata_pcs.var["chromosome"].isin(["X", "Y", "MT"])].copy()
 
