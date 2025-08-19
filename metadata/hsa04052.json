@@ -1,0 +1,1143 @@
+{
+	"name":"hsa04052",
+	"children":[
+	{
+		"name":"Cytokines",
+		"children":[
+		{
+			"name":"Interleukins",
+			"children":[
+			{
+				"name":"3552 IL1A; interleukin 1 alpha\tK04383 IL1A; interleukin 1 alpha"
+			},
+			{
+				"name":"3553 IL1B; interleukin 1 beta\tK04519 IL1B; interleukin 1 beta"
+			},
+			{
+				"name":"3557 IL1RN; interleukin 1 receptor antagonist\tK05481 IL1RN; interleukin 1 receptor antagonist"
+			},
+			{
+				"name":"84639 IL1F10; interleukin 1 family member 10\tK05488 IL1F10; interleukin 1 family member 10"
+			},
+			{
+				"name":"3558 IL2; interleukin 2\tK05429 IL2; interleukin 2"
+			},
+			{
+				"name":"3562 IL3; interleukin 3\tK04736 IL3; interleukin 3"
+			},
+			{
+				"name":"3565 IL4; interleukin 4\tK05430 IL4; interleukin 4"
+			},
+			{
+				"name":"3567 IL5; interleukin 5\tK05428 IL5; interleukin 5"
+			},
+			{
+				"name":"3569 IL6; interleukin 6\tK05405 IL6; interleukin 6"
+			},
+			{
+				"name":"3574 IL7; interleukin 7\tK05431 IL7; interleukin 7"
+			},
+			{
+				"name":"3578 IL9; interleukin 9\tK05432 IL9; interleukin 9"
+			},
+			{
+				"name":"3586 IL10; interleukin 10\tK05443 IL10; interleukin 10"
+			},
+			{
+				"name":"3589 IL11; interleukin 11\tK05417 IL11; interleukin 11"
+			},
+			{
+				"name":"3592 IL12A; interleukin 12A\tK05406 IL12A; interleukin 12A"
+			},
+			{
+				"name":"3593 IL12B; interleukin 12B\tK05425 IL12B; interleukin 12B"
+			},
+			{
+				"name":"3596 IL13; interleukin 13\tK05435 IL13; interleukin 13"
+			},
+			{
+				"name":"3600 IL15; interleukin 15\tK05433 IL15; interleukin 15"
+			},
+			{
+				"name":"3603 IL16; interleukin 16\tK22628 IL16; interleukin 16"
+			},
+			{
+				"name":"3605 IL17A; interleukin 17A\tK05489 IL17A; interleukin 17A"
+			},
+			{
+				"name":"27190 IL17B; interleukin 17B\tK05490 IL17B; interleukin 17B"
+			},
+			{
+				"name":"27189 IL17C; interleukin 17C\tK05491 IL17C; interleukin 17C"
+			},
+			{
+				"name":"53342 IL17D; interleukin 17D\tK05492 IL17D; interleukin 17D"
+			},
+			{
+				"name":"64806 IL25; interleukin 25\tK05493 IL17E; interleukin 17E"
+			},
+			{
+				"name":"112744 IL17F; interleukin 17F\tK05494 IL17F; interleukin 17F"
+			},
+			{
+				"name":"3606 IL18; interleukin 18\tK05482 IL18; interleukin 18"
+			},
+			{
+				"name":"29949 IL19; interleukin 19\tK05444 IL19; interleukin 19"
+			},
+			{
+				"name":"50604 IL20; interleukin 20\tK22667 IL20; interleukin 20"
+			},
+			{
+				"name":"59067 IL21; interleukin 21\tK05434 IL21; interleukin 21"
+			},
+			{
+				"name":"50616 IL22; interleukin 22\tK05445 IL22; interleukin 22"
+			},
+			{
+				"name":"51561 IL23A; interleukin 23 subunit alpha\tK05426 IL23A; interleukin 23 subunit alpha"
+			},
+			{
+				"name":"11009 IL24; interleukin 24\tK22668 IL24; interleukin 24"
+			},
+			{
+				"name":"55801 IL26; interleukin 26\tK05446 IL26; interleukin 26"
+			},
+			{
+				"name":"246778 IL27; interleukin 27\tK22629 IL27; interleukin 27 subunit alpha"
+			},
+			{
+				"name":"10148 EBI3; Epstein-Barr virus induced 3\tK24476 EBI3; interleukin 27 subunit beta"
+			},
+			{
+				"name":"386653 IL31; interleukin 31\tK22631 IL31; interleukin 31"
+			},
+			{
+				"name":"9235 IL32; interleukin 32\tK22632 IL32; interleukin 32"
+			},
+			{
+				"name":"90865 IL33; interleukin 33\tK12967 IL33; interleukin 33"
+			},
+			{
+				"name":"146433 IL34; interleukin 34\tK22633 IL34; interleukin 34"
+			},
+			{
+				"name":"27179 IL36A; interleukin 36 alpha\tK05484 IL36A; interleukin 36 alpha"
+			},
+			{
+				"name":"27177 IL36B; interleukin 36 beta\tK05486 IL36B; interleukin 36 beta"
+			},
+			{
+				"name":"56300 IL36G; interleukin 36 gamma\tK05487 IL36G; interleukin 36 gamma"
+			},
+			{
+				"name":"26525 IL36RN; interleukin 36 receptor antagonist\tK05483 IL36RN; interleukin 36 receptor antagonist protein"
+			},
+			{
+				"name":"27178 IL37; interleukin 37\tK05485 IL37; interleukin 37"
+			}
+			]
+		},
+		{
+			"name":"Interferons",
+			"children":[
+			{
+				"name":"3439 IFNA1; interferon alpha 1\tK05414 IFNA; interferon alpha"
+			},
+			{
+				"name":"3440 IFNA2; interferon alpha 2\tK05414 IFNA; interferon alpha"
+			},
+			{
+				"name":"3441 IFNA4; interferon alpha 4\tK05414 IFNA; interferon alpha"
+			},
+			{
+				"name":"3442 IFNA5; interferon alpha 5\tK05414 IFNA; interferon alpha"
+			},
+			{
+				"name":"3443 IFNA6; interferon alpha 6\tK05414 IFNA; interferon alpha"
+			},
+			{
+				"name":"3444 IFNA7; interferon alpha 7\tK05414 IFNA; interferon alpha"
+			},
+			{
+				"name":"3445 IFNA8; interferon alpha 8\tK05414 IFNA; interferon alpha"
+			},
+			{
+				"name":"3446 IFNA10; interferon alpha 10\tK05414 IFNA; interferon alpha"
+			},
+			{
+				"name":"3447 IFNA13; interferon alpha 13\tK05414 IFNA; interferon alpha"
+			},
+			{
+				"name":"3448 IFNA14; interferon alpha 14\tK05414 IFNA; interferon alpha"
+			},
+			{
+				"name":"3449 IFNA16; interferon alpha 16\tK05414 IFNA; interferon alpha"
+			},
+			{
+				"name":"3451 IFNA17; interferon alpha 17\tK05414 IFNA; interferon alpha"
+			},
+			{
+				"name":"3452 IFNA21; interferon alpha 21\tK05414 IFNA; interferon alpha"
+			},
+			{
+				"name":"3456 IFNB1; interferon beta 1\tK05415 IFNB; interferon beta"
+			},
+			{
+				"name":"3458 IFNG; interferon gamma\tK04687 IFNG; interferon gamma"
+			},
+			{
+				"name":"338376 IFNE; interferon epsilon\tK05442 IFNE; interferon epsilon"
+			},
+			{
+				"name":"56832 IFNK; interferon kappa\tK05441 IFNK; interferon kappa"
+			},
+			{
+				"name":"282618 IFNL1; interferon lambda 1\tK05447 IFNL1; interferon lambda 1"
+			},
+			{
+				"name":"282616 IFNL2; interferon lambda 2\tK22669 IFNL2_3; interferon lambda 2\/3"
+			},
+			{
+				"name":"282617 IFNL3; interferon lambda 3\tK22669 IFNL2_3; interferon lambda 2\/3"
+			},
+			{
+				"name":"3467 IFNW1; interferon omega 1\tK05440 IFNW; interferon omega"
+			}
+			]
+		},
+		{
+			"name":"CSF and other factors",
+			"children":[
+			{
+				"name":"1435 CSF1; colony stimulating factor 1\tK05453 CSF1; macrophage colony-stimulating factor 1"
+			},
+			{
+				"name":"1437 CSF2; colony stimulating factor 2\tK05427 CSF2; granulocyte-macrophage colony-stimulating factor"
+			},
+			{
+				"name":"1440 CSF3; colony stimulating factor 3\tK05423 CSF3; granulocyte colony-stimulating factor"
+			},
+			{
+				"name":"2056 EPO; erythropoietin\tK05437 EPO; erythropoietin"
+			},
+			{
+				"name":"1442 CSH1; chorionic somatomammotropin hormone 1\tK05438 GH; growth hormone"
+			},
+			{
+				"name":"1443 CSH2; chorionic somatomammotropin hormone 2\tK05438 GH; growth hormone"
+			},
+			{
+				"name":"1444 CSHL1; chorionic somatomammotropin hormone like 1\tK05438 GH; growth hormone"
+			},
+			{
+				"name":"2688 GH1; growth hormone 1\tK05438 GH; growth hormone"
+			},
+			{
+				"name":"2689 GH2; growth hormone 2\tK05438 GH; growth hormone"
+			},
+			{
+				"name":"7066 THPO; thrombopoietin\tK06854 THPO; thrombopoietin"
+			},
+			{
+				"name":"85480 TSLP; thymic stromal lymphopoietin\tK05436 TSLP; thymic stromal lymphopoietin"
+			},
+			{
+				"name":"5008 OSM; oncostatin M\tK05418 OSM; oncostatin M"
+			},
+			{
+				"name":"3976 LIF; LIF interleukin 6 family cytokine\tK05419 LIF; leukemia inhibitory factor"
+			},
+			{
+				"name":"1270 CNTF; ciliary neurotrophic factor\tK05420 CNTF; ciliary neurotrophic factor"
+			},
+			{
+				"name":"23529 CLCF1; cardiotrophin like cytokine factor 1\tK05421 CLCF1; cardiotrophin-like cytokine factor 1"
+			},
+			{
+				"name":"1489 CTF1; cardiotrophin 1\tK05422 CTF1; cardiotrophin 1"
+			}
+			]
+		},
+		{
+			"name":"Chemokines",
+			"children":[
+			{
+				"name":"6346 CCL1; C-C motif chemokine ligand 1\tK05514 CCL1; C-C motif chemokine 1"
+			},
+			{
+				"name":"6347 CCL2; C-C motif chemokine ligand 2\tK14624 CCL2; C-C motif chemokine 2"
+			},
+			{
+				"name":"414062 CCL3L3; C-C motif chemokine ligand 3 like 3\tK05408 CCL3; C-C motif chemokine 3"
+			},
+			{
+				"name":"6348 CCL3; C-C motif chemokine ligand 3\tK05408 CCL3; C-C motif chemokine 3"
+			},
+			{
+				"name":"6349 CCL3L1; C-C motif chemokine ligand 3 like 1\tK05408 CCL3; C-C motif chemokine 3"
+			},
+			{
+				"name":"388372 CCL4L1; C-C motif chemokine ligand 4 like 1\tK12964 CCL4; C-C motif chemokine 4"
+			},
+			{
+				"name":"6351 CCL4; C-C motif chemokine ligand 4\tK12964 CCL4; C-C motif chemokine 4"
+			},
+			{
+				"name":"9560 CCL4L2; C-C motif chemokine ligand 4 like 2\tK12964 CCL4; C-C motif chemokine 4"
+			},
+			{
+				"name":"6352 CCL5; C-C motif chemokine ligand 5\tK12499 CCL5; C-C motif chemokine 5"
+			},
+			{
+				"name":"6354 CCL7; C-C motif chemokine ligand 7\tK05509 CCL7; C-C motif chemokine 7"
+			},
+			{
+				"name":"6355 CCL8; C-C motif chemokine ligand 8\tK16596 CCL8; C-C motif chemokine 8"
+			},
+			{
+				"name":"6356 CCL11; C-C motif chemokine ligand 11\tK16597 CCL11; C-C motif chemokine 11"
+			},
+			{
+				"name":"6357 CCL13; C-C motif chemokine ligand 13\tK16595 CCL13; C-C motif chemokine 13"
+			},
+			{
+				"name":"6358 CCL14; C-C motif chemokine ligand 14\tK21092 CCL14; C-C motif chemokine 14"
+			},
+			{
+				"name":"6359 CCL15; C-C motif chemokine ligand 15\tK05511 CCL15_23; C-C motif chemokine 15\/23"
+			},
+			{
+				"name":"6368 CCL23; C-C motif chemokine ligand 23\tK05511 CCL15_23; C-C motif chemokine 15\/23"
+			},
+			{
+				"name":"6360 CCL16; C-C motif chemokine ligand 16\tK21093 CCL16; C-C motif chemokine 16"
+			},
+			{
+				"name":"6361 CCL17; C-C motif chemokine ligand 17\tK21083 CCL17; C-C motif chemokine 17"
+			},
+			{
+				"name":"6362 CCL18; C-C motif chemokine ligand 18\tK21094 CCL18; C-C motif chemokine 18"
+			},
+			{
+				"name":"6363 CCL19; C-C motif chemokine ligand 19\tK05512 CCL19; C-C motif chemokine 19"
+			},
+			{
+				"name":"6364 CCL20; C-C motif chemokine ligand 20\tK14625 CCL20; C-C motif chemokine 20"
+			},
+			{
+				"name":"6366 CCL21; C-C motif chemokine ligand 21\tK16062 CCL21; C-C motif chemokine 21"
+			},
+			{
+				"name":"6367 CCL22; C-C motif chemokine ligand 22\tK21095 CCL22; C-C motif chemokine 22"
+			},
+			{
+				"name":"6369 CCL24; C-C motif chemokine ligand 24\tK21097 CCL24; C-C motif chemokine 24"
+			},
+			{
+				"name":"6370 CCL25; C-C motif chemokine ligand 25\tK13072 CCL25; C-C motif chemokine 25"
+			},
+			{
+				"name":"10344 CCL26; C-C motif chemokine ligand 26\tK21096 CCL26; C-C motif chemokine 26"
+			},
+			{
+				"name":"10850 CCL27; C-C motif chemokine ligand 27\tK16598 CCL27; C-C motif chemokine 27"
+			},
+			{
+				"name":"56477 CCL28; C-C motif chemokine ligand 28\tK05513 CCL28; C-C motif chemokine 28"
+			},
+			{
+				"name":"2919 CXCL1; C-X-C motif chemokine ligand 1\tK05505 CXCL1_2_3; C-X-C motif chemokine 1\/2\/3"
+			},
+			{
+				"name":"2920 CXCL2; C-X-C motif chemokine ligand 2\tK05505 CXCL1_2_3; C-X-C motif chemokine 1\/2\/3"
+			},
+			{
+				"name":"2921 CXCL3; C-X-C motif chemokine ligand 3\tK05505 CXCL1_2_3; C-X-C motif chemokine 1\/2\/3"
+			},
+			{
+				"name":"5196 PF4; platelet factor 4\tK05407 PF4; platelet factor 4"
+			},
+			{
+				"name":"5197 PF4V1; platelet factor 4 variant 1\tK05407 PF4; platelet factor 4"
+			},
+			{
+				"name":"6372 CXCL6; C-X-C motif chemokine ligand 6\tK05506 CXCL5_6; C-X-C motif chemokine 5\/6"
+			},
+			{
+				"name":"6374 CXCL5; C-X-C motif chemokine ligand 5\tK05506 CXCL5_6; C-X-C motif chemokine 5\/6"
+			},
+			{
+				"name":"5473 PPBP; pro-platelet basic protein\tK10029 PPBP; platelet basic protein"
+			},
+			{
+				"name":"3576 CXCL8; C-X-C motif chemokine ligand 8\tK10030 IL8; interleukin 8"
+			},
+			{
+				"name":"4283 CXCL9; C-X-C motif chemokine ligand 9\tK05416 CXCL9; C-X-C motif chemokine 9"
+			},
+			{
+				"name":"3627 CXCL10; C-X-C motif chemokine ligand 10\tK12671 CXCL10; C-X-C motif chemokine 10"
+			},
+			{
+				"name":"6373 CXCL11; C-X-C motif chemokine ligand 11\tK12672 CXCL11; C-X-C motif chemokine 11"
+			},
+			{
+				"name":"6387 CXCL12; C-X-C motif chemokine ligand 12\tK10031 CXCL12; C-X-C motif chemokine 12"
+			},
+			{
+				"name":"10563 CXCL13; C-X-C motif chemokine ligand 13\tK10032 CXCL13; C-X-C motif chemokine 13"
+			},
+			{
+				"name":"9547 CXCL14; C-X-C motif chemokine ligand 14\tK10033 CXCL14; C-X-C motif chemokine 14"
+			},
+			{
+				"name":"58191 CXCL16; C-X-C motif chemokine ligand 16\tK10035 CXCL16; C-X-C motif chemokine 16"
+			},
+			{
+				"name":"284340 CXCL17; C-X-C motif chemokine ligand 17\tK22627 CXCL17; C-X-C motif chemokine 17"
+			},
+			{
+				"name":"6376 CX3CL1; C-X3-C motif chemokine ligand 1\tK05508 CX3CL1; C-X3-C motif chemokine 1"
+			},
+			{
+				"name":"6375 XCL1; X-C motif chemokine ligand 1\tK05507 XCL; C motif chemokine"
+			},
+			{
+				"name":"6846 XCL2; X-C motif chemokine ligand 2\tK05507 XCL; C motif chemokine"
+			},
+			{
+				"name":"60675 PROK2; prokineticin 2\tK24191 PROK; prokineticin"
+			},
+			{
+				"name":"84432 PROK1; prokineticin 1\tK24191 PROK; prokineticin"
+			},
+			{
+				"name":"387695 GPR15LG; G protein-coupled receptor 15 ligand\tK25387 GPR15L; protein GPR15L"
+			},
+			{
+				"name":"54360 CYTL1; cytokine like 1\tK25418 CYTL1; cytokine-like protein 1"
+			}
+			]
+		},
+		{
+			"name":"Tumor necrosis fators",
+			"children":[
+			{
+				"name":"7124 TNF; tumor necrosis factor\tK03156 TNF; tumor necrosis factor superfamily, member 2"
+			},
+			{
+				"name":"4049 LTA; lymphotoxin alpha\tK05468 LTA; lymphotoxin alpha (TNF superfamily, member 1)"
+			},
+			{
+				"name":"4050 LTB; lymphotoxin beta\tK03157 LTB; lymphotoxin beta (TNF superfamily, member 3)"
+			},
+			{
+				"name":"7292 TNFSF4; TNF superfamily member 4\tK05469 TNFSF4; tumor necrosis factor ligand superfamily member 4"
+			},
+			{
+				"name":"959 CD40LG; CD40 ligand\tK03161 TNFSF5; tumor necrosis factor ligand superfamily member 5"
+			},
+			{
+				"name":"356 FASLG; Fas ligand\tK04389 TNFSF6; tumor necrosis factor ligand superfamily member 6"
+			},
+			{
+				"name":"970 CD70; CD70 molecule\tK05470 TNFSF7; tumor necrosis factor ligand superfamily member 7"
+			},
+			{
+				"name":"944 TNFSF8; TNF superfamily member 8\tK05471 TNFSF8; tumor necrosis factor ligand superfamily member 8"
+			},
+			{
+				"name":"8744 TNFSF9; TNF superfamily member 9\tK05472 TNFSF9; tumor necrosis factor ligand superfamily member 9"
+			},
+			{
+				"name":"8743 TNFSF10; TNF superfamily member 10\tK04721 TNFSF10; tumor necrosis factor ligand superfamily member 10"
+			},
+			{
+				"name":"8600 TNFSF11; TNF superfamily member 11\tK05473 TNFSF11; tumor necrosis factor ligand superfamily member 11"
+			},
+			{
+				"name":"8742 TNFSF12; TNF superfamily member 12\tK05474 TNFSF12; tumor necrosis factor ligand superfamily member 12"
+			},
+			{
+				"name":"8741 TNFSF13; TNF superfamily member 13\tK05475 TNFSF13; tumor necrosis factor ligand superfamily member 13"
+			},
+			{
+				"name":"10673 TNFSF13B; TNF superfamily member 13b\tK05476 TNFSF13B; tumor necrosis factor ligand superfamily member 13B"
+			},
+			{
+				"name":"8740 TNFSF14; TNF superfamily member 14\tK05477 TNFSF14; tumor necrosis factor ligand superfamily member 14"
+			},
+			{
+				"name":"9966 TNFSF15; TNF superfamily member 15\tK05478 TNFSF15; tumor necrosis factor ligand superfamily member 15"
+			},
+			{
+				"name":"8995 TNFSF18; TNF superfamily member 18\tK05479 TNFSF18; tumor necrosis factor ligand superfamily member 18"
+			},
+			{
+				"name":"1896 EDA; ectodysplasin A\tK05480 EDA; ectodysplasin-A"
+			}
+			]
+		},
+		{
+			"name":"Transforming growth factors (RSTK binding)",
+			"children":[
+			{
+				"name":"7040 TGFB1; transforming growth factor beta 1\tK13375 TGFB1; transforming growth factor beta-1"
+			},
+			{
+				"name":"7042 TGFB2; transforming growth factor beta 2\tK13376 TGFB2; transforming growth factor beta-2"
+			},
+			{
+				"name":"7043 TGFB3; transforming growth factor beta 3\tK13377 TGFB3; transforming growth factor beta-3"
+			},
+			{
+				"name":"649 BMP1; bone morphogenetic protein 1\tK05502 BMP1; bone morphogenetic protein 1 [EC:3.4.24.19]"
+			},
+			{
+				"name":"650 BMP2; bone morphogenetic protein 2\tK21283 BMP2; bone morphogenetic protein 2"
+			},
+			{
+				"name":"651 BMP3; bone morphogenetic protein 3\tK05496 BMP3; bone morphogenetic protein 3"
+			},
+			{
+				"name":"652 BMP4; bone morphogenetic protein 4\tK04662 BMP4; bone morphogenetic protein 4"
+			},
+			{
+				"name":"653 BMP5; bone morphogenetic protein 5\tK04663 BMP5; bone morphogenetic protein 5"
+			},
+			{
+				"name":"654 BMP6; bone morphogenetic protein 6\tK16620 BMP6; bone morphogenetic protein 6"
+			},
+			{
+				"name":"655 BMP7; bone morphogenetic protein 7\tK16621 BMP7; bone morphogenetic protein 7"
+			},
+			{
+				"name":"353500 BMP8A; bone morphogenetic protein 8a\tK16622 BMP8; bone morphogenetic protein 8"
+			},
+			{
+				"name":"656 BMP8B; bone morphogenetic protein 8b\tK16622 BMP8; bone morphogenetic protein 8"
+			},
+			{
+				"name":"27302 BMP10; bone morphogenetic protein 10\tK22670 BMP10; bone morphogenetic protein 10"
+			},
+			{
+				"name":"9210 BMP15; bone morphogenetic protein 15\tK05498 BMP15; bone morphogenetic protein 15"
+			},
+			{
+				"name":"2657 GDF1; growth differentiation factor 1\tK05495 GDF1; growth differentiation factor 1"
+			},
+			{
+				"name":"2658 GDF2; growth differentiation factor 2\tK05503 GDF2; growth differentiation factor 2"
+			},
+			{
+				"name":"9573 GDF3; growth differentiation factor 3\tK22672 GDF3; growth differentiation factor 3"
+			},
+			{
+				"name":"8200 GDF5; growth differentiation factor 5\tK04664 GDF5; growth differentiation factor 5"
+			},
+			{
+				"name":"392255 GDF6; growth differentiation factor 6\tK20012 GDF6; growth differentiation factor 6"
+			},
+			{
+				"name":"151449 GDF7; growth differentiation factor 7\tK20013 GDF7; growth differentiation factor 7"
+			},
+			{
+				"name":"2660 MSTN; myostatin\tK05497 MSTN; growth differentiation factor 8"
+			},
+			{
+				"name":"2661 GDF9; growth differentiation factor 9\tK22673 GDF9; growth differentiation factor 9"
+			},
+			{
+				"name":"2662 GDF10; growth differentiation factor 10\tK22674 GDF10; growth differentiation factor 10"
+			},
+			{
+				"name":"10220 GDF11; growth differentiation factor 11\tK22679 GDF11; growth differentiation factor 11"
+			},
+			{
+				"name":"9518 GDF15; growth differentiation factor 15\tK05504 GDF15; growth differentiation factor 15"
+			},
+			{
+				"name":"4838 NODAL; nodal growth differentiation factor\tK04666 NODAL; nodal"
+			},
+			{
+				"name":"3623 INHA; inhibin subunit alpha\tK05500 INHA; inhibin, alpha"
+			},
+			{
+				"name":"3624 INHBA; inhibin subunit beta A\tK04667 INHBA; inhibin beta A chain"
+			},
+			{
+				"name":"3625 INHBB; inhibin subunit beta B\tK22687 INHBB; inhibin beta B chain"
+			},
+			{
+				"name":"3626 INHBC; inhibin subunit beta C\tK22688 INHBC; inhibin beta C chain"
+			},
+			{
+				"name":"83729 INHBE; inhibin subunit beta E\tK22689 INHBE; inhibin beta E chain"
+			},
+			{
+				"name":"268 AMH; anti-Mullerian hormone\tK04665 AMH; anti-mullerian hormone"
+			},
+			{
+				"name":"10637 LEFTY1; left-right determination factor 1\tK04668 LEFTY; left-right determination factor"
+			},
+			{
+				"name":"7044 LEFTY2; left-right determination factor 2\tK04668 LEFTY; left-right determination factor"
+			}
+			]
+		},
+		{
+			"name":"Growth factors (RTK binding)",
+			"children":[
+			{
+				"name":"5154 PDGFA; platelet derived growth factor subunit A\tK04359 PDGFA; platelet-derived growth factor subunit A"
+			},
+			{
+				"name":"5155 PDGFB; platelet derived growth factor subunit B\tK17386 PDGFB; platelet-derived growth factor subunit B"
+			},
+			{
+				"name":"56034 PDGFC; platelet derived growth factor C\tK05450 PDGFC_D; platelet derived growth factor C\/D"
+			},
+			{
+				"name":"80310 PDGFD; platelet derived growth factor D\tK05450 PDGFC_D; platelet derived growth factor C\/D"
+			},
+			{
+				"name":"7422 VEGFA; vascular endothelial growth factor A\tK05448 VEGFA; vascular endothelial growth factor A"
+			},
+			{
+				"name":"7423 VEGFB; vascular endothelial growth factor B\tK16858 VEGFB; vascular endothelial growth factor B"
+			},
+			{
+				"name":"2277 VEGFD; vascular endothelial growth factor D\tK05449 VEGFC_D; vascular endothelial growth factor C\/D"
+			},
+			{
+				"name":"7424 VEGFC; vascular endothelial growth factor C\tK05449 VEGFC_D; vascular endothelial growth factor C\/D"
+			},
+			{
+				"name":"5228 PGF; placental growth factor\tK16859 PGF; placenta growth factor"
+			},
+			{
+				"name":"4803 NGF; nerve growth factor\tK02582 NGFB; nerve growth factor, beta"
+			},
+			{
+				"name":"4908 NTF3; neurotrophin 3\tK04356 NTF3; neurotrophin 3"
+			},
+			{
+				"name":"4909 NTF4; neurotrophin 4\tK12457 NTF4; neurotrophin 4"
+			},
+			{
+				"name":"627 BDNF; brain derived neurotrophic factor\tK04355 BDNF; brain-derived neurotrophic factor"
+			},
+			{
+				"name":"2668 GDNF; glial cell derived neurotrophic factor\tK05452 GDNF; glial cell derived neurotrophic factor"
+			},
+			{
+				"name":"4902 NRTN; neurturin\tK25414 NRTN; neurturin"
+			},
+			{
+				"name":"9048 ARTN; artemin\tK25415 ARTN; artemin"
+			},
+			{
+				"name":"5623 PSPN; persephin\tK25416 PSPN; persephin"
+			},
+			{
+				"name":"2323 FLT3LG; fms related receptor tyrosine kinase 3 ligand\tK05454 FLT3LG; fms-related tyrosine kinase 3 ligand"
+			},
+			{
+				"name":"2246 FGF1; fibroblast growth factor 1\tK18496 FGF1; fibroblast growth factor 1"
+			},
+			{
+				"name":"2247 FGF2; fibroblast growth factor 2\tK18497 FGF2; fibroblast growth factor 2"
+			},
+			{
+				"name":"2248 FGF3; fibroblast growth factor 3\tK04358 FGF; fibroblast growth factor"
+			},
+			{
+				"name":"2249 FGF4; fibroblast growth factor 4\tK04358 FGF; fibroblast growth factor"
+			},
+			{
+				"name":"2250 FGF5; fibroblast growth factor 5\tK04358 FGF; fibroblast growth factor"
+			},
+			{
+				"name":"2251 FGF6; fibroblast growth factor 6\tK04358 FGF; fibroblast growth factor"
+			},
+			{
+				"name":"2252 FGF7; fibroblast growth factor 7\tK04358 FGF; fibroblast growth factor"
+			},
+			{
+				"name":"2253 FGF8; fibroblast growth factor 8\tK04358 FGF; fibroblast growth factor"
+			},
+			{
+				"name":"2254 FGF9; fibroblast growth factor 9\tK04358 FGF; fibroblast growth factor"
+			},
+			{
+				"name":"2255 FGF10; fibroblast growth factor 10\tK04358 FGF; fibroblast growth factor"
+			},
+			{
+				"name":"26281 FGF20; fibroblast growth factor 20\tK04358 FGF; fibroblast growth factor"
+			},
+			{
+				"name":"27006 FGF22; fibroblast growth factor 22\tK04358 FGF; fibroblast growth factor"
+			},
+			{
+				"name":"8817 FGF18; fibroblast growth factor 18\tK04358 FGF; fibroblast growth factor"
+			},
+			{
+				"name":"8822 FGF17; fibroblast growth factor 17\tK04358 FGF; fibroblast growth factor"
+			},
+			{
+				"name":"8823 FGF16; fibroblast growth factor 16\tK04358 FGF; fibroblast growth factor"
+			},
+			{
+				"name":"2256 FGF11; fibroblast growth factor 11\tK22413 FGF11_12_13; fibroblast growth factor 11\/12\/13"
+			},
+			{
+				"name":"2257 FGF12; fibroblast growth factor 12\tK22413 FGF11_12_13; fibroblast growth factor 11\/12\/13"
+			},
+			{
+				"name":"2258 FGF13; fibroblast growth factor 13\tK22413 FGF11_12_13; fibroblast growth factor 11\/12\/13"
+			},
+			{
+				"name":"2259 FGF14; fibroblast growth factor 14\tK23920 FGF14; fibroblast growth factor 14"
+			},
+			{
+				"name":"9965 FGF19; fibroblast growth factor 19\tK22603 FGF19; fibroblast growth factor 19"
+			},
+			{
+				"name":"26291 FGF21; fibroblast growth factor 21\tK22429 FGF21; fibroblast growth factor 21"
+			},
+			{
+				"name":"8074 FGF23; fibroblast growth factor 23\tK22428 FGF23; fibroblast growth factor 23"
+			},
+			{
+				"name":"3084 NRG1; neuregulin 1\tK05455 NRG1; neuregulin 1"
+			},
+			{
+				"name":"9542 NRG2; neuregulin 2\tK05456 NRG2; neuregulin 2"
+			},
+			{
+				"name":"10718 NRG3; neuregulin 3\tK05457 NRG3; neuregulin 3"
+			},
+			{
+				"name":"145957 NRG4; neuregulin 4\tK05458 NRG4; neuregulin 4"
+			},
+			{
+				"name":"3479 IGF1; insulin like growth factor 1\tK05459 IGF1; insulin-like growth factor 1"
+			},
+			{
+				"name":"3481 IGF2; insulin like growth factor 2\tK13769 IGF2; insulin-like growth factor 2"
+			},
+			{
+				"name":"3082 HGF; hepatocyte growth factor\tK05460 HGF; hepatocyte growth factor"
+			},
+			{
+				"name":"1950 EGF; epidermal growth factor\tK04357 EGF; epidermal growth factor"
+			},
+			{
+				"name":"7039 TGFA; transforming growth factor alpha\tK08774 TGFA; transforming growth factor, alpha"
+			},
+			{
+				"name":"2069 EREG; epiregulin\tK09784 EREG; epiregulin"
+			},
+			{
+				"name":"374 AREG; amphiregulin\tK09782 AREG; amphiregulin"
+			},
+			{
+				"name":"4254 KITLG; KIT ligand\tK05461 KITLG; KIT ligand"
+			},
+			{
+				"name":"125467750 EFNA4-EFNA3; EFNA4-EFNA3 readthrough\tK05462 EFNA; ephrin-A"
+			},
+			{
+				"name":"1942 EFNA1; ephrin A1\tK05462 EFNA; ephrin-A"
+			},
+			{
+				"name":"1943 EFNA2; ephrin A2\tK05462 EFNA; ephrin-A"
+			},
+			{
+				"name":"1944 EFNA3; ephrin A3\tK05462 EFNA; ephrin-A"
+			},
+			{
+				"name":"1945 EFNA4; ephrin A4\tK05462 EFNA; ephrin-A"
+			},
+			{
+				"name":"1946 EFNA5; ephrin A5\tK05462 EFNA; ephrin-A"
+			},
+			{
+				"name":"1947 EFNB1; ephrin B1\tK05463 EFNB; ephrin-B"
+			},
+			{
+				"name":"1948 EFNB2; ephrin B2\tK05463 EFNB; ephrin-B"
+			},
+			{
+				"name":"1949 EFNB3; ephrin B3\tK05463 EFNB; ephrin-B"
+			},
+			{
+				"name":"2621 GAS6; growth arrest specific 6\tK05464 GAS6; growth arrest-specific 6"
+			},
+			{
+				"name":"284 ANGPT1; angiopoietin 1\tK05465 ANGPT1; angiopoietin 1"
+			},
+			{
+				"name":"285 ANGPT2; angiopoietin 2\tK05466 ANGPT2; angiopoietin 2"
+			},
+			{
+				"name":"51378 ANGPT4; angiopoietin 4\tK05467 ANGPT4; angiopoietin 4"
+			}
+			]
+		}
+		]
+	},
+	{
+		"name":"Neuropeptides",
+		"children":[
+		{
+			"name":"GPCR binding",
+			"children":[
+			{
+				"name":"183 AGT; angiotensinogen\tK09821 AGT; angiotensinogen"
+			},
+			{
+				"name":"3827 KNG1; kininogen 1\tK03898 KNG; kininogen"
+			},
+			{
+				"name":"4922 NTS; neurotensin\tK05235 NTS; neurotensin"
+			},
+			{
+				"name":"8862 APLN; apelin\tK05225 APLN; apelin"
+			},
+			{
+				"name":"4828 NMB; neuromedin B\tK05223 NMB; neuromedin B"
+			},
+			{
+				"name":"2922 GRP; gastrin releasing peptide\tK05224 GRP; gastrin-releasing peptide"
+			},
+			{
+				"name":"885 CCK; cholecystokinin\tK05226 CCK; cholecystokinin"
+			},
+			{
+				"name":"1906 EDN1; endothelin 1\tK16366 EDN1; endothelin-1"
+			},
+			{
+				"name":"1907 EDN2; endothelin 2\tK16367 EDN2; endothelin-2"
+			},
+			{
+				"name":"1908 EDN3; endothelin 3\tK05227 EDN3; endothelin-3"
+			},
+			{
+				"name":"51083 GAL; galanin and GMAP prepropeptide\tK05244 GAL; galanin"
+			},
+			{
+				"name":"85569 GALP; galanin like peptide\tK25482 GALP; galanin-like peptide"
+			},
+			{
+				"name":"80763 SPX; spexin hormone\tK25694 SPX; spexin"
+			},
+			{
+				"name":"51738 GHRL; ghrelin and obestatin prepropeptide\tK05254 GHRL; ghrelin"
+			},
+			{
+				"name":"4295 MLN; motilin\tK05265 MLN; motilin"
+			},
+			{
+				"name":"10874 NMU; neuromedin U\tK05249 NMU; neuromedin U"
+			},
+			{
+				"name":"129521 NMS; neuromedin S\tK25690 NMS; neuromedin S"
+			},
+			{
+				"name":"8620 NPFF; neuropeptide FF-amide peptide precursor\tK05247 NPFF; neuropeptide FF-amide peptide"
+			},
+			{
+				"name":"64111 NPVF; neuropeptide VF precursor\tK25692 NPVF; pro-FMRFamide-related neuropeptide VF"
+			},
+			{
+				"name":"594857 NPS; neuropeptide S\tK25691 NPS; neuropeptide S"
+			},
+			{
+				"name":"4852 NPY; neuropeptide Y\tK05232 NPY; neuropeptide Y"
+			},
+			{
+				"name":"5539 PPY; pancreatic polypeptide\tK05234 PPY; pancreatic polypeptide"
+			},
+			{
+				"name":"5697 PYY; peptide YY\tK05233 PYY; peptide YY"
+			},
+			{
+				"name":"256933 NPB; neuropeptide B\tK05267 NPB; preproneuropeptide B"
+			},
+			{
+				"name":"283869 NPW; neuropeptide W\tK23141 NPW; neuropeptide W"
+			},
+			{
+				"name":"5443 POMC; proopiomelanocortin\tK05228 POMC; proopiomelanocortin"
+			},
+			{
+				"name":"5179 PENK; proenkephalin\tK18832 PENK; proenkephalin A"
+			},
+			{
+				"name":"5173 PDYN; prodynorphin\tK15840 PDYN; proenkephalin B (prodynorphin)"
+			},
+			{
+				"name":"5368 PNOC; prepronociceptin\tK25696 PNOC; prepronociceptin"
+			},
+			{
+				"name":"347148 QRFP; pyroglutamylated RFamide peptide\tK25693 QRFP; orexigenic neuropeptide QRFP"
+			},
+			{
+				"name":"5020 OXT; oxytocin\/neurophysin I prepropeptide\tK05243 OXT; oxytocin-neurophysin 1"
+			},
+			{
+				"name":"6750 SST; somatostatin\tK05237 SST; somatostatin"
+			},
+			{
+				"name":"1325 CORT; cortistatin\tK05238 CORT; cortistatin"
+			},
+			{
+				"name":"6863 TAC1; tachykinin precursor 1\tK05239 TAC1; tachykinin 1"
+			},
+			{
+				"name":"6866 TAC3; tachykinin precursor 3\tK05240 TAC3; tachykinin 3"
+			},
+			{
+				"name":"255061 TAC4; tachykinin precursor 4\tK05241 TAC4; tachykinin 4"
+			},
+			{
+				"name":"10911 UTS2; urotensin 2\tK05248 UTS2; urotensin 2"
+			},
+			{
+				"name":"257313 UTS2B; urotensin 2B\tK24267 UTS2B; urotensin-2B"
+			},
+			{
+				"name":"551 AVP; arginine vasopressin\tK05242 AVP; arginine vasopressin"
+			},
+			{
+				"name":"51052 PRLH; prolactin releasing hormone\tK05269 PRH; prolactin-releasing peptide"
+			},
+			{
+				"name":"3814 KISS1; KiSS-1 metastasis suppressor\tK23140 KISS1; metastasis-suppressor KiSS-1"
+			},
+			{
+				"name":"3060 HCRT; hypocretin neuropeptide precursor\tK05246 HCRT; hypocretin (orexin) neuropeptide"
+			},
+			{
+				"name":"7425 VGF; VGF nerve growth factor inducible\tK25695 VGF; neurosecretory protein VGF"
+			},
+			{
+				"name":"1113 CHGA; chromogranin A\tK19990 CHGA; chromogranin-A"
+			},
+			{
+				"name":"1114 CHGB; chromogranin B\tK19991 CHGB; chromogranin-B"
+			},
+			{
+				"name":"7857 SCG2; secretogranin II\tK25732 SCG2; secretogranin-2"
+			},
+			{
+				"name":"29106 SCG3; secretogranin III\tK25733 SCG3; secretogranin-3"
+			},
+			{
+				"name":"6447 SCG5; secretogranin V\tK25734 SCG5; neuroendocrine protein 7B2"
+			},
+			{
+				"name":"2796 GNRH1; gonadotropin releasing hormone 1\tK05252 GNRH; gonadotropin-releasing hormone"
+			},
+			{
+				"name":"2797 GNRH2; gonadotropin releasing hormone 2\tK05252 GNRH; gonadotropin-releasing hormone"
+			},
+			{
+				"name":"7200 TRH; thyrotropin releasing hormone\tK05253 TRH; thyrotropin-releasing hormone"
+			},
+			{
+				"name":"6013 RLN1; relaxin 1\tK21998 RLN1_2; relaxin 1\/2"
+			},
+			{
+				"name":"6019 RLN2; relaxin 2\tK21998 RLN1_2; relaxin 1\/2"
+			},
+			{
+				"name":"117579 RLN3; relaxin 3\tK22000 RLN3; relaxin 3"
+			},
+			{
+				"name":"3640 INSL3; insulin like 3\tK21999 INSL3; insulin-like 3"
+			},
+			{
+				"name":"10022 INSL5; insulin like 5\tK22001 INSL5; insulin-like 5"
+			},
+			{
+				"name":"5367 PMCH; pro-melanin concentrating hormone\tK05229 PMCH; pro-melanin-concentrating hormone"
+			},
+			{
+				"name":"2520 GAST; gastrin\tK13768 GAST; gastrin"
+			},
+			{
+				"name":"796 CALCA; calcitonin related polypeptide alpha\tK12332 CALC; calcitonin"
+			},
+			{
+				"name":"797 CALCB; calcitonin related polypeptide beta\tK12332 CALC; calcitonin"
+			},
+			{
+				"name":"133 ADM; adrenomedullin\tK12333 ADM; adrenomedullin"
+			},
+			{
+				"name":"79924 ADM2; adrenomedullin 2\tK25343 ADM2; adrenomedullin-2"
+			},
+			{
+				"name":"3375 IAPP; islet amyloid polypeptide\tK08039 IAPP; islet amyloid polypeptide"
+			},
+			{
+				"name":"1392 CRH; corticotropin releasing hormone\tK05256 CRH; corticotropin-releasing hormone"
+			},
+			{
+				"name":"7349 UCN; urocortin\tK23142 UCN; urocortin"
+			},
+			{
+				"name":"114131 UCN3; urocortin 3\tK05257 UCN2_3; urocortin 2\/3"
+			},
+			{
+				"name":"90226 UCN2; urocortin 2\tK05257 UCN2_3; urocortin 2\/3"
+			},
+			{
+				"name":"2695 GIP; gastric inhibitory polypeptide\tK05258 GIP; gastric inhibitory polypeptide"
+			},
+			{
+				"name":"2641 GCG; glucagon\tK05259 GCG; glucagon"
+			},
+			{
+				"name":"2691 GHRH; growth hormone releasing hormone\tK05260 GHRH; growth hormone-releasing hormone"
+			},
+			{
+				"name":"5741 PTH; parathyroid hormone\tK05261 PTH; parathyroid hormone"
+			},
+			{
+				"name":"113091 PTH2; parathyroid hormone 2\tK23143 PTH2; tuberoinfundibular peptide of 39 residues"
+			},
+			{
+				"name":"116 ADCYAP1; adenylate cyclase activating polypeptide 1\tK05262 ADCYAP; pituitary adenylate cyclase-activating polypeptide"
+			},
+			{
+				"name":"6343 SCT; secretin\tK05263 SCT; secretin"
+			},
+			{
+				"name":"7432 VIP; vasoactive intestinal peptide\tK05264 VIP; vasoactive intestinal peptide"
+			},
+			{
+				"name":"5744 PTHLH; parathyroid hormone like hormone\tK22608 PTHLH; parathyroid hormone-related hormone"
+			},
+			{
+				"name":"1081 CGA; glycoprotein hormones, alpha polypeptide\tK08522 CGA; glycoprotein hormones alpha chain"
+			},
+			{
+				"name":"2488 FSHB; follicle stimulating hormone subunit beta\tK05250 FSHB; follitropin subunit beta"
+			},
+			{
+				"name":"3972 LHB; luteinizing hormone subunit beta\tK08521 LHB; lutropin subunit beta"
+			},
+			{
+				"name":"1082 CGB3; chorionic gonadotropin subunit beta 3\tK10045 CGB; chorionic gonadotropin, beta polypeptide"
+			},
+			{
+				"name":"114335 CGB1; chorionic gonadotropin subunit beta 1\tK10045 CGB; chorionic gonadotropin, beta polypeptide"
+			},
+			{
+				"name":"114336 CGB2; chorionic gonadotropin subunit beta 2\tK10045 CGB; chorionic gonadotropin, beta polypeptide"
+			},
+			{
+				"name":"93659 CGB5; chorionic gonadotropin subunit beta 5\tK10045 CGB; chorionic gonadotropin, beta polypeptide"
+			},
+			{
+				"name":"94027 CGB7; chorionic gonadotropin subunit beta 7\tK10045 CGB; chorionic gonadotropin, beta polypeptide"
+			},
+			{
+				"name":"94115 CGB8; chorionic gonadotropin subunit beta 8\tK10045 CGB; chorionic gonadotropin, beta polypeptide"
+			},
+			{
+				"name":"7252 TSHB; thyroid stimulating hormone subunit beta\tK05251 TSHB; thyrotropin subunit beta"
+			},
+			{
+				"name":"170589 GPHA2; glycoprotein hormone subunit alpha 2\tK25483 GPHA2; glycoprotein hormone alpha-2"
+			},
+			{
+				"name":"122876 GPHB5; glycoprotein hormone subunit beta 5\tK25484 GPHB5; glycoprotein hormone beta-5"
+			}
+			]
+		},
+		{
+			"name":"Unclassified",
+			"children":[
+			{
+				"name":"4878 NPPA; natriuretic peptide A\tK12334 NPPA; natriuretic peptide A"
+			},
+			{
+				"name":"4879 NPPB; natriuretic peptide B\tK12335 NPPB; natriuretic peptide B"
+			},
+			{
+				"name":"4880 NPPC; natriuretic peptide C\tK12336 NPPC; natriuretic peptide C"
+			},
+			{
+				"name":"30010 NXPH1; neurexophilin 1\tK16656 NXPH1; neurexophilin-1"
+			},
+			{
+				"name":"11249 NXPH2; neurexophilin 2\tK16657 NXPH2; neurexophilin-2"
+			},
+			{
+				"name":"11248 NXPH3; neurexophilin 3\tK16658 NXPH3; neurexophilin-3"
+			},
+			{
+				"name":"11247 NXPH4; neurexophilin 4\tK25711 NXPH4; neurexophilin-4"
+			},
+			{
+				"name":"3630 INS; insulin\tK04526 INS; insulin"
+			},
+			{
+				"name":"3952 LEP; leptin\tK05424 LEP; leptin"
+			},
+			{
+				"name":"5617 PRL; prolactin\tK05439 PRL; prolactin"
+			},
+			{
+				"name":"9607 CARTPT; CART prepropeptide\tK25453 CARTPT; cocaine- and amphetamine-regulated transcript protein"
+			},
+			{
+				"name":"181 AGRP; agouti related neuropeptide\tK05231 AGRP; agouti related protein"
+			},
+			{
+				"name":"1622 DBI; diazepam binding inhibitor, acyl-CoA binding protein\tK08762 DBI; diazepam-binding inhibitor (GABA receptor modulator, acyl-CoA-binding protein)"
+			},
+			{
+				"name":"140689 CBLN4; cerebellin 4 precursor\tK24235 CBLN; cerebellin"
+			},
+			{
+				"name":"147381 CBLN2; cerebellin 2 precursor\tK24235 CBLN; cerebellin"
+			},
+			{
+				"name":"643866 CBLN3; cerebellin 3 precursor\tK24235 CBLN; cerebellin"
+			},
+			{
+				"name":"869 CBLN1; cerebellin 1 precursor\tK24235 CBLN; cerebellin"
+			},
+			{
+				"name":"9370 ADIPOQ; adiponectin, C1Q and collagen domain containing\tK07296 ADIPOQ; adiponectin"
+			},
+			{
+				"name":"10135 NAMPT; nicotinamide phosphoribosyltransferase\tK03462 NAMPT; nicotinamide phosphoribosyltransferase [EC:2.4.2.12]"
+			},
+			{
+				"name":"56729 RETN; resistin\tK13438 RETN; resistin"
+			},
+			{
+				"name":"84666 RETNLB; resistin like beta\tK13438 RETN; resistin"
+			},
+			{
+				"name":"4924 NUCB1; nucleobindin 1\tK20371 NUCB; nucleobindin"
+			},
+			{
+				"name":"4925 NUCB2; nucleobindin 2\tK20371 NUCB; nucleobindin"
+			},
+			{
+				"name":"59286 UBL5; ubiquitin like 5\tK13113 UBL5; ubiquitin-like protein 5"
+			}
+			]
+		}
+		]
+	}
+	]
+}

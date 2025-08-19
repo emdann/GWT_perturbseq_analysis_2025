@@ -1,0 +1,5 @@
+culture_condition:
+  Rest: "#1f78b4"      # Dark blue
+  Stim8hr: "#e31a1c"   # Dark red 
+  Stim48hr: "#ff7f00"  # Dark orange 
+
