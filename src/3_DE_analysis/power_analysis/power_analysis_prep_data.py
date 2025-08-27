@@ -87,50 +87,52 @@ def merge_pseudobulk_from_list(adatas, sample_cols = ['cell_sample_id', 'guide_i
     merged_adata.obs['n_cells'] = n_cells_merged.loc[merged_adata.obs_names]
     return(merged_adata)
 
-import argparse
+if __name__ == "__main__":
+    import argparse
 
-# Set up argument parser
-parser = argparse.ArgumentParser(description='Prepare data for power analysis')
-parser.add_argument('--sample_id', type=str, required=True,
-                   help='Sample ID to analyze')
+    # Set up argument parser
+    parser = argparse.ArgumentParser(description='Prepare data for power analysis')
+    parser.add_argument('--sample_id', type=str, required=True,
+                       help='Sample ID to analyze')
 
-args = parser.parse_args()
+    args = parser.parse_args()
 
-sample_id = args.sample_id
+    sample_id = args.sample_id
 
-# Read config
-with open('config.yaml', 'r') as f:
-    config = yaml.safe_load(f)
+    # Read config
+    with open('config.yaml', 'r') as f:
+        config = yaml.safe_load(f)
 
-datadir = _convert_oak_path(config['sample_ids'][sample_id]['datadir'])
-random_seeds = config['random_seeds']
-selected_perturbed_genes = config['selected_perturbed_genes']
-subset_size = config['subset_size']
+    datadir = _convert_oak_path(config['sample_ids'][sample_id]['datadir'])
+    random_seeds = config['random_seeds']
+    selected_perturbed_genes = config['selected_perturbed_genes']
+    subset_size = config['subset_size']
 
-# Get pseudobulk h5ad files
-tmp_dir = os.path.join(datadir, 'tmp')
-h5ad_files = [f'{tmp_dir}/{f}' for f in os.listdir(tmp_dir) if f.endswith('.postQC.DE_pseudobulk.h5ad')]
-sample_h5ad_files = [x for x in h5ad_files if sample_id in x]
-power_analysis_adatas = {}
+    # Get pseudobulk h5ad files
+    tmp_dir = os.path.join(datadir, 'tmp')
+    h5ad_files = [f'{tmp_dir}/{f}' for f in os.listdir(tmp_dir) if f.endswith('.postQC.DE_pseudobulk.h5ad')]
+    sample_h5ad_files = [x for x in h5ad_files if sample_id in x]
+    power_analysis_adatas = {}
 
-for s in random_seeds:
-    np.random.seed(s)
+    for s in random_seeds:
+        np.random.seed(s)
 
-    # Split files into non-overlapping sets of ~n lanes
-    all_indices = np.arange(len(sample_h5ad_files))
-    np.random.shuffle(all_indices)
-    split_indices = [all_indices[i:i+subset_size] for i in range(0, len(all_indices), subset_size)]
+        # Split files into non-overlapping sets of ~n lanes
+        all_indices = np.arange(len(sample_h5ad_files))
+        np.random.shuffle(all_indices)
+        split_indices = [all_indices[i:i+subset_size] for i in range(0, len(all_indices), subset_size)]
 
-    merged_adatas = []
-    for ixs in split_indices:
-        subset_sample_h5ad_files = [sample_h5ad_files[i] for i in ixs] # Use first set of 5
-        merged_adata = merge_pseudobulks(subset_sample_h5ad_files, selected_perturbed_genes = selected_perturbed_genes)
-        merged_adatas.append(merged_adata)
+        merged_adatas = []
+        for ixs in split_indices:
+            subset_sample_h5ad_files = [sample_h5ad_files[i] for i in ixs] # Merge set of 5 lanes
+            merged_adata = merge_pseudobulks(subset_sample_h5ad_files, selected_perturbed_genes = selected_perturbed_genes)
+            merged_adatas.append(merged_adata)
 
-    # Sum different number of lanes
-    for i in np.arange(1, len(merged_adatas)+1):
-        power_analysis_adatas[f'split{i}_seed{s}'] = merge_pseudobulk_from_list(merged_adatas[0:i])
+        # Sum different number of lanes
+        power_analysis_adatas[f'valsplit_seed{s}'] = merge_pseudobulk_from_list(merged_adatas[0:1])
+        for i in np.arange(2, len(merged_adatas)+1):
+            power_analysis_adatas[f'split{i}_seed{s}'] = merge_pseudobulk_from_list(merged_adatas[1:i])
 
-# Store objects
-power_analysis_mdata = md.MuData(power_analysis_adatas)
-power_analysis_mdata.write_h5mu(f'./power_analysis.{sample_id}.h5mu')
+    # Store objects
+    power_analysis_mdata = md.MuData(power_analysis_adatas)
+    power_analysis_mdata.write_h5mu(f'./power_analysis.{sample_id}.h5mu')

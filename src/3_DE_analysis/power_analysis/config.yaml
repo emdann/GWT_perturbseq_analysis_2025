@@ -4,6 +4,14 @@ selected_perturbed_genes:
   - KLF2
   - MED12
   - PTEN
+  - IRF1
+  - STAT5B
+  - BPTF
+  - FOXK1
+  - MYB
+  - IRF2
+  - TP53
+  - DR1
 
 subset_size: 5
 random_seeds: 

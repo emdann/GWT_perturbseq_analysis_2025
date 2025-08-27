@@ -2,6 +2,7 @@
 **/*.h5ad
 **/*.h5mu
 **/czi-psomagen/
+**/power_analysis/power_analysis.*.DE_results.csv
 .vscode
 # SLURM files
 **/*.err

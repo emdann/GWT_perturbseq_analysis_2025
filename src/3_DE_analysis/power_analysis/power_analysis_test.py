@@ -8,6 +8,7 @@ import yaml
 from scipy import stats
 from statsmodels.stats.multitest import multipletests
 from tqdm.notebook import tqdm
+import warnings
 import argparse
 
 from copy import deepcopy
@@ -59,24 +60,40 @@ def _run_DE_test(pbulk_adata):
 def main(datadir = '.'):
     parser = argparse.ArgumentParser()
     parser.add_argument('k', help='power analysis key')
+    parser.add_argument('--depth_perc', type=int, default = 100, help='testing params')
     parser.add_argument('--test', action='store_true', help='testing params')
     args = parser.parse_args()
     k = args.k
 
     k_adata = sc.read_h5ad(f'{datadir}/power_analysis.{k}.h5ad')
-    if 'sum' in k_adata.layers:
-        k_adata.X = k_adata.layers['sum'].copy()
-        del k_adata.layers['sum']
+    if args.depth_perc == 100:
+        if 'sum' in k_adata.layers:
+            k_adata.X = k_adata.layers['sum'].copy()
+        k_adata.layers.clear()
+    else:
+        k_adata.X = k_adata.layers[f'sum_downsampled_{args.depth_perc}perc'].copy()
+        k_adata.layers.clear()
     donor_comb_cols = [x for x in k_adata.obs.columns if x.startswith('donor_comb')]
     if args.test:
         donor_comb_cols = donor_comb_cols[0:3]
     all_results = []
     for comb in donor_comb_cols: 
-        results = _run_DE_test(k_adata[k_adata.obs[comb]])
-        results['donor_comb'] = comb
-        results['power_analysis_key'] = k
-        all_results.append(results)
-    pd.concat(all_results).to_csv(f'{datadir}/power_analysis.{k}.DE_results.csv')
+        try:
+            # Convert the specific warning to an exception
+            with warnings.catch_warnings():
+                warnings.filterwarnings("error", 
+                                        message="Every gene contains at least one zero, cannot compute log geometric means.*",
+                                        category=UserWarning,
+                                        module="pydeseq2.dds")
+
+                results = _run_DE_test(k_adata[k_adata.obs[comb]])
+                results['donor_comb'] = comb
+                results['power_analysis_key'] = k
+                all_results.append(results)
+        except UserWarning as e:
+            print(f"Caught warning for iteration {comb}: {e}")
+            continue
+    pd.concat(all_results).to_csv(f'{datadir}/power_analysis.{k}_{args.depth_perc}perc.DE_results.csv')
 
 if __name__ == '__main__':
     main()
