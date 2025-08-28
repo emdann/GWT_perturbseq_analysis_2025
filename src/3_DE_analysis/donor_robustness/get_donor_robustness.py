@@ -77,7 +77,7 @@ if not os.path.exists(results_dir):
     os.mkdir(results_dir)
 
 
-pbulk_adata = anndata.experimental.read_lazy(f'{datadir}/{experiment_name}_merged.DE_pseudobulk.h5ad')
+pbulk_adata = anndata.read_h5ad(f'{datadir}/{experiment_name}_merged.DE_pseudobulk.h5ad', backed=False)
 keep = (pbulk_adata.obs['perturbed_gene_name'].isin(selected_perturbed_genes + ['NTC'])) & (pbulk_adata.obs['culture_condition'] == cond)
 pbulk_adata_test = pbulk_adata[keep].to_memory()
 all_donors = pbulk_adata_test.obs['donor_id'].unique().tolist()
@@ -97,4 +97,11 @@ for train_ds in donor_combinations:
     all_results_df = pd.concat([all_results_df, results_df])
 
 for t in all_results_df.target.unique():
-    all_results_df[all_results_df['target'] == t].to_parquet(f'{results_dir}/DE_donor_robustness.{t}_{cond}.parquet')
+    try:
+        all_results_df[all_results_df['target'] == t].to_parquet(f'{results_dir}/DE_donor_robustness.{t}_{cond}.parquet')
+        print(f'Saved {t} to parquet successfully')
+    except Exception as e:
+        print(f'Parquet failed for {t}: {e}')
+        print(f'Saving {t} as CSV instead...')
+        all_results_df[all_results_df['target'] == t].to_csv(f'{results_dir}/DE_donor_robustness.{t}_{cond}.csv', index=False)
+        print(f'Saved {t} to CSV successfully')
