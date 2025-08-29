@@ -3,3 +3,8 @@ culture_condition:
   Stim8hr: "#e31a1c"   # Dark red 
   Stim48hr: "#ff7f00"  # Dark orange 
 
+n_donors:
+    1: '#b6de2b'  # yellow-green
+    2: '#1f9d8a'  # teal
+    3: '#31678e'  # blue
+    4: '#482777'   # purple

@@ -393,7 +393,8 @@ def plot_effect_comparison(
     corr_coords_xy=(0.01, 0.95),
     figsize=(8, 8),
     ax=None,
-    annotate_genes=None
+    annotate_genes=None,
+    annotate_significant=False
 ):
     """
     Scatter plot comparing DE effects on all tested genes for a pair of conditions, targets or stats.
@@ -414,7 +415,9 @@ def plot_effect_comparison(
     ax : matplotlib.axes.Axes, optional
         Pre-existing axes for the plot. If None, a new figure and axes will be created.
     annotate_genes : list or None, optional
-        List of gene names to annotate on the plot. If None, will annotate top/bottom genes as before.
+        List of gene names to annotate on the plot. If None, will annotate top/bottom genes.
+    annotate_significant : bool, default=False
+        If True, color points based on significance in one or both conditions.
 
     Returns:
     --------
@@ -446,6 +449,9 @@ def plot_effect_comparison(
     # Create pivot table
     if compare != 'stat':
         pl_df = res_df.pivot(columns=compare, index='gene', values=comparison_params['stat'][0])
+        if annotate_significant:
+            # Get significant genes for each condition
+            sig_df = res_df.pivot(columns=compare, index='gene', values='significant')
     else:
         pl_df = res_df[comparison_params['stat'] + ['gene']].set_index('gene')
 
@@ -458,16 +464,35 @@ def plot_effect_comparison(
     x_col = pl_df.columns[0]  # First column (likely 'Rest')
     y_col = pl_df.columns[1]  # Second column (likely 'Stim8hr')
 
-    # Create scatter plot using column names from pl_df
-    sns.scatterplot(data=pl_df, x=x_col, y=y_col, s=4, edgecolor='none', color='black', ax=ax)
+    if annotate_significant:
+        # Create color mapping for significance
+        sig_both = sig_df[sig_df[x_col] & sig_df[y_col]].index
+        sig_x_only = sig_df[sig_df[x_col] & ~sig_df[y_col]].index
+        sig_y_only = sig_df[~sig_df[x_col] & sig_df[y_col]].index
+        
+        # Plot points with different colors based on significance
+        ax.scatter(pl_df.loc[sig_both, x_col], pl_df.loc[sig_both, y_col], 
+                  s=4, color='purple', alpha=0.6, label='Significant in both')
+        ax.scatter(pl_df.loc[sig_x_only, x_col], pl_df.loc[sig_x_only, y_col], 
+                  s=4, color='darkred', alpha=0.6, label=f'Significant in {x_col}')
+        ax.scatter(pl_df.loc[sig_y_only, x_col], pl_df.loc[sig_y_only, y_col], 
+                  s=4, color='darkblue', alpha=0.6, label=f'Significant in {y_col}')
+        
+        # Plot non-significant points in gray
+        non_sig = pl_df.index.difference(sig_both.union(sig_x_only).union(sig_y_only))
+        ax.scatter(pl_df.loc[non_sig, x_col], pl_df.loc[non_sig, y_col], 
+                  s=4, color='gray', alpha=0.3, label='Not significant')
+    else:
+        # Create scatter plot using column names from pl_df
+        sns.scatterplot(data=pl_df, x=x_col, y=y_col, s=4, edgecolor='none', color='black', ax=ax)
 
     # Add dotted lines for x and y axes
     ax.axhline(y=0, color='gray', linestyle=':', linewidth=1)
     ax.axvline(x=0, color='gray', linestyle=':', linewidth=1)
 
     if plot_correlation:
-        # Calculate correlation between the two conditions
-        corr, pval = scipy.stats.pearsonr(pl_df[x_col], pl_df[y_col])
+        # Calculate correlation between the two conditions, ignoring NAs
+        corr, pval = scipy.stats.pearsonr(pl_df.dropna()[x_col], pl_df.dropna()[y_col])
 
         # Add correlation information as text
         ax.annotate(
@@ -487,9 +512,7 @@ def plot_effect_comparison(
         for gene in annotate_genes:
             if gene in pl_df.index:
                 row = pl_df.loc[gene]
-                # Use a default color for user-specified genes
-                color = 'darkgreen'
-                texts.append(ax.text(row[x_col], row[y_col], gene, fontsize=8, color=color))
+                texts.append(ax.text(row[x_col], row[y_col], gene, fontsize=8, color='black'))
     else:
         # Annotate genes with extreme values (top/bottom)
         top_genes_y = pl_df.nlargest(n_top_genes, y_col)
@@ -498,22 +521,14 @@ def plot_effect_comparison(
         bottom_genes_x = pl_df.nsmallest(n_top_genes, x_col)
         extreme_genes = pd.concat([top_genes_y, bottom_genes_y, top_genes_x, bottom_genes_x]).drop_duplicates()
         for idx, row in extreme_genes.iterrows():
-            # Color based on which category the gene falls into
-            if idx in top_genes_y.index or idx in top_genes_x.index:
-                color = 'darkred'
-            else:
-                color = 'darkblue'
-            texts.append(ax.text(row[x_col], row[y_col], idx, fontsize=8, color=color))
+            texts.append(ax.text(row[x_col], row[y_col], idx, fontsize=8, color='black'))
 
-    # Use adjustText to avoid overlapping labels
-    from adjustText import adjust_text
-    adjust_text(
-        texts,
-        arrowprops=dict(arrowstyle='-', color='gray', lw=0.5),
-        expand_points=(1.5, 1.5),
-        force_points=(0.5, 0.5),
-        ax=ax
-    )
+    # Add white background to text labels
+    for text in texts:
+        text.set_bbox(dict(facecolor='white', edgecolor='none', alpha=0.8, pad=0))
+
+    if annotate_significant:
+        ax.legend(fontsize=10)
 
     if fig is not None:
         return fig, ax, pl_df

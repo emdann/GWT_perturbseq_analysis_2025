@@ -100,7 +100,7 @@ sbatch \
 #     --cpus-per-task=$NCPUS \
 #     --mem=100G \
 #     --time=2:00:00 \
-#     --wrap="python run_DE_chunk.py \
+#     --wrap="python debug_DE_chunk.py \
 #         --config $CONFIG \
 #         --test_chunk 100 \
 #         --culture_condition Rest \

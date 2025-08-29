@@ -1,0 +1,1101 @@
+,cluster,complex,overlap_genes,overlap_fraction,raw_p_value,complex_size,best_described_by
+0,0,CL:35222,"['INTS13', 'INTS10', 'INTS14', 'C7orf26']",0.5,0.003774119442906952,218,"mostly uncharacterized, incl. Integrator complex, and Melanoma-associated antigen"
+1,0,CL:35225,"['INTS13', 'INTS10', 'INTS14', 'C7orf26']",0.5,0.0006326889436458665,136,"mixed, incl. Integrator complex, and Melanoma-associated antigen"
+2,0,CL:35431,"['INTS13', 'INTS10', 'INTS14', 'C7orf26']",0.5,2.1939114426606028e-06,33,"Integrator complex, and SOSS complex"
+3,0,CL:35224,"['INTS13', 'INTS10', 'INTS14', 'C7orf26']",0.5,0.0008983049208473769,149,"mixed, incl. Integrator complex, and Melanoma-associated antigen"
+4,0,CL:35432,"['INTS13', 'INTS10', 'INTS14', 'C7orf26']",0.5,9.487544853038636e-07,27,Integrator complex
+5,0,CL:35457,"['INTS13', 'INTS14', 'INTS10']",0.375,2.6039331867706523e-07,5,Integrator complex
+6,0,CL:35435,"['INTS13', 'INTS10', 'INTS14', 'C7orf26']",0.5,3.9818095729447324e-07,22,Integrator complex
+7,0,CL:31059,['EBF3'],0.125,0.016963140721914984,5,"Transcription factor COE1 DNA-binding domain, and Protein O-mannosyl-transferase TMTC, DUF1736"
+8,0,CL:5615,['ARID5B'],0.125,0.036986137488425656,11,"Histone H3-K9 demethylation, and Lysine-specific demethylase 6, GATA-like domain superfamily"
+9,0,CL:35223,"['INTS13', 'INTS10', 'INTS14', 'C7orf26']",0.5,0.001881756878200684,181,"mixed, incl. Integrator complex, and Melanoma-associated antigen"
+10,0,CL:35439,"['INTS13', 'INTS14', 'INTS10']",0.375,9.342350958971335e-06,14,Integrator complex
+11,3,CL:7614,"['URM1', 'MOCS3', 'ELP5', 'ELP2', 'ELP1', 'CTU1', 'KTI12', 'CTU2', 'ELP4', 'ELP3']",0.7692307692307693,1.3913296728996347e-23,12,tRNA wobble uridine modification
+12,3,CL:28662,['DPM1'],0.07692307692307693,0.02744765677616994,5,"Defective DPM2 causes DPM2-CDG, and Congenital disorder of glycosylation Im"
+13,3,CL:7611,"['URM1', 'MOCS3', 'ELP2', 'ELP5', 'ELP1', 'KTI12', 'CTU1', 'CTU2', 'ELP4', 'ELP3']",0.7692307692307693,2.5726175576651145e-15,51,"mixed, incl. tRNA wobble uridine modification, and tRNA threonylcarbamoyladenosine metabolic process"
+14,3,CL:7612,"['URM1', 'MOCS3', 'ELP2', 'ELP5', 'ELP1', 'KTI12', 'CTU1', 'CTU2', 'ELP4', 'ELP3']",0.7692307692307693,3.766802329508453e-17,35,"mixed, incl. tRNA wobble uridine modification, and Peptidyl-diphthamide metabolic process"
+15,3,CL:7613,"['URM1', 'MOCS3', 'ELP2', 'ELP5', 'ELP1', 'KTI12', 'CTU1', 'CTU2', 'ELP4', 'ELP3']",0.7692307692307693,1.9314944372589397e-20,19,"tRNA wobble uridine modification, and Peptidyl-diphthamide metabolic process"
+16,3,CL:7628,"['URM1', 'MOCS3', 'CTU1', 'CTU2']",0.3076923076923077,2.840735095236894e-09,5,Protein urmylation
+17,3,CL:7616,"['ELP5', 'ELP2', 'ELP1', 'ELP4', 'ELP3']",0.38461538461538464,1.3114066540367931e-11,6,Elongator holoenzyme complex
+18,4,CL:7667,['DNAJC24'],0.16666666666666666,0.012744103060296715,5,"mixed, incl. GMP binding, and Meesmann corneal dystrophy"
+19,4,CL:7611,"['DPH6', 'DPH1', 'DNAJC24', 'DPH5']",0.6666666666666666,2.89256218531412e-06,51,"mixed, incl. tRNA wobble uridine modification, and tRNA threonylcarbamoyladenosine metabolic process"
+20,4,CL:7651,['DNAJC24'],0.16666666666666666,0.032853035340475095,13,"mostly uncharacterized, incl. GMP binding, and UPF0606 protein KIAA1549"
+21,4,CL:7638,"['DPH6', 'DPH1', 'DPH5']",0.5,9.311703030839909e-08,5,Peptidyl-diphthamide metabolic process
+22,4,CL:7613,"['DPH6', 'DPH1', 'DPH5']",0.5,8.902100181009373e-06,19,"tRNA wobble uridine modification, and Peptidyl-diphthamide metabolic process"
+23,4,CL:7612,"['DPH6', 'DPH1', 'DNAJC24', 'DPH5']",0.6666666666666666,6.128154053669195e-07,35,"mixed, incl. tRNA wobble uridine modification, and Peptidyl-diphthamide metabolic process"
+24,5,CL:7611,"['DNAJC24', 'DPH1', 'DPH2', 'DPH5']",0.6666666666666666,2.89256218531412e-06,51,"mixed, incl. tRNA wobble uridine modification, and tRNA threonylcarbamoyladenosine metabolic process"
+25,5,CL:7667,['DNAJC24'],0.16666666666666666,0.012744103060296715,5,"mixed, incl. GMP binding, and Meesmann corneal dystrophy"
+26,5,CL:7651,['DNAJC24'],0.16666666666666666,0.032853035340475095,13,"mostly uncharacterized, incl. GMP binding, and UPF0606 protein KIAA1549"
+27,5,CL:7612,"['DNAJC24', 'DPH1', 'DPH2', 'DPH5']",0.6666666666666666,6.128154053669195e-07,35,"mixed, incl. tRNA wobble uridine modification, and Peptidyl-diphthamide metabolic process"
+28,5,CL:7638,"['DPH1', 'DPH2', 'DPH5']",0.5,9.311703030839909e-08,5,Peptidyl-diphthamide metabolic process
+29,5,CL:7613,"['DPH1', 'DPH2', 'DPH5']",0.5,8.902100181009373e-06,19,"tRNA wobble uridine modification, and Peptidyl-diphthamide metabolic process"
+30,6,CL:7612,"['DPH6', 'DPH1', 'DPH2', 'DPH5', 'DNAJC24']",0.8333333333333334,3.2818815230147317e-09,35,"mixed, incl. tRNA wobble uridine modification, and Peptidyl-diphthamide metabolic process"
+31,6,CL:7638,"['DPH6', 'DPH1', 'DPH2', 'DPH5']",0.6666666666666666,5.973890387764712e-11,5,Peptidyl-diphthamide metabolic process
+32,6,CL:7613,"['DPH6', 'DPH1', 'DPH2', 'DPH5']",0.6666666666666666,4.586717476673808e-08,19,"tRNA wobble uridine modification, and Peptidyl-diphthamide metabolic process"
+33,6,CL:7667,['DNAJC24'],0.16666666666666666,0.012744103060296715,5,"mixed, incl. GMP binding, and Meesmann corneal dystrophy"
+34,6,CL:7651,['DNAJC24'],0.16666666666666666,0.032853035340475095,13,"mostly uncharacterized, incl. GMP binding, and UPF0606 protein KIAA1549"
+35,6,CL:7611,"['DPH6', 'DPH1', 'DPH2', 'DPH5', 'DNAJC24']",0.8333333333333334,2.3611089465113177e-08,51,"mixed, incl. tRNA wobble uridine modification, and tRNA threonylcarbamoyladenosine metabolic process"
+36,8,CL:2025,"['SMG8', 'CASC3', 'SMG1', 'SMG9', 'SMG7', 'UPF2']",0.6666666666666666,0.0010204815396104455,385,"Processing of Capped Intron-Containing Pre-mRNA, and Nuclear transport"
+37,8,CL:2548,"['SMG1', 'SMG9', 'SMG7', 'SMG8']",0.4444444444444444,1.5013038412575204e-09,6,"Est1/Ebs1-like, and Smg8_Smg9 "
+38,8,CL:2027,"['SMG8', 'CASC3', 'SMG1', 'SMG9', 'SMG7', 'UPF2']",0.6666666666666666,0.00014361392301265996,272,"mRNA Splicing, and Nuclear-transcribed mRNA catabolic process, nonsense-mediated decay"
+39,8,CL:2026,"['SMG8', 'CASC3', 'SMG1', 'SMG9', 'SMG7', 'UPF2']",0.6666666666666666,0.00015939082467655724,277,"mRNA Splicing, and Nuclear-transcribed mRNA catabolic process, nonsense-mediated decay"
+40,8,CL:2516,"['SMG8', 'CASC3', 'SMG1', 'SMG9', 'SMG7', 'UPF2']",0.6666666666666666,4.8422960151569986e-11,24,"Nonsense-mediated mRNA decay, and ASAP complex"
+41,8,CL:2021,"['XRN1', 'SMG8', 'CASC3', 'SMG1', 'SMG9', 'SMG7', 'UPF2']",0.7777777777777778,0.0010726633939555008,568,"Processing of Capped Intron-Containing Pre-mRNA, and mRNA metabolic process"
+42,8,CL:2023,"['SMG8', 'CASC3', 'SMG1', 'SMG9', 'SMG7', 'UPF2']",0.6666666666666666,0.0022650019254341087,445,"Processing of Capped Intron-Containing Pre-mRNA, and mRNA metabolic process"
+43,8,CL:2022,"['SMG8', 'CASC3', 'SMG1', 'SMG9', 'SMG7', 'UPF2']",0.6666666666666666,0.0024072695080797632,450,"Processing of Capped Intron-Containing Pre-mRNA, and mRNA metabolic process"
+44,8,CL:2978,['XRN1'],0.1111111111111111,0.022841674887239302,6,mRNA decay by 5 to 3 exoribonuclease
+45,8,CL:2020,"['XRN1', 'SMG8', 'CASC3', 'SMG1', 'SMG9', 'SMG7', 'UPF2']",0.7777777777777778,0.0014496070278002301,595,"mRNA metabolic process, and Nuclear transport"
+46,8,CL:2019,"['XRN1', 'SMG8', 'CASC3', 'SMG1', 'SMG9', 'SMG7', 'UPF2']",0.7777777777777778,0.0015634310732682399,602,"mRNA metabolic process, and Nuclear transport"
+47,8,CL:2018,"['XRN1', 'SMG8', 'CASC3', 'SMG1', 'SMG9', 'SMG7', 'UPF2']",0.7777777777777778,0.0023413246778091115,641,"mRNA metabolic process, and Nuclear transport"
+48,8,CL:2017,"['XRN1', 'SMG8', 'CASC3', 'SMG1', 'SMG9', 'SMG7', 'UPF2']",0.7777777777777778,0.0036090050731341786,686,"mRNA metabolic process, and Nuclear transport"
+49,8,CL:8690,['SRR'],0.1111111111111111,0.030351830937651803,8,"Tryptophan synthase beta chain-like, PALP domain superfamily, and Serine biosynthesis"
+50,8,CL:34406,['TMEM79'],0.1111111111111111,0.019067243588520483,5,"Myelin P0 protein-related, and EVA1 domain"
+51,8,CL:2520,"['UPF2', 'CASC3']",0.2222222222222222,0.00036271230685754123,8,Exon-exon junction complex
+52,8,CL:2024,"['SMG8', 'CASC3', 'SMG1', 'SMG9', 'SMG7', 'UPF2']",0.6666666666666666,0.0020257670236494122,436,"Processing of Capped Intron-Containing Pre-mRNA, and mRNA metabolic process"
+53,8,CL:2517,"['UPF2', 'CASC3']",0.2222222222222222,0.0013413005543085794,15,"Exon-exon junction complex, and ASAP complex"
+54,8,CL:2016,"['XRN1', 'SMG8', 'CASC3', 'SMG1', 'SMG9', 'SMG7', 'UPF2']",0.7777777777777778,0.004329404370923402,706,"mRNA metabolic process, and Nuclear transport"
+55,10,CL:11669,"['COQ6', 'COQ4', 'PDSS2', 'COQ3', 'PDSS1', 'COQ5']",0.05454545454545454,3.5601295208862476e-06,11,Ubiquinone biosynthesis
+56,10,CL:102,"['MRPL10', 'MRPS5', 'MTERF3', 'SUPV3L1', 'TFAM', 'VARS2', 'MRPL49', 'NSUN4', 'MRPL45', 'MRPL18', 'PNPT1', 'MRPS9', 'MRPS16', 'MRPS24', 'MRPS23', 'NARS2', 'MRPL22', 'MRPS27', 'MRPS18C', 'MRPL2', 'MRPS35', 'SSBP1', 'TUFM', 'EARS2', 'MRPL11', 'MRPS2', 'MRPS17', 'GADD45GIP1', 'QRSL1', 'RBFA', 'TWNK', 'MRPS11', 'MRPL42', 'POLRMT', 'MRPS21', 'MRPL21', 'MRPL43', 'MRPL46', 'MRPL16', 'LRPPRC', 'MRPS12', 'TARS2', 'TEFM', 'MRPL37', 'MRPS15', 'MRPL3', 'PARS2', 'MRPS25', 'WARS2', 'MRPS26', 'LARS2', 'MRPL14', 'MRPL35']",0.4818181818181818,4.708353427020452e-05,713,"Translation, and Ribosome biogenesis"
+57,10,CL:101,"['MRPL10', 'MRPS5', 'MTERF3', 'SUPV3L1', 'TFAM', 'VARS2', 'MRPL49', 'NSUN4', 'MRPL45', 'MRPL18', 'PNPT1', 'MRPS9', 'MRPS16', 'MRPS24', 'MRPS23', 'NARS2', 'MRPL22', 'MRPS27', 'MRPS18C', 'MRPL2', 'MRPS35', 'SSBP1', 'TUFM', 'EARS2', 'MRPL11', 'MRPS2', 'MRPS17', 'GADD45GIP1', 'QRSL1', 'RBFA', 'TWNK', 'MRPS11', 'MRPL42', 'POLRMT', 'MRPS21', 'MRPL21', 'MRPL43', 'MRPL46', 'MRPL16', 'LRPPRC', 'MRPS12', 'TARS2', 'TEFM', 'MRPL37', 'MRPS15', 'MRPL3', 'PARS2', 'MRPS25', 'WARS2', 'MRPS26', 'LARS2', 'MRPL14', 'MRPL35']",0.4818181818181818,5.833504658836409e-05,718,"Translation, and Ribosome biogenesis"
+58,10,CL:100,"['MRPL10', 'MRPS5', 'MTERF3', 'SUPV3L1', 'TFAM', 'VARS2', 'MRPL49', 'NSUN4', 'MRPL45', 'MRPL18', 'PNPT1', 'MRPS9', 'MRPS16', 'MRPS24', 'MRPS23', 'NARS2', 'MRPL22', 'MRPS27', 'MRPS18C', 'MRPL2', 'MRPS35', 'SSBP1', 'TUFM', 'EARS2', 'MRPL11', 'MRPS2', 'MRPS17', 'GADD45GIP1', 'QRSL1', 'RBFA', 'TWNK', 'MRPS11', 'MRPL42', 'POLRMT', 'MRPS21', 'MRPL21', 'MRPL43', 'MRPL46', 'MRPL16', 'LRPPRC', 'MRPS12', 'TARS2', 'TEFM', 'MRPL37', 'MRPS15', 'MRPL3', 'PARS2', 'MRPS25', 'WARS2', 'MRPS26', 'LARS2', 'MRPL14', 'MRPL35']",0.4818181818181818,0.0453816260530761,937,"mixed, incl. Translation, and Ribosome biogenesis"
+59,10,CL:9150,"['CAD', 'DHODH']",0.01818181818181818,0.01988645630665378,5,"Dihydroorotase activity, and Protein transport protein Got1"
+60,10,CL:11167,"['UQCRB', 'UQCRC2', 'COX5A', 'UQCRQ']",0.03636363636363636,0.0023641326412145894,13,"Respiratory chain complex III, and Cytochrome-c oxidase activity"
+61,10,CL:11170,"['UQCRC2', 'UQCRQ']",0.01818181818181818,0.03926541259143377,7,Respiratory chain complex III
+62,10,CL:11074,"['UQCRB', 'COX7C', 'UQCRQ', 'CYC1', 'COX6B1', 'UQCRC2', 'COX6C', 'COX4I1', 'COX5A', 'CYCS']",0.09090909090909091,0.0029272632675839167,78,Respiratory chain complex
+63,10,CL:11077,"['UQCRB', 'COX7C', 'CYCS', 'CYC1', 'COX6B1', 'UQCRC2', 'COX6C', 'COX4I1', 'COX5A', 'UQCRQ']",0.09090909090909091,0.0017621578565214684,73,Respiratory chain complex
+64,10,CL:11166,"['UQCRB', 'COX7C', 'COX6B1', 'UQCRC2', 'COX6C', 'COX4I1', 'COX5A', 'UQCRQ']",0.07272727272727272,1.4067307735341523e-05,26,Cytochrome complex
+65,10,CL:11193,"['COX6C', 'COX4I1', 'COX6B1', 'COX7C']",0.03636363636363636,0.0016976034325856394,12,"Mitochondrial electron transport, cytochrome c to oxygen"
+66,10,CL:11195,"['COX4I1', 'COX7C']",0.01818181818181818,0.03926541259143377,7,"Mitochondrial electron transport, cytochrome c to oxygen"
+67,10,CL:11070,"['UQCRB', 'COX7C', 'UQCRQ', 'CYC1', 'COX6B1', 'UQCRC2', 'COX6C', 'COX4I1', 'COX5A', 'CYCS']",0.09090909090909091,0.013802302211990757,97,"Respiratory chain complex, and Complex I biogenesis"
+68,10,CL:11336,"['SCO2', 'COX15']",0.01818181818181818,0.01988645630665378,5,"Heme a metabolic process, and NARP syndrome"
+69,10,CL:103,"['MRPL10', 'MRPS5', 'MTERF3', 'SUPV3L1', 'TFAM', 'VARS2', 'MRPL49', 'NSUN4', 'MRPL45', 'MRPL18', 'PNPT1', 'MRPS9', 'MRPS16', 'MRPS24', 'MRPS23', 'NARS2', 'MRPL22', 'MRPS27', 'MRPS18C', 'MRPL2', 'MRPS35', 'SSBP1', 'TUFM', 'EARS2', 'MRPL11', 'MRPS2', 'MRPS17', 'GADD45GIP1', 'QRSL1', 'RBFA', 'TWNK', 'MRPS11', 'MRPL42', 'POLRMT', 'MRPS21', 'MRPL21', 'MRPL43', 'MRPL46', 'MRPL16', 'LRPPRC', 'MRPS12', 'TARS2', 'TEFM', 'MRPL37', 'MRPS15', 'MRPL3', 'PARS2', 'MRPS25', 'WARS2', 'MRPS26', 'LARS2', 'MRPL14', 'MRPL35']",0.4818181818181818,1.8463556490636198e-05,692,"Translation, and Ribosome biogenesis"
+70,10,CL:11334,"['SCO1', 'COX11', 'SCO2', 'COA5', 'COX15', 'COX17', 'COX19', 'BCS1L']",0.07272727272727272,7.751310372842321e-09,12,Respiratory chain complex IV assembly
+71,10,CL:11065,"['SCO2', 'COA7', 'COX15', 'CYC1', 'COX6B1', 'COX6C', 'CYCS', 'COA3', 'UQCRQ', 'SCO1', 'COX11', 'COA5', 'COX19', 'UQCRC2', 'COX4I1', 'UQCC1', 'BCS1L', 'COX5A', 'COX7C', 'UQCRB', 'COX17']",0.19090909090909092,8.607563422062344e-06,160,"Respiratory electron transport, ATP synthesis by chemiosmotic coupling, and heat production by uncoupling proteins., and Cytochrome complex"
+72,10,CL:11330,"['SCO1', 'SCO2', 'COA3', 'COA7', 'COX15', 'COX11', 'COA5', 'COX19', 'COX17', 'BCS1L']",0.09090909090909091,3.895784162260034e-08,24,"Respiratory chain complex IV assembly, and Mitochondrial splicing suppressor 51-like, C-terminal domain"
+73,10,CL:11332,"['SCO1', 'SCO2', 'COA3', 'COX11', 'COX15', 'COA5', 'COX17', 'COX19', 'BCS1L']",0.08181818181818182,4.9750506770113675e-08,19,Respiratory chain complex IV assembly
+74,10,CL:11063,"['SCO2', 'COA7', 'COX15', 'CYC1', 'COX6B1', 'COX6C', 'CYCS', 'COA3', 'UQCRQ', 'SCO1', 'COX11', 'COA5', 'COX19', 'UQCRC2', 'COX4I1', 'UQCC1', 'BCS1L', 'COX5A', 'COX7C', 'UQCRB', 'COX17']",0.19090909090909092,2.064304867013652e-05,169,"Respiratory electron transport, ATP synthesis by chemiosmotic coupling, and heat production by uncoupling proteins., and Cytochrome complex"
+75,10,CL:11060,"['SCO2', 'COA7', 'COX15', 'CYC1', 'COX6B1', 'COX6C', 'TIMM8B', 'CYCS', 'COA3', 'UQCRQ', 'SCO1', 'COX11', 'COA5', 'SDHAF4', 'COX19', 'UQCRC2', 'COX4I1', 'UQCC1', 'BCS1L', 'COX5A', 'COX7C', 'UQCRB', 'COX17']",0.20909090909090908,0.0050131025068715545,284,"Inner mitochondrial membrane protein complex, and Mitochondrial respiratory chain complex assembly"
+76,10,CL:11059,"['SCO2', 'COA7', 'COX15', 'CYC1', 'COX6B1', 'COX6C', 'TIMM8B', 'CYCS', 'COA3', 'UQCRQ', 'SCO1', 'COX11', 'COA5', 'RTN4IP1', 'COX19', 'SDHAF4', 'UQCRC2', 'COX4I1', 'UQCC1', 'BCS1L', 'COX5A', 'COX7C', 'UQCRB', 'COX17']",0.21818181818181817,0.003211813143262421,291,"Inner mitochondrial membrane protein complex, and Mitochondrial respiratory chain complex assembly"
+77,10,CL:11057,"['SCO2', 'COA7', 'COX15', 'CYC1', 'COX6B1', 'COX6C', 'TIMM8B', 'CYCS', 'COA3', 'UQCRQ', 'SCO1', 'COX11', 'COA5', 'RTN4IP1', 'COX19', 'SDHAF4', 'UQCRC2', 'COX4I1', 'UQCC1', 'BCS1L', 'COX5A', 'COX7C', 'UQCRB', 'COX17']",0.21818181818181817,0.005719563072042086,304,"Inner mitochondrial membrane protein complex, and Mitochondrial respiratory chain complex assembly"
+78,10,CL:11665,"['COQ6', 'COQ4', 'PDSS2', 'COQ3', 'PDSS1', 'COQ5']",0.05454545454545454,7.55927309045468e-05,17,Quinone biosynthetic process
+79,10,CL:11672,"['COQ6', 'COQ5', 'COQ3']",0.02727272727272727,0.0009389872088797386,5,Ubiquinone biosynthesis complex
+80,10,CL:11056,"['COQ6', 'SCO2', 'COA7', 'COX15', 'CYC1', 'COX6B1', 'COX6C', 'TIMM8B', 'COQ5', 'CYCS', 'COA3', 'COQ4', 'PDSS2', 'COQ3', 'UQCRQ', 'SCO1', 'COX11', 'COA5', 'RTN4IP1', 'COX19', 'SDHAF4', 'UQCRC2', 'COX4I1', 'PDSS1', 'UQCC1', 'BCS1L', 'COX5A', 'COX7C', 'UQCRB', 'COX17']",0.2727272727272727,0.0001561555428947174,331,"mixed, incl. Inner mitochondrial membrane protein complex, and Mitochondrial respiratory chain complex assembly"
+81,10,CL:11664,"['COQ6', 'COQ4', 'PDSS2', 'COQ3', 'PDSS1', 'COQ5']",0.05454545454545454,0.0012295492274098784,27,"Quinone biosynthetic process, and Prenylation"
+82,10,CL:11055,"['COQ6', 'SCO2', 'COA7', 'COX15', 'CYC1', 'COX6B1', 'COX6C', 'TIMM8B', 'COQ5', 'CYCS', 'IBA57', 'COA3', 'COQ4', 'PDSS2', 'COQ3', 'UQCRQ', 'SCO1', 'COX11', 'COA5', 'RTN4IP1', 'COX19', 'SDHAF4', 'UQCRC2', 'COX4I1', 'PDSS1', 'UQCC1', 'BCS1L', 'COX5A', 'COX7C', 'UQCRB', 'HMBS', 'COX17']",0.2909090909090909,0.0011164918311373916,404,"mixed, incl. Inner mitochondrial membrane protein complex, and Mitochondrion organization"
+83,10,CL:11054,"['COQ6', 'SCO2', 'COA7', 'COX15', 'CYC1', 'COX6B1', 'COX6C', 'TIMM8B', 'COQ5', 'CYCS', 'IBA57', 'COA3', 'COQ4', 'PDSS2', 'COQ3', 'UQCRQ', 'SCO1', 'COX11', 'COA5', 'RTN4IP1', 'COX19', 'SDHAF4', 'UQCRC2', 'COX4I1', 'PDSS1', 'UQCC1', 'BCS1L', 'COX5A', 'COX7C', 'UQCRB', 'HMBS', 'COX17']",0.2909090909090909,0.002282953724372115,421,"Mitochondrial inner membrane, and Iron-sulfur cluster assembly"
+84,10,CL:11347,"['SCO1', 'COX11', 'COX19', 'COX17']",0.03636363636363636,2.2174188019704018e-05,5,"Cysteine alpha-hairpin motif superfamily, and Copper chaperone SCO1/SenC"
+85,10,CL:1384,"['LRPPRC', 'MTERF3', 'TWNK', 'TEFM', 'TFAM', 'SSBP1', 'POLRMT']",0.06363636363636363,0.0001687114508973353,27,"Mitochondrial RNA metabolic process, and Regulation of mitochondrial RNA catabolic process"
+86,10,CL:104,"['MRPL10', 'MRPS5', 'MTERF3', 'SUPV3L1', 'TFAM', 'VARS2', 'MRPL49', 'NSUN4', 'MRPL45', 'MRPL18', 'PNPT1', 'MRPS9', 'MRPS16', 'MRPS24', 'MRPS23', 'NARS2', 'MRPL22', 'MRPS27', 'MRPS18C', 'MRPL2', 'MRPS35', 'SSBP1', 'TUFM', 'EARS2', 'MRPL11', 'MRPS2', 'MRPS17', 'GADD45GIP1', 'QRSL1', 'RBFA', 'TWNK', 'MRPS11', 'MRPL42', 'POLRMT', 'MRPS21', 'MRPL21', 'MRPL43', 'MRPL46', 'MRPL16', 'LRPPRC', 'MRPS12', 'TARS2', 'TEFM', 'MRPL37', 'MRPS15', 'MRPL3', 'PARS2', 'MRPS25', 'WARS2', 'MRPS26', 'LARS2', 'MRPL14', 'MRPL35']",0.4818181818181818,5.59521915028738e-06,667,"Translation, and Ribosome biogenesis"
+87,10,CL:1385,"['LRPPRC', 'MTERF3', 'TWNK', 'TEFM', 'TFAM', 'SSBP1', 'POLRMT']",0.06363636363636363,2.7936942617310658e-05,21,"mixed, incl. Mitochondrial transcription, and RAP domain"
+88,10,CL:578,"['MRPS12', 'MRPS15', 'MRPS16', 'MRPS11']",0.03636363636363636,0.00014419290365096367,7,Organellar small ribosomal subunit
+89,10,CL:573,"['MRPL16', 'MRPS12', 'MRPL22', 'MRPL2', 'MRPS11', 'MRPS15', 'MRPL3', 'MRPL11', 'MRPL21', 'MRPS16']",0.09090909090909091,7.893565472470178e-09,21,"Organellar large ribosomal subunit, and Organellar small ribosomal subunit"
+90,10,CL:576,"['MRPL16', 'MRPS12', 'MRPL22', 'MRPS15', 'MRPS11', 'MRPL3', 'MRPL21', 'MRPS16']",0.07272727272727272,1.7204058210946854e-07,16,Mitochondrial translation elongation
+91,10,CL:595,"['MRPL21', 'MRPL22']",0.01818181818181818,0.02892275463011122,6,"mixed, incl. Ribosomal protein L22p/L17e, and Ribosomal protein L9/RNase H1, N-terminal"
+92,10,CL:569,"['MRPL16', 'MRPS12', 'MRPL10', 'MRPL22', 'MRPL2', 'MRPS11', 'MRPS15', 'MRPL3', 'MRPL49', 'MRPL11', 'MRPL21', 'MRPL43', 'MRPS16', 'MRPL46']",0.12727272727272726,1.1196554854340395e-10,35,Organellar large ribosomal subunit
+93,10,CL:572,"['MRPL16', 'MRPS12', 'MRPL10', 'MRPL22', 'MRPL2', 'MRPS11', 'MRPS15', 'MRPL3', 'MRPL11', 'MRPL21', 'MRPL43', 'MRPS16', 'MRPL46']",0.11818181818181818,1.620793316392132e-10,30,Organellar large ribosomal subunit
+94,10,CL:568,"['MRPL49', 'MRPL45', 'MRPL18', 'MRPS16', 'MRPL22', 'MRPL2', 'MRPL11', 'GADD45GIP1', 'MRPS11', 'MRPL21', 'MRPL43', 'MRPL46', 'MRPL16', 'MRPS12', 'MRPS15', 'MRPL37', 'MRPL3', 'MRPL10', 'MRPL35']",0.17272727272727273,6.432883223081608e-15,44,Organellar large ribosomal subunit
+95,10,CL:640,"['MRPL45', 'MRPL37', 'GADD45GIP1']",0.02727272727272727,0.001813859659738908,6,"mixed, incl. Ribosomal protein L37/S30, and Tim44-like domain"
+96,10,CL:567,"['MRPL49', 'MRPL45', 'MRPL18', 'MRPS16', 'MRPL22', 'MRPL2', 'MRPL11', 'GADD45GIP1', 'MRPS11', 'MRPL21', 'MRPL43', 'MRPL46', 'MRPL16', 'MRPS12', 'MRPS15', 'MRPL37', 'MRPL3', 'MRPL10', 'MRPL35']",0.17272727272727273,1.1038579410822865e-13,50,Organellar large ribosomal subunit
+97,10,CL:560,"['MRPL10', 'MRPS5', 'MRPL49', 'MRPL45', 'MRPL18', 'MRPS9', 'MRPS16', 'MRPS24', 'MRPS23', 'MRPL22', 'MRPS27', 'MRPS18C', 'MRPL2', 'MRPS35', 'MRPL11', 'MRPS2', 'MRPS17', 'GADD45GIP1', 'MRPS11', 'MRPL42', 'MRPS21', 'MRPL21', 'MRPL43', 'MRPL46', 'MRPL16', 'MRPS12', 'MRPL37', 'MRPS15', 'MRPL3', 'MRPS25', 'MRPS26', 'MRPL14', 'MRPL35']",0.3,1.4837081515261622e-23,87,Mitochondrial translation initiation
+98,10,CL:562,"['MRPL10', 'MRPS5', 'MRPL49', 'MRPL45', 'MRPL18', 'MRPS9', 'MRPS16', 'MRPS24', 'MRPS23', 'MRPL22', 'MRPS27', 'MRPS18C', 'MRPL2', 'MRPS35', 'MRPL11', 'MRPS2', 'MRPS17', 'GADD45GIP1', 'MRPS11', 'MRPL42', 'MRPS21', 'MRPL21', 'MRPL43', 'MRPL46', 'MRPL16', 'MRPS12', 'MRPL37', 'MRPS15', 'MRPL3', 'MRPS25', 'MRPS26', 'MRPL14', 'MRPL35']",0.3,1.5018289821467741e-24,82,Mitochondrial translation initiation
+99,10,CL:566,"['MRPL10', 'MRPS5', 'MRPL49', 'MRPL45', 'MRPL18', 'MRPS9', 'MRPS16', 'MRPS24', 'MRPS23', 'MRPL22', 'MRPS27', 'MRPS18C', 'MRPL2', 'MRPS35', 'MRPL11', 'MRPS2', 'GADD45GIP1', 'MRPS11', 'MRPL42', 'MRPS21', 'MRPL21', 'MRPL43', 'MRPL46', 'MRPL16', 'MRPS12', 'MRPL37', 'MRPS15', 'MRPL3', 'MRPS25', 'MRPS26', 'MRPS17', 'MRPL35']",0.2909090909090909,2.5631330253461542e-24,77,Organellar ribosome
+100,10,CL:668,"['MRPS23', 'MRPS5', 'MRPS27', 'MRPS35', 'MRPS25', 'MRPS2', 'MRPS21', 'MRPS26', 'MRPS17', 'MRPS9', 'MRPS24']",0.1,1.2465139945689415e-09,23,Organellar small ribosomal subunit
+101,10,CL:671,"['MRPS5', 'MRPS35', 'MRPS27', 'MRPS25', 'MRPS26', 'MRPS21', 'MRPS2', 'MRPS9', 'MRPS24']",0.08181818181818182,2.7244775357695976e-08,18,Organellar small ribosomal subunit
+102,10,CL:673,"['MRPS5', 'MRPS35', 'MRPS27', 'MRPS25', 'MRPS2', 'MRPS9']",0.05454545454545454,6.849415451610872e-06,12,Organellar small ribosomal subunit
+103,10,CL:675,"['MRPS25', 'MRPS9', 'MRPS2', 'MRPS5']",0.03636363636363636,0.00014419290365096367,7,Organellar small ribosomal subunit
+104,10,CL:107,"['MRPL10', 'MRPS5', 'MRPL49', 'NSUN4', 'MRPL45', 'MRPL18', 'MRPS9', 'MRPS16', 'MRPS24', 'MRPS23', 'MRPL22', 'MRPS27', 'MRPS18C', 'MRPL2', 'MRPS35', 'TUFM', 'MRPL11', 'MRPS2', 'MRPS17', 'GADD45GIP1', 'RBFA', 'MRPS11', 'MRPL42', 'MRPS21', 'MRPL21', 'MRPL43', 'MRPL46', 'MRPL16', 'MRPS12', 'MRPL37', 'MRPS15', 'MRPL3', 'MRPS25', 'MRPS26', 'MRPL14', 'MRPL35']",0.32727272727272727,7.61516939161513e-07,344,"Translation, and Translation factor activity, RNA binding"
+105,10,CL:558,"['MRPL10', 'MRPS5', 'MRPL49', 'NSUN4', 'MRPL45', 'MRPL18', 'MRPS9', 'MRPS16', 'MRPS24', 'MRPS23', 'MRPL22', 'MRPS27', 'MRPS18C', 'MRPL2', 'MRPS35', 'MRPL11', 'MRPS2', 'MRPS17', 'GADD45GIP1', 'RBFA', 'MRPS11', 'MRPL42', 'MRPS21', 'MRPL21', 'MRPL43', 'MRPL46', 'MRPL16', 'MRPS12', 'MRPL37', 'MRPS15', 'MRPL3', 'MRPS25', 'MRPS26', 'MRPL14', 'MRPL35']",0.3181818181818182,2.7093317359062386e-21,115,"Organellar ribosome, and Regulation of mitochondrial gene expression"
+106,10,CL:802,"['EARS2', 'PARS2', 'VARS2', 'WARS2', 'LARS2']",0.045454545454545456,0.00019791271317049985,13,"Aminoacyl-tRNA synthetase, class I, conserved site, and tRNA-binding domain"
+107,10,CL:818,"['VARS2', 'WARS2']",0.01818181818181818,0.01988645630665378,5,"tRNA synthetases class I (W and Y), and Valine-tRNA ligase"
+108,10,CL:801,"['TARS2', 'VARS2', 'PARS2', 'EARS2', 'WARS2', 'LARS2']",0.05454545454545454,0.00021083515153631993,20,Aminoacyl-tRNA synthetase
+109,10,CL:799,"['TARS2', 'VARS2', 'PARS2', 'EARS2', 'WARS2', 'LARS2']",0.05454545454545454,0.0031068300722477495,32,tRNA Aminoacylation
+110,10,CL:106,"['MRPL10', 'MRPS5', 'VARS2', 'MRPL49', 'NSUN4', 'MRPL45', 'MRPL18', 'MRPS9', 'MRPS16', 'MRPS24', 'MRPS23', 'NARS2', 'MRPL22', 'MRPS27', 'MRPS18C', 'MRPL2', 'MRPS35', 'TUFM', 'EARS2', 'MRPL11', 'MRPS2', 'MRPS17', 'GADD45GIP1', 'QRSL1', 'RBFA', 'MRPS11', 'MRPL42', 'MRPS21', 'MRPL21', 'MRPL43', 'MRPL46', 'MRPL16', 'MRPS12', 'TARS2', 'MRPL37', 'MRPS15', 'MRPL3', 'PARS2', 'MRPS25', 'WARS2', 'MRPS26', 'LARS2', 'MRPL14', 'MRPL35']",0.4,2.437256218001511e-09,394,"Translation, and This family consists of several GAGE and XAGE proteins which are found exclusively in humans. The function of this family is unknown although they have been implicated in human cancers (PMID:11992404)"
+111,10,CL:795,"['TARS2', 'NARS2', 'VARS2', 'EARS2', 'PARS2', 'WARS2', 'LARS2', 'QRSL1']",0.07272727272727272,0.0014289096144851285,48,"tRNA Aminoacylation, and glutamyl-tRNA(Gln) amidotransferase complex"
+112,10,CL:797,"['TARS2', 'NARS2', 'VARS2', 'EARS2', 'PARS2', 'WARS2', 'LARS2', 'QRSL1']",0.07272727272727272,0.0005657641449485444,42,tRNA Aminoacylation
+113,10,CL:867,"['QRSL1', 'NARS2']",0.01818181818181818,0.03926541259143377,7,"asparaginyl-tRNA aminoacylation, and glutamyl-tRNA(Gln) amidotransferase complex"
+114,10,CL:105,"['MRPL10', 'MRPS5', 'SUPV3L1', 'VARS2', 'MRPL49', 'NSUN4', 'MRPL45', 'MRPL18', 'PNPT1', 'MRPS9', 'MRPS16', 'MRPS24', 'MRPS23', 'NARS2', 'MRPL22', 'MRPS27', 'MRPS18C', 'MRPL2', 'MRPS35', 'TUFM', 'EARS2', 'MRPL11', 'MRPS2', 'MRPS17', 'GADD45GIP1', 'QRSL1', 'RBFA', 'MRPS11', 'MRPL42', 'MRPS21', 'MRPL21', 'MRPL43', 'MRPL46', 'MRPL16', 'MRPS12', 'TARS2', 'MRPL37', 'MRPS15', 'MRPL3', 'PARS2', 'MRPS25', 'WARS2', 'MRPS26', 'LARS2', 'MRPL14', 'MRPL35']",0.41818181818181815,0.0005371054325966506,640,"Translation, and Ribosome biogenesis"
+115,10,CL:1386,"['MTERF3', 'TWNK', 'TEFM', 'TFAM', 'SSBP1', 'POLRMT']",0.05454545454545454,6.849415451610872e-06,12,"Mitochondrial transcription, and Ribonuclease H domain"
+116,10,CL:1389,"['POLRMT', 'TEFM', 'TFAM', 'MTERF3']",0.03636363636363636,6.411475802056921e-05,6,"Transcription from mitochondrial promoters, and Helix-hairpin-helix motif"
+117,10,CL:11053,"['COQ6', 'SCO2', 'COA7', 'COX15', 'CYC1', 'COX6B1', 'COX6C', 'TIMM8B', 'COQ5', 'CYCS', 'IBA57', 'COA3', 'COQ4', 'PDSS2', 'COQ3', 'UQCRQ', 'SCO1', 'COX11', 'COA5', 'RTN4IP1', 'COX19', 'SDHAF4', 'UQCRC2', 'COX4I1', 'PDSS1', 'UQCC1', 'BCS1L', 'COX5A', 'COX7C', 'UQCRB', 'HMBS', 'COX17']",0.2909090909090909,0.0027847636967454946,426,"Mitochondrial inner membrane, and Iron-sulfur cluster assembly"
+118,10,CL:11052,"['COQ6', 'SCO2', 'COA7', 'COX15', 'CYC1', 'COX6B1', 'COX6C', 'TIMM8B', 'COQ5', 'CYCS', 'IBA57', 'COA3', 'COQ4', 'PDSS2', 'COQ3', 'UQCRQ', 'SCO1', 'COX11', 'COA5', 'RTN4IP1', 'COX19', 'SDHAF4', 'SLC25A26', 'UQCRC2', 'COX4I1', 'PDSS1', 'UQCC1', 'BCS1L', 'COX5A', 'COX7C', 'UQCRB', 'HMBS', 'COX17', 'SLC25A10']",0.3090909090909091,0.002136695498698421,455,"Mitochondrial inner membrane, and Iron-sulfur cluster assembly"
+119,10,CL:11061,"['SCO2', 'COA7', 'COX15', 'CYC1', 'COX6B1', 'COX6C', 'CYCS', 'COA3', 'UQCRQ', 'SCO1', 'COX11', 'COA5', 'SDHAF4', 'COX19', 'UQCRC2', 'COX4I1', 'UQCC1', 'BCS1L', 'COX5A', 'COX7C', 'UQCRB', 'COX17']",0.2,1.65685254237196e-05,180,"Respiratory electron transport, ATP synthesis by chemiosmotic coupling, and heat production by uncoupling proteins., and Cytochrome complex"
+120,11,CL:30929,['ZDHHC3'],0.16666666666666666,0.012744103060296715,5,"Protein-cysteine S-myristoyltransferase activity, and DHHC palmitoyltransferase"
+121,11,CL:30913,['ZDHHC3'],0.16666666666666666,0.032853035340475095,13,DHHC palmitoyltransferase
+122,11,CL:28615,['GPAA1'],0.16666666666666666,0.012744103060296715,5,GPI-anchor transamidase complex
+123,11,CL:18707,['THAP2'],0.16666666666666666,0.01780370238012626,7,"mixed, incl. Octamer-binding transcription factor, and Host cell factor"
+124,11,CL:1240,['ZCCHC8'],0.16666666666666666,0.012744103060296715,5,TRAMP complex
+125,11,CL:1205,['ZFC3H1'],0.16666666666666666,0.04524689948075069,18,Exosome (RNase complex)
+126,11,CL:1204,"['ZCCHC8', 'ZFC3H1']",0.3333333333333333,0.001349282894131667,23,"Exosome (RNase complex), and TRAMP complex"
+127,12,CL:4759,"['INO80C', 'INO80', 'ACTR8', 'INO80E', 'INO80B', 'ACTR5', 'NFRKB']",0.6363636363636364,2.41114500613456e-06,170,"Nucleosome, and Histone methyltransferase complex"
+128,12,CL:5064,"['INO80C', 'INO80', 'ACTR8', 'INO80E', 'INO80B', 'ACTR5', 'NFRKB']",0.6363636363636364,8.269725452595128e-14,17,INO80-type complex
+129,12,CL:5013,"['INO80C', 'INO80', 'ACTR8', 'INO80E', 'INO80B', 'ACTR5', 'NFRKB']",0.6363636363636364,1.317457298977844e-10,43,"H4 histone acetyltransferase complex, and INO80-type complex"
+130,12,CL:32624,['HIRIP3'],0.09090909090909091,0.023264640578095623,5,"Spondylocostal dysostosis, and Synapse maturation"
+131,12,CL:5069,"['INO80', 'INO80E', 'INO80B', 'ACTR5', 'NFRKB']",0.45454545454545453,7.868449535714726e-13,5,Ino80 complex
+132,12,CL:5066,"['INO80C', 'INO80', 'ACTR8', 'INO80E', 'INO80B', 'ACTR5', 'NFRKB']",0.6363636363636364,5.15660086780253e-16,10,Ino80 complex
+133,12,CL:4758,"['INO80C', 'INO80', 'ACTR8', 'INO80E', 'INO80B', 'ACTR5', 'NFRKB']",0.6363636363636364,8.35621852804933e-06,204,"DNA packaging complex, and Histone methyltransferase complex"
+134,12,CL:4756,"['INO80C', 'INO80', 'ACTR8', 'INO80E', 'INO80B', 'ACTR5', 'NFRKB']",0.6363636363636364,6.488755080076516e-05,277,"DNA packaging complex, and Histone deacetylase complex"
+135,12,CL:4757,"['INO80C', 'INO80', 'ACTR8', 'INO80E', 'INO80B', 'ACTR5', 'NFRKB']",0.6363636363636364,3.8440376009681654e-05,256,"DNA packaging complex, and Histone deacetylase complex"
+136,12,CL:4754,"['INO80C', 'INO80', 'ACTR8', 'INO80E', 'INO80B', 'ACTR5', 'NFRKB']",0.6363636363636364,0.0003794170766000413,363,"Chromatin organization, and Structural constituent of chromatin"
+137,12,CL:4753,"['INO80C', 'INO80', 'ACTR8', 'INO80E', 'INO80B', 'ACTR5', 'NFRKB']",0.6363636363636364,0.0004364869781658189,371,"Chromatin organization, and Structural constituent of chromatin"
+138,12,CL:4748,"['INO80C', 'INO80', 'ACTR8', 'INO80E', 'INO80B', 'ACTR5', 'NFRKB']",0.6363636363636364,0.01999102299187552,695,"mixed, incl. Chromatin organization, and DNA-directed RNA polymerase complex"
+139,12,CL:4749,"['INO80C', 'INO80', 'ACTR8', 'INO80E', 'INO80B', 'ACTR5', 'NFRKB']",0.6363636363636364,0.0016112340707288644,456,"Chromatin organization, and Structural constituent of chromatin"
+140,12,CL:4750,"['INO80C', 'INO80', 'ACTR8', 'INO80E', 'INO80B', 'ACTR5', 'NFRKB']",0.6363636363636364,0.0007403065464528603,403,"Chromatin organization, and Structural constituent of chromatin"
+141,12,CL:4751,"['INO80C', 'INO80', 'ACTR8', 'INO80E', 'INO80B', 'ACTR5', 'NFRKB']",0.6363636363636364,0.0005625947907366898,386,"Chromatin organization, and Structural constituent of chromatin"
+142,12,CL:4755,"['INO80C', 'INO80', 'ACTR8', 'INO80E', 'INO80B', 'ACTR5', 'NFRKB']",0.6363636363636364,0.0001097966717843276,300,"mixed, incl. DNA packaging complex, and Histone deacetylase complex"
+143,12,CL:4752,"['INO80C', 'INO80', 'ACTR8', 'INO80E', 'INO80B', 'ACTR5', 'NFRKB']",0.6363636363636364,0.0004756219090491755,376,"Chromatin organization, and Structural constituent of chromatin"
+144,14,CL:4748,"['ZNF644', 'WIZ', 'EHMT2', 'EHMT1']",0.8,0.029335446746923483,695,"mixed, incl. Chromatin organization, and DNA-directed RNA polymerase complex"
+145,14,CL:4749,"['ZNF644', 'WIZ', 'EHMT2', 'EHMT1']",0.8,0.005990738242790854,456,"Chromatin organization, and Structural constituent of chromatin"
+146,14,CL:5355,"['ZNF644', 'WIZ', 'EHMT2', 'EHMT1']",0.8,1.4377451308244945e-06,56,"PcG protein complex, and Transcriptional Regulation by E2F6"
+147,14,CL:5447,"['ZNF644', 'WIZ', 'EHMT2', 'EHMT1']",0.8,8.352001525364105e-10,10,"mixed, incl. Histone-lysine N-methyltransferase EHMT1/EHMT2, and E2F-DP heterodimerization region"
+148,14,CL:4754,"['ZNF644', 'WIZ', 'EHMT2', 'EHMT1']",0.8,0.0024877542899621784,363,"Chromatin organization, and Structural constituent of chromatin"
+149,14,CL:5354,"['ZNF644', 'WIZ', 'EHMT2', 'EHMT1']",0.8,2.326030708061277e-06,63,"mixed, incl. PcG protein complex, and Protein kinase CK2 complex"
+150,14,CL:4753,"['ZNF644', 'WIZ', 'EHMT2', 'EHMT1']",0.8,0.002706925430915847,371,"Chromatin organization, and Structural constituent of chromatin"
+151,14,CL:4752,"['ZNF644', 'WIZ', 'EHMT2', 'EHMT1']",0.8,0.0028508626553188075,376,"Chromatin organization, and Structural constituent of chromatin"
+152,14,CL:5448,"['WIZ', 'EHMT1', 'EHMT2', 'ZNF644']",0.8,1.9919780469636245e-11,5,"Histone-lysine N-methyltransferase EHMT1/EHMT2, and crotonyl-CoA hydratase activity"
+153,14,CL:19056,['FAM3C'],0.2,0.012744103060296715,6,Platelet dense granule lumen
+154,14,CL:4751,"['ZNF644', 'WIZ', 'EHMT2', 'EHMT1']",0.8,0.0031553702478701946,386,"Chromatin organization, and Structural constituent of chromatin"
+155,14,CL:4750,"['ZNF644', 'WIZ', 'EHMT2', 'EHMT1']",0.8,0.0037264452337017404,403,"Chromatin organization, and Structural constituent of chromatin"
+156,16,CL:14569,"['LAMTOR2', 'RRAGA', 'LAMTOR3', 'WDR59', 'MIOS', 'RRAGC', 'LAMTOR4', 'WDR24']",0.7272727272727273,2.244276902163314e-14,28,Amino acids regulate mTORC1
+157,16,CL:5428,['FOXK1'],0.09090909090909091,0.046036196630197555,10,"PR-DUB complex, and Methyl-CpG-binding domain protein 5/6"
+158,16,CL:5432,['FOXK1'],0.09090909090909091,0.023264640578095623,5,"PR-DUB complex, and Histone H3-di/monomethyl-lysine-4 FAD-dependent demethylase activity"
+159,16,CL:7597,['TMEM214'],0.09090909090909091,0.023264640578095623,5,"mixed, incl. TRIC channel, and Autosomal recessive limb-girdle muscular dystrophy type 2X"
+160,16,CL:14574,"['MIOS', 'WDR24']",0.18181818181818182,0.0001987561778359674,5,Seh1-associated complex
+161,16,CL:14571,"['WDR59', 'MIOS', 'WDR24']",0.2727272727272727,2.1455103889105777e-05,13,"Seh1-associated complex, and KICSTOR complex"
+162,16,CL:14601,"['LAMTOR2', 'RRAGA']",0.18181818181818182,0.0001987561778359674,5,"Ragulator complex, and RagA/B"
+163,16,CL:14565,"['LAMTOR2', 'RRAGA', 'LAMTOR3', 'WDR59', 'MIOS', 'RRAGC', 'RPTOR', 'LAMTOR4', 'WDR24']",0.8181818181818182,3.149806012985036e-11,107,"Amino acids regulate mTORC1, and MTOR signalling"
+164,16,CL:13122,"['LAMTOR2', 'RRAGA', 'LAMTOR3', 'WDR59', 'MIOS', 'RRAGC', 'RPTOR', 'LAMTOR4', 'WDR24']",0.8181818181818182,0.0025574374423729127,846,"Vesicle-mediated transport, and Amino acids regulate mTORC1"
+165,16,CL:14302,"['LAMTOR2', 'RRAGA', 'LAMTOR3', 'WDR59', 'MIOS', 'RRAGC', 'RPTOR', 'LAMTOR4', 'WDR24']",0.8181818181818182,8.76909764076888e-08,256,"mixed, incl. Amino acids regulate mTORC1, and Autophagy"
+166,16,CL:13121,"['LAMTOR2', 'RRAGA', 'LAMTOR3', 'WDR59', 'MIOS', 'RRAGC', 'RPTOR', 'LAMTOR4', 'WDR24']",0.8181818181818182,0.003811762174258997,889,"mixed, incl. Vesicle-mediated transport, and Amino acids regulate mTORC1"
+167,16,CL:13120,"['LAMTOR2', 'RRAGA', 'LAMTOR3', 'WDR59', 'MIOS', 'RRAGC', 'RPTOR', 'LAMTOR4', 'WDR24']",0.8181818181818182,0.0054610916786707155,930,"mixed, incl. Vesicle-mediated transport, and Amino acids regulate mTORC1"
+168,16,CL:13119,"['LAMTOR2', 'RRAGA', 'LAMTOR3', 'WDR59', 'MIOS', 'RRAGC', 'RPTOR', 'LAMTOR4', 'WDR24']",0.8181818181818182,0.008254970392436167,980,"mixed, incl. Vesicle-mediated transport, and mTOR signaling pathway"
+169,16,CL:14303,"['LAMTOR2', 'RRAGA', 'LAMTOR3', 'WDR59', 'MIOS', 'RRAGC', 'RPTOR', 'LAMTOR4', 'WDR24']",0.8181818181818182,4.5697113424054844e-08,238,"mixed, incl. Amino acids regulate mTORC1, and Autophagy"
+170,16,CL:14566,"['LAMTOR2', 'RRAGA', 'LAMTOR3', 'WDR59', 'MIOS', 'RRAGC', 'RPTOR', 'LAMTOR4', 'WDR24']",0.8181818181818182,3.359353490307975e-13,66,"MTOR signalling, and Negative regulation of TORC1 signaling"
+171,16,CL:14567,"['LAMTOR2', 'RRAGA', 'LAMTOR3', 'WDR59', 'MIOS', 'RRAGC', 'RPTOR', 'LAMTOR4', 'WDR24']",0.8181818181818182,4.8722465169860374e-14,54,"Amino acids regulate mTORC1, and TORC2 complex"
+172,16,CL:14643,['RPTOR'],0.09090909090909091,0.023264640578095623,5,"Positive regulation of pentose-phosphate shunt, and Tetratricopeptide repeat"
+173,16,CL:14610,"['RRAGC', 'LAMTOR3', 'LAMTOR4']",0.2727272727272727,7.657537994038333e-07,5,"Gtr1/RagA G protein, and Ragulator complex"
+174,16,CL:14600,"['LAMTOR2', 'RRAGA', 'LAMTOR3', 'RRAGC', 'LAMTOR4']",0.45454545454545453,1.9617335202122957e-10,10,"Ragulator complex, and Gtr1/RagA G protein"
+175,18,CL:13119,"['RRAGA', 'LAMTOR2', 'WDR59', 'MIOS', 'RRAGC']",1.0,0.012698661477821616,980,"mixed, incl. Vesicle-mediated transport, and mTOR signaling pathway"
+176,18,CL:14610,['RRAGC'],0.2,0.010629158979449018,5,"Gtr1/RagA G protein, and Ragulator complex"
+177,18,CL:14600,"['RRAGA', 'RRAGC', 'LAMTOR2']",0.6,5.572696744092066e-07,10,"Ragulator complex, and Gtr1/RagA G protein"
+178,18,CL:14302,"['RRAGA', 'LAMTOR2', 'WDR59', 'MIOS', 'RRAGC']",1.0,1.500378618604747e-05,256,"mixed, incl. Amino acids regulate mTORC1, and Autophagy"
+179,18,CL:13121,"['RRAGA', 'LAMTOR2', 'WDR59', 'MIOS', 'RRAGC']",1.0,0.007792580212873372,889,"mixed, incl. Vesicle-mediated transport, and Amino acids regulate mTORC1"
+180,18,CL:13120,"['RRAGA', 'LAMTOR2', 'WDR59', 'MIOS', 'RRAGC']",1.0,0.009767947164328473,930,"mixed, incl. Vesicle-mediated transport, and Amino acids regulate mTORC1"
+181,18,CL:14565,"['RRAGA', 'LAMTOR2', 'WDR59', 'MIOS', 'RRAGC']",1.0,1.8105705341670957e-07,107,"Amino acids regulate mTORC1, and MTOR signalling"
+182,18,CL:14303,"['RRAGA', 'LAMTOR2', 'WDR59', 'MIOS', 'RRAGC']",1.0,1.038931628758179e-05,238,"mixed, incl. Amino acids regulate mTORC1, and Autophagy"
+183,18,CL:14566,"['RRAGA', 'LAMTOR2', 'WDR59', 'MIOS', 'RRAGC']",1.0,1.5220728781886565e-08,66,"MTOR signalling, and Negative regulation of TORC1 signaling"
+184,18,CL:13122,"['RRAGA', 'LAMTOR2', 'WDR59', 'MIOS', 'RRAGC']",1.0,0.006078201969740646,846,"Vesicle-mediated transport, and Amino acids regulate mTORC1"
+185,18,CL:14574,['MIOS'],0.2,0.010629158979449018,5,Seh1-associated complex
+186,18,CL:14571,"['WDR59', 'MIOS']",0.4,0.000281390205671887,13,"Seh1-associated complex, and KICSTOR complex"
+187,18,CL:14601,"['LAMTOR2', 'RRAGA']",0.4,3.632342248380208e-05,5,"Ragulator complex, and RagA/B"
+188,18,CL:14569,"['RRAGA', 'LAMTOR2', 'WDR59', 'MIOS', 'RRAGC']",1.0,1.673833810324769e-10,28,Amino acids regulate mTORC1
+189,18,CL:14567,"['RRAGA', 'LAMTOR2', 'WDR59', 'MIOS', 'RRAGC']",1.0,5.3861580825093455e-09,54,"Amino acids regulate mTORC1, and TORC2 complex"
+190,19,CL:13120,"['VPS35', 'LAMTOR3', 'RPTOR', 'LAMTOR5', 'VPS18', 'LAMTOR4', 'WDR24']",0.7777777777777778,0.023637041114885838,930,"mixed, incl. Vesicle-mediated transport, and Amino acids regulate mTORC1"
+191,19,CL:13121,"['VPS35', 'LAMTOR3', 'RPTOR', 'LAMTOR5', 'VPS18', 'LAMTOR4', 'WDR24']",0.7777777777777778,0.01802889749271086,889,"mixed, incl. Vesicle-mediated transport, and Amino acids regulate mTORC1"
+192,19,CL:13447,['VPS18'],0.1111111111111111,0.019067243588520483,5,HOPS complex
+193,19,CL:13444,['VPS18'],0.1111111111111111,0.04152087742319762,11,"HOPS complex, and CORVET complex"
+194,19,CL:7597,['TMEM214'],0.1111111111111111,0.019067243588520483,5,"mixed, incl. TRIC channel, and Autosomal recessive limb-girdle muscular dystrophy type 2X"
+195,19,CL:13119,"['VPS35', 'LAMTOR3', 'RPTOR', 'LAMTOR5', 'VPS18', 'LAMTOR4', 'WDR24']",0.7777777777777778,0.032241989052275905,980,"mixed, incl. Vesicle-mediated transport, and mTOR signaling pathway"
+196,19,CL:14567,"['LAMTOR3', 'RPTOR', 'LAMTOR5', 'LAMTOR4', 'WDR24']",0.5555555555555556,6.325014218935205e-07,54,"Amino acids regulate mTORC1, and TORC2 complex"
+197,19,CL:14011,['VPS35'],0.1111111111111111,0.03781063565838421,10,Retromer complex
+198,19,CL:14014,['VPS35'],0.1111111111111111,0.019067243588520483,5,"Retromer, tubulation complex"
+199,19,CL:14574,['WDR24'],0.1111111111111111,0.019067243588520483,5,Seh1-associated complex
+200,19,CL:14571,['WDR24'],0.1111111111111111,0.04890323120329994,13,"Seh1-associated complex, and KICSTOR complex"
+201,19,CL:14601,['LAMTOR5'],0.1111111111111111,0.019067243588520483,5,"Ragulator complex, and RagA/B"
+202,19,CL:14569,"['LAMTOR3', 'LAMTOR4', 'LAMTOR5', 'WDR24']",0.4444444444444444,1.9733150812496767e-06,28,Amino acids regulate mTORC1
+203,19,CL:14600,"['LAMTOR3', 'LAMTOR4', 'LAMTOR5']",0.3333333333333333,4.639186718360543e-06,10,"Ragulator complex, and Gtr1/RagA G protein"
+204,19,CL:14610,"['LAMTOR3', 'LAMTOR4']",0.2222222222222222,0.00013031778907106472,5,"Gtr1/RagA G protein, and Ragulator complex"
+205,19,CL:14629,['RPTOR'],0.1111111111111111,0.04521839654158221,12,"TOR complex, and Tetratricopeptide repeat"
+206,19,CL:13122,"['VPS35', 'LAMTOR3', 'RPTOR', 'LAMTOR5', 'VPS18', 'LAMTOR4', 'WDR24']",0.7777777777777778,0.013339305265997055,846,"Vesicle-mediated transport, and Amino acids regulate mTORC1"
+207,19,CL:14565,"['LAMTOR3', 'RPTOR', 'LAMTOR5', 'LAMTOR4', 'WDR24']",0.5555555555555556,1.967666637418924e-05,107,"Amino acids regulate mTORC1, and MTOR signalling"
+208,19,CL:14303,"['LAMTOR3', 'RPTOR', 'LAMTOR5', 'LAMTOR4', 'WDR24']",0.5555555555555556,0.0009267101267480609,238,"mixed, incl. Amino acids regulate mTORC1, and Autophagy"
+209,19,CL:14566,"['LAMTOR3', 'RPTOR', 'LAMTOR5', 'LAMTOR4', 'WDR24']",0.5555555555555556,1.7565134714421708e-06,66,"MTOR signalling, and Negative regulation of TORC1 signaling"
+210,19,CL:14643,['RPTOR'],0.1111111111111111,0.019067243588520483,5,"Positive regulation of pentose-phosphate shunt, and Tetratricopeptide repeat"
+211,19,CL:14302,"['LAMTOR3', 'RPTOR', 'LAMTOR5', 'LAMTOR4', 'WDR24']",0.5555555555555556,0.001301574438827114,256,"mixed, incl. Amino acids regulate mTORC1, and Autophagy"
+212,20,CL:6657,['KIF20A'],0.2,0.010629158979449018,5,Chromosome passenger complex
+213,20,CL:2493,"['ZCRB1', 'ZRSR2']",0.4,0.00016275791892022862,10,U12-type spliceosomal complex
+214,20,CL:5013,"['BRD8', 'EPC1']",0.4,0.0031747562621124966,43,"H4 histone acetyltransferase complex, and INO80-type complex"
+215,20,CL:4759,"['BRD8', 'EPC1']",0.4,0.04520135146969125,170,"Nucleosome, and Histone methyltransferase complex"
+216,20,CL:5016,"['BRD8', 'EPC1']",0.4,0.0009049243377335893,23,H4 histone acetyltransferase complex
+217,20,CL:5022,['EPC1'],0.2,0.010629158979449018,5,"Piccolo NuA4 histone acetyltransferase complex, and YEATS superfamily"
+218,20,CL:5020,"['BRD8', 'EPC1']",0.4,0.00016275791892022862,10,Histone H2A acetylation
+219,20,CL:5017,"['BRD8', 'EPC1']",0.4,0.00043179704504588097,16,Histone H2A acetylation
+220,20,CL:2498,['ZRSR2'],0.2,0.010629158979449018,5,U12-type spliceosomal complex
+221,20,CL:6643,['KIF20A'],0.2,0.0253579439630547,12,"Chromosome passenger complex, and Outer kinetochore"
+222,21,CL:8460,"['PDHA1', 'ACLY', 'CS', 'PDHB', 'MDH2', 'DLAT']",0.75,2.6113698518847167e-05,241,"mixed, incl. Carbon metabolism, and Fatty acid catabolic process"
+223,21,CL:8463,"['PDHA1', 'ACLY', 'CS', 'PDHB', 'MDH2', 'DLAT']",0.75,7.976184893315539e-07,134,"Carbon metabolism, and Pyruvate metabolism"
+224,21,CL:8464,"['PDHA1', 'ACLY', 'CS', 'PDHB', 'MDH2', 'DLAT']",0.75,2.7035977843297766e-07,112,"Carbon metabolism, and Pyruvate metabolism"
+225,21,CL:8561,['PDHA1'],0.125,0.016963140721914984,5,Pyruvate dehydrogenase complex
+226,21,CL:8558,"['PDHA1', 'DLAT']",0.25,0.00045261544622180665,10,Regulation of pyruvate dehydrogenase (PDH) complex
+227,21,CL:8459,"['PDHA1', 'ACLY', 'CS', 'PDHB', 'MDH2', 'DLAT']",0.75,9.561223007597001e-05,301,"mixed, incl. Carbon metabolism, and Organic acid catabolic process"
+228,21,CL:8465,"['PDHA1', 'ACLY', 'CS', 'PDHB', 'MDH2', 'DLAT']",0.75,1.3594598090709812e-07,100,"Carbon metabolism, and Pyruvate metabolism"
+229,21,CL:8458,"['PDHA1', 'ACLY', 'CS', 'PDHB', 'MDH2', 'DLAT']",0.75,0.000324264864662103,372,"Carboxylic acid metabolic process, and Pentose phosphate pathway"
+230,21,CL:8452,"['PDHA1', 'ACLY', 'CS', 'PDHB', 'MDH2', 'DLAT']",0.75,0.017445057266894038,765,"Carboxylic acid metabolic process, and Oxidoreductase"
+231,21,CL:8455,"['PDHA1', 'ACLY', 'CS', 'PDHB', 'MDH2', 'DLAT']",0.75,0.0005570796686278056,409,"Carboxylic acid metabolic process, and Pentose phosphate pathway"
+232,21,CL:8454,"['PDHA1', 'ACLY', 'CS', 'PDHB', 'MDH2', 'DLAT']",0.75,0.0011511810648815255,465,"Carboxylic acid metabolic process, and Starch and sucrose metabolism"
+233,21,CL:8453,"['PDHA1', 'ACLY', 'CS', 'PDHB', 'MDH2', 'DLAT']",0.75,0.01582971573920938,751,"Carboxylic acid metabolic process, and Oxidoreductase"
+234,21,CL:27876,['STYXL1'],0.125,0.020325387354760083,6,"mixed, incl. Pseudophosphatase activity, and RNAse P Rpr2/Rpp21/SNM1 subunit domain"
+235,21,CL:27875,['STYXL1'],0.125,0.036986137488425656,11,"mixed, incl. Microtubule-associated protein Jupiter, and Pseudophosphatase activity"
+236,21,CL:31020,['SLC25A1'],0.125,0.04358069224748544,13,"mixed, incl. Gonadal family, and Nezelof syndrome"
+237,21,CL:8457,"['PDHA1', 'ACLY', 'CS', 'PDHB', 'MDH2', 'DLAT']",0.75,0.0004838665657416542,399,"Carboxylic acid metabolic process, and Pentose phosphate pathway"
+238,21,CL:8467,"['ACLY', 'CS', 'PDHB', 'MDH2']",0.5,8.593222201410372e-06,46,"Citrate cycle (TCA cycle), and Lactate dehydrogenase activity"
+239,21,CL:8466,"['PDHA1', 'ACLY', 'CS', 'PDHB', 'MDH2', 'DLAT']",0.75,3.827526241470509e-09,56,"Citrate cycle (TCA cycle), and Pyruvate metabolism"
+240,21,CL:8501,['PDHB'],0.125,0.020325387354760083,6,Dihydrolipoyl dehydrogenase complex
+241,21,CL:8469,"['ACLY', 'CS', 'PDHB']",0.375,3.90199373700513e-05,22,Citrate cycle (TCA cycle)
+242,21,CL:8470,"['ACLY', 'CS']",0.25,0.0011946449970007113,16,Tricarboxylic acid cycle
+243,21,CL:8519,['MDH2'],0.125,0.027019706645341333,8,"Aspartate biosynthetic process, and Alanine metabolism"
+244,23,CL:31465,"['GID8', 'YPEL5', 'MAEA', 'RMND5A']",0.8,4.475870072242266e-06,74,"mostly uncharacterized, incl. CTLH, C-terminal LisH motif, and Fez1"
+245,23,CL:31467,"['GID8', 'YPEL5', 'MAEA', 'RMND5A']",0.8,2.3218692996959162e-07,36,"mixed, incl. CTLH, C-terminal LisH motif, and Zinc finger, MYND-type"
+246,23,CL:31468,"['GID8', 'YPEL5', 'MAEA', 'RMND5A']",0.8,5.913238607490715e-08,26,"mixed, incl. CTLH, C-terminal LisH motif, and Yippee family"
+247,23,CL:31478,"['GID8', 'RMND5A']",0.4,3.632342248380208e-05,5,"GID complex, and CRA domain"
+248,23,CL:31474,"['GID8', 'YPEL5', 'MAEA', 'RMND5A']",0.8,8.352001525364105e-10,10,"CTLH, C-terminal LisH motif, and GID complex"
+249,23,CL:31470,"['GID8', 'YPEL5', 'MAEA', 'RMND5A']",0.8,9.442902444024773e-09,17,"CTLH, C-terminal LisH motif, and Zinc finger, MYND-type"
+250,23,CL:4241,['UBE2H'],0.2,0.010629158979449018,5,The RING-variant domain is a C4HC3 zinc-finger like motif found in a number of cellular and viral proteins. Some of these proteins have been shown both in vivo and in vitro to have ubiquitin E3 ligase activity.
+251,27,CL:35457,['INTS6'],0.125,0.016963140721914984,5,Integrator complex
+252,27,CL:7715,['NR2C2'],0.125,0.04028837105040276,12,"mixed, incl. Kidney clear cell sarcoma, and Endometrial stromal nodule"
+253,27,CL:35439,['INTS6'],0.125,0.04686312659412643,14,Integrator complex
+254,27,CL:5165,"['GATAD1', 'PHF12', 'SIN3B']",0.375,0.0005334652523628737,52,"Histone deacetylase complex, and Protein of unknown function DUF3504"
+255,27,CL:4757,"['GATAD1', 'PHF12', 'SIN3B']",0.375,0.047544684173563986,256,"DNA packaging complex, and Histone deacetylase complex"
+256,27,CL:5166,"['GATAD1', 'PHF12', 'SIN3B']",0.375,0.00024316961960683185,40,"Sin3 complex, and NuRD complex"
+257,27,CL:5199,"['GATAD1', 'PHF12']",0.25,0.00010144502246241306,5,"mixed, incl. Negative regulation of deacetylase activity, and MRG domain"
+258,27,CL:5169,"['GATAD1', 'PHF12', 'SIN3B']",0.375,2.8978034023430204e-05,20,Sin3 complex
+259,27,CL:5167,"['GATAD1', 'PHF12', 'SIN3B']",0.375,5.7995610595596216e-05,25,"Sin3 complex, and Histone H4 deacetylation"
+260,27,CL:5174,['SIN3B'],0.125,0.020325387354760083,6,"mixed, incl. Fungiform papilla formation, and Autosome"
+261,27,CL:5171,['SIN3B'],0.125,0.04686312659412643,14,Sin3 complex
+262,27,CL:7085,['SLF1'],0.125,0.04028837105040276,12,"Smc5-Smc6 complex, and Mulchandani-Bhoj-Conlin syndrome"
+263,30,CL:6024,"['SUPT7L', 'TADA3', 'TRRAP', 'TAF6L', 'SUPT20H', 'TAF5L', 'TADA1', 'TADA2B', 'SGF29']",0.17307692307692307,1.6373675169369943e-08,33,"SAGA-type complex, and TATA-box binding protein"
+264,30,CL:6045,"['TADA3', 'TADA2B']",0.038461538461538464,0.004625883215215242,5,SAGA complex
+265,30,CL:6031,"['SUPT7L', 'TADA3', 'TRRAP', 'SUPT20H', 'TAF6L', 'TAF5L', 'TADA1', 'TADA2B']",0.15384615384615385,1.559005828115678e-11,12,SAGA complex
+266,30,CL:5662,"['MED19', 'SUPT7L', 'TADA3', 'MED24', 'TRRAP', 'MED14', 'MED12', 'TAF6L', 'SUPT20H', 'TAF5L', 'TADA1', 'MED13', 'TADA2B', 'SGF29']",0.2692307692307692,0.00016272019772959261,217,"mixed, incl. DNA-directed RNA polymerase complex, and Positive regulation of transcription elongation from RNA polymerase II promoter"
+267,30,CL:5661,"['MED19', 'SUPT7L', 'TADA3', 'MED24', 'TRRAP', 'MED14', 'MED12', 'TAF6L', 'SUPT20H', 'TAF5L', 'TADA1', 'MED13', 'TADA2B', 'SGF29']",0.2692307692307692,0.00033356714849461407,232,"DNA-directed RNA polymerase complex, and Positive regulation of transcription elongation from RNA polymerase II promoter"
+268,30,CL:6029,"['SUPT7L', 'TADA3', 'TRRAP', 'TAF6L', 'SUPT20H', 'TAF5L', 'TADA1', 'TADA2B', 'SGF29']",0.17307692307692307,4.959932927703521e-11,19,SAGA complex
+269,30,CL:5735,"['MED19', 'MED24', 'MED14', 'MED12', 'MED13']",0.09615384615384616,0.0003507270369633917,29,Core mediator complex
+270,30,CL:6033,"['SUPT7L', 'TRRAP', 'TADA1', 'SUPT20H']",0.07692307692307693,1.0612199348226274e-06,5,SAGA complex
+271,30,CL:5775,"['MED14', 'MED12']",0.038461538461538464,0.004625883215215242,5,"Nuclear vitamin D receptor binding, and RNA polymerase II CTD heptapeptide repeat kinase activity"
+272,30,CL:5737,"['MED19', 'MED14', 'MED24', 'MED12']",0.07692307692307693,0.00164880398128199,24,Core mediator complex
+273,30,CL:5660,"['MED19', 'SUPT7L', 'TADA3', 'MED24', 'TRRAP', 'MED14', 'MED12', 'TAF6L', 'SUPT20H', 'TAF5L', 'TADA1', 'MED13', 'TADA2B', 'SGF29']",0.2692307692307692,0.0004560879648288347,239,"mixed, incl. DNA-directed RNA polymerase complex, and Positive regulation of DNA-templated transcription, elongation"
+274,30,CL:5766,"['MED19', 'MED24']",0.038461538461538464,0.004625883215215242,5,Core mediator complex
+275,30,CL:6027,"['SUPT7L', 'TADA3', 'TRRAP', 'TAF6L', 'SUPT20H', 'TAF5L', 'TADA1', 'TADA2B', 'SGF29']",0.17307692307692307,6.45601055400294e-10,24,SAGA complex
+276,30,CL:33138,"['GIPC3', 'RNFT1']",0.038461538461538464,0.0421541342480986,15,"mixed, incl. RING finger protein RNF121/RNF175, and Mff-like domain"
+277,30,CL:5668,"['MED19', 'MED24', 'MED14', 'MED12', 'MED13']",0.09615384615384616,0.013341589800237787,65,"Transcription initiation from RNA polymerase II promoter, and Transcription factor TFIIH core complex"
+278,31,CL:5667,"['MED19', 'CCNC', 'MED12', 'MED13', 'MED15']",0.13513513513513514,0.03446310954851889,117,"RNA Polymerase II Pre-transcription Events, and Mediator complex"
+279,31,CL:6033,"['SUPT7L', 'TADA1', 'SUPT20H']",0.08108108108108109,3.5460439016486585e-05,5,SAGA complex
+280,31,CL:6031,"['SUPT7L', 'SUPT20H', 'TAF6L', 'TAF5L', 'TADA1', 'TADA2B']",0.16216216216216217,8.7625122772133e-09,12,SAGA complex
+281,31,CL:5737,"['MED19', 'MED15', 'MED12']",0.08108108108108109,0.005834318188511271,24,Core mediator complex
+282,31,CL:5735,"['MED19', 'MED15', 'MED13', 'MED12']",0.10810810810810811,0.00094194309878282,29,Core mediator complex
+283,31,CL:5668,"['MED19', 'CCNC', 'MED12', 'MED13', 'MED15']",0.13513513513513514,0.003081070994464874,65,"Transcription initiation from RNA polymerase II promoter, and Transcription factor TFIIH core complex"
+284,31,CL:5766,"['MED19', 'MED15']",0.05405405405405406,0.0023536449206493226,5,Core mediator complex
+285,31,CL:5738,"['MED19', 'MED15']",0.05405405405405406,0.03502800605609755,19,Core mediator complex
+286,31,CL:5662,"['MED19', 'SUPT7L', 'CCNC', 'MED12', 'TAF6L', 'SUPT20H', 'TAF5L', 'TADA1', 'MED13', 'MED15', 'TADA2B', 'SGF29']",0.32432432432432434,6.711842295059946e-05,217,"mixed, incl. DNA-directed RNA polymerase complex, and Positive regulation of transcription elongation from RNA polymerase II promoter"
+287,31,CL:6024,"['SUPT7L', 'TAF6L', 'SUPT20H', 'TAF5L', 'TADA1', 'TADA2B', 'SGF29']",0.1891891891891892,4.285883081477575e-07,33,"SAGA-type complex, and TATA-box binding protein"
+288,31,CL:5661,"['MED19', 'SUPT7L', 'CCNC', 'MED12', 'TAF6L', 'SUPT20H', 'TAF5L', 'TADA1', 'MED13', 'MED15', 'TADA2B', 'SGF29']",0.32432432432432434,0.0001301512424415417,232,"DNA-directed RNA polymerase complex, and Positive regulation of transcription elongation from RNA polymerase II promoter"
+289,31,CL:5660,"['MED19', 'SUPT7L', 'CCNC', 'MED12', 'TAF6L', 'SUPT20H', 'TAF5L', 'TADA1', 'MED13', 'MED15', 'TADA2B', 'SGF29']",0.32432432432432434,0.00017398909379037717,239,"mixed, incl. DNA-directed RNA polymerase complex, and Positive regulation of DNA-templated transcription, elongation"
+290,31,CL:6027,"['SUPT7L', 'TAF6L', 'SUPT20H', 'TAF5L', 'TADA1', 'TADA2B', 'SGF29']",0.1891891891891892,3.845425756987425e-08,24,SAGA complex
+291,31,CL:6029,"['SUPT7L', 'TAF6L', 'SUPT20H', 'TAF5L', 'TADA1', 'TADA2B', 'SGF29']",0.1891891891891892,5.924635150625649e-09,19,SAGA complex
+292,33,CL:17472,"['PLCG1', 'LAT', 'ZAP70', 'LCP2', 'VAV1']",0.4166666666666667,4.532071666975603e-06,56,"mixed, incl. GPVI-mediated activation cascade, and Insulin receptor binding"
+293,33,CL:17470,"['PLCG1', 'LAT', 'ZAP70', 'LCP2', 'VAV1']",0.4166666666666667,7.5616292308262e-06,62,"GPVI-mediated activation cascade, and SH2 domain superfamily"
+294,33,CL:17328,"['PLCG1', 'LAT', 'ZAP70', 'LCP2', 'VAV1']",0.4166666666666667,0.0003130189900810432,133,"mixed, incl. Constitutive Signaling by Aberrant PI3K in Cancer, and FCERI mediated Ca+2 mobilization"
+295,33,CL:17543,['VAV1'],0.08333333333333333,0.0253579439630547,5,"X-linked agammaglobulinemia, and Serotonin secretion"
+296,33,CL:17326,"['PLCG1', 'LAT', 'ZAP70', 'LCP2', 'VAV1']",0.4166666666666667,0.0008351455013667635,164,"mixed, incl. Constitutive Signaling by Aberrant PI3K in Cancer, and SH2 domain superfamily"
+297,33,CL:17538,"['LAT', 'VAV1', 'ZAP70', 'LCP2']",0.3333333333333333,3.316180803217517e-06,23,"FCERI mediated Ca+2 mobilization, and B-cell antigen receptor complex-associated protein alpha/beta chain"
+298,33,CL:17540,"['VAV1', 'LCP2']",0.16666666666666666,0.0027713891599116473,16,"FCERI mediated Ca+2 mobilization, and B-cell antigen receptor complex-associated protein alpha/beta chain"
+299,33,CL:17561,['LCP2'],0.08333333333333333,0.0253579439630547,5,"Vav, PH domain, and TCR signalosome"
+300,33,CL:17327,"['PLCG1', 'LAT', 'ZAP70', 'LCP2', 'VAV1']",0.4166666666666667,0.0006233645786649885,154,"mixed, incl. Constitutive Signaling by Aberrant PI3K in Cancer, and Tyrosine-protein kinase, catalytic domain"
+301,33,CL:17325,"['PLCG1', 'LAT', 'ZAP70', 'LCP2', 'VAV1']",0.4166666666666667,0.0010131260395613664,171,"mixed, incl. Constitutive Signaling by Aberrant PI3K in Cancer, and SH2 domain superfamily"
+302,33,CL:17324,"['PLCG1', 'LAT', 'ZAP70', 'LCP2', 'VAV1']",0.4166666666666667,0.003873974698285112,230,"mixed, incl. Ras signaling pathway, and SH2 domain superfamily"
+303,33,CL:17323,"['PLCG1', 'LAT', 'ZAP70', 'LCP2', 'VAV1']",0.4166666666666667,0.0044228674417724585,237,"mixed, incl. Ras signaling pathway, and SH2 domain superfamily"
+304,33,CL:17321,"['PLCG1', 'LAT', 'ZAP70', 'LCP2', 'VAV1']",0.4166666666666667,0.005117968328424467,245,"mixed, incl. Ras signaling pathway, and SH2 domain superfamily"
+305,33,CL:15533,"['CD247', 'CD3E', 'CD3D', 'IFNAR1', 'CD3G']",0.4166666666666667,0.02210854701152163,346,"Cytokine-cytokine receptor interaction, and Adaptive immunity"
+306,33,CL:15534,"['CD247', 'CD3E', 'CD3G', 'CD3D']",0.3333333333333333,0.015511067547419924,203,"mixed, incl. Chemokine-mediated signaling pathway, and Adaptive immunity"
+307,33,CL:16019,['IFNAR1'],0.08333333333333333,0.035335020707437104,7,"mixed, incl. Interleukin-28A, and Hepatitis D"
+308,33,CL:15543,"['CD247', 'CD3D', 'CD3G', 'CD3E']",0.3333333333333333,1.910644318328755e-07,12,"mixed, incl. Alpha-beta T cell receptor complex, and GPI anchor binding"
+309,33,CL:15536,"['CD247', 'CD3E', 'CD3G', 'CD3D']",0.3333333333333333,0.008334609121488071,170,"mixed, incl. Chemokine-mediated signaling pathway, and Adaptive immunity"
+310,33,CL:15537,"['CD247', 'CD3E', 'CD3G', 'CD3D']",0.3333333333333333,0.0010985437250329636,98,"mixed, incl. Adaptive immunity, and T cell modulation in pancreatic cancer"
+311,33,CL:15538,"['CD247', 'CD3E', 'CD3G', 'CD3D']",0.3333333333333333,0.000900444509849873,93,"mixed, incl. Adaptive immunity, and TNFs bind their physiological receptors"
+312,33,CL:15539,"['CD247', 'CD3E', 'CD3G', 'CD3D']",0.3333333333333333,0.0005057932931304576,80,"mixed, incl. T cell modulation in pancreatic cancer, and non-Langerhans-cell histiocytosis"
+313,33,CL:15540,"['CD247', 'CD3E', 'CD3G', 'CD3D']",0.3333333333333333,3.2658465816124725e-05,40,"mixed, incl. non-Langerhans-cell histiocytosis, and T cell receptor complex"
+314,33,CL:15541,"['CD247', 'CD3E', 'CD3G', 'CD3D']",0.3333333333333333,1.1526834348798167e-05,31,"mixed, incl. non-Langerhans-cell histiocytosis, and T cell receptor complex"
+315,33,CL:15542,"['CD247', 'CD3E', 'CD3G', 'CD3D']",0.3333333333333333,1.8294747412364532e-06,20,"mixed, incl. T cell receptor complex, and Hepatic veno-occlusive disease"
+316,33,CL:15535,"['CD247', 'CD3E', 'CD3G', 'CD3D']",0.3333333333333333,0.011231998858783392,185,"mixed, incl. Chemokine-mediated signaling pathway, and Adaptive immunity"
+317,33,CL:15545,"['CD247', 'CD3E', 'CD3G', 'CD3D']",0.3333333333333333,5.885865433833151e-09,6,"Alpha-beta T cell receptor complex, and Pneumocystosis"
+318,33,CL:8706,['BCAT2'],0.08333333333333333,0.0253579439630547,5,"Valine biosynthetic process, and 3-methyl-2-oxobutanoate dehydrogenase (2-methylpropanoyl-transferring) activity"
+319,40,CL:7112,"['ATF7IP2', 'SETDB1']",0.3333333333333333,0.0036853542921764936,38,"mixed, incl. Positive regulation of DNA methylation-dependent heterochromatin assembly, and ADNP, zinc finger domain"
+320,40,CL:7113,"['ATF7IP2', 'SETDB1']",0.3333333333333333,0.001233363270723473,22,"mixed, incl. Positive regulation of DNA methylation-dependent heterochromatin assembly, and Morc, S5 domain 2-like"
+321,40,CL:29944,['PCNX3'],0.16666666666666666,0.012744103060296715,5,"mixed, incl. Opioid growth factor receptor, and Transmembrane protein dislocase activity"
+322,40,CL:7114,"['ATF7IP2', 'SETDB1']",0.3333333333333333,0.00035643760896461027,12,"Positive regulation of DNA methylation-dependent heterochromatin assembly, and Morc, S5 domain 2-like"
+323,40,CL:21657,['ZNF274'],0.16666666666666666,0.04030533441500004,16,"mixed, incl. MHC class II deficiency, and CCAAT-binding factor complex"
+324,40,CL:7128,"['ATF7IP2', 'SETDB1']",0.3333333333333333,5.4438575210548934e-05,5,"Fibronectin-III type domain, and ARF7 effector protein, C-terminal"
+325,40,CL:7041,['UBE2I'],0.16666666666666666,0.04524689948075069,18,"mixed, incl. Processing and activation of SUMO, and PINIT domain"
+326,40,CL:7048,['UBE2I'],0.16666666666666666,0.020325387354760083,8,"SUMO is transferred from E1 to E2 (UBE2I, UBC9), and Nuclear pore cytoplasmic filaments"
+327,40,CL:3955,['UBR1'],0.16666666666666666,0.030358245233872726,12,"mixed, incl. Zinc finger, UBR-type, and Protein arginylation"
+328,40,CL:21679,['ZNF274'],0.16666666666666666,0.012744103060296715,5,"Regulation of transcription from RNA polymerase II promoter by glucose, and Leydig cell proliferation"
+329,40,CL:29926,['PCNX3'],0.16666666666666666,0.03534247411694749,14,"mostly uncharacterized, incl. Opioid growth factor receptor, and Transmembrane protein dislocase activity"
+330,40,CL:7044,['UBE2I'],0.16666666666666666,0.032853035340475095,13,"Processing and activation of SUMO, and PINIT domain"
+331,40,CL:3958,['UBR1'],0.16666666666666666,0.012744103060296715,5,"Putative zinc finger in N-recognin, a recognition component of the N-end rule pathway, and Familial retinoblastoma"
+332,42,CL:5248,['KDM1A'],0.2,0.012744103060296715,6,"mixed, incl. Protein of unknown function DUF3504, and Telomeric repeat-containing RNA binding"
+333,42,CL:5245,['KDM1A'],0.2,0.0253579439630547,12,"mixed, incl. Protein of unknown function DUF3504, and Negative regulation of protein sumoylation"
+334,42,CL:20714,"['CTBP1', 'ZEB1']",0.4,0.02614853156516712,127,"mixed, incl. Transcription coregulator binding, and Activation of the TFAP2 (AP-2) family of transcription factors"
+335,42,CL:20713,"['CTBP1', 'ZEB1']",0.4,0.040852493358838206,161,"mixed, incl. Transcription coregulator binding, and DNA-binding transcription repressor activity"
+336,42,CL:20922,"['CTBP1', 'ZEB1']",0.4,0.0009049243377335893,23,"mixed, incl. CTF transcription factor/nuclear factor 1, and FOXP, coiled-coil domain"
+337,42,CL:20923,"['CTBP1', 'ZEB1']",0.4,0.00032800756572422176,14,"mixed, incl. FOXP, coiled-coil domain, and C-terminal binding protein"
+338,42,CL:20926,"['CTBP1', 'ZEB1']",0.4,3.632342248380208e-05,5,"C-terminal binding protein, and Hypoxia-mediated EMT and stemness"
+339,42,CL:5165,"['KDM1A', 'RCOR1']",0.4,0.004625883215215242,52,"Histone deacetylase complex, and Protein of unknown function DUF3504"
+340,42,CL:38066,['HDGFL3'],0.2,0.033695297975327214,16,"mostly uncharacterized, incl. Paraoxonase2, and Ninjurin"
+341,42,CL:38068,['HDGFL3'],0.2,0.012744103060296715,6,"mixed, incl. Paraoxonase2, and G2F domain"
+342,49,CL:3211,"['FAM98B', 'RTRAF', 'DDX1']",0.13043478260869565,8.155861965595684e-06,5,tRNA-splicing ligase complex
+343,49,CL:12348,['SLC7A11'],0.043478260869565216,0.048148318129329244,5,"Cystinuria, and Regulation of glutathione biosynthetic process"
+344,49,CL:7684,['LAGE3'],0.043478260869565216,0.048148318129329244,5,EKC/KEOPS complex
+345,49,CL:1266,"['TRMT6', 'METTL1', 'TRMT61A', 'ADAT3', 'ADAT2', 'PUS3']",0.2608695652173913,1.0455852179389414e-05,56,"tRNA modification, and Enzyme-directed rRNA pseudouridine synthesis"
+346,49,CL:1269,"['TRMT6', 'METTL1', 'TRMT61A', 'ADAT3', 'ADAT2', 'PUS3']",0.2608695652173913,1.8454859589249261e-06,42,"tRNA modification in the nucleus and cytosol, and Pseudouridine synthase activity"
+347,49,CL:1322,['PUS3'],0.043478260869565216,0.048148318129329244,5,mRNA pseudouridine synthesis
+348,49,CL:893,"['TRMT6', 'METTL1', 'TRMT61A', 'ADAT3', 'ADAT2', 'PUS3']",0.2608695652173913,0.02732760183701377,246,"rRNA processing, and tRNA modification"
+349,49,CL:1270,"['TRMT6', 'METTL1', 'TRMT61A', 'ADAT3', 'ADAT2']",0.21739130434782608,2.676587591253983e-06,25,"tRNA methylation, and MafB19-like deaminase"
+350,49,CL:1273,"['TRMT61A', 'TRMT6', 'METTL1']",0.13043478260869565,0.00034800147047022616,15,"tRNA methyltransferase complex, and 16S rRNA methyltransferase RsmB/F"
+351,49,CL:1277,"['TRMT61A', 'TRMT6', 'METTL1']",0.13043478260869565,8.155861965595684e-06,5,tRNA methyltransferase complex
+352,49,CL:1274,"['TRMT61A', 'TRMT6', 'METTL1']",0.13043478260869565,9.477584783310098e-05,10,"tRNA methyltransferase complex, and rRNA (guanine-N7)-methylation"
+353,49,CL:479,['EIF1'],0.043478260869565216,0.048148318129329244,5,nsp1 from SARS-CoV-2 inhibits translation initiation in the host cell
+354,49,CL:1272,"['TRMT61A', 'TRMT6', 'METTL1']",0.13043478260869565,0.0008443740252899526,20,tRNA methylation
+355,57,CL:11114,"['NDUFB6', 'NDUFS2', 'NDUFB9']",0.02054794520547945,0.010512973427412572,8,NADH dehydrogenase (ubiquinone) activity
+356,57,CL:99,"['MRPL50', 'NSUN4', 'MRPL45', 'MRPL18', 'PNPT1', 'MRPS23', 'NARS2', 'MTIF2', 'GATB', 'RNASEH1', 'MRPL34', 'GADD45GIP1', 'RPUSD3', 'TSFM', 'MRPL16', 'MRPS34', 'TEFM', 'MRPL37', 'NOA1', 'MRPS15', 'MRPS25', 'MRPS26', 'MRPS17', 'MRPL52', 'MRPL58', 'MRPL39', 'MRPS16', 'MRPS24', 'TRUB2', 'MRPL33', 'TFB1M', 'FARS2', 'OXA1L', 'MRPS22', 'GTPBP10', 'METTL17', 'TWNK', 'EEF1B2', 'MRPS18B', 'MRPL21', 'MRPL46', 'MRPS14', 'DHX30', 'MRPL3', 'LARS2', 'MRPL17', 'MRPS5', 'MRPL49', 'MTG1', 'MRM2', 'MRPL2', 'SARS2', 'QRSL1', 'RBFA', 'MRPL42', 'MRPS21', 'LRPPRC', 'MRPS12', 'MRRF', 'TARS2', 'CARS2', 'MTERF3', 'TFAM', 'VARS2', 'MRPS10', 'MRPL9', 'MRPS35', 'SSBP1', 'EARS2', 'MRPL11', 'GRSF1', 'MRPS11', 'MRPL43', 'MRPS7', 'RCC1L', 'PARS2', 'NGRN', 'WARS2', 'MRPS31']",0.541095890410959,0.0006099726776445608,959,"mixed, incl. Translation, and Ribosome biogenesis"
+357,57,CL:11083,"['NDUFV1', 'NDUFB11', 'NDUFS8', 'NDUFA6', 'NDUFS5', 'NDUFA9']",0.0410958904109589,0.00025089631805071664,16,NADH dehydrogenase (ubiquinone) activity
+358,57,CL:11082,"['NDUFB6', 'NDUFV1', 'NDUFB11', 'NDUFS8', 'NDUFA6', 'NDUFS5', 'NDUFS2', 'NDUFB9', 'NDUFA9']",0.06164383561643835,6.464760048114135e-06,24,NADH dehydrogenase (ubiquinone) activity
+359,57,CL:11080,"['NDUFB6', 'NDUFV1', 'NDUFB11', 'NDUFA8', 'NDUFB4', 'NDUFC1', 'NDUFS8', 'NDUFA6', 'NDUFS5', 'NDUFB2', 'NDUFS2', 'NDUFB9', 'NDUFA9']",0.08904109589041095,8.357792939213433e-08,36,NADH dehydrogenase (ubiquinone) activity
+360,57,CL:797,"['TARS2', 'NARS2', 'GATB', 'CARS2', 'FARS2', 'VARS2', 'EARS2', 'PARS2', 'WARS2', 'LARS2', 'SARS2', 'QRSL1']",0.0821917808219178,4.748261084930503e-06,42,tRNA Aminoacylation
+361,57,CL:11079,"['NDUFB6', 'NDUFV1', 'NDUFB11', 'NDUFA8', 'NDUFB4', 'NDUFC1', 'NDUFS8', 'NDUFA6', 'NDUFS5', 'NDUFB2', 'NDUFS2', 'NDUFB9', 'NDUFA9']",0.08904109589041095,6.653259334754197e-07,42,NADH dehydrogenase (ubiquinone) activity
+362,57,CL:11074,"['NDUFB6', 'NDUFV1', 'NDUFB11', 'NDUFA8', 'NDUFB4', 'NDUFS8', 'NDUFC1', 'NDUFA6', 'NDUFS5', 'NDUFB2', 'NDUFS2', 'NDUFB9', 'NDUFA9']",0.08904109589041095,0.0008063090465547119,78,Respiratory chain complex
+363,57,CL:100,"['MRPL50', 'NSUN4', 'MRPL45', 'MRPL18', 'PNPT1', 'MRPS23', 'NARS2', 'MTIF2', 'GATB', 'RNASEH1', 'MRPL34', 'GADD45GIP1', 'RPUSD3', 'TSFM', 'MRPL16', 'MRPS34', 'TEFM', 'MRPL37', 'NOA1', 'MRPS15', 'MRPS25', 'MRPS26', 'MRPS17', 'MRPL52', 'MRPL58', 'MRPL39', 'MRPS16', 'MRPS24', 'TRUB2', 'MRPL33', 'TFB1M', 'FARS2', 'OXA1L', 'MRPS22', 'GTPBP10', 'METTL17', 'TWNK', 'EEF1B2', 'MRPS18B', 'MRPL21', 'MRPL46', 'MRPS14', 'DHX30', 'MRPL3', 'LARS2', 'MRPL17', 'MRPS5', 'MRPL49', 'MTG1', 'MRM2', 'MRPL2', 'SARS2', 'QRSL1', 'RBFA', 'MRPL42', 'MRPS21', 'LRPPRC', 'MRPS12', 'MRRF', 'TARS2', 'CARS2', 'MTERF3', 'TFAM', 'VARS2', 'MRPS10', 'MRPL9', 'MRPS35', 'SSBP1', 'EARS2', 'MRPL11', 'GRSF1', 'MRPS11', 'MRPL43', 'MRPS7', 'RCC1L', 'PARS2', 'NGRN', 'WARS2', 'MRPS31']",0.541095890410959,0.0002539416379714031,937,"mixed, incl. Translation, and Ribosome biogenesis"
+364,57,CL:11077,"['NDUFB6', 'NDUFV1', 'NDUFB11', 'NDUFA8', 'NDUFB4', 'NDUFC1', 'NDUFS8', 'NDUFA6', 'NDUFS5', 'NDUFB2', 'NDUFS2', 'NDUFB9', 'NDUFA9']",0.08904109589041095,0.00041436229789692825,73,Respiratory chain complex
+365,57,CL:11237,"['TIMMDC1', 'ACAD9', 'ECSIT']",0.02054794520547945,0.002158204497065439,5,"mixed, incl. Transmembrane protein 126, and medium-chain-acyl-CoA dehydrogenase activity"
+366,57,CL:11137,"['NDUFB4', 'NDUFB2']",0.0136986301369863,0.03402048678693663,5,"mixed, incl. Hantavirus hemorrhagic fever with renal syndrome, and Ribosomal protein/NADH dehydrogenase domain"
+367,57,CL:101,"['MRPL50', 'NSUN4', 'MRPL45', 'MRPL18', 'PNPT1', 'MRPS23', 'NARS2', 'MTIF2', 'GATB', 'RNASEH1', 'MRPL34', 'GADD45GIP1', 'RPUSD3', 'TSFM', 'MRPL16', 'MRPS34', 'TEFM', 'MRPL37', 'NOA1', 'MRPS15', 'MRPS25', 'MRPS26', 'MRPS17', 'MRPL52', 'MRPL58', 'MRPL39', 'MRPS16', 'MRPS24', 'TRUB2', 'MRPL33', 'TFB1M', 'FARS2', 'OXA1L', 'MRPS22', 'GTPBP10', 'METTL17', 'TWNK', 'EEF1B2', 'MRPS18B', 'MRPL21', 'MRPL46', 'MRPS14', 'DHX30', 'MRPL3', 'LARS2', 'MRPL17', 'MRPS5', 'MRPL49', 'MTG1', 'MRM2', 'MRPL2', 'SARS2', 'QRSL1', 'RBFA', 'MRPL42', 'MRPS21', 'LRPPRC', 'MRPS12', 'MRRF', 'TARS2', 'CARS2', 'MTERF3', 'TFAM', 'VARS2', 'MRPS10', 'MRPL9', 'MRPS35', 'SSBP1', 'EARS2', 'MRPL11', 'GRSF1', 'MRPS11', 'MRPL43', 'MRPS7', 'RCC1L', 'PARS2', 'NGRN', 'WARS2', 'MRPS31']",0.541095890410959,9.3233299688322e-10,718,"Translation, and Ribosome biogenesis"
+368,57,CL:102,"['MRPL50', 'NSUN4', 'MRPL45', 'MRPL18', 'PNPT1', 'MRPS23', 'NARS2', 'MTIF2', 'GATB', 'RNASEH1', 'MRPL34', 'GADD45GIP1', 'RPUSD3', 'TSFM', 'MRPL16', 'MRPS34', 'TEFM', 'MRPL37', 'NOA1', 'MRPS15', 'MRPS25', 'MRPS26', 'MRPS17', 'MRPL52', 'MRPL58', 'MRPL39', 'MRPS16', 'MRPS24', 'TRUB2', 'MRPL33', 'TFB1M', 'FARS2', 'OXA1L', 'MRPS22', 'GTPBP10', 'METTL17', 'TWNK', 'EEF1B2', 'MRPS18B', 'MRPL21', 'MRPL46', 'MRPS14', 'DHX30', 'MRPL3', 'LARS2', 'MRPL17', 'MRPS5', 'MRPL49', 'MTG1', 'MRM2', 'MRPL2', 'SARS2', 'QRSL1', 'RBFA', 'MRPL42', 'MRPS21', 'LRPPRC', 'MRPS12', 'MRRF', 'TARS2', 'CARS2', 'MTERF3', 'TFAM', 'VARS2', 'MRPS10', 'MRPL9', 'MRPS35', 'SSBP1', 'EARS2', 'MRPL11', 'GRSF1', 'MRPS11', 'MRPL43', 'MRPS7', 'RCC1L', 'PARS2', 'NGRN', 'WARS2', 'MRPS31']",0.541095890410959,6.375568370485262e-10,713,"Translation, and Ribosome biogenesis"
+369,57,CL:103,"['MRPL50', 'NSUN4', 'MRPL45', 'MRPL18', 'PNPT1', 'MRPS23', 'NARS2', 'MTIF2', 'GATB', 'RNASEH1', 'MRPL34', 'GADD45GIP1', 'RPUSD3', 'TSFM', 'MRPL16', 'MRPS34', 'TEFM', 'MRPL37', 'NOA1', 'MRPS15', 'MRPS25', 'MRPS26', 'MRPS17', 'MRPL52', 'MRPL58', 'MRPL39', 'MRPS16', 'MRPS24', 'TRUB2', 'MRPL33', 'TFB1M', 'FARS2', 'OXA1L', 'MRPS22', 'GTPBP10', 'METTL17', 'TWNK', 'EEF1B2', 'MRPS18B', 'MRPL21', 'MRPL46', 'MRPS14', 'DHX30', 'MRPL3', 'LARS2', 'MRPL17', 'MRPS5', 'MRPL49', 'MTG1', 'MRM2', 'MRPL2', 'SARS2', 'QRSL1', 'RBFA', 'MRPL42', 'MRPS21', 'LRPPRC', 'MRPS12', 'MRRF', 'TARS2', 'CARS2', 'MTERF3', 'TFAM', 'VARS2', 'MRPS10', 'MRPL9', 'MRPS35', 'SSBP1', 'EARS2', 'MRPL11', 'GRSF1', 'MRPS11', 'MRPL43', 'MRPS7', 'RCC1L', 'PARS2', 'NGRN', 'WARS2', 'MRPS31']",0.541095890410959,1.2231134570477381e-10,692,"Translation, and Ribosome biogenesis"
+370,57,CL:795,"['TARS2', 'NARS2', 'GATB', 'CARS2', 'FARS2', 'VARS2', 'EARS2', 'PARS2', 'WARS2', 'LARS2', 'SARS2', 'QRSL1']",0.0821917808219178,2.1567836255019186e-05,48,"tRNA Aminoacylation, and glutamyl-tRNA(Gln) amidotransferase complex"
+371,57,CL:106,"['MRPS5', 'MRPL50', 'MRPL52', 'VARS2', 'MRPL49', 'NSUN4', 'MRPL45', 'MRPL58', 'MRPL18', 'MRPL39', 'MRPS16', 'MRPS24', 'MTG1', 'MRM2', 'TRUB2', 'MRPS10', 'MRPL33', 'MRPS23', 'NARS2', 'TFB1M', 'MRPL9', 'MRPL2', 'MTIF2', 'GATB', 'MRPS35', 'FARS2', 'EARS2', 'MRPL11', 'OXA1L', 'MRPS22', 'MRPL34', 'SARS2', 'GTPBP10', 'GADD45GIP1', 'QRSL1', 'METTL17', 'RBFA', 'MRPS11', 'MRPL42', 'EEF1B2', 'MRPS18B', 'MRPS21', 'MRPL21', 'TSFM', 'MRPL43', 'MRPS7', 'MRPL46', 'MRPS14', 'MRPL16', 'MRPS12', 'MRPS34', 'MRRF', 'TARS2', 'MRPL37', 'NOA1', 'MRPS15', 'MRPL3', 'CARS2', 'RCC1L', 'MRPS25', 'PARS2', 'NGRN', 'MRPS26', 'LARS2', 'WARS2', 'MRPS17', 'MRPS31', 'MRPL17']",0.4657534246575342,2.9903326659664603e-18,394,"Translation, and This family consists of several GAGE and XAGE proteins which are found exclusively in humans. The function of this family is unknown although they have been implicated in human cancers (PMID:11992404)"
+372,57,CL:799,"['TARS2', 'CARS2', 'VARS2', 'EARS2', 'PARS2', 'WARS2', 'LARS2', 'SARS2']",0.0547945205479452,0.0005467125327890324,32,tRNA Aminoacylation
+373,57,CL:11249,"['NDUFS7', 'NDUFAF3', 'NDUFAF6']",0.02054794520547945,0.002158204497065439,5,"mixed, incl. MTH938-like superfamily, and Squalene/phytoene synthase"
+374,57,CL:11069,"['NDUFS7', 'NDUFB11', 'ECSIT', 'NDUFA8', 'NDUFB4', 'NDUFB2', 'NUBPL', 'ATP5F1E', 'NDUFAF3', 'NDUFC1', 'NDUFAF6', 'NDUFS2', 'NDUFB6', 'NDUFV1', 'ATP5MF-PTCD1', 'TIMMDC1', 'ACAD9', 'ATP5PO', 'ATP5MF', 'ATP5ME', 'NDUFS8', 'NDUFA6', 'NDUFS5', 'NDUFB9', 'NDUFA9']",0.17123287671232876,3.23091135524329e-08,121,"Respiratory electron transport, ATP synthesis by chemiosmotic coupling, and heat production by uncoupling proteins."
+375,57,CL:11266,"['ATP5MF', 'ATP5PO', 'ATP5F1E', 'ATP5ME']",0.0273972602739726,0.03767943932008287,21,Mitochondrial proton-transporting ATP synthase complex
+376,57,CL:11268,"['ATP5PO', 'ATP5MF', 'ATP5F1E', 'ATP5ME']",0.0273972602739726,0.014593051754902914,16,Mitochondrial proton-transporting ATP synthase complex
+377,57,CL:11270,"['ATP5PO', 'ATP5MF', 'ATP5ME']",0.02054794520547945,0.015057628264425083,9,Formation of ATP by chemiosmotic coupling
+378,57,CL:11068,"['NDUFS7', 'NDUFB11', 'ECSIT', 'NDUFA8', 'NDUFB4', 'NDUFB2', 'NUBPL', 'ATP5F1E', 'NDUFAF3', 'NDUFC1', 'NDUFAF6', 'NDUFS2', 'NDUFB6', 'NDUFV1', 'ATP5MF-PTCD1', 'TIMMDC1', 'ACAD9', 'ATP5PO', 'ATP5MF', 'ATP5ME', 'NDUFS8', 'NDUFA6', 'NDUFS5', 'NDUFB9', 'NDUFA9']",0.17123287671232876,7.636902301181846e-08,126,"Respiratory electron transport, ATP synthesis by chemiosmotic coupling, and heat production by uncoupling proteins., and Proton-transporting ATP synthase complex"
+379,57,CL:11066,"['NDUFS7', 'NDUFB11', 'ECSIT', 'NDUFA8', 'NDUFB4', 'NDUFB2', 'NUBPL', 'ATP5F1E', 'NDUFAF3', 'NDUFC1', 'NDUFAF6', 'NDUFS2', 'NDUFB6', 'NDUFV1', 'ATP5MF-PTCD1', 'TIMMDC1', 'ACAD9', 'ATP5PO', 'ATP5MF', 'ATP5ME', 'NDUFS8', 'NDUFA6', 'NDUFS5', 'NDUFB9', 'NDUFA9']",0.17123287671232876,2.0101325503720238e-07,132,"Respiratory electron transport, ATP synthesis by chemiosmotic coupling, and heat production by uncoupling proteins., and Respiratory chain complex IV"
+380,57,CL:11065,"['NDUFS7', 'NDUFB11', 'ECSIT', 'COX15', 'NDUFA8', 'NDUFB4', 'NDUFB2', 'NUBPL', 'ATP5F1E', 'NDUFAF3', 'NDUFC1', 'NDUFAF6', 'NDUFS2', 'NDUFB6', 'NDUFV1', 'COX18', 'ATP5MF-PTCD1', 'TIMMDC1', 'ACAD9', 'ATP5PO', 'ATP5MF', 'ATP5ME', 'NDUFS8', 'NDUFA6', 'NDUFS5', 'NDUFB9', 'NDUFA9', 'COX16']",0.1917808219178082,1.9563467192240145e-07,160,"Respiratory electron transport, ATP synthesis by chemiosmotic coupling, and heat production by uncoupling proteins., and Cytochrome complex"
+381,57,CL:867,"['QRSL1', 'GATB', 'NARS2']",0.02054794520547945,0.006882223188267152,7,"asparaginyl-tRNA aminoacylation, and glutamyl-tRNA(Gln) amidotransferase complex"
+382,57,CL:11063,"['NDUFS7', 'NDUFB11', 'ECSIT', 'COX15', 'NDUFA8', 'NDUFB4', 'NDUFB2', 'NUBPL', 'ATP5F1E', 'NDUFAF3', 'NDUFC1', 'NDUFAF6', 'NDUFS2', 'NDUFB6', 'NDUFV1', 'COX18', 'ATP5MF-PTCD1', 'TIMMDC1', 'ACAD9', 'ATP5PO', 'ATPAF2', 'ATP5MF', 'ATP5ME', 'NDUFS8', 'NDUFA6', 'NDUFS5', 'NDUFB9', 'NDUFA9', 'COX16']",0.19863013698630136,1.775632396872294e-07,169,"Respiratory electron transport, ATP synthesis by chemiosmotic coupling, and heat production by uncoupling proteins., and Cytochrome complex"
+383,57,CL:11060,"['NDUFS7', 'NDUFB11', 'ECSIT', 'COX15', 'NDUFA8', 'NDUFB4', 'NDUFB2', 'NUBPL', 'ATP5F1E', 'NDUFAF3', 'NDUFC1', 'NDUFAF6', 'NDUFS2', 'NDUFB6', 'NDUFV1', 'COX18', 'ATP5MF-PTCD1', 'TIMMDC1', 'ACAD9', 'ATP5PO', 'ATPAF2', 'ATP5MF', 'ATP5ME', 'NDUFS8', 'NDUFA6', 'NDUFS5', 'NDUFB9', 'NDUFA9', 'COX16']",0.19863013698630136,0.0037629465360905275,284,"Inner mitochondrial membrane protein complex, and Mitochondrial respiratory chain complex assembly"
+384,57,CL:11059,"['NDUFS7', 'NDUFB11', 'ECSIT', 'COX15', 'NDUFA8', 'NDUFB4', 'NDUFB2', 'NUBPL', 'ATP5F1E', 'NDUFAF3', 'NDUFC1', 'NDUFAF6', 'NDUFS2', 'NDUFB6', 'NDUFV1', 'COX18', 'RTN4IP1', 'ATP5MF-PTCD1', 'TIMMDC1', 'ACAD9', 'ATP5PO', 'ATPAF2', 'ATP5MF', 'ATP5ME', 'NDUFS8', 'NDUFA6', 'NDUFS5', 'NDUFB9', 'NDUFA9', 'COX16']",0.2054794520547945,0.0027344743326284827,291,"Inner mitochondrial membrane protein complex, and Mitochondrial respiratory chain complex assembly"
+385,57,CL:11057,"['NDUFS7', 'NDUFB11', 'ECSIT', 'COX15', 'NDUFA8', 'NDUFB4', 'NDUFB2', 'NUBPL', 'ATP5F1E', 'NDUFAF3', 'NDUFC1', 'NDUFAF6', 'NDUFS2', 'NDUFB6', 'NDUFV1', 'COX18', 'RTN4IP1', 'ATP5MF-PTCD1', 'TIMMDC1', 'ACAD9', 'ATP5PO', 'ATPAF2', 'ATP5MF', 'ATP5ME', 'NDUFS8', 'NDUFA6', 'NDUFS5', 'NDUFB9', 'NDUFA9', 'COX16']",0.2054794520547945,0.005358377185178916,304,"Inner mitochondrial membrane protein complex, and Mitochondrial respiratory chain complex assembly"
+386,57,CL:11056,"['NDUFS7', 'NDUFB11', 'ECSIT', 'COX15', 'NDUFA8', 'NDUFB4', 'NDUFB2', 'NUBPL', 'ATP5F1E', 'NDUFAF3', 'NDUFC1', 'NDUFAF6', 'NDUFS2', 'NDUFB6', 'NDUFV1', 'COX18', 'RTN4IP1', 'ATP5MF-PTCD1', 'TIMMDC1', 'ACAD9', 'ATP5PO', 'ATPAF2', 'ATP5MF', 'ATP5ME', 'NDUFS8', 'NDUFA6', 'NDUFS5', 'NDUFB9', 'NDUFA9', 'COX16']",0.2054794520547945,0.017833447314289864,331,"mixed, incl. Inner mitochondrial membrane protein complex, and Mitochondrial respiratory chain complex assembly"
+387,57,CL:11803,"['IBA57', 'NFU1', 'ISCA2']",0.02054794520547945,0.010512973427412572,8,"Mitochondrial iron-sulfur cluster biogenesis, and Multiple mitochondrial dysfunctions syndrome 3"
+388,57,CL:105,"['MRPS5', 'MRPL50', 'MRPL52', 'VARS2', 'MRPL49', 'NSUN4', 'MRPL45', 'MRPL58', 'MRPL18', 'PNPT1', 'MRPL39', 'MRPS16', 'MRPS24', 'MTG1', 'MRM2', 'TRUB2', 'MRPS10', 'MRPL33', 'MRPS23', 'NARS2', 'TFB1M', 'MRPL9', 'MRPL2', 'MTIF2', 'GATB', 'MRPS35', 'FARS2', 'EARS2', 'MRPL11', 'OXA1L', 'MRPS22', 'MRPL34', 'SARS2', 'GTPBP10', 'GADD45GIP1', 'QRSL1', 'METTL17', 'RBFA', 'RPUSD3', 'MRPL42', 'MRPS11', 'EEF1B2', 'MRPS18B', 'MRPS21', 'MRPL21', 'TSFM', 'MRPL43', 'MRPS7', 'MRPL46', 'MRPS14', 'MRPL16', 'MRPS12', 'MRPS34', 'MRRF', 'TARS2', 'MRPL37', 'NOA1', 'MRPS15', 'MRPL3', 'CARS2', 'RCC1L', 'MRPS25', 'PARS2', 'NGRN', 'MRPS26', 'LARS2', 'WARS2', 'MRPS17', 'MRPS31', 'MRPL17']",0.4794520547945205,3.093375374523411e-08,640,"Translation, and Ribosome biogenesis"
+389,57,CL:1386,"['MTERF3', 'TWNK', 'TEFM', 'TFAM', 'SSBP1', 'RNASEH1']",0.0410958904109589,3.56951711621475e-05,12,"Mitochondrial transcription, and Ribonuclease H domain"
+390,57,CL:1389,"['TEFM', 'TFAM', 'MTERF3']",0.02054794520547945,0.004119798618374311,6,"Transcription from mitochondrial promoters, and Helix-hairpin-helix motif"
+391,57,CL:1410,"['LRPPRC', 'DHX30', 'GRSF1']",0.02054794520547945,0.002158204497065439,5,"Regulation of mitochondrial RNA catabolic process, and Mitochondrial large ribosomal subunit assembly"
+392,57,CL:104,"['MRPL50', 'NSUN4', 'MRPL45', 'MRPL18', 'PNPT1', 'MRPS23', 'NARS2', 'MTIF2', 'GATB', 'RNASEH1', 'MRPL34', 'GADD45GIP1', 'RPUSD3', 'TSFM', 'MRPL16', 'MRPS34', 'TEFM', 'MRPL37', 'NOA1', 'MRPS15', 'MRPS25', 'MRPS26', 'MRPS17', 'MRPL52', 'MRPL58', 'MRPL39', 'MRPS16', 'MRPS24', 'TRUB2', 'MRPL33', 'TFB1M', 'FARS2', 'OXA1L', 'MRPS22', 'GTPBP10', 'METTL17', 'TWNK', 'EEF1B2', 'MRPS18B', 'MRPL21', 'MRPL46', 'MRPS14', 'DHX30', 'MRPL3', 'LARS2', 'MRPL17', 'MRPS5', 'MRPL49', 'MTG1', 'MRM2', 'MRPL2', 'SARS2', 'QRSL1', 'RBFA', 'MRPL42', 'MRPS21', 'LRPPRC', 'MRPS12', 'MRRF', 'TARS2', 'CARS2', 'MTERF3', 'TFAM', 'VARS2', 'MRPS10', 'MRPL9', 'MRPS35', 'SSBP1', 'EARS2', 'MRPL11', 'GRSF1', 'MRPS11', 'MRPL43', 'MRPS7', 'RCC1L', 'PARS2', 'NGRN', 'WARS2', 'MRPS31']",0.541095890410959,1.518337974246368e-11,667,"Translation, and Ribosome biogenesis"
+393,57,CL:1384,"['LRPPRC', 'DHX30', 'GRSF1', 'MTERF3', 'TWNK', 'TEFM', 'TFAM', 'SSBP1', 'RNASEH1']",0.06164383561643835,1.9704346924593192e-05,27,"Mitochondrial RNA metabolic process, and Regulation of mitochondrial RNA catabolic process"
+394,57,CL:11061,"['NDUFS7', 'NDUFB11', 'ECSIT', 'COX15', 'NDUFA8', 'NDUFB4', 'NDUFB2', 'NUBPL', 'ATP5F1E', 'NDUFAF3', 'NDUFC1', 'NDUFAF6', 'NDUFS2', 'NDUFB6', 'NDUFV1', 'COX18', 'ATP5MF-PTCD1', 'TIMMDC1', 'ACAD9', 'ATP5PO', 'ATPAF2', 'ATP5MF', 'ATP5ME', 'NDUFS8', 'NDUFA6', 'NDUFS5', 'NDUFB9', 'NDUFA9', 'COX16']",0.19863013698630136,7.299671021529313e-07,180,"Respiratory electron transport, ATP synthesis by chemiosmotic coupling, and heat production by uncoupling proteins., and Cytochrome complex"
+395,57,CL:1385,"['LRPPRC', 'DHX30', 'GRSF1', 'MTERF3', 'TWNK', 'TEFM', 'TFAM', 'SSBP1', 'RNASEH1']",0.06164383561643835,1.7093698625868793e-06,21,"mixed, incl. Mitochondrial transcription, and RAP domain"
+396,57,CL:741,"['NSUN4', 'GTPBP10', 'MTG1', 'MRM2']",0.0273972602739726,0.0022586345992455354,10,"rRNA modification in the mitochondrion, and OBG-type GTPase"
+397,57,CL:11235,"['ECSIT', 'NDUFS7', 'NDUFAF3', 'NDUFAF6', 'TIMMDC1', 'ACAD9']",0.0410958904109589,3.56951711621475e-05,12,Mitochondrial complex I deficiency
+398,57,CL:673,"['MRPS10', 'MRPS5', 'MRPS35', 'MRPS25', 'MRPS18B', 'MRPS22', 'MRPS14']",0.04794520547945205,1.9232424816544917e-06,12,Organellar small ribosomal subunit
+399,57,CL:671,"['MRPS10', 'MRPS24', 'MRPS34', 'MRPS5', 'MRPS31', 'MRPS35', 'MRPS25', 'MRPS18B', 'MRPS26', 'MRPS21', 'MRPS22', 'MRPS14']",0.0821917808219178,2.9507696552115224e-11,18,Organellar small ribosomal subunit
+400,57,CL:668,"['MRPS10', 'MRPS34', 'MRPS5', 'MRPS23', 'MRPS31', 'MRPS35', 'MRPS25', 'MRPS14', 'MRPS18B', 'MRPS21', 'MRPS26', 'MRPS17', 'MRPS22', 'MRPS24']",0.0958904109589041,3.621117524648348e-12,23,Organellar small ribosomal subunit
+401,57,CL:566,"['MRPS5', 'MRPL50', 'MRPL52', 'MRPL49', 'MRPL45', 'MRPL18', 'MRPL39', 'MRPS16', 'MRPS24', 'MRPS10', 'MRPL33', 'MRPS23', 'MRPL9', 'MRPL2', 'MRPS35', 'MRPL11', 'MRPS22', 'MRPL34', 'GADD45GIP1', 'MRPS11', 'MRPL42', 'MRPS18B', 'MRPS21', 'MRPL21', 'MRPL43', 'MRPS7', 'MRPS14', 'MRPL46', 'MRPL16', 'MRPS12', 'MRPS34', 'MRPL37', 'MRPS15', 'MRPL3', 'MRPS25', 'MRPS26', 'MRPS17', 'MRPS31', 'MRPL17']",0.2671232876712329,1.1344211988501645e-28,77,Organellar ribosome
+402,57,CL:562,"['MRPS5', 'MRPL50', 'MRPL52', 'MRPL49', 'MRPL45', 'MRPL18', 'MRPL39', 'MRPS16', 'MRPS24', 'MRPS10', 'MRPL33', 'MRPS23', 'MRPL9', 'MRPL2', 'MTIF2', 'MRPS35', 'MRPL11', 'OXA1L', 'MRPS22', 'MRPL34', 'GADD45GIP1', 'MRPS11', 'MRPL42', 'MRPS18B', 'MRPS21', 'MRPL21', 'MRPL43', 'MRPS7', 'MRPS14', 'MRPL46', 'MRPL16', 'MRPS12', 'MRPS34', 'MRPL37', 'MRPS15', 'MRPL3', 'MRPS25', 'MRPS26', 'MRPS17', 'MRPS31', 'MRPL17']",0.2808219178082192,6.783447821955173e-30,82,Mitochondrial translation initiation
+403,57,CL:560,"['MRPS5', 'MRPL50', 'MRPL52', 'MRPL49', 'MRPL45', 'MRPL58', 'MRPL18', 'MRPL39', 'MRPS16', 'MRPS24', 'MRPS10', 'MRPL33', 'MRPS23', 'MRPL9', 'MRPL2', 'MTIF2', 'MRPS35', 'MRPL11', 'OXA1L', 'MRPS22', 'MRPL34', 'GADD45GIP1', 'MRPS11', 'MRPL42', 'MRPS18B', 'MRPS21', 'MRPL21', 'MRPL43', 'MRPS7', 'MRPS14', 'MRPL46', 'MRPL16', 'MRPS12', 'MRPS34', 'MRRF', 'MRPL37', 'MRPS15', 'MRPL3', 'MRPS25', 'MRPS26', 'MRPS17', 'MRPS31', 'MRPL17']",0.2945205479452055,3.891536877385706e-31,87,Mitochondrial translation initiation
+404,57,CL:655,"['MRPL50', 'MRPL52']",0.0136986301369863,0.04897083087121782,6,"mixed, incl. Combined oxidative phosphorylation deficiency 9, and Ribosomal protein S10p/S20e"
+405,57,CL:567,"['MRPL50', 'MRPL52', 'MRPL49', 'MRPL45', 'MRPL18', 'MRPL39', 'MRPS16', 'MRPL33', 'MRPL9', 'MRPL2', 'MRPL11', 'MRPL34', 'GADD45GIP1', 'MRPS11', 'MRPL21', 'MRPL43', 'MRPS7', 'MRPL46', 'MRPL16', 'MRPS12', 'MRPS15', 'MRPL37', 'MRPL3', 'MRPL17']",0.1643835616438356,5.561544347038942e-17,50,Organellar large ribosomal subunit
+406,57,CL:640,"['MRPL45', 'MRPL37', 'GADD45GIP1', 'MRPL39']",0.0273972602739726,0.00019661037575656725,6,"mixed, incl. Ribosomal protein L37/S30, and Tim44-like domain"
+407,57,CL:568,"['MRPL49', 'MRPL45', 'MRPL39', 'MRPL18', 'MRPS16', 'MRPL33', 'MRPL9', 'MRPL2', 'MRPL11', 'MRPL34', 'GADD45GIP1', 'MRPS11', 'MRPL21', 'MRPL43', 'MRPS7', 'MRPL46', 'MRPL16', 'MRPS12', 'MRPS15', 'MRPL37', 'MRPL3', 'MRPL17']",0.1506849315068493,4.135105671542778e-16,44,Organellar large ribosomal subunit
+408,57,CL:572,"['MRPL16', 'MRPS12', 'MRPL33', 'MRPL9', 'MRPL2', 'MRPS11', 'MRPS15', 'MRPL3', 'MRPL11', 'MRPL46', 'MRPL21', 'MRPL34', 'MRPS7', 'MRPS16', 'MRPL43', 'MRPL17']",0.1095890410958904,1.571178811346232e-12,30,Organellar large ribosomal subunit
+409,57,CL:569,"['MRPL16', 'MRPS12', 'MRPL33', 'MRPL9', 'MRPL2', 'MRPS11', 'MRPS15', 'MRPL3', 'MRPL49', 'MRPL11', 'MRPL46', 'MRPL21', 'MRPL34', 'MRPS7', 'MRPS16', 'MRPL43', 'MRPL17']",0.11643835616438356,2.212361219749118e-12,35,Organellar large ribosomal subunit
+410,57,CL:576,"['MRPL16', 'MRPS12', 'MRPL33', 'MRPL9', 'MRPS15', 'MRPS11', 'MRPL3', 'MRPL21', 'MRPS7', 'MRPS16', 'MRPL17']",0.07534246575342465,1.2671083307616245e-10,16,Mitochondrial translation elongation
+411,57,CL:573,"['MRPL16', 'MRPS12', 'MRPL33', 'MRPL9', 'MRPL2', 'MRPS11', 'MRPS15', 'MRPL3', 'MRPL11', 'MRPL21', 'MRPS7', 'MRPS16', 'MRPL17']",0.08904109589041095,1.6672967299411166e-11,21,"Organellar large ribosomal subunit, and Organellar small ribosomal subunit"
+412,57,CL:578,"['MRPS12', 'MRPS15', 'MRPS11', 'MRPS7', 'MRPS16', 'MRPL17']",0.0410958904109589,3.517042691557518e-07,7,Organellar small ribosomal subunit
+413,57,CL:675,"['MRPS10', 'MRPS25', 'MRPS14', 'MRPS5']",0.0273972602739726,0.00043656585851719064,7,Organellar small ribosomal subunit
+414,57,CL:742,"['NSUN4', 'MTG1', 'MRM2']",0.02054794520547945,0.002158204497065439,5,"rRNA modification in the mitochondrion, and OBG-type GTPase"
+415,57,CL:595,"['MRPL21', 'MRPL9', 'MRPL33']",0.02054794520547945,0.004119798618374311,6,"mixed, incl. Ribosomal protein L22p/L17e, and Ribosomal protein L9/RNase H1, N-terminal"
+416,57,CL:739,"['TRUB2', 'RCC1L', 'NSUN4', 'NGRN', 'GTPBP10', 'MTG1', 'MRM2']",0.04794520547945205,5.615150199525255e-05,18,"rRNA modification in the mitochondrion, and Regulation of mitochondrial translation"
+417,57,CL:11070,"['NDUFS7', 'NDUFB11', 'ECSIT', 'NDUFA8', 'NDUFB4', 'NDUFB2', 'NUBPL', 'NDUFAF3', 'NDUFC1', 'NDUFAF6', 'NDUFS2', 'NDUFB6', 'NDUFV1', 'TIMMDC1', 'ACAD9', 'NDUFS8', 'NDUFA6', 'NDUFS5', 'NDUFB9', 'NDUFA9']",0.136986301369863,9.43167166588595e-07,97,"Respiratory chain complex, and Complex I biogenesis"
+418,57,CL:801,"['TARS2', 'VARS2', 'PARS2', 'EARS2', 'WARS2', 'LARS2']",0.0410958904109589,0.0009856383965784795,20,Aminoacyl-tRNA synthetase
+419,57,CL:802,"['EARS2', 'PARS2', 'VARS2', 'WARS2', 'LARS2']",0.03424657534246575,0.0007499695171539866,13,"Aminoacyl-tRNA synthetase, class I, conserved site, and tRNA-binding domain"
+420,57,CL:774,"['RBFA', 'NOA1', 'METTL17', 'TFB1M']",0.0273972602739726,0.00043656585851719064,7,"mixed, incl. K homology domain-like, alpha/beta, and Ribosomal RNA adenine dimethylase"
+421,57,CL:818,"['VARS2', 'WARS2']",0.0136986301369863,0.03402048678693663,5,"tRNA synthetases class I (W and Y), and Valine-tRNA ligase"
+422,57,CL:558,"['MRPS5', 'MRPL50', 'MRPL52', 'MRPL49', 'NSUN4', 'MRPL45', 'MRPL58', 'MRPL18', 'MRPL39', 'MRPS16', 'MRPS24', 'MTG1', 'MRM2', 'TRUB2', 'MRPS10', 'MRPL33', 'MRPS23', 'TFB1M', 'MRPL9', 'MRPL2', 'MTIF2', 'MRPS35', 'MRPL11', 'OXA1L', 'MRPS22', 'MRPL34', 'GTPBP10', 'GADD45GIP1', 'METTL17', 'RBFA', 'MRPS11', 'MRPL42', 'MRPS18B', 'MRPS21', 'MRPL21', 'MRPL43', 'MRPS7', 'MRPS14', 'MRPL46', 'MRPL16', 'MRPS12', 'MRPS34', 'MRRF', 'MRPL37', 'NOA1', 'MRPS15', 'MRPL3', 'RCC1L', 'MRPS25', 'NGRN', 'MRPS26', 'MRPS17', 'MRPS31', 'MRPL17']",0.3698630136986301,3.820970363622288e-38,115,"Organellar ribosome, and Regulation of mitochondrial gene expression"
+423,57,CL:764,"['TRUB2', 'NGRN']",0.0136986301369863,0.03402048678693663,5,Positive regulation of mitochondrial translation
+424,57,CL:107,"['MRPS5', 'MRPL50', 'MRPL52', 'MRPL49', 'NSUN4', 'MRPL45', 'MRPL58', 'MRPL18', 'MRPL39', 'MRPS16', 'MRPS24', 'MTG1', 'MRM2', 'TRUB2', 'MRPS10', 'MRPL33', 'MRPS23', 'TFB1M', 'MRPL9', 'MRPL2', 'MTIF2', 'MRPS35', 'MRPL11', 'OXA1L', 'MRPS22', 'MRPL34', 'GTPBP10', 'GADD45GIP1', 'METTL17', 'RBFA', 'MRPS11', 'MRPL42', 'EEF1B2', 'MRPS18B', 'MRPS21', 'MRPL21', 'TSFM', 'MRPL43', 'MRPS7', 'MRPL46', 'MRPS14', 'MRPL16', 'MRPS12', 'MRPS34', 'MRRF', 'MRPL37', 'NOA1', 'MRPS15', 'MRPL3', 'RCC1L', 'MRPS25', 'NGRN', 'MRPS26', 'MRPS17', 'MRPS31', 'MRPL17']",0.3835616438356164,2.2443788081048905e-13,344,"Translation, and Translation factor activity, RNA binding"
+425,57,CL:738,"['TRUB2', 'TFB1M', 'RBFA', 'METTL17', 'NOA1', 'RCC1L', 'NSUN4', 'NGRN', 'GTPBP10', 'MTG1', 'MRM2']",0.07534246575342465,7.917901165829418e-08,25,"rRNA modification in the mitochondrion, and Regulation of mitochondrial translation"
+426,58,CL:11056,"['COQ6', 'SCO2', 'SCO1', 'COA3', 'COA7', 'COQ4', 'COA5', 'COX7C', 'COX19', 'CYC1', 'PDSS2', 'COQ3', 'COX17', 'COX6C', 'PDSS1', 'UQCRB', 'BCS1L', 'UQCRQ']",0.6428571428571429,1.1156490135847713e-09,331,"mixed, incl. Inner mitochondrial membrane protein complex, and Mitochondrial respiratory chain complex assembly"
+427,58,CL:11672,"['COQ6', 'COQ3']",0.07142857142857142,0.0013462299689760283,5,Ubiquinone biosynthesis complex
+428,58,CL:11669,"['COQ6', 'COQ4', 'PDSS2', 'COQ3', 'PDSS1']",0.17857142857142858,7.360490127595939e-08,11,Ubiquinone biosynthesis
+429,58,CL:11665,"['COQ6', 'COQ4', 'PDSS2', 'COQ3', 'PDSS1']",0.17857142857142858,9.383202190152388e-07,17,Quinone biosynthetic process
+430,58,CL:11057,"['UQCRB', 'SCO2', 'SCO1', 'COA3', 'COA7', 'COA5', 'COX7C', 'COX17', 'COX19', 'CYC1', 'COX6C', 'BCS1L', 'UQCRQ']",0.4642857142857143,1.3870042283523365e-05,304,"Inner mitochondrial membrane protein complex, and Mitochondrial respiratory chain complex assembly"
+431,58,CL:11059,"['UQCRB', 'SCO2', 'SCO1', 'COA3', 'COA7', 'COA5', 'COX7C', 'COX17', 'COX19', 'CYC1', 'COX6C', 'BCS1L', 'UQCRQ']",0.4642857142857143,8.471021353076441e-06,291,"Inner mitochondrial membrane protein complex, and Mitochondrial respiratory chain complex assembly"
+432,58,CL:11060,"['UQCRB', 'SCO2', 'SCO1', 'COA3', 'COA7', 'COA5', 'COX7C', 'COX17', 'COX19', 'CYC1', 'COX6C', 'BCS1L', 'UQCRQ']",0.4642857142857143,6.423106456329914e-06,284,"Inner mitochondrial membrane protein complex, and Mitochondrial respiratory chain complex assembly"
+433,58,CL:11070,"['UQCRB', 'UQCRQ', 'CYC1', 'COX6C', 'COX7C']",0.17857142857142858,0.0050406194376135865,97,"Respiratory chain complex, and Complex I biogenesis"
+434,58,CL:11069,"['UQCRB', 'UQCRQ', 'CYC1', 'COX6C', 'COX7C']",0.17857142857142858,0.012737105497380033,121,"Respiratory electron transport, ATP synthesis by chemiosmotic coupling, and heat production by uncoupling proteins."
+435,58,CL:11664,"['COQ6', 'COQ4', 'PDSS2', 'COQ3', 'PDSS1']",0.17857142857142858,1.1272680129541909e-05,27,"Quinone biosynthetic process, and Prenylation"
+436,58,CL:11068,"['UQCRB', 'UQCRQ', 'CYC1', 'COX6C', 'COX7C']",0.17857142857142858,0.015010587507552572,126,"Respiratory electron transport, ATP synthesis by chemiosmotic coupling, and heat production by uncoupling proteins., and Proton-transporting ATP synthase complex"
+437,58,CL:11066,"['UQCRB', 'UQCRQ', 'CYC1', 'COX6C', 'COX7C']",0.17857142857142858,0.01808603127753341,132,"Respiratory electron transport, ATP synthesis by chemiosmotic coupling, and heat production by uncoupling proteins., and Respiratory chain complex IV"
+438,58,CL:11334,"['SCO1', 'SCO2', 'COA5', 'COX17', 'COX19', 'BCS1L']",0.21428571428571427,1.4486687094704385e-09,12,Respiratory chain complex IV assembly
+439,58,CL:11347,"['COX19', 'SCO1', 'COX17']",0.10714285714285714,1.5038141410410307e-05,5,"Cysteine alpha-hairpin motif superfamily, and Copper chaperone SCO1/SenC"
+440,58,CL:11065,"['UQCRB', 'SCO2', 'SCO1', 'COA3', 'COA7', 'COA5', 'COX7C', 'COX17', 'COX19', 'CYC1', 'COX6C', 'BCS1L', 'UQCRQ']",0.4642857142857143,6.625211566206317e-09,160,"Respiratory electron transport, ATP synthesis by chemiosmotic coupling, and heat production by uncoupling proteins., and Cytochrome complex"
+441,58,CL:11330,"['SCO1', 'SCO2', 'COA3', 'COA7', 'COA5', 'COX17', 'COX19', 'BCS1L']",0.2857142857142857,9.055539580759713e-11,24,"Respiratory chain complex IV assembly, and Mitochondrial splicing suppressor 51-like, C-terminal domain"
+442,58,CL:11061,"['UQCRB', 'SCO2', 'SCO1', 'COA3', 'COA7', 'COA5', 'COX7C', 'COX17', 'COX19', 'CYC1', 'COX6C', 'BCS1L', 'UQCRQ']",0.4642857142857143,2.855643896645722e-08,180,"Respiratory electron transport, ATP synthesis by chemiosmotic coupling, and heat production by uncoupling proteins., and Cytochrome complex"
+443,58,CL:11055,"['COQ6', 'SCO2', 'COA7', 'CYC1', 'COX6C', 'COA3', 'COQ4', 'PDSS2', 'COQ3', 'UQCRQ', 'SCO1', 'COA5', 'COX19', 'PDSS1', 'BCS1L', 'COX7C', 'UQCRB', 'HMBS', 'COX17']",0.6785714285714286,3.218463746770333e-09,404,"mixed, incl. Inner mitochondrial membrane protein complex, and Mitochondrion organization"
+444,58,CL:11063,"['UQCRB', 'SCO2', 'SCO1', 'COA3', 'COA7', 'COA5', 'COX7C', 'COX17', 'COX19', 'CYC1', 'COX6C', 'BCS1L', 'UQCRQ']",0.4642857142857143,1.3099308163364635e-08,169,"Respiratory electron transport, ATP synthesis by chemiosmotic coupling, and heat production by uncoupling proteins., and Cytochrome complex"
+445,58,CL:11166,"['COX6C', 'UQCRB', 'COX7C', 'UQCRQ']",0.14285714285714285,0.00020353334673334203,26,Cytochrome complex
+446,58,CL:11332,"['SCO1', 'SCO2', 'COA3', 'COA5', 'COX17', 'COX19', 'BCS1L']",0.25,7.097725649746297e-10,19,Respiratory chain complex IV assembly
+447,58,CL:11074,"['UQCRB', 'UQCRQ', 'CYC1', 'COX6C', 'COX7C']",0.17857142857142858,0.0019331889187754038,78,Respiratory chain complex
+448,58,CL:11193,"['COX6C', 'COX7C']",0.07142857142857142,0.008436535220471608,12,"Mitochondrial electron transport, cytochrome c to oxygen"
+449,58,CL:11052,"['COQ6', 'SCO2', 'COA7', 'CYC1', 'COX6C', 'COA3', 'COQ4', 'PDSS2', 'COQ3', 'UQCRQ', 'SCO1', 'COA5', 'COX19', 'PDSS1', 'BCS1L', 'COX7C', 'SLC25A51', 'UQCRB', 'HMBS', 'COX17']",0.7142857142857143,2.64856540672116e-09,455,"Mitochondrial inner membrane, and Iron-sulfur cluster assembly"
+450,58,CL:11053,"['COQ6', 'SCO2', 'COA7', 'CYC1', 'COX6C', 'COA3', 'COQ4', 'PDSS2', 'COQ3', 'UQCRQ', 'SCO1', 'COA5', 'COX19', 'PDSS1', 'BCS1L', 'COX7C', 'UQCRB', 'HMBS', 'COX17']",0.6785714285714286,8.187994532503328e-09,426,"Mitochondrial inner membrane, and Iron-sulfur cluster assembly"
+451,58,CL:11167,"['UQCRB', 'UQCRQ']",0.07142857142857142,0.009897119461796052,13,"Respiratory chain complex III, and Cytochrome-c oxidase activity"
+452,58,CL:11077,"['UQCRB', 'UQCRQ', 'CYC1', 'COX6C', 'COX7C']",0.17857142857142858,0.0014336604286022926,73,Respiratory chain complex
+453,58,CL:11054,"['COQ6', 'SCO2', 'COA7', 'CYC1', 'COX6C', 'COA3', 'COQ4', 'PDSS2', 'COQ3', 'UQCRQ', 'SCO1', 'COA5', 'COX19', 'PDSS1', 'BCS1L', 'COX7C', 'UQCRB', 'HMBS', 'COX17']",0.6785714285714286,6.655161700591063e-09,421,"Mitochondrial inner membrane, and Iron-sulfur cluster assembly"
+454,63,CL:4065,['WDR48'],0.1111111111111111,0.019067243588520483,5,"mixed, incl. RAD51 interacting motif, and Deubiquitinase activator activity"
+455,63,CL:14541,['ZFYVE26'],0.1111111111111111,0.03781063565838421,10,"Hereditary spastic paraplegia 54, and Hereditary spastic paraplegia 49"
+456,63,CL:14543,['ZFYVE26'],0.1111111111111111,0.019067243588520483,5,"Hereditary spastic paraplegia 49, and Hereditary spastic paraplegia 73"
+457,63,CL:15699,['CD2'],0.1111111111111111,0.04152087742319762,11,"mixed, incl. Dysgammaglobulinemia, and Immunoglobulin domain"
+458,63,CL:19860,['SPON1'],0.1111111111111111,0.04152087742319762,11,"PLAC, and Spondin_N"
+459,67,CL:6195,"['RAD50', 'ATM']",0.0625,0.010944803418074765,12,"BRCA1-C complex, and NIPBL role in DNA damage - Cornelia de Lange syndrome"
+460,71,CL:29967,['NATD1'],0.2,0.012744103060296715,6,"mixed, incl. Negative regulation of defense response to virus by host, and POU5F1 (OCT4), SOX2, NANOG activate genes related to proliferation"
+461,71,CL:29953,['NATD1'],0.2,0.02744765677616994,13,"mostly uncharacterized, incl. DC-UbP/UBTD2, N-terminal domain, and Negative regulation of defense response to virus by host"
+462,71,CL:6024,"['ATXN7L3', 'USP22']",0.4,0.001872384751242677,33,"SAGA-type complex, and TATA-box binding protein"
+463,71,CL:6027,"['ATXN7L3', 'USP22']",0.4,0.0009863433705497818,24,SAGA complex
+464,71,CL:6029,"['ATXN7L3', 'USP22']",0.4,0.0006137307190191094,19,SAGA complex
+465,75,CL:1277,"['TRMT61A', 'METTL1']",0.2857142857142857,7.614886517647906e-05,5,tRNA methyltransferase complex
+466,75,CL:14760,['PPA2'],0.14285714285714285,0.01780370238012626,6,"Pyrophosphate hydrolysis, and P-type potassium:proton transporter activity"
+467,75,CL:10263,['PGS1'],0.14285714285714285,0.014855428759483421,5,"Cytidylyltransferase family, and CDP-alcohol phosphatidyltransferase"
+468,75,CL:3211,"['RTRAF', 'DDX1']",0.2857142857142857,7.614886517647906e-05,5,tRNA-splicing ligase complex
+469,75,CL:1266,"['TRMT61A', 'ADAT3', 'METTL1']",0.42857142857142855,0.00042265109660348944,56,"tRNA modification, and Enzyme-directed rRNA pseudouridine synthesis"
+470,75,CL:893,"['TRMT61A', 'ADAT3', 'METTL1']",0.42857142857142855,0.02901526792842896,246,"rRNA processing, and tRNA modification"
+471,75,CL:1269,"['TRMT61A', 'ADAT3', 'METTL1']",0.42857142857142855,0.00017824562186178347,42,"tRNA modification in the nucleus and cytosol, and Pseudouridine synthase activity"
+472,75,CL:1272,"['TRMT61A', 'METTL1']",0.2857142857142857,0.0014162027419569675,20,tRNA methylation
+473,75,CL:1273,"['TRMT61A', 'METTL1']",0.2857142857142857,0.0007882437045757102,15,"tRNA methyltransferase complex, and 16S rRNA methyltransferase RsmB/F"
+474,75,CL:1270,"['TRMT61A', 'ADAT3', 'METTL1']",0.42857142857142855,3.6504411535776616e-05,25,"tRNA methylation, and MafB19-like deaminase"
+475,75,CL:1274,"['TRMT61A', 'METTL1']",0.2857142857142857,0.00034023652201647497,10,"tRNA methyltransferase complex, and rRNA (guanine-N7)-methylation"
+476,76,CL:15545,['LCK'],0.05555555555555555,0.04524689948075069,6,"Alpha-beta T cell receptor complex, and Pneumocystosis"
+477,76,CL:29628,['GPRASP1'],0.05555555555555555,0.04524689948075069,6,"mixed, incl. Protein FAM161A/B, and Oxidoreductase, N-terminal domain"
+478,76,CL:21644,['LRBA'],0.05555555555555555,0.04524689948075069,6,"mixed, incl. RNA polymerase II intronic transcription regulatory region sequence-specific DNA binding, and Evans syndrome"
+479,76,CL:18820,['PLAT'],0.05555555555555555,0.03784252386276427,5,"Plasminogen activation, and Negative regulation of smooth muscle cell-matrix adhesion"
+480,76,CL:11701,['PGGT1B'],0.05555555555555555,0.03784252386276427,5,"CAAX-protein geranylgeranyltransferase complex, and Lamin A-processing pathway"
+481,76,CL:15540,"['PTPRC', 'LCK']",0.1111111111111111,0.03656982594212533,40,"mixed, incl. non-Langerhans-cell histiocytosis, and T cell receptor complex"
+482,76,CL:15541,"['PTPRC', 'LCK']",0.1111111111111111,0.022707203404528278,31,"mixed, incl. non-Langerhans-cell histiocytosis, and T cell receptor complex"
+483,76,CL:15542,"['PTPRC', 'LCK']",0.1111111111111111,0.009753004844837085,20,"mixed, incl. T cell receptor complex, and Hepatic veno-occlusive disease"
+484,76,CL:3923,['UBE2E2'],0.05555555555555555,0.03784252386276427,5,"ISG15 transferase activity, and Random inactivation of X chromosome"
+485,76,CL:14421,['CALCOCO2'],0.05555555555555555,0.03784252386276427,5,"Regulation of xenophagy, and Xenophagy"
+486,76,CL:17561,['ITK'],0.05555555555555555,0.03784252386276427,5,"Vav, PH domain, and TCR signalosome"
+487,76,CL:12348,['SLC3A2'],0.05555555555555555,0.03784252386276427,5,"Cystinuria, and Regulation of glutathione biosynthetic process"
+488,76,CL:30410,['ARHGAP27'],0.05555555555555555,0.03784252386276427,5,"ADP-ribosylation factor-like protein 17, and LRRC37A/B like protein 1, C-terminal"
+489,80,CL:4757,"['SMARCC1', 'SMARCE1', 'SMARCB1', 'ARID1A', 'SMARCA4']",1.0,1.500378618604747e-05,256,"DNA packaging complex, and Histone deacetylase complex"
+490,80,CL:5108,"['SMARCC1', 'SMARCE1', 'SMARCB1', 'ARID1A', 'SMARCA4']",1.0,4.291881564935305e-13,10,npBAF complex
+491,80,CL:4758,"['SMARCC1', 'SMARCE1', 'SMARCB1', 'ARID1A', 'SMARCA4']",1.0,4.772759712369729e-06,204,"DNA packaging complex, and Histone methyltransferase complex"
+492,80,CL:5099,"['SMARCC1', 'SMARCE1', 'SMARCB1', 'ARID1A', 'SMARCA4']",1.0,3.4296902461127454e-10,32,SWI/SNF complex
+493,80,CL:5101,"['SMARCC1', 'SMARCE1', 'SMARCB1', 'ARID1A', 'SMARCA4']",1.0,1.3749349156239174e-10,27,SWI/SNF complex
+494,80,CL:4756,"['SMARCC1', 'SMARCE1', 'SMARCB1', 'ARID1A', 'SMARCA4']",1.0,2.2320334409455147e-05,277,"DNA packaging complex, and Histone deacetylase complex"
+495,80,CL:4755,"['SMARCC1', 'SMARCE1', 'SMARCB1', 'ARID1A', 'SMARCA4']",1.0,3.335207123527249e-05,300,"mixed, incl. DNA packaging complex, and Histone deacetylase complex"
+496,80,CL:4754,"['SMARCC1', 'SMARCE1', 'SMARCB1', 'ARID1A', 'SMARCA4']",1.0,8.701322974439032e-05,363,"Chromatin organization, and Structural constituent of chromatin"
+497,80,CL:4753,"['SMARCC1', 'SMARCE1', 'SMARCB1', 'ARID1A', 'SMARCA4']",1.0,9.709163732858832e-05,371,"Chromatin organization, and Structural constituent of chromatin"
+498,80,CL:4752,"['SMARCC1', 'SMARCE1', 'SMARCB1', 'ARID1A', 'SMARCA4']",1.0,0.00010385046100456288,376,"Chromatin organization, and Structural constituent of chromatin"
+499,80,CL:4751,"['SMARCC1', 'SMARCE1', 'SMARCB1', 'ARID1A', 'SMARCA4']",1.0,0.00011849699515202652,386,"Chromatin organization, and Structural constituent of chromatin"
+500,80,CL:4750,"['SMARCC1', 'SMARCE1', 'SMARCB1', 'ARID1A', 'SMARCA4']",1.0,0.00014715475536886328,403,"Chromatin organization, and Structural constituent of chromatin"
+501,80,CL:4749,"['SMARCC1', 'SMARCE1', 'SMARCB1', 'ARID1A', 'SMARCA4']",1.0,0.00027373773612428894,456,"Chromatin organization, and Structural constituent of chromatin"
+502,80,CL:4748,"['SMARCC1', 'SMARCE1', 'SMARCB1', 'ARID1A', 'SMARCA4']",1.0,0.002268441551267248,695,"mixed, incl. Chromatin organization, and DNA-directed RNA polymerase complex"
+503,80,CL:5104,"['SMARCC1', 'SMARCE1', 'SMARCB1', 'ARID1A', 'SMARCA4']",1.0,5.114492198214571e-12,15,"npBAF complex, and H3K9me3 modified histone binding"
+504,80,CL:5102,"['SMARCC1', 'SMARCE1', 'SMARCB1', 'ARID1A', 'SMARCA4']",1.0,3.4656943636852595e-11,21,Regulation of nucleotide-excision repair
+505,81,CL:4285,['NDFIP2'],0.14285714285714285,0.014855428759483421,5,"NEDD4/Bsd2, and Regulation of transcription from RNA polymerase II promoter in response to UV-induced DNA damage"
+506,81,CL:16795,['MALT1'],0.14285714285714285,0.014855428759483421,5,"CBM complex, and Impetigo herpetiformis"
+507,81,CL:4282,['NDFIP2'],0.14285714285714285,0.02952129717400098,10,"mixed, incl. NEDD4/Bsd2, and E3 ubiquitin-protein ligase HECW, C2 domain"
+508,81,CL:15629,['CD28'],0.14285714285714285,0.023677567380920025,8,"mixed, incl. ICOS V-set domain, and Immunodeficiency 16"
+509,81,CL:10085,['HACD4'],0.14285714285714285,0.04973889439337332,17,"Fatty acid elongation, and acyl-CoA desaturase activity"
+510,81,CL:10087,['HACD4'],0.14285714285714285,0.03243190168119122,11,Biosynthesis of unsaturated fatty acids
+511,81,CL:16583,"['MALT1', 'BCL10']",0.2857142857142857,0.04262404742554964,115,"Toll-like Receptor Cascades, and NF-kappa B signaling pathway"
+512,81,CL:15627,['CD28'],0.14285714285714285,0.03823067030222609,13,"mixed, incl. Tumour necrosis factor, conserved site, and ICOS V-set domain"
+513,81,CL:16793,"['MALT1', 'BCL10']",0.2857142857142857,0.00034023652201647497,10,"CBM complex, and Protein kinase C, delta/epsilon/eta/theta types"
+514,81,CL:10090,['HACD4'],0.14285714285714285,0.014855428759483421,5,"Protein-tyrosine phosphatase-like, PTPLA, and Fatty acid elongase complex"
+515,82,CL:35912,['ZNF649'],0.2,0.04403665239063015,21,"mostly uncharacterized, incl. Adermatoglyphia, and Regulation of transposon integration"
+516,82,CL:35913,['ZNF649'],0.2,0.033695297975327214,16,"mostly uncharacterized, incl. Adermatoglyphia, and Regulation of transposon integration"
+517,82,CL:13078,['SLC4A7'],0.2,0.010629158979449018,5,"mixed, incl. Target of Myb protein 1, and Restless legs syndrome"
+518,82,CL:14355,['PIK3R4'],0.2,0.012744103060296715,6,SARS-CoV-2 replication organelle formation
+519,82,CL:14354,['PIK3R4'],0.2,0.023264640578095623,11,"SARS-CoV-2 replication organelle formation, and Atg1/ULK1 kinase complex"
+520,82,CL:14779,['DAP'],0.2,0.029533783638511918,14,"mixed, incl. Caspase activation via Dependence Receptors in the absence of ligand, and Positive regulation of fibroblast apoptotic process"
+521,82,CL:14795,['DAP'],0.2,0.012744103060296715,6,"mixed, incl. Phafin, PH domain, and Death-associated protein"
+522,82,CL:35915,['ZNF649'],0.2,0.012744103060296715,6,"mixed, incl. Adermatoglyphia, and Regulation of transposon integration"
+523,83,CL:14565,"['TSC1', 'NPRL3', 'TSC2', 'DEPDC5']",0.8,1.984244678609532e-05,107,"Amino acids regulate mTORC1, and MTOR signalling"
+524,83,CL:14303,"['TSC1', 'NPRL3', 'TSC2', 'DEPDC5']",0.8,0.0004779085492287624,238,"mixed, incl. Amino acids regulate mTORC1, and Autophagy"
+525,83,CL:37264,['CYB561D2'],0.2,0.010629158979449018,5,Cytochrome b561/ferric reductase transmembrane
+526,83,CL:37243,['CYB561D2'],0.2,0.033695297975327214,16,"mixed, incl. Cytochrome b561/ferric reductase transmembrane, and Galactose oxidase/kelch, beta-propeller"
+527,83,CL:14574,"['NPRL3', 'DEPDC5']",0.4,3.632342248380208e-05,5,Seh1-associated complex
+528,83,CL:14571,"['NPRL3', 'DEPDC5']",0.4,0.000281390205671887,13,"Seh1-associated complex, and KICSTOR complex"
+529,83,CL:14569,"['NPRL3', 'DEPDC5']",0.4,0.0013462299689760283,28,Amino acids regulate mTORC1
+530,83,CL:14628,"['TSC1', 'TSC2']",0.4,0.0006137307190191094,19,"TOR complex, and TSC1-TSC2 complex"
+531,83,CL:14302,"['TSC1', 'NPRL3', 'TSC2', 'DEPDC5']",0.8,0.0006365892138937283,256,"mixed, incl. Amino acids regulate mTORC1, and Autophagy"
+532,83,CL:14566,"['TSC1', 'NPRL3', 'TSC2', 'DEPDC5']",0.8,2.811415903389757e-06,66,"MTOR signalling, and Negative regulation of TORC1 signaling"
+533,83,CL:14652,"['TSC1', 'TSC2']",0.4,7.614886517647906e-05,7,"TSC1-TSC2 complex, and Ribosomal S6 kinase, N-terminal catalytic domain"
+534,83,CL:14567,"['TSC1', 'NPRL3', 'TSC2', 'DEPDC5']",0.8,1.2388163589771496e-06,54,"Amino acids regulate mTORC1, and TORC2 complex"
+535,83,CL:14627,"['TSC1', 'TSC2']",0.4,0.0009863433705497818,24,"mixed, incl. TOR complex, and Ribosomal protein S6 kinase activity"
+536,84,CL:5602,['HMGA1'],0.07692307692307693,0.02744765677616994,5,"Histone methyltransferase activity (H4-R3 specific), and High mobility group protein HMGA"
+537,84,CL:7749,['RALGAPB'],0.07692307692307693,0.032853035340475095,6,"Ral GTPase-activating protein subunit alpha/beta, N-terminal domain, and Gfo/Idh/MocA-like oxidoreductase, C-terminal"
+538,84,CL:8212,['PPP1R12A'],0.07692307692307693,0.02744765677616994,5,"PTW/PP1 phosphatase complex, and cGMP-dependent protein kinase interacting domain"
+539,84,CL:16587,"['RIPK1', 'NFKB1']",0.15384615384615385,0.022559570909250117,43,"mixed, incl. TNFR1-induced NFkappaB signaling pathway, and NF-kappa-B/Dorsal"
+540,84,CL:37130,['ZNF414'],0.07692307692307693,0.02744765677616994,5,"mixed, incl. Ultradian rhythm, and Coiled-coil domain-containing protein R3HC1/R3HCL"
+541,84,CL:25453,['PRKCH'],0.07692307692307693,0.03823067030222609,7,"mixed, incl. Ninjurin, and PITH domain"
+542,84,CL:16586,"['RIPK1', 'NFKB1']",0.15384615384615385,0.027743896850619346,48,"TNFR1-induced NFkappaB signaling pathway, and TAK1-dependent IKK and NF-kappa-B activation"
+543,84,CL:16593,['RIPK1'],0.07692307692307693,0.032853035340475095,6,"Defective RIPK1-mediated regulated necrosis, and TRAF-type zinc finger"
+544,84,CL:4640,['LRRC29'],0.07692307692307693,0.02744765677616994,5,"F-box-like, and SCF-dependent proteasomal ubiquitin-dependent protein catabolic process"
+545,85,CL:3873,"['RNF20', 'WAC']",0.5,0.0014263711279961881,37,"mixed, incl. Ubiquitin-conjugating enzyme, active site, and Ubiquitin conjugating enzyme complex"
+546,85,CL:1240,['RBM7'],0.25,0.008510591868055976,5,TRAMP complex
+547,85,CL:3872,"['RNF20', 'WAC']",0.5,0.0018387105861701624,42,"mixed, incl. Ubiquitin conjugating enzyme activity, and Ubiquitin conjugating enzyme complex"
+548,85,CL:3871,"['RNF20', 'WAC']",0.5,0.003034925694705274,54,"mixed, incl. Ubiquitin conjugating enzyme activity, and Zinc finger, UBR-type"
+549,85,CL:3692,"['RNF20', 'WAC']",0.5,0.04246000615592241,210,"mixed, incl. Cellular response to hypoxia, and Cysteine-type deubiquitinase activity"
+550,85,CL:3691,"['RNF20', 'WAC']",0.5,0.04593740527512384,219,"mixed, incl. Cellular response to hypoxia, and Cysteine-type deubiquitinase activity"
+551,85,CL:1204,['RBM7'],0.25,0.03869963937101011,23,"Exosome (RNase complex), and TRAMP complex"
+552,85,CL:3694,"['RNF20', 'WAC']",0.5,0.021275573870988156,146,"mixed, incl. Oxygen-dependent proline hydroxylation of Hypoxia-inducible Factor Alpha, and Ubiquitin conjugating enzyme activity"
+553,85,CL:3936,"['RNF20', 'WAC']",0.5,2.181268884412371e-05,5,"Histone H2B conserved C-terminal lysine ubiquitination, and HULC complex"
+554,88,CL:32299,['SEC14L2'],0.16666666666666666,0.012744103060296715,5,"mixed, incl. Essential tremor 5, and Glioma pathogenesis-related protein 1-like, SCP domain"
+555,88,CL:5248,['ZMYM2'],0.16666666666666666,0.01527661070528954,6,"mixed, incl. Protein of unknown function DUF3504, and Telomeric repeat-containing RNA binding"
+556,88,CL:15948,['IL21'],0.16666666666666666,0.04277877427475522,17,"mixed, incl. Interleukin-2 signaling, and Interleukin 15"
+557,88,CL:17474,['INSR'],0.16666666666666666,0.04524689948075069,18,"Phosphatidylinositol 3-kinase complex, class I, and Insulin receptor complex"
+558,88,CL:37733,['ZNF148'],0.16666666666666666,0.01527661070528954,6,"mixed, incl. RAD51 interacting motif, and EPM2A-interacting protein 1/ZBED8-like"
+559,88,CL:37717,['ZNF148'],0.16666666666666666,0.03534247411694749,14,"mixed, incl. EPM2A-interacting protein 1/ZBED8-like, and RAD51 interacting motif"
+560,88,CL:5245,['ZMYM2'],0.16666666666666666,0.030358245233872726,12,"mixed, incl. Protein of unknown function DUF3504, and Negative regulation of protein sumoylation"
+561,88,CL:17499,['INSR'],0.16666666666666666,0.012744103060296715,5,"IRS activation, and Protein-tyrosine phosphatase, non-receptor type-1/2"
+562,89,CL:26555,['CFAP298'],0.2,0.0357706946721156,17,Kartagener syndrome
+563,89,CL:26219,['KIFAP3'],0.2,0.04403665239063015,21,Kinesin complex
+564,89,CL:6196,['ATM'],0.2,0.012744103060296715,6,NIPBL role in DNA damage - Cornelia de Lange syndrome
+565,89,CL:6195,['ATM'],0.2,0.0253579439630547,12,"BRCA1-C complex, and NIPBL role in DNA damage - Cornelia de Lange syndrome"
+566,89,CL:38414,['SHLD1'],0.2,0.0253579439630547,12,"mixed, incl. Telomere maintenance in response to DNA damage, and DNA double-strand break attachment to nuclear envelope"
+567,89,CL:1272,['NSUN2'],0.2,0.0419754981267031,20,tRNA methylation
+568,89,CL:1293,['NSUN2'],0.2,0.010629158979449018,5,16S rRNA methyltransferase RsmB/F
+569,89,CL:1273,['NSUN2'],0.2,0.03161632916718464,15,"tRNA methyltransferase complex, and 16S rRNA methyltransferase RsmB/F"
+570,89,CL:26221,['KIFAP3'],0.2,0.02744765677616994,13,"RHO GTPases activate KTN1, and Kinesin II complex"
+571,89,CL:38416,['SHLD1'],0.2,0.014855428759483421,7,"mixed, incl. Telomere maintenance in response to DNA damage, and Flagellar C1a complex subunit C1a-32"
+572,91,CL:7800,['PROX2'],0.125,0.016963140721914984,5,"mixed, incl. Homeo-prospero domain, and Neuronal ceroid lipofuscinosis 6"
+573,91,CL:3596,['REXO1'],0.125,0.016963140721914984,5,"RNA exonuclease 1-like, exonuclease domain, and Locked-in syndrome"
+574,91,CL:13920,['TPD52'],0.125,0.016963140721914984,5,Tumour protein D52
+575,91,CL:28925,['B3GAT2'],0.125,0.036986137488425656,11,"Aryl sulfotransferase activity, and Glycosyltransferase family 43"
+576,91,CL:33617,['TM2D1'],0.125,0.027019706645341333,8,"mixed, incl. TM2 domain, and Thyroid cancer protein 1"
+577,91,CL:33716,['NEUROD2'],0.125,0.023677567380920025,7,"mixed, incl. Megalencephalic leukoencephalopathy with subcortical cysts 2B, and Negative regulation of synapse maturation"
+578,92,CL:28591,"['PIGN', 'PIGB']",0.047619047619047616,0.015563588267652988,11,"glycosylphosphatidylinositol-N-acetylglucosaminyltransferase (GPI-GnT) complex, and Preassembly of GPI anchor in ER membrane"
+579,92,CL:15699,"['SLAMF7', 'CD244']",0.047619047619047616,0.015563588267652988,11,"mixed, incl. Dysgammaglobulinemia, and Immunoglobulin domain"
+580,92,CL:28590,"['PIGN', 'PIGB']",0.047619047619047616,0.04857531643342676,20,Glycosylphosphatidylinositol (GPI)-anchor biosynthesis
+581,93,CL:568,"['MRPL16', 'MRPS12', 'MRPL10', 'MRPL2', 'MRPS11', 'MRPS15', 'MRPL37', 'MRPL49', 'MRPL11', 'MRPL45', 'MRPL39', 'MRPL18', 'MRPL21', 'MRPL43', 'MRPS7', 'MRPS16', 'MRPL46']",0.20238095238095238,1.6081377941089307e-14,44,Organellar large ribosomal subunit
+582,93,CL:11167,"['UQCRB', 'COX5A', 'UQCRQ']",0.03571428571428571,0.009790336495874435,13,"Respiratory chain complex III, and Cytochrome-c oxidase activity"
+583,93,CL:797,"['TARS2', 'VARS2', 'PARS2', 'EARS2', 'WARS2', 'LARS2']",0.07142857142857142,0.003295882610898659,42,tRNA Aminoacylation
+584,93,CL:795,"['TARS2', 'VARS2', 'PARS2', 'EARS2', 'WARS2', 'LARS2']",0.07142857142857142,0.006492762524569587,48,"tRNA Aminoacylation, and glutamyl-tRNA(Gln) amidotransferase complex"
+585,93,CL:106,"['VARS2', 'MRPL49', 'NSUN4', 'MRPL45', 'MRPL18', 'MRPL39', 'MRPS9', 'MRPS16', 'MRPS24', 'MRPS23', 'MRPS27', 'MRPL2', 'MRPS35', 'TUFM', 'EARS2', 'MRPL11', 'MRPS2', 'MRPS17', 'MRPS11', 'MRPL42', 'MRPS21', 'MRPL21', 'MRPL43', 'MRPS7', 'MRPL46', 'MRPL16', 'MRPS12', 'TARS2', 'MRPL37', 'MRPS15', 'RCC1L', 'PARS2', 'MRPS25', 'WARS2', 'MRPS26', 'LARS2', 'MRPL10']",0.44047619047619047,2.10552597043537e-09,394,"Translation, and This family consists of several GAGE and XAGE proteins which are found exclusively in humans. The function of this family is unknown although they have been implicated in human cancers (PMID:11992404)"
+586,93,CL:799,"['TARS2', 'VARS2', 'PARS2', 'EARS2', 'WARS2', 'LARS2']",0.07142857142857142,0.000758885975839237,32,tRNA Aminoacylation
+587,93,CL:801,"['TARS2', 'VARS2', 'PARS2', 'EARS2', 'WARS2', 'LARS2']",0.07142857142857142,4.588729333035876e-05,20,Aminoacyl-tRNA synthetase
+588,93,CL:818,"['VARS2', 'WARS2']",0.023809523809523808,0.011828741502483734,5,"tRNA synthetases class I (W and Y), and Valine-tRNA ligase"
+589,93,CL:802,"['EARS2', 'PARS2', 'VARS2', 'WARS2', 'LARS2']",0.05952380952380952,5.3872428995519286e-05,13,"Aminoacyl-tRNA synthetase, class I, conserved site, and tRNA-binding domain"
+590,93,CL:558,"['MRPL49', 'NSUN4', 'MRPL45', 'MRPL18', 'MRPL39', 'MRPS9', 'MRPS16', 'MRPS24', 'MRPS23', 'MRPS27', 'MRPL2', 'MRPS35', 'MRPL11', 'MRPS2', 'MRPS17', 'MRPS11', 'MRPL42', 'MRPS21', 'MRPL21', 'MRPL43', 'MRPS7', 'MRPL46', 'MRPL16', 'MRPS12', 'MRPL37', 'MRPS15', 'RCC1L', 'MRPS25', 'MRPS26', 'MRPL10']",0.35714285714285715,7.487457029156834e-20,115,"Organellar ribosome, and Regulation of mitochondrial gene expression"
+591,93,CL:107,"['MRPL49', 'NSUN4', 'MRPL45', 'MRPL18', 'MRPL39', 'MRPS9', 'MRPS16', 'MRPS24', 'MRPS23', 'MRPS27', 'MRPL2', 'MRPS35', 'TUFM', 'MRPL11', 'MRPS2', 'MRPS17', 'MRPS11', 'MRPL42', 'MRPS21', 'MRPL21', 'MRPL43', 'MRPS7', 'MRPL46', 'MRPL16', 'MRPS12', 'MRPL37', 'MRPS15', 'RCC1L', 'MRPS25', 'MRPS26', 'MRPL10']",0.36904761904761907,2.312559786902085e-07,344,"Translation, and Translation factor activity, RNA binding"
+592,93,CL:675,"['MRPS25', 'MRPS9', 'MRPS2']",0.03571428571428571,0.0014007062822261108,7,Organellar small ribosomal subunit
+593,93,CL:673,"['MRPS35', 'MRPS27', 'MRPS25', 'MRPS2', 'MRPS9']",0.05952380952380952,3.410905957764722e-05,12,Organellar small ribosomal subunit
+594,93,CL:671,"['MRPS35', 'MRPS27', 'MRPS25', 'MRPS21', 'MRPS26', 'MRPS2', 'MRPS9', 'MRPS24']",0.09523809523809523,6.369398536615736e-08,18,Organellar small ribosomal subunit
+595,93,CL:668,"['MRPS23', 'MRPS35', 'MRPS27', 'MRPS25', 'MRPS2', 'MRPS21', 'MRPS26', 'MRPS17', 'MRPS9', 'MRPS24']",0.11904761904761904,1.5951308462608772e-09,23,Organellar small ribosomal subunit
+596,93,CL:566,"['MRPL49', 'MRPL45', 'MRPL18', 'MRPL39', 'MRPS9', 'MRPS16', 'MRPS24', 'MRPS23', 'MRPS27', 'MRPL2', 'MRPS35', 'MRPL11', 'MRPS2', 'MRPS17', 'MRPS11', 'MRPL42', 'MRPS21', 'MRPL21', 'MRPL43', 'MRPS7', 'MRPL46', 'MRPL16', 'MRPS12', 'MRPL37', 'MRPS15', 'MRPS25', 'MRPS26', 'MRPL10']",0.3333333333333333,5.837020054902007e-23,77,Organellar ribosome
+597,93,CL:562,"['MRPL49', 'MRPL45', 'MRPL18', 'MRPL39', 'MRPS9', 'MRPS16', 'MRPS24', 'MRPS23', 'MRPS27', 'MRPL2', 'MRPS35', 'MRPL11', 'MRPS2', 'MRPS17', 'MRPS11', 'MRPL42', 'MRPS21', 'MRPL21', 'MRPL43', 'MRPS7', 'MRPL46', 'MRPL16', 'MRPS12', 'MRPL37', 'MRPS15', 'MRPS25', 'MRPS26', 'MRPL10']",0.3333333333333333,4.4642411738694205e-22,82,Mitochondrial translation initiation
+598,93,CL:560,"['MRPL49', 'MRPL45', 'MRPL18', 'MRPL39', 'MRPS9', 'MRPS16', 'MRPS24', 'MRPS23', 'MRPS27', 'MRPL2', 'MRPS35', 'MRPL11', 'MRPS2', 'MRPS17', 'MRPS11', 'MRPL42', 'MRPS21', 'MRPL21', 'MRPL43', 'MRPS7', 'MRPL46', 'MRPL16', 'MRPS12', 'MRPL37', 'MRPS15', 'MRPS25', 'MRPS26', 'MRPL10']",0.3333333333333333,2.9200545823988595e-21,87,Mitochondrial translation initiation
+599,93,CL:567,"['MRPL16', 'MRPS12', 'MRPL10', 'MRPL2', 'MRPS11', 'MRPS15', 'MRPL37', 'MRPL49', 'MRPL11', 'MRPL45', 'MRPL39', 'MRPL18', 'MRPL21', 'MRPL43', 'MRPS7', 'MRPS16', 'MRPL46']",0.20238095238095238,1.952415192708984e-13,50,Organellar large ribosomal subunit
+600,93,CL:99,"['MRPL10', 'TFAM', 'VARS2', 'MRPL49', 'NSUN4', 'MRPL45', 'MRPL18', 'PNPT1', 'MRPL39', 'MRPS9', 'MRPS16', 'MRPS24', 'MRPS23', 'MRPS27', 'MRPL2', 'MRPS35', 'SSBP1', 'TUFM', 'EARS2', 'MRPL11', 'MRPS2', 'RNASEH1', 'TWNK', 'MRPS11', 'MRPL42', 'POLRMT', 'MRPS21', 'MRPL21', 'MRPL43', 'MRPS7', 'MRPL46', 'MRPL16', 'LRPPRC', 'MRPS12', 'TARS2', 'TEFM', 'MRPL37', 'MRPS15', 'RCC1L', 'PARS2', 'MRPS25', 'WARS2', 'MRPS26', 'LARS2', 'MRPS17']",0.5357142857142857,0.011528207510233387,959,"mixed, incl. Translation, and Ribosome biogenesis"
+601,93,CL:640,"['MRPL45', 'MRPL37', 'MRPL39']",0.03571428571428571,0.0008216325431327986,6,"mixed, incl. Ribosomal protein L37/S30, and Tim44-like domain"
+602,93,CL:578,"['MRPS12', 'MRPS15', 'MRPS11', 'MRPS7', 'MRPS16']",0.05952380952380952,1.042892180156653e-06,7,Organellar small ribosomal subunit
+603,93,CL:573,"['MRPL16', 'MRPS12', 'MRPL2', 'MRPS11', 'MRPS15', 'MRPL11', 'MRPL21', 'MRPS7', 'MRPS16']",0.10714285714285714,1.3125955354056237e-08,21,"Organellar large ribosomal subunit, and Organellar small ribosomal subunit"
+604,93,CL:576,"['MRPL16', 'MRPS12', 'MRPS15', 'MRPS11', 'MRPL21', 'MRPS7', 'MRPS16']",0.08333333333333333,5.209426637240213e-07,16,Mitochondrial translation elongation
+605,93,CL:569,"['MRPL16', 'MRPS12', 'MRPL10', 'MRPL2', 'MRPS11', 'MRPS15', 'MRPL49', 'MRPL11', 'MRPL21', 'MRPL43', 'MRPS7', 'MRPS16', 'MRPL46']",0.15476190476190477,4.8987599708874276e-11,35,Organellar large ribosomal subunit
+606,93,CL:572,"['MRPL16', 'MRPS12', 'MRPL10', 'MRPL2', 'MRPS11', 'MRPS15', 'MRPL11', 'MRPL21', 'MRPL43', 'MRPS7', 'MRPS16', 'MRPL46']",0.14285714285714285,1.0391368866980516e-10,30,Organellar large ribosomal subunit
+607,93,CL:11336,"['SCO2', 'COX10']",0.023809523809523808,0.011828741502483734,5,"Heme a metabolic process, and NARP syndrome"
+608,93,CL:11334,"['SCO1', 'COX11', 'SCO2', 'COA5', 'COX10', 'BCS1L']",0.07142857142857142,1.3788847121504505e-06,12,Respiratory chain complex IV assembly
+609,93,CL:11193,"['COX6C', 'COX4I1', 'COX6B1']",0.03571428571428571,0.007728906455786231,12,"Mitochondrial electron transport, cytochrome c to oxygen"
+610,93,CL:11347,"['SCO1', 'COX11']",0.023809523809523808,0.011828741502483734,5,"Cysteine alpha-hairpin motif superfamily, and Copper chaperone SCO1/SenC"
+611,93,CL:11166,"['UQCRB', 'COX6B1', 'COX6C', 'COX4I1', 'COX5A', 'UQCRQ']",0.07142857142857142,0.0002292023100277304,26,Cytochrome complex
+612,93,CL:105,"['MRPL10', 'VARS2', 'MRPL49', 'NSUN4', 'MRPL45', 'MRPL18', 'PNPT1', 'MRPL39', 'MRPS9', 'MRPS16', 'MRPS24', 'MRPS23', 'MRPS27', 'MRPL2', 'MRPS35', 'TUFM', 'EARS2', 'MRPL11', 'MRPS2', 'MRPS11', 'MRPL42', 'MRPS21', 'MRPL21', 'MRPL43', 'MRPS7', 'MRPL46', 'MRPL16', 'MRPS12', 'TARS2', 'MRPL37', 'MRPS15', 'RCC1L', 'PARS2', 'MRPS25', 'WARS2', 'MRPS26', 'LARS2', 'MRPS17']",0.4523809523809524,0.00025154995277034136,640,"Translation, and Ribosome biogenesis"
+613,93,CL:11077,"['UQCRB', 'CYC1', 'COX6B1', 'COX6C', 'COX4I1', 'COX5A', 'UQCRQ']",0.08333333333333333,0.014150464821272189,73,Respiratory chain complex
+614,93,CL:11074,"['UQCRB', 'CYC1', 'COX6B1', 'COX6C', 'COX4I1', 'COX5A', 'UQCRQ']",0.08333333333333333,0.019865053476706557,78,Respiratory chain complex
+615,93,CL:103,"['MRPL10', 'TFAM', 'VARS2', 'MRPL49', 'NSUN4', 'MRPL45', 'MRPL18', 'PNPT1', 'MRPL39', 'MRPS9', 'MRPS16', 'MRPS24', 'MRPS23', 'MRPS27', 'MRPL2', 'MRPS35', 'SSBP1', 'TUFM', 'EARS2', 'MRPL11', 'MRPS2', 'RNASEH1', 'TWNK', 'MRPS11', 'MRPL42', 'POLRMT', 'MRPS21', 'MRPL21', 'MRPL43', 'MRPS7', 'MRPL46', 'MRPL16', 'LRPPRC', 'MRPS12', 'TARS2', 'TEFM', 'MRPL37', 'MRPS15', 'RCC1L', 'PARS2', 'MRPS25', 'WARS2', 'MRPS26', 'LARS2', 'MRPS17']",0.5357142857142857,2.297606041973009e-06,692,"Translation, and Ribosome biogenesis"
+616,93,CL:100,"['MRPL10', 'TFAM', 'VARS2', 'MRPL49', 'NSUN4', 'MRPL45', 'MRPL18', 'PNPT1', 'MRPL39', 'MRPS9', 'MRPS16', 'MRPS24', 'MRPS23', 'MRPS27', 'MRPL2', 'MRPS35', 'SSBP1', 'TUFM', 'EARS2', 'MRPL11', 'MRPS2', 'RNASEH1', 'TWNK', 'MRPS11', 'MRPL42', 'POLRMT', 'MRPS21', 'MRPL21', 'MRPL43', 'MRPS7', 'MRPL46', 'MRPL16', 'LRPPRC', 'MRPS12', 'TARS2', 'TEFM', 'MRPL37', 'MRPS15', 'RCC1L', 'PARS2', 'MRPS25', 'WARS2', 'MRPS26', 'LARS2', 'MRPS17']",0.5357142857142857,0.00706907399459969,937,"mixed, incl. Translation, and Ribosome biogenesis"
+617,93,CL:11664,"['PDSS2', 'COQ3', 'COQ4', 'PDSS1']",0.047619047619047616,0.014352801575324528,27,"Quinone biosynthetic process, and Prenylation"
+618,93,CL:11055,"['SCO2', 'COA7', 'CYC1', 'COX6B1', 'COX6C', 'TIMM8B', 'COA3', 'COQ4', 'COX10', 'PDSS2', 'COQ3', 'UQCRQ', 'SCO1', 'COX11', 'COA5', 'COX4I1', 'PDSS1', 'BCS1L', 'COX5A', 'UQCRB', 'ISCA2']",0.25,0.04271637536358085,404,"mixed, incl. Inner mitochondrial membrane protein complex, and Mitochondrion organization"
+619,93,CL:1386,"['TWNK', 'TEFM', 'TFAM', 'SSBP1', 'POLRMT', 'RNASEH1']",0.07142857142857142,1.3788847121504505e-06,12,"Mitochondrial transcription, and Ribonuclease H domain"
+620,93,CL:1389,"['POLRMT', 'TEFM', 'TFAM']",0.03571428571428571,0.0008216325431327986,6,"Transcription from mitochondrial promoters, and Helix-hairpin-helix motif"
+621,93,CL:1385,"['LRPPRC', 'TWNK', 'TEFM', 'TFAM', 'SSBP1', 'POLRMT', 'RNASEH1']",0.08333333333333333,4.575333186629221e-06,21,"mixed, incl. Mitochondrial transcription, and RAP domain"
+622,93,CL:104,"['MRPL10', 'TFAM', 'VARS2', 'MRPL49', 'NSUN4', 'MRPL45', 'MRPL18', 'PNPT1', 'MRPL39', 'MRPS9', 'MRPS16', 'MRPS24', 'MRPS23', 'MRPS27', 'MRPL2', 'MRPS35', 'SSBP1', 'TUFM', 'EARS2', 'MRPL11', 'MRPS2', 'RNASEH1', 'TWNK', 'MRPS11', 'MRPL42', 'POLRMT', 'MRPS21', 'MRPL21', 'MRPL43', 'MRPS7', 'MRPL46', 'MRPL16', 'LRPPRC', 'MRPS12', 'TARS2', 'TEFM', 'MRPL37', 'MRPS15', 'RCC1L', 'PARS2', 'MRPS25', 'WARS2', 'MRPS26', 'LARS2', 'MRPS17']",0.5357142857142857,7.31346090858189e-07,667,"Translation, and Ribosome biogenesis"
+623,93,CL:1384,"['LRPPRC', 'TWNK', 'TEFM', 'TFAM', 'SSBP1', 'POLRMT', 'RNASEH1']",0.08333333333333333,2.9326990730398298e-05,27,"Mitochondrial RNA metabolic process, and Regulation of mitochondrial RNA catabolic process"
+624,93,CL:11059,"['UQCRB', 'SCO1', 'COX11', 'COA3', 'COA7', 'COA5', 'SCO2', 'COX10', 'CYC1', 'COX6B1', 'COX6C', 'COX4I1', 'TIMM8B', 'BCS1L', 'COX5A', 'UQCRQ']",0.19047619047619047,0.049488437692352845,291,"Inner mitochondrial membrane protein complex, and Mitochondrial respiratory chain complex assembly"
+625,93,CL:101,"['MRPL10', 'TFAM', 'VARS2', 'MRPL49', 'NSUN4', 'MRPL45', 'MRPL18', 'PNPT1', 'MRPL39', 'MRPS9', 'MRPS16', 'MRPS24', 'MRPS23', 'MRPS27', 'MRPL2', 'MRPS35', 'SSBP1', 'TUFM', 'EARS2', 'MRPL11', 'MRPS2', 'RNASEH1', 'TWNK', 'MRPS11', 'MRPL42', 'POLRMT', 'MRPS21', 'MRPL21', 'MRPL43', 'MRPS7', 'MRPL46', 'MRPL16', 'LRPPRC', 'MRPS12', 'TARS2', 'TEFM', 'MRPL37', 'MRPS15', 'RCC1L', 'PARS2', 'MRPS25', 'WARS2', 'MRPS26', 'LARS2', 'MRPS17']",0.5357142857142857,7.011969891819365e-06,718,"Translation, and Ribosome biogenesis"
+626,93,CL:11065,"['UQCRB', 'SCO1', 'COX11', 'COA3', 'COA7', 'COA5', 'SCO2', 'COX10', 'CYC1', 'COX6B1', 'COX6C', 'COX4I1', 'BCS1L', 'COX5A', 'UQCRQ']",0.17857142857142858,0.00039751146170716097,160,"Respiratory electron transport, ATP synthesis by chemiosmotic coupling, and heat production by uncoupling proteins., and Cytochrome complex"
+627,93,CL:11665,"['PDSS2', 'COQ3', 'COQ4', 'PDSS1']",0.047619047619047616,0.002557164850001184,17,Quinone biosynthetic process
+628,93,CL:11669,"['PDSS2', 'COQ3', 'COQ4', 'PDSS1']",0.047619047619047616,0.0004181772052649608,11,Ubiquinone biosynthesis
+629,93,CL:11056,"['SCO2', 'COA7', 'CYC1', 'COX6B1', 'COX6C', 'TIMM8B', 'COA3', 'COQ4', 'COX10', 'PDSS2', 'COQ3', 'UQCRQ', 'SCO1', 'COX11', 'COA5', 'COX4I1', 'PDSS1', 'BCS1L', 'COX5A', 'UQCRB']",0.23809523809523808,0.010629800739270192,331,"mixed, incl. Inner mitochondrial membrane protein complex, and Mitochondrial respiratory chain complex assembly"
+630,93,CL:11330,"['SCO1', 'SCO2', 'COA3', 'COA7', 'COX11', 'COX10', 'COA5', 'BCS1L']",0.09523809523809523,8.977185027634999e-07,24,"Respiratory chain complex IV assembly, and Mitochondrial splicing suppressor 51-like, C-terminal domain"
+631,93,CL:11332,"['SCO1', 'SCO2', 'COA3', 'COX11', 'COA5', 'COX10', 'BCS1L']",0.08333333333333333,2.101930804275387e-06,19,Respiratory chain complex IV assembly
+632,93,CL:11063,"['UQCRB', 'SCO1', 'COX11', 'COA3', 'COA7', 'COA5', 'SCO2', 'COX10', 'CYC1', 'COX6B1', 'COX6C', 'COX4I1', 'BCS1L', 'COX5A', 'UQCRQ']",0.17857142857142858,0.0007204375397509656,169,"Respiratory electron transport, ATP synthesis by chemiosmotic coupling, and heat production by uncoupling proteins., and Cytochrome complex"
+633,93,CL:11061,"['UQCRB', 'SCO1', 'COX11', 'COA3', 'COA7', 'COA5', 'SCO2', 'COX10', 'CYC1', 'COX6B1', 'COX6C', 'COX4I1', 'BCS1L', 'COX5A', 'UQCRQ']",0.17857142857142858,0.0013988385073251646,180,"Respiratory electron transport, ATP synthesis by chemiosmotic coupling, and heat production by uncoupling proteins., and Cytochrome complex"
+634,93,CL:11060,"['UQCRB', 'SCO1', 'COX11', 'COA3', 'COA7', 'COA5', 'SCO2', 'COX10', 'CYC1', 'COX6B1', 'COX6C', 'COX4I1', 'TIMM8B', 'BCS1L', 'COX5A', 'UQCRQ']",0.19047619047619047,0.040827457592723826,284,"Inner mitochondrial membrane protein complex, and Mitochondrial respiratory chain complex assembly"
+635,93,CL:102,"['MRPL10', 'TFAM', 'VARS2', 'MRPL49', 'NSUN4', 'MRPL45', 'MRPL18', 'PNPT1', 'MRPL39', 'MRPS9', 'MRPS16', 'MRPS24', 'MRPS23', 'MRPS27', 'MRPL2', 'MRPS35', 'SSBP1', 'TUFM', 'EARS2', 'MRPL11', 'MRPS2', 'RNASEH1', 'TWNK', 'MRPS11', 'MRPL42', 'POLRMT', 'MRPS21', 'MRPL21', 'MRPL43', 'MRPS7', 'MRPL46', 'MRPL16', 'LRPPRC', 'MRPS12', 'TARS2', 'TEFM', 'MRPL37', 'MRPS15', 'RCC1L', 'PARS2', 'MRPS25', 'WARS2', 'MRPS26', 'LARS2', 'MRPS17']",0.5357142857142857,5.6901994521173576e-06,713,"Translation, and Ribosome biogenesis"
+636,94,CL:11266,"['ATP5F1A', 'ATP5PO', 'ATP5MF', 'ATP5ME']",0.3076923076923077,3.236457262376596e-06,21,Mitochondrial proton-transporting ATP synthase complex
+637,94,CL:9101,['ALDH18A1'],0.07692307692307693,0.032853035340475095,6,"Glutamate biosynthetic process, and Nitrogen utilization"
+638,94,CL:11268,"['ATP5F1A', 'ATP5PO', 'ATP5MF', 'ATP5ME']",0.3076923076923077,9.995169474322692e-07,16,Mitochondrial proton-transporting ATP synthase complex
+639,94,CL:11068,"['ATP5PO', 'ATP5MF-PTCD1', 'ATP5MF', 'ATP5ME', 'ATP5F1A']",0.38461538461538464,0.00037673032348607574,126,"Respiratory electron transport, ATP synthesis by chemiosmotic coupling, and heat production by uncoupling proteins., and Proton-transporting ATP synthase complex"
+640,94,CL:11065,"['ATP5PO', 'ATP5MF-PTCD1', 'ATP5MF', 'ATP5ME', 'ATP5F1A']",0.38461538461538464,0.0011440333371906817,160,"Respiratory electron transport, ATP synthesis by chemiosmotic coupling, and heat production by uncoupling proteins., and Cytochrome complex"
+641,94,CL:11069,"['ATP5PO', 'ATP5MF-PTCD1', 'ATP5MF', 'ATP5ME', 'ATP5F1A']",0.38461538461538464,0.00031121037938224374,121,"Respiratory electron transport, ATP synthesis by chemiosmotic coupling, and heat production by uncoupling proteins."
+642,94,CL:10263,['CRLS1'],0.07692307692307693,0.02744765677616994,5,"Cytidylyltransferase family, and CDP-alcohol phosphatidyltransferase"
+643,94,CL:27808,['SSB'],0.07692307692307693,0.032853035340475095,6,"Congenital heart block, and Adult dermatomyositis"
+644,94,CL:11066,"['ATP5PO', 'ATP5MF-PTCD1', 'ATP5MF', 'ATP5ME', 'ATP5F1A']",0.38461538461538464,0.0004687579256690183,132,"Respiratory electron transport, ATP synthesis by chemiosmotic coupling, and heat production by uncoupling proteins., and Respiratory chain complex IV"
+645,94,CL:11052,"['SLC25A51', 'ATP5PO', 'ATP5MF-PTCD1', 'ATP5MF', 'ATP5ME', 'ATP5F1A']",0.46153846153846156,0.02580214506201952,455,"Mitochondrial inner membrane, and Iron-sulfur cluster assembly"
+646,94,CL:12348,['SLC7A11'],0.07692307692307693,0.02744765677616994,5,"Cystinuria, and Regulation of glutathione biosynthetic process"
+647,94,CL:11057,"['ATP5PO', 'ATP5MF-PTCD1', 'ATP5MF', 'ATP5ME', 'ATP5F1A']",0.38461538461538464,0.018835412694410705,304,"Inner mitochondrial membrane protein complex, and Mitochondrial respiratory chain complex assembly"
+648,94,CL:11059,"['ATP5PO', 'ATP5MF-PTCD1', 'ATP5MF', 'ATP5ME', 'ATP5F1A']",0.38461538461538464,0.015736790812979948,291,"Inner mitochondrial membrane protein complex, and Mitochondrial respiratory chain complex assembly"
+649,94,CL:11060,"['ATP5PO', 'ATP5MF-PTCD1', 'ATP5MF', 'ATP5ME', 'ATP5F1A']",0.38461538461538464,0.014225339794681626,284,"Inner mitochondrial membrane protein complex, and Mitochondrial respiratory chain complex assembly"
+650,94,CL:11061,"['ATP5PO', 'ATP5MF-PTCD1', 'ATP5MF', 'ATP5ME', 'ATP5F1A']",0.38461538461538464,0.0019556769361001765,180,"Respiratory electron transport, ATP synthesis by chemiosmotic coupling, and heat production by uncoupling proteins., and Cytochrome complex"
+651,94,CL:11063,"['ATP5PO', 'ATP5MF-PTCD1', 'ATP5MF', 'ATP5ME', 'ATP5F1A']",0.38461538461538464,0.0014691771937259518,169,"Respiratory electron transport, ATP synthesis by chemiosmotic coupling, and heat production by uncoupling proteins., and Cytochrome complex"
+652,94,CL:11056,"['ATP5PO', 'ATP5MF-PTCD1', 'ATP5MF', 'ATP5ME', 'ATP5F1A']",0.38461538461538464,0.026570768466537473,331,"mixed, incl. Inner mitochondrial membrane protein complex, and Mitochondrial respiratory chain complex assembly"
+653,94,CL:11270,"['ATP5F1A', 'ATP5PO', 'ATP5MF', 'ATP5ME']",0.3076923076923077,7.070902145598817e-08,9,Formation of ATP by chemiosmotic coupling
+654,101,CL:4002,"['JOSD2', 'USP28']",0.08,0.015053791448520025,18,"Josephin domain DUBs, and Deubiquitinase activity"
+655,101,CL:4000,"['JOSD2', 'USP28']",0.08,0.028203699819715895,25,"mixed, incl. OTU-like cysteine protease, and Josephin domain DUBs"
+656,101,CL:3998,"['JOSD2', 'USP28']",0.08,0.04713241690029566,33,Cysteine-type deubiquitinase activity
+657,102,CL:10223,['AGPAT1'],0.14285714285714285,0.03823067030222609,13,"CDP-diacylglycerol biosynthetic process, and glycerol-3-phosphate dehydrogenase complex"
+658,102,CL:2082,['CWC27'],0.14285714285714285,0.01780370238012626,6,"U2-type prespliceosome assembly, and snoRNA splicing"
+659,102,CL:32564,['RHBDF2'],0.14285714285714285,0.01780370238012626,6,"mixed, incl. Rhomboid serine protease, and Leucine rich adaptor protein "
+660,102,CL:32552,['RHBDF2'],0.14285714285714285,0.035335020707437104,12,"mostly uncharacterized, incl. FAM101 family, and Protein FAM169"
+661,102,CL:24319,['PTGER3'],0.14285714285714285,0.046872962579824706,16,ADP signalling through P2Y purinoceptor 12
+662,102,CL:24320,['PTGER3'],0.14285714285714285,0.03243190168119122,11,ADP signalling through P2Y purinoceptor 12
+663,102,CL:13683,['TRAPPC3'],0.14285714285714285,0.01780370238012626,6,TRAPPIII protein complex
+664,102,CL:13680,['TRAPPC3'],0.14285714285714285,0.03243190168119122,11,TRAPP complex
+665,102,CL:13677,['TRAPPC3'],0.14285714285714285,0.046872962579824706,16,TRAPP complex
+666,102,CL:10239,['AGPAT1'],0.14285714285714285,0.014855428759483421,5,"Acyltransferase C-terminus, and Brachydactyly-syndactyly syndrome"
+667,102,CL:7157,['ADNP2'],0.14285714285714285,0.035335020707437104,12,"mixed, incl. ADNP, zinc finger domain, and H3K9me3 modified histone binding"
+668,102,CL:36692,['NACC2'],0.14285714285714285,0.023677567380920025,8,"BEN domain, and Mos1 transposase, HTH domain"
+669,103,CL:14302,"['RRAGA', 'LAMTOR2', 'WDR59', 'LAMTOR3', 'MIOS', 'RRAGC', 'RPTOR']",0.7,1.5409355496581877e-05,256,"mixed, incl. Amino acids regulate mTORC1, and Autophagy"
+670,103,CL:14600,"['LAMTOR2', 'RRAGC', 'LAMTOR3', 'RRAGA']",0.4,3.471981125873998e-08,10,"Ragulator complex, and Gtr1/RagA G protein"
+671,103,CL:7597,['TMEM214'],0.1,0.02116774199625384,5,"mixed, incl. TRIC channel, and Autosomal recessive limb-girdle muscular dystrophy type 2X"
+672,103,CL:14574,['MIOS'],0.1,0.02116774199625384,5,Seh1-associated complex
+673,103,CL:14571,"['WDR59', 'MIOS']",0.2,0.0012465622743004048,13,"Seh1-associated complex, and KICSTOR complex"
+674,103,CL:14601,"['LAMTOR2', 'RRAGA']",0.2,0.00016275791892022862,5,"Ragulator complex, and RagA/B"
+675,103,CL:14569,"['RRAGA', 'LAMTOR2', 'WDR59', 'LAMTOR3', 'MIOS', 'RRAGC']",0.6,3.3462385298552615e-10,28,Amino acids regulate mTORC1
+676,103,CL:14643,['RPTOR'],0.1,0.02116774199625384,5,"Positive regulation of pentose-phosphate shunt, and Tetratricopeptide repeat"
+677,103,CL:14567,"['RRAGA', 'LAMTOR2', 'WDR59', 'LAMTOR3', 'MIOS', 'RRAGC', 'RPTOR']",0.7,2.635659464083841e-10,54,"Amino acids regulate mTORC1, and TORC2 complex"
+678,103,CL:14610,"['RRAGC', 'LAMTOR3']",0.2,0.00016275791892022862,5,"Gtr1/RagA G protein, and Ragulator complex"
+679,103,CL:14303,"['RRAGA', 'LAMTOR2', 'WDR59', 'LAMTOR3', 'MIOS', 'RRAGC', 'RPTOR']",0.7,9.397639456856878e-06,238,"mixed, incl. Amino acids regulate mTORC1, and Autophagy"
+680,103,CL:14565,"['RRAGA', 'LAMTOR2', 'WDR59', 'LAMTOR3', 'MIOS', 'RRAGC', 'RPTOR']",0.7,3.6503757082206234e-08,107,"Amino acids regulate mTORC1, and MTOR signalling"
+681,103,CL:13122,"['RRAGA', 'LAMTOR2', 'WDR59', 'LAMTOR3', 'MIOS', 'RRAGC', 'RPTOR']",0.7,0.030697387349348498,846,"Vesicle-mediated transport, and Amino acids regulate mTORC1"
+682,103,CL:13121,"['RRAGA', 'LAMTOR2', 'WDR59', 'LAMTOR3', 'MIOS', 'RRAGC', 'RPTOR']",0.7,0.040559530096897944,889,"mixed, incl. Vesicle-mediated transport, and Amino acids regulate mTORC1"
+683,103,CL:20744,['FOXO1'],0.1,0.03367396599225517,8,"mixed, incl. Follicular B cell differentiation, and C/EBP complex"
+684,103,CL:21869,['PTEN'],0.1,0.02116774199625384,5,"Mega-corpus-callosum syndrome with cerebellar hypoplasia and cortical malformations, and Gangliocytoma"
+685,103,CL:14566,"['RRAGA', 'LAMTOR2', 'WDR59', 'LAMTOR3', 'MIOS', 'RRAGC', 'RPTOR']",0.7,1.1431908446864452e-09,66,"MTOR signalling, and Negative regulation of TORC1 signaling"
+686,104,CL:18468,['MAP3K13'],0.125,0.016963140721914984,5,"JNK-interacting protein 1, and JUN kinase kinase activity"
+687,104,CL:31092,['TMEM131L'],0.125,0.020325387354760083,6,"mixed, incl. Transmembrane protein 131-like, and OCIA domain-containing protein 1/2"
+688,104,CL:3427,"['UBA5', 'UFL1', 'UFM1', 'DDRGK1']",0.5,1.1053560839304221e-06,28,"mixed, incl. Protein ufmylation, and Ribosome-associated ubiquitin-dependent protein catabolic process"
+689,104,CL:3465,"['UBA5', 'UFM1', 'UFL1', 'DDRGK1']",0.5,1.9448031606655025e-09,7,Protein ufmylation
+690,104,CL:31076,['TMEM131L'],0.125,0.04686312659412643,14,"mostly uncharacterized, incl. Nemaline myopathy 6, and Zinc knuckle CX2CX3GHX4C"
+691,105,CL:3465,"['UBA5', 'UFM1', 'UFL1', 'DDRGK1']",0.5714285714285714,9.734008794075569e-10,7,Protein ufmylation
+692,105,CL:3427,"['UBA5', 'UFM1', 'UFL1', 'DDRGK1']",0.5714285714285714,5.572504887374671e-07,28,"mixed, incl. Protein ufmylation, and Ribosome-associated ubiquitin-dependent protein catabolic process"
+693,105,CL:18468,['MAP3K13'],0.14285714285714285,0.014855428759483421,5,"JNK-interacting protein 1, and JUN kinase kinase activity"
+694,108,CL:3903,['CDC34'],0.058823529411764705,0.0357706946721156,5,"mixed, incl. Ubiquitin-activating enzyme E1, and Aggresome assembly"
+695,108,CL:18236,['SEMA4C'],0.058823529411764705,0.0357706946721156,5,"Semaphorin-plexin signaling pathway involved in bone trabecula morphogenesis, and Plexin, TIG domain 1"
+696,108,CL:6080,['DRAP1'],0.058823529411764705,0.0357706946721156,5,"Negative cofactor 2 complex, and TATA-box binding protein"
+697,108,CL:11457,['PPIF'],0.058823529411764705,0.04277877427475522,6,"Vpr-mediated induction of apoptosis by mitochondrial outer membrane permeabilization, and Porin, eukaryotic type"
+698,108,CL:20298,['BARX1'],0.058823529411764705,0.04973889439337332,7,"mixed, incl. Aniridia, and Esophageal atresia"
+699,108,CL:22430,['ATP2B1'],0.058823529411764705,0.04973889439337332,7,"mixed, incl. Transient receptor potential cation channel subfamily V member 5/6, and Vitamin D"
+700,108,CL:22689,['NEB'],0.058823529411764705,0.04973889439337332,7,"Nemaline myopathy, and Scimitar syndrome"
+701,108,CL:33822,['TMEM87B'],0.058823529411764705,0.04973889439337332,7,"mixed, incl. Usher syndrome type 1F, and Deoxyribonuclease, TatD-related, conserved site"
+702,108,CL:37641,['PHGR1'],0.058823529411764705,0.0357706946721156,5,"mixed, incl. decanoate-CoA ligase activity, and Cell cycle regulatory protein"
+703,108,CL:2116,['CD2BP2'],0.058823529411764705,0.04973889439337332,7,"U4/U6 x U5 tri-snRNP complex, and GYF domain"
+704,110,CL:15007,"['CAV1', 'CAVIN2']",0.014598540145985401,0.043554937258693374,6,"Cavin family, and Caveolar macromolecular signaling complex"
+705,110,CL:32299,"['SEC14L2', 'FAM83F']",0.014598540145985401,0.030179954664464582,5,"mixed, incl. Essential tremor 5, and Glioma pathogenesis-related protein 1-like, SCP domain"
+706,112,CL:27859,['ARRDC4'],0.25,0.008510591868055976,5,"mixed, incl. RNA-binding protein MEX3, and B-box zinc finger"
+707,112,CL:4759,"['MEN1', 'PSIP1']",0.5,0.02846577615738619,170,"Nucleosome, and Histone methyltransferase complex"
+708,112,CL:4760,"['MEN1', 'PSIP1']",0.5,0.016262787121043544,127,"Structural constituent of chromatin, and Histone H3-K4 methylation"
+709,112,CL:4758,"['MEN1', 'PSIP1']",0.5,0.04020716091445487,204,"DNA packaging complex, and Histone methyltransferase complex"
+710,115,CL:6146,"['ERCC4', 'FANCL', 'RAD51B', 'FANCB']",0.8,1.702381383179124e-05,103,"mixed, incl. Fanconi anemia pathway, and DNA repair complex"
+711,115,CL:6145,"['ERCC4', 'FANCL', 'RAD51B', 'FANCB']",0.8,2.8404542099822474e-05,117,"DNA repair pathways, full network, and HDR through Homologous Recombination (HRR)"
+712,115,CL:6144,"['ERCC4', 'FANCL', 'RAD51B', 'FANCB']",0.8,3.702547025354134e-05,125,"DNA repair pathways, full network, and HDR through Homologous Recombination (HRR)"
+713,115,CL:6143,"['ERCC4', 'FANCL', 'RAD51B', 'FANCB']",0.8,8.969004693836432e-05,156,"DNA repair pathways, full network, and HDR through Homologous Recombination (HRR)"
+714,115,CL:6142,"['ERCC4', 'FANCL', 'RAD51B', 'FANCB']",0.8,0.0003320330669864471,217,"DNA repair pathways, full network, and DNA-templated DNA replication"
+715,115,CL:6140,"['ERCC4', 'FANCL', 'RAD51B', 'FANCB']",0.8,0.0004035544858116428,228,"DNA repair pathways, full network, and DNA-templated DNA replication"
+716,115,CL:6139,"['ERCC4', 'FANCL', 'RAD51B', 'FANCB']",0.8,0.005502806215218759,446,"DNA repair, and Mitosis"
+717,115,CL:6137,"['ERCC4', 'FANCL', 'RAD51B', 'FANCB']",0.8,0.0077628376590478726,488,"DNA repair, and Mitosis"
+718,115,CL:6148,"['ERCC4', 'RAD51B']",0.4,0.009738088105221735,76,"Diseases of DNA repair, and DNA repair complex"
+719,115,CL:6299,"['FANCL', 'FANCB']",0.4,0.0006813385631989096,20,"Fanconi anaemia nuclear complex, and Fanconi anemia complementation group I"
+720,115,CL:6147,"['ERCC4', 'FANCL', 'RAD51B', 'FANCB']",0.8,1.2822660640260601e-05,96,"DNA repair pathways, full network, and HDR through Homologous Recombination (HRR)"
+721,115,CL:6282,['ERCC4'],0.2,0.010629158979449018,5,"Xeroderma pigmentosum group A, and XFE progeroid syndrome"
+722,115,CL:6280,['ERCC4'],0.2,0.02116774199625384,10,"Nucleotide-excision repair complex, and XPG/Rad2 endonuclease, eukaryotes"
+723,115,CL:6305,['FANCL'],0.2,0.014855428759483421,7,Fanconi anaemia nuclear complex
+724,115,CL:6177,['RAD51B'],0.2,0.012744103060296715,6,"DNA recombination and repair protein Rad51-like, C-terminal, and Rad52 family"
+725,115,CL:6151,['RAD51B'],0.2,0.046094257529694656,22,"Resolution of D-loop Structures through Holliday Junction Intermediates, and DNA translocase activity"
+726,115,CL:37541,['FIGNL1'],0.2,0.012744103060296715,6,"mixed, incl. Erythropoietin receptor binding, and Cellular response to camptothecin"
+727,115,CL:6303,"['FANCL', 'FANCB']",0.4,0.00032800756572422176,14,Fanconi anaemia nuclear complex
+728,117,CL:22647,['MYH9'],0.14285714285714285,0.014855428759483421,5,"Myosin II filament, and DJBP, EF-hand domain"
+729,117,CL:12823,['ATP1B3'],0.14285714285714285,0.014855428759483421,5,Sodium/potassium transport
+730,117,CL:12820,['ATP1B3'],0.14285714285714285,0.02952129717400098,10,Sodium:potassium-exchanging ATPase complex
+731,117,CL:4320,"['CUL3', 'CAND1']",0.2857142857142857,0.047511559316642284,122,"Neddylation, and Cul3-RING ubiquitin ligase complex"
+732,117,CL:4362,['CAND1'],0.14285714285714285,0.02074440985803008,7,"mixed, incl. NEDD8 activating enzyme activity, and SCF complex assembly"
+733,117,CL:4358,['CAND1'],0.14285714285714285,0.035335020707437104,12,Protein neddylation
+734,117,CL:3544,['NAA30'],0.14285714285714285,0.03243190168119122,11,N-terminal protein acetyltransferase complex
+735,117,CL:3541,['NAA30'],0.14285714285714285,0.046872962579824706,16,N-terminal protein amino acid acetylation
+736,117,CL:2807,['CPSF6'],0.14285714285714285,0.04973889439337332,17,Processing of Intronless Pre-mRNAs
+737,117,CL:22629,['MYH9'],0.14285714285714285,0.04399962525771391,15,Myosin II complex
+738,118,CL:1542,"['PDIA6', 'MANF', 'DNAJB9', 'DNAJB11']",0.09523809523809523,0.0038328932550666405,37,"mixed, incl. Photodynamic therapy-induced unfolded protein response, and Protein disulfide isomerase activity"
+739,118,CL:4135,"['UBE2G2', 'SYVN1', 'SEL1L', 'FAF2']",0.09523809523809523,0.00017917539149673824,17,"ER ubiquitin ligase complex, and Negative regulation of retrograde protein transport, ER to cytosol"
+740,118,CL:1545,"['PDIA6', 'MANF', 'DNAJB9', 'DNAJB11']",0.09523809523809523,0.00028428836553043914,19,"Photodynamic therapy-induced unfolded protein response, and IRE1-TRAF2-ASK1 complex"
+741,118,CL:1548,"['PDIA6', 'DNAJB11']",0.047619047619047616,0.0030297026145312744,5,Endoplasmic reticulum chaperone complex
+742,118,CL:1546,"['PDIA6', 'MANF', 'DNAJB9', 'DNAJB11']",0.09523809523809523,1.732212469561606e-05,10,"Endoplasmic reticulum chaperone complex, and ARMET-like"
+743,118,CL:1541,"['PDIA6', 'MANF', 'DNAJB9', 'DNAJB11']",0.09523809523809523,0.006087962594422609,42,"mixed, incl. Photodynamic therapy-induced unfolded protein response, and Endoplasmic reticulum quality control compartment"
+744,118,CL:1543,"['PDIA6', 'MANF', 'DNAJB9', 'DNAJB11']",0.09523809523809523,0.001529349005436237,29,"mixed, incl. Photodynamic therapy-induced unfolded protein response, and Protein disulfide isomerase activity"
+745,118,CL:1628,"['SSR2', 'SSR3', 'SEC63']",0.07142857142857142,0.0005885623882583225,10,"Post-translational protein targeting to membrane, translocation, and Cotranslational protein targeting to membrane"
+746,118,CL:13330,"['KDELR2', 'MIA2', 'TMED2', 'TMED10']",0.09523809523809523,0.014727854412829236,54,"ER-Golgi transport, and emp24/gp25L/p24 family/GOLD"
+747,118,CL:1626,"['SSR2', 'SSR3', 'SEC63']",0.07142857142857142,0.007384681078958918,23,Protein export
+748,118,CL:28583,"['ALG13', 'ALG12', 'DPM2', 'PMM2', 'MPI', 'ALG2']",0.14285714285714285,0.00416581076043767,88,"mixed, incl. GPI anchor metabolic process, and Oligosaccharide-lipid intermediate biosynthetic process"
+749,118,CL:28645,"['ALG13', 'ALG12', 'PMM2', 'MPI', 'ALG2']",0.11904761904761904,7.212871220245813e-05,26,"Oligosaccharide-lipid intermediate biosynthetic process, and Synthesis of GDP-mannose"
+750,118,CL:28584,"['ALG13', 'ALG12', 'DPM2', 'PMM2', 'MPI', 'ALG2']",0.14285714285714285,0.0004217886617911559,57,"GPI anchor metabolic process, and Oligosaccharide-lipid intermediate biosynthetic process"
+751,118,CL:28674,"['PMM2', 'MPI']",0.047619047619047616,0.0030297026145312744,5,Synthesis of GDP-mannose
+752,118,CL:28646,"['ALG13', 'PMM2', 'MPI', 'ALG2']",0.09523809523809523,0.00028428836553043914,19,"Glycosylation and related congenital defects, and Synthesis of GDP-mannose"
+753,118,CL:28648,"['ALG13', 'ALG2']",0.047619047619047616,0.018465838310692772,12,Dolichol-linked oligosaccharide biosynthetic process
+754,118,CL:28649,"['ALG13', 'ALG2']",0.047619047619047616,0.0062188782624344055,7,Dolichol-linked oligosaccharide biosynthetic process
+755,118,CL:25910,"['PRKCSH', 'GANAB']",0.047619047619047616,0.0030297026145312744,5,Polycystic liver disease
+756,118,CL:25894,"['PRKCSH', 'GANAB']",0.047619047619047616,0.02157762238927402,13,"Polycystic liver disease, and Ciliary inversin compartment"
+757,118,CL:13331,"['KDELR2', 'TMED2', 'TMED10']",0.07142857142857142,0.012837530696776844,28,"COPI-coated vesicle membrane, and COPI-coated vesicle budding"
+758,118,CL:1627,"['SSR2', 'SSR3', 'SEC63']",0.07142857142857142,0.003621241863775806,18,Cotranslational protein targeting to membrane
+759,118,CL:13332,"['KDELR2', 'TMED2', 'TMED10']",0.07142857142857142,0.00650187378823765,22,"COPI-coated vesicle membrane, and COPI-coated vesicle budding"
+760,118,CL:13364,"['TMED2', 'TMED10']",0.047619047619047616,0.004492983222270796,6,Transmembrane emp24 domain-containing protein
+761,118,CL:4129,"['UBE2G2', 'SYVN1', 'SEL1L', 'FAF2']",0.09523809523809523,0.02470105863773597,63,"ERAD pathway, and The RING-variant domain is a C4HC3 zinc-finger like motif found in a number of cellular and viral proteins. Some of these proteins have been shown both in vivo and in vitro to have ubiquitin E3 ligase activity."
+762,118,CL:4130,"['UBE2G2', 'SYVN1', 'SEL1L', 'FAF2']",0.09523809523809523,0.015679247510579027,55,"ERAD pathway, and UBX domain"
+763,118,CL:4131,"['UBE2G2', 'SYVN1', 'SEL1L', 'FAF2']",0.09523809523809523,0.009792280787131144,48,"Ubiquitin-dependent ERAD pathway, and UBX domain"
+764,118,CL:4132,"['UBE2G2', 'SYVN1', 'SEL1L', 'FAF2']",0.09523809523809523,0.001529349005436237,29,"mixed, incl. Cytoplasmic ubiquitin ligase complex, and Negative regulation of retrograde protein transport, ER to cytosol"
+765,118,CL:4142,"['SYVN1', 'SEL1L']",0.047619047619047616,0.0030297026145312744,5,Hrd1p ubiquitin ligase complex
+766,118,CL:4138,"['UBE2G2', 'SYVN1', 'SEL1L']",0.07142857142857142,0.0007991980574222703,11,"ER ubiquitin ligase complex, and Protein OS-9-like"
+767,118,CL:1537,"['PDIA6', 'MANF', 'SSR2', 'SSR3', 'SEC63', 'DNAJB9', 'DNAJB11']",0.16666666666666666,0.003008789076517241,111,"mixed, incl. Endoplasmic reticulum protein-containing complex, and Cotranslational protein targeting to membrane"
+768,118,CL:1538,"['PDIA6', 'MANF', 'SSR2', 'SSR3', 'SEC63', 'DNAJB9', 'DNAJB11']",0.16666666666666666,0.0008761946602524761,90,"Protein processing in endoplasmic reticulum, and Protein export"
+769,118,CL:1625,"['SSR2', 'SSR3', 'SEC63']",0.07142857142857142,0.025342228589420306,36,"Protein export, and Oligosaccharyltransferase complex"
+770,118,CL:1540,"['PDIA6', 'MANF', 'SSR2', 'SSR3', 'SEC63', 'DNAJB9', 'DNAJB11']",0.16666666666666666,0.0004256951880949898,80,"mixed, incl. Protein targeting to ER, and Oligosaccharyltransferase complex"
+771,118,CL:4128,"['UBE2G2', 'SYVN1', 'SEL1L', 'FAF2']",0.09523809523809523,0.04688423913330901,77,"mixed, incl. ERAD pathway, and The RING-variant domain is a C4HC3 zinc-finger like motif found in a number of cellular and viral proteins. Some of these proteins have been shown both in vivo and in vitro to have ubiquitin E3 ligase activity."
+772,128,CL:12468,['SLC35B1'],0.16666666666666666,0.012744103060296715,5,Pyrimidine nucleotide-sugar transmembrane transporter activity
+773,128,CL:12462,['SLC35B1'],0.16666666666666666,0.04030533441500004,16,"Nucleotide-sugar transmembrane transport, and EamA-like transporter family"
+774,128,CL:4135,['FAF2'],0.16666666666666666,0.04277877427475522,17,"ER ubiquitin ligase complex, and Negative regulation of retrograde protein transport, ER to cytosol"
+775,128,CL:12465,['SLC35B1'],0.16666666666666666,0.02535257422371748,10,Pyrimidine nucleotide-sugar transmembrane transporter activity
+776,128,CL:28649,"['ALG8', 'ALG6']",0.3333333333333333,0.00011406065626918602,7,Dolichol-linked oligosaccharide biosynthetic process
+777,128,CL:28648,"['ALG8', 'ALG6']",0.3333333333333333,0.00035643760896461027,12,Dolichol-linked oligosaccharide biosynthetic process
+778,128,CL:28674,['MPI'],0.16666666666666666,0.012744103060296715,5,Synthesis of GDP-mannose
+779,128,CL:28646,"['ALG8', 'ALG6', 'MPI']",0.5,8.902100181009373e-06,19,"Glycosylation and related congenital defects, and Synthesis of GDP-mannose"
+780,128,CL:479,['EIF1'],0.16666666666666666,0.012744103060296715,5,nsp1 from SARS-CoV-2 inhibits translation initiation in the host cell
+781,128,CL:28583,"['ALG8', 'ALG6', 'MPI']",0.5,0.0009425347386379746,88,"mixed, incl. GPI anchor metabolic process, and Oligosaccharide-lipid intermediate biosynthetic process"
+782,128,CL:457,['EIF1'],0.16666666666666666,0.04030533441500004,16,Formation of cytoplasmic translation initiation complex
+783,128,CL:28645,"['ALG8', 'ALG6', 'MPI']",0.5,2.372483863338011e-05,26,"Oligosaccharide-lipid intermediate biosynthetic process, and Synthesis of GDP-mannose"
+784,128,CL:28584,"['ALG8', 'ALG6', 'MPI']",0.5,0.00025907196883983023,57,"GPI anchor metabolic process, and Oligosaccharide-lipid intermediate biosynthetic process"
+785,128,CL:28111,"['ALG8', 'ALG6', 'MPI']",0.5,0.0379338102284629,324,"Glycosylation, and Sphingolipid metabolism"
+786,131,CL:2671,['DDX39B'],0.09090909090909091,0.03243190168119122,7,Viral mRNA export from host cell nucleus
+787,131,CL:11025,['PPCDC'],0.09090909090909091,0.0278580945984637,6,Coenzyme A biosynthesis
+788,131,CL:13375,['ERGIC3'],0.09090909090909091,0.0278580945984637,6,"Endoplasmic reticulum vesicle transporter, and Surfeit locus 1/4"
+789,131,CL:14078,['ADAM19'],0.09090909090909091,0.046036196630197555,10,"Invadopodia formation, and Sorting nexin 9 family"
+790,131,CL:28008,['ZNF76'],0.09090909090909091,0.0278580945984637,6,"mixed, incl. FAM180 family, and Regulation of ephrin receptor signaling pathway"
+791,131,CL:31558,['LZTS1'],0.09090909090909091,0.023264640578095623,5,"Leucine zipper putative tumor suppressor, and C-terminal domain of SPAR protein"
+792,131,CL:22850,['PDLIM2'],0.09090909090909091,0.03243190168119122,7,"Muscle alpha-actinin binding, and EF-hand, Ca insensitive"
+793,132,CL:22776,['FBXO32'],0.16666666666666666,0.04277877427475522,17,"mixed, incl. MADS MEF2-like, and Myogenic factor"
+794,132,CL:15625,['ICOS'],0.16666666666666666,0.047709719172545816,19,"T cell modulation in pancreatic cancer, and Lymphoproliferative syndrome 2"
+795,132,CL:15629,['ICOS'],0.16666666666666666,0.020325387354760083,8,"mixed, incl. ICOS V-set domain, and Immunodeficiency 16"
+796,132,CL:15627,['ICOS'],0.16666666666666666,0.032853035340475095,13,"mixed, incl. Tumour necrosis factor, conserved site, and ICOS V-set domain"
+797,132,CL:13632,['RAB11FIP1'],0.16666666666666666,0.012744103060296715,5,"Rab11-family interacting protein class I, and Microvillus inclusion disease"
+798,132,CL:3277,['ALKBH2'],0.16666666666666666,0.020325387354760083,8,"2OG-Fe(II) oxygenase superfamily, and Cleavage furrow ingression"
+799,134,CL:8561,['PDK1'],0.05555555555555555,0.03784252386276427,5,Pyruvate dehydrogenase complex
+800,134,CL:11310,['APOBEC3G'],0.05555555555555555,0.03784252386276427,5,"Apolipoprotein B mRNA editing enzyme complex, and Distal arthrogryposis type 6"
+801,134,CL:21205,['AMER1'],0.05555555555555555,0.04524689948075069,6,Beta-catenin destruction complex
+802,134,CL:19056,['FAM3C'],0.05555555555555555,0.04524689948075069,6,Platelet dense granule lumen
+803,134,CL:17997,['RHOC'],0.05555555555555555,0.04524689948075069,6,"Rho protein GDP-dissociation inhibitor, and Skeletal muscle satellite cell migration"
+804,134,CL:15236,['SBF1'],0.05555555555555555,0.04524689948075069,6,"Charcot-Marie-Tooth disease type 4B2, and Charcot-Marie-Tooth disease type 4H"
+805,134,CL:13393,['SEC24A'],0.05555555555555555,0.03784252386276427,5,Gelsolin repeat
+806,134,CL:29256,['LENG8'],0.05555555555555555,0.03784252386276427,5,"mixed, incl. Tweety, and SAC3/GANP family"
+807,134,CL:11005,['DNAJC4'],0.05555555555555555,0.03784252386276427,5,"mixed, incl. UDP-sugar diphosphatase activity, and tRNA 2-phosphotransferase activity"
+808,134,CL:10765,['ADCY4'],0.05555555555555555,0.03784252386276427,5,"Adenylate cyclase, conserved domain"
+809,134,CL:9503,['SRD5A3'],0.05555555555555555,0.03784252386276427,5,"Phenanthrene 9,10-monooxygenase activity, and Cholestenone 5-alpha-reductase activity"
+810,135,CL:35524,['ZNF165'],0.06666666666666667,0.03161632916718464,5,"mixed, incl. Testicular haploid expressed repeat, and Gonadal mesoderm development"
+811,135,CL:20396,['PBX2'],0.06666666666666667,0.03161632916718464,5,"Homeobox protein PKNOX/Meis, N-terminal, and PBC domain"
+812,135,CL:32646,['PRRT2'],0.06666666666666667,0.03161632916718464,5,"Episodic kinesigenic dyskinesia 1, and Dystonia 25"
+813,135,CL:28594,['PIGH'],0.06666666666666667,0.03161632916718464,5,glycosylphosphatidylinositol-N-acetylglucosaminyltransferase (GPI-GnT) complex
+814,135,CL:4710,['UBL3'],0.06666666666666667,0.037826570750122746,6,"mixed, incl. STI1/HOP, DP domain, and Positive regulation of serine C-palmitoyltransferase activity"
+815,135,CL:16323,['GNLY'],0.06666666666666667,0.037826570750122746,6,"Cytolytic granule, and Cytotoxic T cell pyroptotic process"
+816,135,CL:18184,['TNS1'],0.06666666666666667,0.037826570750122746,6,"Tensin, phosphotyrosine-binding domain, and Domain of unknown function (DUF4560)"
+817,135,CL:19172,['GZF1'],0.06666666666666667,0.03161632916718464,5,"Cystatin-9-like, and Cystatin domain"
+818,135,CL:25947,['PTCH1'],0.06666666666666667,0.037826570750122746,6,"Nevoid basal cell carcinoma syndrome, and Hedgehog protein"
+819,135,CL:27876,['TRIM39'],0.06666666666666667,0.037826570750122746,6,"mixed, incl. Pseudophosphatase activity, and RNAse P Rpr2/Rpp21/SNM1 subunit domain"
+820,135,CL:3857,['ATXN1L'],0.06666666666666667,0.04399962525771391,7,"mixed, incl. ATAXIN1-like, and Ubiquilin"
+821,143,CL:14366,['ATG101'],0.05263157894736842,0.03991079014852789,5,Atg1/ULK1 kinase complex
+822,143,CL:17678,['RAF1'],0.05263157894736842,0.03991079014852789,5,"Keratoacanthoma, and Vulvar melanoma"
+823,143,CL:20796,['BCL6'],0.05263157894736842,0.03991079014852789,5,"mixed, incl. Bone lymphoma, and BCL-6 corepressor-like"
+824,143,CL:28501,['SMPD1'],0.05263157894736842,0.03991079014852789,5,Sphingomyelin catabolic process
+825,143,CL:29955,['TMEM33'],0.05263157894736842,0.03991079014852789,5,"mixed, incl. Positive regulation of PERK-mediated unfolded protein response, and DNA/RNA non-specific endonuclease"
+826,143,CL:32154,['KIF22'],0.05263157894736842,0.047709719172545816,6,"Von Ebners gland protein/ Bos/Can allergen, and Transport of fatty acids"
+827,143,CL:32592,['GOLGA8N'],0.05263157894736842,0.03991079014852789,5,"Chromosome 15q13.3 microdeletion syndrome, and Golgin subfamily A member 2, C-terminal binding motif"
+828,143,CL:37401,['ZNF655'],0.05263157894736842,0.03991079014852789,5,"mixed, incl. Niban-like, and Domain of unknown function DUF4195"
+829,143,CL:13078,['SLC4A7'],0.05263157894736842,0.03991079014852789,5,"mixed, incl. Target of Myb protein 1, and Restless legs syndrome"
+830,143,CL:8925,['ACYP2'],0.05263157894736842,0.047709719172545816,6,"Acylphosphatase, and Acetate-CoA ligase"
+831,143,CL:6999,['TP53'],0.05263157894736842,0.03991079014852789,5,"SWIB/MDM2 domain, and Fermentation"
+832,143,CL:5174,['SAP30'],0.05263157894736842,0.047709719172545816,6,"mixed, incl. Fungiform papilla formation, and Autosome"
+833,143,CL:3431,['NEMF'],0.05263157894736842,0.03991079014852789,5,"RQC complex, and eRF1 domain 2"
+834,143,CL:460,['EIF3K'],0.05263157894736842,0.047709719172545816,6,Eukaryotic 48S preinitiation complex
+835,143,CL:32932,['SCAPER'],0.05263157894736842,0.03991079014852789,5,"mixed, incl. Atos-like, C-terminal, and Tetratricopeptide repeat protein TTC23/TTC23L"
+836,143,CL:9022,['CTH'],0.05263157894736842,0.03991079014852789,5,Hydrogen sulfide metabolic process
+837,144,CL:4138,['AUP1'],0.14285714285714285,0.03243190168119122,11,"ER ubiquitin ligase complex, and Protein OS-9-like"
+838,144,CL:28649,['ALG8'],0.14285714285714285,0.02074440985803008,7,Dolichol-linked oligosaccharide biosynthetic process
+839,144,CL:25668,['MTCH2'],0.14285714285714285,0.035335020707437104,12,"mostly uncharacterized, incl. Scalp-ear-nipple syndrome, and RNA methyltransferase Bin3-like"
+840,144,CL:25670,['MTCH2'],0.14285714285714285,0.01780370238012626,6,"mixed, incl. Scalp-ear-nipple syndrome, and RNA methyltransferase Bin3-like"
+841,144,CL:19071,['MRC2'],0.14285714285714285,0.02074440985803008,7,"mixed, incl. Low-density lipoprotein particle binding, and Ly49-like, N-terminal"
+842,144,CL:8910,['ACSL3'],0.14285714285714285,0.014855428759483421,5,arachidonate-CoA ligase activity
+843,144,CL:8898,['ACSL3'],0.14285714285714285,0.03243190168119122,11,"arachidonate-CoA ligase activity, and Adrenoleukodystrophy"
+844,144,CL:28648,['ALG8'],0.14285714285714285,0.035335020707437104,12,Dolichol-linked oligosaccharide biosynthetic process
+845,144,CL:4135,['AUP1'],0.14285714285714285,0.04973889439337332,17,"ER ubiquitin ligase complex, and Negative regulation of retrograde protein transport, ER to cytosol"
+846,144,CL:2247,['CRIPT'],0.14285714285714285,0.01780370238012626,6,"mixed, incl. Regulation of postsynaptic density protein 95 clustering, and Armadillo/beta-catenin-like repeat"
+847,149,CL:6554,['ATAD5'],0.1,0.02952129717400098,7,"DNA replication factor C complex, and PCNA-p21 complex"
+848,149,CL:30011,['ZFYVE21'],0.1,0.046036196630197555,11,"mixed, incl. BED zinc finger, and Cleft palate, cardiac defects, and intellectual disabillity"
+849,149,CL:30012,['ZFYVE21'],0.1,0.02535257422371748,6,"mixed, incl. BED zinc finger, and Cleft palate, cardiac defects, and intellectual disabillity"
+850,149,CL:14241,['IST1'],0.1,0.02116774199625384,5,"MIT domain binding, and Troyer syndrome"
+851,149,CL:6908,['CCND3'],0.1,0.03367396599225517,8,"Drug-mediated inhibition of CDK4/CDK6 activity, and Regulation of cardiac muscle tissue regeneration"
+852,149,CL:6416,['NEIL1'],0.1,0.02116774199625384,5,Class I DNA-(apurinic or apyrimidinic site) endonuclease activity
+853,149,CL:6305,['FANCE'],0.1,0.02952129717400098,7,Fanconi anaemia nuclear complex
+854,149,CL:3544,['NAA30'],0.1,0.046036196630197555,11,N-terminal protein acetyltransferase complex
+855,149,CL:2931,['CNOT9'],0.1,0.046036196630197555,11,CCR4-NOT complex
+856,149,CL:2932,['CNOT9'],0.1,0.02535257422371748,6,CCR4-NOT complex
+857,152,CL:14628,"['TSC1', 'TSC2', 'FKBP8']",0.037037037037037035,0.025838391102816657,19,"TOR complex, and TSC1-TSC2 complex"
+858,152,CL:14652,"['TSC1', 'TSC2']",0.024691358024691357,0.022127505507794437,7,"TSC1-TSC2 complex, and Ribosomal S6 kinase, N-terminal catalytic domain"
+859,152,CL:14627,"['TSC1', 'TSC2', 'FKBP8']",0.037037037037037035,0.04771746898489589,24,"mixed, incl. TOR complex, and Ribosomal protein S6 kinase activity"
+860,156,CL:24341,['PDCL'],0.14285714285714285,0.014855428759483421,5,G beta:gamma signalling through BTK
+861,156,CL:3465,['CDK5RAP3'],0.14285714285714285,0.02074440985803008,7,Protein ufmylation
+862,156,CL:6340,['PRIMPOL'],0.14285714285714285,0.014855428759483421,5,"DNA replication factor A complex, and DNA primase activity"
+863,156,CL:8380,['FRS3'],0.14285714285714285,0.014855428759483421,5,"Anaplastic large cell lymphoma, and FRS2, PTB domain"
+864,156,CL:8378,['FRS3'],0.14285714285714285,0.03823067030222609,13,"mixed, incl. Anaplastic large cell lymphoma, and FRS2, PTB domain"
+865,156,CL:13920,['TPD52'],0.14285714285714285,0.014855428759483421,5,Tumour protein D52
+866,156,CL:24319,['PDCL'],0.14285714285714285,0.046872962579824706,16,ADP signalling through P2Y purinoceptor 12
+867,156,CL:24200,['GNAS'],0.14285714285714285,0.01780370238012626,6,"Follicle-stimulating hormone signaling pathway, and Congenital nongoitrous hypothyroidism 1"
+868,156,CL:24198,['GNAS'],0.14285714285714285,0.03243190168119122,11,Hormone ligand-binding receptors
+869,156,CL:36713,['ZNF785'],0.14285714285714285,0.046872962579824706,16,"mixed, incl. Coiled coil protein 74, C-terminal, and Transcriptional activation of p53 responsive genes"
+870,158,CL:15534,"['CD2', 'CD247', 'LCK', 'CD3D', 'CD3E', 'CD3G']",0.23076923076923078,0.0206904317786732,203,"mixed, incl. Chemokine-mediated signaling pathway, and Adaptive immunity"
+871,158,CL:15545,"['CD247', 'CD3E', 'CD3D', 'LCK', 'CD3G']",0.19230769230769232,6.671611889759185e-10,6,"Alpha-beta T cell receptor complex, and Pneumocystosis"
+872,158,CL:17472,"['PLCG1', 'LAT', 'VAV1', 'ITK']",0.15384615384615385,0.0029548350773995254,56,"mixed, incl. GPVI-mediated activation cascade, and Insulin receptor binding"
+873,158,CL:17538,"['LAT', 'VAV1', 'ITK']",0.11538461538461539,0.0018530437407798682,23,"FCERI mediated Ca+2 mobilization, and B-cell antigen receptor complex-associated protein alpha/beta chain"
+874,158,CL:15538,"['CD2', 'CD247', 'LCK', 'CD3D', 'CD3E', 'CD3G']",0.23076923076923078,0.00040180312007234774,93,"mixed, incl. Adaptive immunity, and TNFs bind their physiological receptors"
+875,158,CL:17540,"['VAV1', 'ITK']",0.07692307692307693,0.0129072469595071,16,"FCERI mediated Ca+2 mobilization, and B-cell antigen receptor complex-associated protein alpha/beta chain"
+876,158,CL:15542,"['CD247', 'LCK', 'CD3E', 'CD3D', 'CD3G']",0.19230769230769232,1.5517105653223443e-06,20,"mixed, incl. T cell receptor complex, and Hepatic veno-occlusive disease"
+877,158,CL:15535,"['CD2', 'CD247', 'LCK', 'CD3D', 'CD3E', 'CD3G']",0.23076923076923078,0.013496427750555031,185,"mixed, incl. Chemokine-mediated signaling pathway, and Adaptive immunity"
+878,158,CL:15536,"['CD2', 'CD247', 'LCK', 'CD3D', 'CD3E', 'CD3G']",0.23076923076923078,0.009041418910779503,170,"mixed, incl. Chemokine-mediated signaling pathway, and Adaptive immunity"
+879,158,CL:15541,"['CD247', 'LCK', 'CD3E', 'CD3D', 'CD3G']",0.19230769230769232,1.565331853248959e-05,31,"mixed, incl. non-Langerhans-cell histiocytosis, and T cell receptor complex"
+880,158,CL:15543,"['CD247', 'LCK', 'CD3D', 'CD3E', 'CD3G']",0.19230769230769232,8.418315470690863e-08,12,"mixed, incl. Alpha-beta T cell receptor complex, and GPI anchor binding"
+881,158,CL:15540,"['CD247', 'LCK', 'CD3E', 'CD3D', 'CD3G']",0.19230769230769232,5.664158321707283e-05,40,"mixed, incl. non-Langerhans-cell histiocytosis, and T cell receptor complex"
+882,158,CL:15539,"['CD247', 'LCK', 'CD3E', 'CD3D', 'CD3G']",0.19230769230769232,0.0015289855130846384,80,"mixed, incl. T cell modulation in pancreatic cancer, and non-Langerhans-cell histiocytosis"
+883,158,CL:17470,"['PLCG1', 'LAT', 'VAV1', 'ITK']",0.15384615384615385,0.004288913473869638,62,"GPVI-mediated activation cascade, and SH2 domain superfamily"
+884,158,CL:15537,"['CD2', 'CD247', 'LCK', 'CD3D', 'CD3E', 'CD3G']",0.23076923076923078,0.0005344561822201376,98,"mixed, incl. Adaptive immunity, and T cell modulation in pancreatic cancer"
+885,162,CL:20951,"['NFIX', 'NFIC']",0.015151515151515152,0.028132757902311775,5,CTF transcription factor/nuclear factor 1
+886,162,CL:4419,"['DCAF4', 'CUL4A', 'DCAF5']",0.022727272727272728,0.048282006127062696,15,Cul4-RING E3 ubiquitin ligase complex
+887,162,CL:4439,"['DCAF4', 'DCAF5']",0.015151515151515152,0.028132757902311775,5,"DDB1- and CUL4-associated factor 8-like, and Isolated microphthalmia 2"
+888,162,CL:16793,"['PRKCQ', 'MALT1', 'BCL10']",0.022727272727272728,0.01564443131749686,10,"CBM complex, and Protein kinase C, delta/epsilon/eta/theta types"
+889,162,CL:16795,"['PRKCQ', 'MALT1']",0.015151515151515152,0.028132757902311775,5,"CBM complex, and Impetigo herpetiformis"
+890,177,CL:14627,"['MLST8', 'RICTOR']",0.06060606060606061,0.04374075850682233,24,"mixed, incl. TOR complex, and Ribosomal protein S6 kinase activity"
+891,177,CL:14628,"['MLST8', 'RICTOR']",0.06060606060606061,0.028308520315055926,19,"TOR complex, and TSC1-TSC2 complex"
+892,177,CL:14629,"['MLST8', 'RICTOR']",0.06060606060606061,0.011617799163753056,12,"TOR complex, and Tetratricopeptide repeat"
+893,178,CL:1718,"['EMC7', 'EMC4', 'EMC3', 'MMGT1']",0.15384615384615385,5.552713156207808e-06,12,EMC complex
+894,178,CL:1721,"['EMC7', 'EMC4', 'MMGT1']",0.11538461538461539,2.372483863338011e-05,6,EMC complex
+895,178,CL:1537,"['EMC7', 'EMC3', 'MMGT1', 'EMC4', 'PACS2']",0.19230769230769232,0.006441264062883335,111,"mixed, incl. Endoplasmic reticulum protein-containing complex, and Cotranslational protein targeting to membrane"
+896,178,CL:1717,"['EMC7', 'EMC4', 'EMC3', 'MMGT1']",0.15384615384615385,6.27252289240578e-05,21,"mixed, incl. EMC complex, and Prealbumin-like fold domain"
+897,181,CL:7189,"['PARP3', 'GDAP2']",0.14285714285714285,0.01483599961905409,32,"mixed, incl. Poly(ADP-ribose) polymerase catalytic domain, and Macro domain"
+898,181,CL:7191,"['PARP3', 'GDAP2']",0.14285714285714285,0.009190236903349155,25,"Poly(ADP-ribose) polymerase catalytic domain, and Macro domain"
+899,181,CL:7188,"['PARP3', 'GDAP2']",0.14285714285714285,0.023786456585670055,41,"mixed, incl. Poly(ADP-ribose) polymerase catalytic domain, and Macro domain"
+900,181,CL:3958,['TRIP12'],0.07142857142857142,0.029533783638511918,5,"Putative zinc finger in N-recognin, a recognition component of the N-end rule pathway, and Familial retinoblastoma"
+901,181,CL:6080,['BTAF1'],0.07142857142857142,0.029533783638511918,5,"Negative cofactor 2 complex, and TATA-box binding protein"
+902,181,CL:7209,['PARP3'],0.07142857142857142,0.029533783638511918,5,Protein mono-ADP-ribosylation
+903,181,CL:12751,['PDCD2L'],0.07142857142857142,0.029533783638511918,5,"Programmed cell death protein 2, C-terminal, and Phosphoglucose isomerase"
+904,181,CL:7192,"['PARP3', 'GDAP2']",0.14285714285714285,0.0059206859581051674,20,"Protein auto-ADP-ribosylation, and Macro domain"
+905,181,CL:18504,"['ATF4', 'DUSP12']",0.14285714285714285,0.01483599961905409,32,"mixed, incl. Basic region leucin zipper, and Early growth response, N-terminal"
+906,181,CL:18545,['DUSP12'],0.07142857142857142,0.03534247411694749,6,"mixed, incl. Regulation of polynucleotide adenylyltransferase activity, and Immediate early response"
+907,181,CL:18527,['ATF4'],0.07142857142857142,0.03534247411694749,6,Response of EIF2AK1 (HRI) to heme deficiency
+908,181,CL:18501,"['ATF4', 'DUSP12']",0.14285714285714285,0.029516425902614097,46,"mixed, incl. Basic-leucine zipper domain, and Early growth response, N-terminal"
+909,181,CL:32592,['MTMR10'],0.07142857142857142,0.029533783638511918,5,"Chromosome 15q13.3 microdeletion syndrome, and Golgin subfamily A member 2, C-terminal binding motif"
+910,181,CL:25275,['HEATR3'],0.07142857142857142,0.04686312659412643,8,"mixed, incl. Acid sphingomyelinase-like phosphodiesterase, predicted, and BMP/retinoic acid-inducible neural-specific protein"
+911,181,CL:18502,"['ATF4', 'DUSP12']",0.14285714285714285,0.02060199001707897,38,"mixed, incl. Basic region leucin zipper, and Early growth response, N-terminal"
+912,182,CL:26064,['CEP89'],0.07692307692307693,0.02744765677616994,5,"Nephronophthisis 18, and Ciliary transition fiber"
+913,182,CL:20866,['GPS2'],0.07692307692307693,0.02744765677616994,5,Loss of MECP2 binding ability to the NCoR/SMRT complex
+914,182,CL:30631,['C11orf54'],0.07692307692307693,0.04358069224748544,8,"mixed, incl. Ester hydrolase C11orf54, Domain of unknown function DUF1907, and Multicopper oxidase"
+915,182,CL:14965,['PPM1D'],0.07692307692307693,0.032853035340475095,6,PPM-type phosphatase-like domain
+916,182,CL:8173,"['PPP1R2', 'LMTK2']",0.15384615384615385,0.01695365801005086,37,"Endoplasmic reticulum stress response in coronavirus infection, and Phosphorylase kinase complex"
+917,182,CL:8226,"['PPP1R2', 'LMTK2']",0.15384615384615385,0.000281390205671887,5,"Protein phosphatase inhibitor 2 (IPP-2), and Myosin VI binding"
+918,182,CL:8208,"['PPP1R2', 'LMTK2']",0.15384615384615385,0.002489423238902044,14,"mixed, incl. PTW/PP1 phosphatase complex, and Protein phosphatase inhibitor 2 (IPP-2)"
+919,182,CL:8174,"['PPP1R2', 'LMTK2']",0.15384615384615385,0.012061266158066823,31,"Endoplasmic reticulum stress response in coronavirus infection, and Phosphorylase kinase complex"
+920,182,CL:19399,['ST14'],0.07692307692307693,0.02744765677616994,5,"MET Receptor Activation, and Epithelial cell morphogenesis involved in placental branching"
+921,190,CL:4324,"['COMMD8', 'CCDC93', 'COMMD4', 'CCDC22']",0.2857142857142857,1.8161190682479945e-06,17,"COMM domain, and Ritscher-Schinzel syndrome 1"
+922,190,CL:4327,"['COMMD8', 'CCDC93', 'COMMD4', 'CCDC22']",0.2857142857142857,2.5705332142850663e-07,11,COMM domain
+923,190,CL:4339,"['CCDC93', 'CCDC22']",0.14285714285714285,0.00032800756572422176,5,"COMM domain, and Ritscher-Schinzel syndrome 1"
+924,190,CL:4323,"['COMMD8', 'CCDC93', 'COMMD4', 'CCDC22']",0.2857142857142857,2.28816071581313e-05,31,"COMM domain, and Protein neddylation"
+925,190,CL:4322,"['COMMD8', 'CCDC93', 'COMMD4', 'CCDC22']",0.2857142857142857,9.439126111531425e-05,44,"mixed, incl. COMM domain, and Protein neddylation"
+926,190,CL:17814,"['ACTR3', 'ACTR2', 'ARPC2', 'ARPC3']",0.2857142857142857,0.0003004621607326651,59,"mixed, incl. RHO GTPases Activate WASPs and WAVEs, and ADF-H/Gelsolin-like domain superfamily"
+927,190,CL:4320,"['COMMD8', 'CCDC93', 'COMMD4', 'CCDC22']",0.2857142857142857,0.004655271287828255,122,"Neddylation, and Cul3-RING ubiquitin ligase complex"
+928,190,CL:17851,"['ACTR3', 'ACTR2', 'ARPC2', 'ARPC3']",0.2857142857142857,1.3935734335660653e-06,16,"Arp2/3 protein complex, and Arp2/3 complex binding"
+929,190,CL:17858,"['ACTR2', 'ARPC2', 'ARPC3']",0.21428571428571427,3.360204504691978e-06,6,Arp2/3 protein complex
+930,190,CL:17855,"['ACTR3', 'ACTR2', 'ARPC2', 'ARPC3']",0.2857142857142857,2.5705332142850663e-07,11,Arp2/3 protein complex
+931,190,CL:4329,['COMMD4'],0.07142857142857142,0.029533783638511918,5,COMM domain
+932,190,CL:17815,"['ACTR3', 'ACTR2', 'ARPC2', 'ARPC3']",0.2857142857142857,3.337825825782102e-05,34,"RHO GTPases Activate WASPs and WAVEs, and Arp2/3 complex-mediated actin nucleation"
+933,190,CL:11347,['COA6'],0.07142857142857142,0.029533783638511918,5,"Cysteine alpha-hairpin motif superfamily, and Copper chaperone SCO1/SenC"
+934,190,CL:5272,['BPTF'],0.07142857142857142,0.03534247411694749,6,NURF complex
+935,190,CL:4319,"['COMMD8', 'CCDC93', 'COMMD4', 'CCDC22']",0.2857142857142857,0.008020442008225699,142,"cullin-RING ubiquitin ligase complex, and Protein neddylation"
+936,190,CL:17813,"['ACTR3', 'ACTR2', 'ARPC2', 'ARPC3']",0.2857142857142857,0.0007590778892127791,75,"mixed, incl. RHO GTPases Activate WASPs and WAVEs, and Actin nucleation"
+937,190,CL:4321,"['COMMD8', 'CCDC93', 'COMMD4', 'CCDC22']",0.2857142857142857,0.0012212948120531543,85,"mixed, incl. Cul4-RING E3 ubiquitin ligase complex, and Protein neddylation"
+938,190,CL:17810,"['ACTR3', 'ACTR2', 'ARPC2', 'ARPC3']",0.2857142857142857,0.023112417334539715,193,"mixed, incl. Actin filament organization, and CDC42 GTPase cycle"
+939,190,CL:22765,['ATP2A2'],0.07142857142857142,0.029533783638511918,5,"P-type ATPase, subfamily IIA, SERCA-type, and Regulation of calcium ion binding"
+940,190,CL:4318,"['FBXO42', 'CCDC22', 'CCDC93', 'COMMD8', 'COMMD4']",0.35714285714285715,0.003381598333467181,187,"cullin-RING ubiquitin ligase complex, and Protein neddylation"
+941,190,CL:17811,"['ACTR3', 'ACTR2', 'ARPC2', 'ARPC3']",0.2857142857142857,0.010915245181701347,155,"mixed, incl. Regulation of actin dynamics for phagocytic cup formation, and CDC42 GTPase cycle"
+942,191,CL:5022,['ING3'],0.09090909090909091,0.023264640578095623,5,"Piccolo NuA4 histone acetyltransferase complex, and YEATS superfamily"
+943,191,CL:5020,['ING3'],0.09090909090909091,0.046036196630197555,10,Histone H2A acetylation
+944,191,CL:4902,['EZH2'],0.09090909090909091,0.0278580945984637,6,"C-5 methylation of cytosine, and CXC domain"
+945,191,CL:3007,['PAIP1'],0.09090909090909091,0.023264640578095623,5,"Polyadenylate-binding protein-interacting protein 2-like, and Polyadenylate binding protein, human types 1, 2, 3, 4"
+946,191,CL:3005,['PAIP1'],0.09090909090909091,0.046036196630197555,10,"PABP, RNA recognition motif 2, and PAN complex"
+947,191,CL:1721,['EMC6'],0.09090909090909091,0.0278580945984637,6,EMC complex
+948,191,CL:23030,['NLGN2'],0.09090909090909091,0.023264640578095623,5,"Positive regulation of protein localization to synapse, and Regulation of synaptic membrane adhesion"
+949,191,CL:30945,['CLDND1'],0.09090909090909091,0.023264640578095623,5,"mixed, incl. Regulation of protein localization to phagocytic vesicle, and Positive regulation of AMPA glutamate receptor clustering"
+950,191,CL:33061,['PLEKHA5'],0.09090909090909091,0.046036196630197555,10,"mixed, incl. Spot 14 family, and Magnesium-dependent phosphatase-1, eukaryotic-type"
+951,191,CL:33071,['PLEKHA5'],0.09090909090909091,0.023264640578095623,5,"Magnesium-dependent phosphatase-1, eukaryotic-type, and Purulent acute otitis media"
+952,191,CL:8899,['ACSL1'],0.09090909090909091,0.0278580945984637,6,"Very long-chain fatty acid catabolic process, and Ovarian follicle atresia"
+953,192,CL:33210,['RNFT2'],0.14285714285714285,0.04399962525771391,15,"mixed, incl. Posterior polymorphous corneal dystrophy 1, and Synaptotagmin-14/14L/16"
+954,192,CL:18680,['MBTPS1'],0.14285714285714285,0.02074440985803008,7,CREB3 factors activate genes
+955,192,CL:18677,['MBTPS1'],0.14285714285714285,0.035335020707437104,12,"CREB3 factors activate genes, and Histone kinase activity (H3-S28 specific)"
+956,192,CL:11895,['C12orf49'],0.14285714285714285,0.014855428759483421,5,"Mitochondrial pyruvate carrier, and Positive regulation of SREBP signaling pathway"
+957,192,CL:33212,['RNFT2'],0.14285714285714285,0.01780370238012626,6,"mixed, incl. Peptidase M12B, ADAM-TS8, and Translation initiation factor SUI1"
+958,192,CL:9990,['SCAP'],0.14285714285714285,0.035335020707437104,12,"Cellular response to sterol depletion, and Vitellogenin, N-terminal"
+959,192,CL:9370,['PUDP'],0.14285714285714285,0.014855428759483421,5,"mixed, incl. Aamy_C, and Phosphoglycolate phosphatase-like, domain 2"
+960,192,CL:9992,['SCAP'],0.14285714285714285,0.014855428759483421,5,"SREBP-SCAP-Insig complex, and Coenzyme A binding"
+961,192,CL:11477,['YME1L1'],0.14285714285714285,0.04111886648750469,14,"mixed, incl. Mitochondrial fusion, and Mitochondrial dynamics protein MID49/MID51"
+962,192,CL:5651,['PHF8'],0.14285714285714285,0.014855428759483421,5,"Syndromic X-linked intellectual disability Siderius type, and CENP-V/GFA domain"
+963,194,CL:17820,['BRK1'],0.06666666666666667,0.03161632916718464,5,SCAR complex
+964,194,CL:7196,['PARP2'],0.06666666666666667,0.04399962525771391,7,"Peptidyl-serine ADP-ribosylation, and poly(ADP-ribose) glycohydrolase activity"
+965,194,CL:28468,['SLC25A22'],0.06666666666666667,0.037826570750122746,6,"West syndrome, and DOORS syndrome"
+966,194,CL:29256,['LAIR2'],0.06666666666666667,0.03161632916718464,5,"mixed, incl. Tweety, and SAC3/GANP family"
+967,194,CL:6936,['E2F1'],0.06666666666666667,0.03161632916718464,5,"G2 Phase, and Familial retinoblastoma"
+968,194,CL:13846,['SH3GL1'],0.06666666666666667,0.03161632916718464,5,"Synaptojanin-1/2, RNA recognition motif, and Endophilin-A, SH3 domain"
+969,194,CL:21890,['CTNNB1'],0.06666666666666667,0.03161632916718464,5,"Cellular response to indole-3-methanol, and Positive regulation of synaptic vesicle clustering"
+970,194,CL:26796,['STK40'],0.06666666666666667,0.03161632916718464,5,"Pseudokinase tribbles family/serine-threonine-protein kinase 40, and RIB43A"
+971,197,CL:13330,"['TMED4', 'LMAN1']",0.16666666666666666,0.029660784503340303,54,"ER-Golgi transport, and emp24/gp25L/p24 family/GOLD"
+972,197,CL:36521,['THAP12'],0.08333333333333333,0.0253579439630547,5,THAP-type zinc finger
+973,197,CL:13427,['LMAN1'],0.08333333333333333,0.0253579439630547,5,"Legume-like lectin, and Negative regulation of plasminogen activation"
+974,197,CL:13364,['TMED4'],0.08333333333333333,0.030358245233872726,6,Transmembrane emp24 domain-containing protein
+975,197,CL:11389,['DMAC1'],0.08333333333333333,0.030358245233872726,6,"Proton-transporting ATP synthase complex assembly, and Mitochondrial complex I assembly model OXPHOS system"
+976,197,CL:10090,['HSD17B12'],0.08333333333333333,0.0253579439630547,5,"Protein-tyrosine phosphatase-like, PTPLA, and Fatty acid elongase complex"
+977,197,CL:1368,['DTWD1'],0.08333333333333333,0.0253579439630547,5,"This presumed domain is found in bacterial and eukaryotic proteins. Its function is unknown. The domain contains multiple conserved motifs including a DTXW motif that this domain has been named after., and Geleophysic dysplasia 1"
+978,197,CL:26224,['KIF5C'],0.08333333333333333,0.0253579439630547,5,"Kinesin light chain repeat, and Anterograde dendritic transport of neurotransmitter receptor complex"
+979,197,CL:17694,['HRAS'],0.08333333333333333,0.0253579439630547,5,"SOS-mediated signalling, and Plexiform neurofibroma"
+980,210,CL:2896,['NCBP3'],0.07692307692307693,0.02744765677616994,5,"mRNA cap methylation, RNMT-activating mini protein, and Nuclear cap binding complex"
+981,210,CL:5272,['SMARCA5'],0.07692307692307693,0.032853035340475095,6,NURF complex
+982,210,CL:5766,['MED15'],0.07692307692307693,0.02744765677616994,5,Core mediator complex
+983,210,CL:7231,['TNK1'],0.07692307692307693,0.02744765677616994,5,"Cherubism, and poly-ADP-D-ribose binding"
+984,210,CL:14965,['PPM1D'],0.07692307692307693,0.032853035340475095,6,PPM-type phosphatase-like domain
+985,210,CL:21035,['DMRTA2'],0.07692307692307693,0.02744765677616994,5,"DMRT family, and Peyers patch morphogenesis"
+986,210,CL:32701,['MOSMO'],0.07692307692307693,0.032853035340475095,6,"mixed, incl. Protein FAM222, and Von Willebrand factor type A domain"
+987,210,CL:4615,['FBXO3'],0.07692307692307693,0.02744765677616994,5,"FBXW7 Mutants and NOTCH1 in Cancer, and ApaG domain"
+988,211,CL:4142,['OS9'],0.05,0.0419754981267031,5,Hrd1p ubiquitin ligase complex
+989,211,CL:13584,"['EXOC7', 'EXOC1']",0.1,0.0014162027419569675,7,Vesicle tethering involved in exocytosis
+990,211,CL:2276,['U2SURP'],0.05,0.0419754981267031,5,"SWAP/Surp, and Survival motor neuron, Tudor domain"
+991,211,CL:24536,['GUCA1B'],0.05,0.0419754981267031,5,"Leber congenital amaurosis 1, and Calcium sensitive guanylate cyclase activator activity"
+992,211,CL:19474,['COL5A1'],0.05,0.0419754981267031,5,"Fibrillar collagen, C-terminal"
+993,211,CL:13575,"['EXOC7', 'EXOC1']",0.1,0.03853865973080463,37,"mixed, incl. Exocyst, and FIP domain "
+994,211,CL:13577,"['EXOC7', 'EXOC1']",0.1,0.01988842814794814,26,"Exocyst, and Golgi vesicle fusion to target membrane"
+995,211,CL:13580,"['EXOC7', 'EXOC1']",0.1,0.004338313759257184,12,"Vesicle tethering involved in exocytosis, and Exocyst localization"
+996,211,CL:11895,['TM9SF3'],0.05,0.0419754981267031,5,"Mitochondrial pyruvate carrier, and Positive regulation of SREBP signaling pathway"
+997,213,CL:6936,['E2F1'],0.045454545454545456,0.046094257529694656,5,"G2 Phase, and Familial retinoblastoma"
+998,213,CL:4339,['CCDC93'],0.045454545454545456,0.046094257529694656,5,"COMM domain, and Ritscher-Schinzel syndrome 1"
+999,213,CL:23523,['NEFL'],0.045454545454545456,0.046094257529694656,5,Postsynaptic intermediate filament cytoskeleton
+1000,213,CL:4422,['CUL4B'],0.045454545454545456,0.046094257529694656,5,"Cul4B-RING E3 ubiquitin ligase complex, and Cullin"
+1001,213,CL:34330,['NIPAL4'],0.045454545454545456,0.046094257529694656,5,Autosomal recessive congenital ichthyosis 4B
+1002,213,CL:24341,['PDCL'],0.045454545454545456,0.046094257529694656,5,G beta:gamma signalling through BTK
+1003,215,CL:4005,['UBC'],0.2,0.023264640578095623,11,"mixed, incl. Josephin domain DUBs, and Ubiquitinyl hydrolase"
+1004,215,CL:4009,['UBC'],0.2,0.010629158979449018,5,"mixed, incl. Ubiquitinyl hydrolase, and Peptidase family C78"
+1005,215,CL:5525,['NASP'],0.2,0.014855428759483421,7,"mixed, incl. CAF-1 complex, and Galloway-Mowat syndrome 1"
+1006,215,CL:4002,['UBC'],0.2,0.03784252386276427,18,"Josephin domain DUBs, and Deubiquitinase activity"
+1007,215,CL:5522,['NASP'],0.2,0.0357706946721156,17,"DNA replication-independent chromatin assembly, and Congenital dyserythropoietic anemia type Ib"
+1008,215,CL:5524,['NASP'],0.2,0.0253579439630547,12,"DNA replication-independent chromatin assembly, and CAF-1 complex"
+1009,215,CL:6995,['HUWE1'],0.2,0.03784252386276427,18,"mixed, incl. P53 DNA-binding domain, and SWIB/MDM2 domain"
+1010,215,CL:7019,['HUWE1'],0.2,0.012744103060296715,6,"mixed, incl. Myc amino-terminal region, and RTP801-like"
+1011,215,CL:15699,['SLAMF6'],0.2,0.023264640578095623,11,"mixed, incl. Dysgammaglobulinemia, and Immunoglobulin domain"
+1012,215,CL:15703,['SLAMF6'],0.2,0.010629158979449018,5,"Dysgammaglobulinemia, and Immunoglobulin domain"
+1013,215,CL:3958,['TRIP12'],0.2,0.010629158979449018,5,"Putative zinc finger in N-recognin, a recognition component of the N-end rule pathway, and Familial retinoblastoma"
+1014,215,CL:3955,['TRIP12'],0.2,0.0253579439630547,12,"mixed, incl. Zinc finger, UBR-type, and Protein arginylation"
+1015,216,CL:7701,['ANKRD49'],0.2,0.012744103060296715,6,"mixed, incl. G-2 and S-phase expressed 1, and AMOP domain"
+1016,216,CL:20862,['GPS2'],0.2,0.0357706946721156,17,"mixed, incl. Loss of MECP2 binding ability to the NCoR/SMRT complex, and Acute promyelocytic leukemia"
+1017,216,CL:20866,['GPS2'],0.2,0.010629158979449018,5,Loss of MECP2 binding ability to the NCoR/SMRT complex
+1018,216,CL:20863,['GPS2'],0.2,0.02116774199625384,10,"Loss of MECP2 binding ability to the NCoR/SMRT complex, and Y-linked deafness 2"
+1019,216,CL:18544,['DUSP12'],0.2,0.0253579439630547,12,"mixed, incl. Early growth response, N-terminal, and NAB family"
+1020,216,CL:18545,['DUSP12'],0.2,0.012744103060296715,6,"mixed, incl. Regulation of polynucleotide adenylyltransferase activity, and Immediate early response"
+1021,216,CL:12751,['PDCD2L'],0.2,0.010629158979449018,5,"Programmed cell death protein 2, C-terminal, and Phosphoglucose isomerase"
+1022,216,CL:8175,['PPP1R3B'],0.2,0.0357706946721156,17,"Protein phosphatase type 1 complex, and Phosphorylase kinase complex"
+1023,216,CL:8180,['PPP1R3B'],0.2,0.010629158979449018,5,"Protein phosphatase 1 regulatory subunit 3B/C/D, metazoa, and Glycogen synthase"
+1024,216,CL:8178,['PPP1R3B'],0.2,0.02116774199625384,10,"CBM21 domain superfamily, and Phosphatase-1 catalytic subunit binding region"
+1025,216,CL:7681,['ANKRD49'],0.2,0.033695297975327214,16,"mixed, incl. EKC/KEOPS complex, and Regulation of toll-like receptor 8 signaling pathway"
+1026,217,CL:2736,['IPO7'],0.09090909090909091,0.0278580945984637,6,"Exportin-2, central domain, and Importin beta family"
+1027,217,CL:13846,['SH3GL1'],0.09090909090909091,0.023264640578095623,5,"Synaptojanin-1/2, RNA recognition motif, and Endophilin-A, SH3 domain"
+1028,217,CL:14078,['ADAM9'],0.09090909090909091,0.046036196630197555,10,"Invadopodia formation, and Sorting nexin 9 family"
+1029,217,CL:14080,['ADAM9'],0.09090909090909091,0.023264640578095623,5,"Sorting nexin 9 family, and Response to hypobaric hypoxia"
+1030,217,CL:27534,['C9orf64'],0.09090909090909091,0.0278580945984637,6,"mixed, incl. tRNA-guanine transglycosylation, and Positive regulation of insulin receptor signaling pathway"
+1031,217,CL:27772,['TRIM14'],0.09090909090909091,0.046036196630197555,10,"mixed, incl. B-Box C-terminal domain, and Mulibrey nanism"
+1032,217,CL:28413,['GNS'],0.09090909090909091,0.0278580945984637,6,Mucopolysaccharidosis type IIIB
+1033,217,CL:16019,['IFNLR1'],0.09090909090909091,0.03243190168119122,7,"mixed, incl. Interleukin-28A, and Hepatitis D"
+1034,217,CL:30120,['ITM2B'],0.09090909090909091,0.023264640578095623,5,"Peptidase A22B, signal peptide peptidase, and BSD domain"
+1035,218,CL:6442,['TOP2B'],0.06666666666666667,0.03161632916718464,5,"DNA topoisomerase I, and tyrosyl-DNA phosphodiesterase activity"
+1036,218,CL:14665,['RPS6KB1'],0.06666666666666667,0.03161632916718464,5,"Ribosomal protein S6 kinase, and Sel1 repeat"
+1037,218,CL:15748,['CCL5'],0.06666666666666667,0.03161632916718464,5,"CXCR3 chemokine receptor binding, and CCR4 chemokine receptor binding"
+1038,218,CL:7563,['LMNA'],0.06666666666666667,0.04399962525771391,7,"Nuclear pore localization, and In nuclear membrane-associated proteins"
+1039,218,CL:16943,['TNFRSF10B'],0.06666666666666667,0.037826570750122746,6,TRAIL  signaling
+1040,218,CL:25115,['GJC1'],0.06666666666666667,0.04399962525771391,7,Gap junction assembly
+1041,218,CL:28468,['SLC25A22'],0.06666666666666667,0.037826570750122746,6,"West syndrome, and DOORS syndrome"
+1042,218,CL:37885,['MOSPD1'],0.06666666666666667,0.04399962525771391,7,"mixed, incl. FAM177 family, and Motile sperm domain-containing protein 1/3"
+1043,218,CL:7115,['MORC2'],0.06666666666666667,0.04399962525771391,7,"Morc, S5 domain 2-like, and Protein localization to heterochromatin"
+1044,218,CL:9370,['PUDP'],0.06666666666666667,0.03161632916718464,5,"mixed, incl. Aamy_C, and Phosphoglycolate phosphatase-like, domain 2"
+1045,218,CL:13007,['ABHD14A'],0.06666666666666667,0.037826570750122746,6,"mixed, incl. Phosphatidylserine catabolic process, and Putative esterase"
+1046,219,CL:8226,['PPP1R2'],0.07692307692307693,0.02744765677616994,5,"Protein phosphatase inhibitor 2 (IPP-2), and Myosin VI binding"
+1047,219,CL:33545,['HP1BP3'],0.07692307692307693,0.02744765677616994,5,"mixed, incl. Tetratricopeptide repeat, and GPCR-associated sorting protein 1-3"
+1048,219,CL:27271,['SESTD1'],0.07692307692307693,0.02744765677616994,5,"Dapper, and Negative regulation of calcium ion transmembrane transport via high voltage-gated calcium channel"
+1049,219,CL:26421,['TBCA'],0.07692307692307693,0.02744765677616994,5,Post-chaperonin tubulin folding pathway
+1050,219,CL:12432,['ADO'],0.07692307692307693,0.03823067030222609,7,"mixed, incl. Taurine biosynthetic process, and Gamma-aminobutyric acid:sodium symporter activity"
+1051,219,CL:11764,['CPOX'],0.07692307692307693,0.032853035340475095,6,Porphyrin biosynthesis
+1052,219,CL:9958,['AASDH'],0.07692307692307693,0.02744765677616994,5,"Coiled-coil domain-containing protein 13, and Negative regulation of protein lipidation"
+1053,219,CL:15091,['INPPL1'],0.07692307692307693,0.02744765677616994,5,"PI3-kinase family, Ras-binding domain, and Schneckenbecken dysplasia"
+1054,220,CL:24198,['GNAS'],0.1,0.046036196630197555,11,Hormone ligand-binding receptors
+1055,220,CL:24200,['GNAS'],0.1,0.02535257422371748,6,"Follicle-stimulating hormone signaling pathway, and Congenital nongoitrous hypothyroidism 1"
+1056,220,CL:26506,['CAMSAP1'],0.1,0.02535257422371748,6,"CKK domain, and Zonula adherens maintenance"
+1057,220,CL:28717,['SNTB1'],0.1,0.02116774199625384,5,"Syntrophin, and EF hand"
+1058,220,CL:37141,['CCDC137'],0.1,0.02116774199625384,5,"mixed, incl. Conduct disorder, and Negative regulation of miRNA maturation"
+1059,220,CL:17634,['GRAP'],0.1,0.04193136098747035,10,"mixed, incl. Dok1/2/3, PTB domain, and CSK-like, SH2 domain"
+1060,221,CL:15566,['PTPRC'],0.16666666666666666,0.020325387354760083,8,"mixed, incl. Mantle cell lymphoma, and IgM binding"
+1061,221,CL:2747,['XPO6'],0.16666666666666666,0.012744103060296715,5,"Exportin-1/Importin-beta-like, and Exportin 4/7-like"
+1062,221,CL:29903,['ZNF628'],0.16666666666666666,0.020325387354760083,8,"mixed, incl. Glucocorticoid modulatory element-binding protein 1/2, and Zinc finger protein 800/341"
+1063,221,CL:31218,['PDAP1'],0.16666666666666666,0.02535257422371748,10,"mixed, incl. Calcium-dependent secretion activator, and Vacuolar membrane-associated protein Iml1"
+1064,221,CL:16618,['TNFRSF1A'],0.16666666666666666,0.01527661070528954,6,"Protein linear polyubiquitination, and Protein linear deubiquitination"
+1065,221,CL:2735,['XPO6'],0.16666666666666666,0.0278580945984637,11,"Importin-beta, N-terminal domain"
+1066,221,CL:16138,['STAT2'],0.16666666666666666,0.012744103060296715,5,"ISGF3 complex, and Transcription factor STAT"
+1067,222,CL:22604,['TNNC1'],0.14285714285714285,0.02074440985803008,7,Troponin complex
+1068,222,CL:1774,['HSPH1'],0.14285714285714285,0.03243190168119122,11,"HSP40/DnaJ peptide-binding, and Denatured protein binding"
+1069,222,CL:1773,['HSPH1'],0.14285714285714285,0.046872962579824706,16,"HSP40/DnaJ peptide-binding, and MreB/Mbl protein"
+1070,222,CL:17541,['SYK'],0.14285714285714285,0.02952129717400098,10,Antigen activates B Cell Receptor (BCR) leading to generation of second messengers
+1071,222,CL:17543,['SYK'],0.14285714285714285,0.014855428759483421,5,"X-linked agammaglobulinemia, and Serotonin secretion"
+1072,222,CL:17540,['SYK'],0.14285714285714285,0.046872962579824706,16,"FCERI mediated Ca+2 mobilization, and B-cell antigen receptor complex-associated protein alpha/beta chain"
+1073,225,CL:2974,"['C19orf54', 'PATL1']",0.08,0.011961842750468374,16,"mRNA decay by 5 to 3 exoribonuclease, and TFG box"
+1074,227,CL:11532,['IMMT'],0.05555555555555555,0.03784252386276427,5,Mitochondrial crista junction
+1075,227,CL:13804,['ITSN1'],0.05555555555555555,0.03784252386276427,5,"Clathrin-dependent synaptic vesicle endocytosis, and Muniscin, C-terminal"
+1076,227,CL:16926,['CASP9'],0.05555555555555555,0.03784252386276427,5,Activation of caspases through apoptosome-mediated cleavage
+1077,227,CL:34077,['TMEM45B'],0.05555555555555555,0.03784252386276427,5,"mixed, incl. Transmembrane protein 45, and Suppressor APC domain-containing protein 1/2"
+1078,227,CL:4422,['CUL4B'],0.05555555555555555,0.03784252386276427,5,"Cul4B-RING E3 ubiquitin ligase complex, and Cullin"
+1079,228,CL:28769,"['EXT2', 'EXT1']",0.0625,0.02943979877365509,20,HS-GAG biosynthesis
+1080,228,CL:28772,"['EXT2', 'EXT1']",0.0625,0.016973635157048812,15,HS-GAG biosynthesis
+1081,228,CL:28766,"['EXT2', 'B4GALT7', 'EXT1']",0.09375,0.03247850528229338,52,"Proteoglycan biosynthetic process, and HS-GAG biosynthesis"
+1082,228,CL:28775,"['EXT2', 'EXT1']",0.0625,0.003634177694265802,7,"Heparan sulfate proteoglycan biosynthetic process, polysaccharide chain biosynthetic process, and Heparan sulfate 6-O-sulfotransferase activity"
+1083,232,CL:3881,"['OTUB1', 'UBE2N']",0.043478260869565216,0.015341205979183413,10,"TICAM1, RIP1-mediated IKK complex recruitment, and Chondromalacia"
+1084,232,CL:26114,"['TEDC2', 'TEDC1']",0.043478260869565216,0.02194643835459591,12,"mixed, incl. Centriole replication, and Tubulin/FtsZ family, GTPase domain"
+1085,232,CL:6137,"['ERCC4', 'FANCD2', 'FANCB', 'MCPH1', 'RAD51B', 'FANCL', 'UBA2', 'FANCM', 'RNF8', 'XRCC2', 'FANCA', 'FANCE', 'ERCC1', 'FANCF', 'CHTF18', 'FANCI', 'ERCC6L']",0.3695652173913043,0.008120210046054973,488,"DNA repair, and Mitosis"
+1086,232,CL:6139,"['ERCC4', 'FANCD2', 'FANCB', 'MCPH1', 'RAD51B', 'FANCL', 'FANCM', 'RNF8', 'XRCC2', 'FANCA', 'FANCE', 'ERCC1', 'FANCF', 'CHTF18', 'FANCI', 'ERCC6L']",0.34782608695652173,0.007996424706802749,446,"DNA repair, and Mitosis"
+1087,232,CL:6140,"['ERCC4', 'FANCD2', 'FANCB', 'RAD51B', 'FANCL', 'FANCM', 'RNF8', 'XRCC2', 'FANCA', 'FANCE', 'ERCC1', 'FANCF', 'CHTF18', 'FANCI']",0.30434782608695654,6.422413020016009e-05,228,"DNA repair pathways, full network, and DNA-templated DNA replication"
+1088,232,CL:6142,"['ERCC4', 'FANCD2', 'FANCB', 'RAD51B', 'FANCL', 'FANCM', 'RNF8', 'XRCC2', 'FANCA', 'FANCE', 'ERCC1', 'FANCF', 'CHTF18', 'FANCI']",0.30434782608695654,3.6648354109405866e-05,217,"DNA repair pathways, full network, and DNA-templated DNA replication"
+1089,232,CL:6143,"['ERCC4', 'FANCD2', 'FANCB', 'RAD51B', 'FANCL', 'FANCM', 'RNF8', 'XRCC2', 'FANCA', 'FANCE', 'ERCC1', 'FANCF', 'FANCI']",0.2826086956521739,4.55664002408637e-06,156,"DNA repair pathways, full network, and HDR through Homologous Recombination (HRR)"
+1090,232,CL:6144,"['ERCC4', 'FANCD2', 'FANCB', 'RAD51B', 'FANCL', 'FANCM', 'RNF8', 'XRCC2', 'FANCA', 'FANCE', 'ERCC1', 'FANCF', 'FANCI']",0.2826086956521739,3.4379038965492605e-07,125,"DNA repair pathways, full network, and HDR through Homologous Recombination (HRR)"
+1091,232,CL:6145,"['ERCC4', 'FANCD2', 'FANCB', 'RAD51B', 'FANCL', 'FANCM', 'RNF8', 'FANCA', 'FANCE', 'ERCC1', 'FANCF', 'FANCI']",0.2608695652173913,1.2575641559452474e-06,117,"DNA repair pathways, full network, and HDR through Homologous Recombination (HRR)"
+1092,232,CL:6146,"['ERCC4', 'FANCD2', 'FANCB', 'RAD51B', 'FANCL', 'FANCM', 'RNF8', 'FANCA', 'FANCE', 'ERCC1', 'FANCF', 'FANCI']",0.2608695652173913,3.0510503996972065e-07,103,"mixed, incl. Fanconi anemia pathway, and DNA repair complex"
+1093,232,CL:6305,"['FANCL', 'FANCM', 'FANCA', 'FANCE', 'FANCF']",0.10869565217391304,4.760416888005273e-08,7,Fanconi anaemia nuclear complex
+1094,232,CL:6303,"['FANCB', 'FANCL', 'FANCM', 'FANCA', 'FANCE', 'FANCF', 'FANCI']",0.15217391304347827,2.1676308760109427e-09,14,Fanconi anaemia nuclear complex
+1095,232,CL:6299,"['FANCD2', 'FANCB', 'FANCL', 'FANCM', 'FANCA', 'FANCE', 'FANCF', 'FANCI']",0.17391304347826086,1.2355426929953867e-09,20,"Fanconi anaemia nuclear complex, and Fanconi anemia complementation group I"
+1096,232,CL:6147,"['ERCC4', 'FANCD2', 'FANCB', 'RAD51B', 'FANCL', 'FANCM', 'RNF8', 'FANCA', 'FANCE', 'ERCC1', 'FANCF', 'FANCI']",0.2608695652173913,1.3739820239473423e-07,96,"DNA repair pathways, full network, and HDR through Homologous Recombination (HRR)"
+1097,232,CL:6282,"['ERCC4', 'ERCC1']",0.043478260869565216,0.0036294421068043528,5,"Xeroderma pigmentosum group A, and XFE progeroid syndrome"
+1098,232,CL:3879,"['OTUB1', 'UBE2N']",0.043478260869565216,0.04250302992115872,17,"Synthesis of active ubiquitin: roles of E1 and E2 enzymes, and UBC13-UEV1A complex"
+1099,232,CL:6280,"['ERCC4', 'ERCC1']",0.043478260869565216,0.015341205979183413,10,"Nucleotide-excision repair complex, and XPG/Rad2 endonuclease, eukaryotes"
