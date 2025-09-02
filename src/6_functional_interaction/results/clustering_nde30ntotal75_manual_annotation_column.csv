@@ -1,0 +1,97 @@
+﻿cluster,manual_annotation
+0,integrator complex
+3,"tRNA wobble uridine modification, elongator complex"
+4,diphthamide synthesis
+5,diphthamide synthesis
+6,diphthamide synthesis
+8,"nonsense-mediated mRNA decay, SMG1 complex, ASAP complex"
+10,"55S ribosome, mitochondrial function"
+11,nuclear RNA decay
+12,"chromatin remodeling and DNA repair, INO80 complex"
+14,"histone-lysine N-methyltransferase EHMT1/EHMT2, and crotonyl-CoA hydratase activity"
+16,"amino acids regulate mTORC1, Ragulator-Rag complex"
+18,"amino acids regulate mTORC1, Ragulator-Rag complex"
+19,"amino acids regulate mTORC1, Ragulator-Rag complex"
+20,gene regulation and splicing
+21,TCA cycle
+23,"pyruvate metabolism, CTLH, C-terminal LisH motif, and GID complex"
+27,"unclear, low intracluster correlation"
+30,mediator-SAGA complex
+31,mediator-SAGA complex
+33,T-cell signaling
+35,"unclear, related to cluster 41 and 67, low intracluster correlation"
+40,"SETDB1-TRIM28-ZNF274 complex, ubiquitination"
+41,"unclear, related to cluster 35 and 67, related to cluster 78, intermediate intracluster correlation"
+42,CtBP core complex
+49,"tRNA processing, tRNA Splicing Ligase Complex"
+57,"55S ribosome, mitochondrial function"
+58,respiratory electron transport
+63,"unclear, intracellular trafficking, membrane dynacmis"
+67,"unclear, related to cluster 35 and 41, related to cluster 89, intermediate intracluster correlation"
+71,"unclear, USP22-SAGA complex, low intracluster correlation"
+75,"tRNA processing, tRNA Splicing Ligase Complex"
+76,T-cell signaling
+77,"unclear, immune signaling, related to cluster 92, 131 and 132, low intracluster correlation"
+78,"unclear, related to cluster 41, intermediate intracluster correlation"
+80,npBAF complex
+81,T-cell signaling
+82,"unclear, related to cluster 114, intermediate intracluster correlation"
+83,negative regulators of mTORC
+84,"unclear, NFKB signaling, intermediate intracluster correlation"
+85,"unclear, Histone H2B conserved C-terminal lysine ubiquitination, and HULC complex, intermediate intracluster correlation"
+88,"unclear, related to cluster 110 and 114, intermediate intracluster correlation"
+89,"unclear, DNA repair, flagellar transport, related to cluster 67, intermediate intracluster correlation"
+91,"unclear, intermediate intracluster correlation"
+92,"unclear, immune signaling, related to cluster 77, 131 and 132, low intracluster correlation"
+93,"55S ribosome, mitochondrial function"
+94,"F1F0-ATPase, mitochondrial function"
+95,"unclear, intermediate intracluster correlation"
+101,"unclear, low intracluster correlation"
+102,"unclear, intermediate intracluster correlation"
+103,"amino acids regulate mTORC1, Ragulator-Rag complex"
+104,protein ufmylation
+105,protein ufmylation
+108,"unclear, high intracluster correlation"
+110,"unclear, related to cluster 88 and 114, high intracluster correlation"
+112,"unclear, MLL2 complex"
+114,"unclear, related to cluster 82, related to cluster 88 and 110, related to cluster 222, high intracluster correlation"
+115,DNA repair
+117,"ubiquitin-proteasome system, CAND1-CUL3-RBX1 complex"
+118,"glycosylation, ER-associated protein folder QC, vesicle trafficking"
+128,glycosylation
+131,"unclear, related to cluster 77 and 92, low intracluster correlation"
+132,"unclear, related to cluster 77 and 92, low intracluster correlation"
+134,"unclear, signaling, membrane transport and trafficking, high intracluster correlation"
+135,"unclear, immune related, high intracluster correlation"
+143,"unclear, p53 pathway related, intermediate intracluster correlation"
+144,"unclear, low intracluster correlation"
+149,"unclear, related to cluster 232, low intracluster correlation"
+152,"unclear, intermediate intracluster correlation"
+153,"unclear, intermediate intracluster correlation"
+156,"unclear, intermediate intracluster correlation"
+158,T-cell signaling
+162,"unclear, immune related, related to cluster 182, intermediate intracluster correlation"
+177,"unclear, immune related, related to cluster 211,  low intracluster correlation"
+178,EMC complex
+181,"unclear, related to cluster 216, intermediate intracluster correlation"
+182,"unclear, related to cluster 162, related to cluster 219, low intracluster correlation"
+190,Arp2/3 protein complex
+191,"unclear, low intracluster correlation"
+192,"unclear, cholesterol and lipid metabolism, protein QC, low intracluster correlation"
+194,"unclear, low intracluster correlation"
+197,"unclear, low intracluster correlation"
+210,"unclear, high intracluster correlation"
+211,"unclear, immune signaling related, related to cluster 177, low intracluster correlation"
+213,"unclear, related to cluster 228, low intracluster correlation"
+215,"unclear, ubiquitin-proteasome system, intermediate intracluster correlation"
+216,"unclear, related to cluster 181, intermediate intracluster correlation"
+217,"unclear, immune signaling related, intermediate intracluster correlation"
+218,"unclear, intermediate intracluster correlation"
+219,"unclear, metabolism related, related to cluster 182, high intracluster correlation"
+220,"unclear, low intracluster correlation"
+221,"unclear, immune signaling related"
+222,"unclear, cell death, related to cluster 114,  intermediate intracluster correlation"
+225,"unclear, immune signaling related, metabolism, intermediate intracluster correlation"
+227,"unclear, high intracluster correlation"
+228,"unclear, related to cluster 213, intermediate intracluster correlation"
+232,"fanoni anemia pathway, Fanconi anemia FAAP100 complex, related to cluster 149"
