@@ -8,3 +8,7 @@ n_donors:
     2: '#1f9d8a'  # teal
     3: '#31678e'  # blue
     4: '#482777'   # purple
+
+matched_targets:
+  True: '#6baed6'
+  False: '#969696'
