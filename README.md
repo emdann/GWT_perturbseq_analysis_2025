@@ -53,7 +53,7 @@ Base path:
 - oak `/oak/stanford/groups/pritch/users/emma/data/GWT/{experiment_name}`
 
 Files:
-- `{sample}.{lane}scRNA.postQC_obs.h5ad` - count matrices and annotations after QC with sgRNA assignment
+- `tmp/{sample}.{lane}scRNA.postQC_obs.h5ad` - count matrices and annotations after QC with sgRNA assignment
 - `QC_summary_stats.csv` - summary of QC metric statistics for each sample and lane
 - `perturbation_counts.csv` - count of number of cells per perturbation for each sample and lane
 
