@@ -6,6 +6,9 @@ th2:
   - MTA2
   - CHD4
   - MBD2
+  - TRAF3
+  - RARA
+  - PTPN2
 th1:
   - STAT1
   - IFNGR2
@@ -18,3 +21,4 @@ th1:
   - IRF1
   - IRF9
   - STAT2
+  - JAK2
