@@ -16,18 +16,80 @@ from statsmodels.stats.multitest import multipletests
 import warnings
 warnings.filterwarnings('ignore')
 
-def download_google_sheet(sheet_url: str, save_path: str = None) -> pd.DataFrame:
-    """Download data from Google Sheets URL and return as DataFrame"""
+def download_google_sheet(sheet_url: str, save_path: str = None, sheet_name: str = None) -> pd.DataFrame:
+    """Download data from Google Sheets URL and return as DataFrame
+    
+    Args:
+        sheet_url: Google Sheets URL
+        save_path: Optional path to save the downloaded data
+        sheet_name: Optional specific sheet name to download. If None, downloads first sheet (gid=0)
+    """
     # Extract sheet ID and convert to CSV download URL
     if '/spreadsheets/d/' in sheet_url:
         # Extract sheet ID from URL
         sheet_id = sheet_url.split('/spreadsheets/d/')[1].split('/')[0]
         
-        # Convert to CSV download URL
-        csv_url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv&gid=0"
+        # Check if URL already contains a specific gid
+        if 'gid=' in sheet_url:
+            # Extract gid from URL
+            gid_part = sheet_url.split('gid=')[1]
+            if '#' in gid_part:
+                gid = gid_part.split('#')[0]
+            elif '&' in gid_part:
+                gid = gid_part.split('&')[0]
+            else:
+                gid = gid_part
+            
+            print(f"Using gid from URL: {gid}")
+            csv_url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv&gid={gid}"
+            
+        elif sheet_name:
+            # If specific sheet name provided but no gid in URL, try to find it
+            import requests
+            try:
+                print(f"Looking for sheet: '{sheet_name}'")
+                
+                # Try a broader range of gid options since sheets can have various gids
+                gid_options = list(range(0, 10))  # Try first 10 sheets
+                found_sheet = False
+                
+                for gid in gid_options:
+                    try:
+                        test_csv_url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv&gid={gid}"
+                        df_test = pd.read_csv(test_csv_url)
+                        
+                        # Check if this looks like the right sheet by examining the data
+                        print(f"Trying gid={gid}: Found {df_test.shape[0]} rows, {df_test.shape[1]} columns")
+                        
+                        # Look for the specific sheet characteristics
+                        if 'nde50ntotal100' in sheet_name.lower() and 'ontargetfiltered' in sheet_name.lower():
+                            # This should be the filtered sheet with fewer rows (around 50-60)
+                            if 50 <= df_test.shape[0] <= 70 and df_test.shape[1] > 20:  # Expected size for filtered data
+                                print(f"Found filtered sheet at gid={gid} - using this one ({df_test.shape[0]} rows)")
+                                csv_url = test_csv_url
+                                found_sheet = True
+                                break
+                        
+                    except Exception as e:
+                        print(f"Could not access gid={gid}: {e}")
+                        continue
+                
+                if not found_sheet:
+                    # If no specific gid worked, fall back to default
+                    print(f"Could not find specific sheet '{sheet_name}' with expected size (50-70 rows), using default (gid=0)")
+                    csv_url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv&gid=0"
+                    
+            except Exception as e:
+                print(f"Error finding specific sheet, using default: {e}")
+                csv_url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv&gid=0"
+        else:
+            # Convert to CSV download URL (default first sheet)
+            csv_url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv&gid=0"
         
         try:
             print(f"Downloading data from Google Sheets: {sheet_id}")
+            if sheet_name:
+                print(f"Requesting sheet: {sheet_name}")
             df = pd.read_csv(csv_url)
             print(f"Downloaded {df.shape[0]} rows and {df.shape[1]} columns")
             
@@ -270,11 +332,18 @@ class OpenTargetsQuerier:
 class EnrichmentAnalyzer:
     """Class to perform enrichment analysis of autoimmune genes in clusters"""
     
-    def __init__(self, clustering_data_source: str):
-        """Load clustering data from file path or Google Sheets URL"""
+    def __init__(self, clustering_data_source: str, sheet_name: str = None):
+        """Load clustering data from file path or Google Sheets URL
+        
+        Args:
+            clustering_data_source: Path to file or Google Sheets URL
+            sheet_name: Optional specific sheet name to download from Google Sheets
+        """
         if clustering_data_source.startswith('https://docs.google.com/spreadsheets/'):
             # Download from Google Sheets and save locally
-            self.df = download_google_sheet(clustering_data_source, save_path='cluster_data_downloaded.csv')
+            self.df = download_google_sheet(clustering_data_source, 
+                                          save_path='cluster_data_downloaded.csv',
+                                          sheet_name=sheet_name)
         elif clustering_data_source.endswith('.parquet'):
             # Load from local parquet file
             self.df = pd.read_parquet(clustering_data_source)
@@ -487,9 +556,10 @@ def main():
     # Initialize
     querier = OpenTargetsQuerier()
     
-    # Use Google Sheets URL for clustering data
-    clustering_url = "https://docs.google.com/spreadsheets/d/1qNfDOBRoNc6U0DVOlD3E5I0iFmxXRo-Ma6UXUOtCglI/edit?pli=1&gid=0#gid=0"
-    analyzer = EnrichmentAnalyzer(clustering_url)
+    # Use Google Sheets URL for clustering data - specific sheet with gid=2086089189
+    clustering_url = "https://docs.google.com/spreadsheets/d/1qNfDOBRoNc6U0DVOlD3E5I0iFmxXRo-Ma6UXUOtCglI/edit?pli=1&gid=2086089189#gid=2086089189"
+    sheet_name = "nde50ntotal100_ontargetfiltered"
+    analyzer = EnrichmentAnalyzer(clustering_url, sheet_name=sheet_name)
     
     # Load existing autoimmune gene data instead of querying OpenTargets
     try:
