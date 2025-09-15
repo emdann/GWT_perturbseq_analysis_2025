@@ -535,7 +535,7 @@ def plot_effect_comparison(
     else:
         return ax, pl_df
 
-def plot_volcano(adata_de, target, condition, significance_threshold=0.1, 
+def plot_volcano(adata_de, target, condition, on='perturbation', significance_threshold=0.1, 
                  log_fc_threshold=1, top_n_genes=10, figsize=(10, 8),
                  effect_estimates=['log_fc'], target_metadata_cols=['culture_condition']):
     """
@@ -549,6 +549,9 @@ def plot_volcano(adata_de, target, condition, significance_threshold=0.1,
         Target gene ID or name to plot results for
     condition : str
         Condition to filter results (e.g., 'Rest', 'Stim8hr')
+    on: str
+        'perturbation' if plotting DE effects of certain target contrast perturbation
+        'downstream' if plotting regulator effects of certain downstream gene
     significance_threshold : float, optional
         P-value threshold for significance
     log_fc_threshold : float, optional
@@ -570,9 +573,15 @@ def plot_volcano(adata_de, target, condition, significance_threshold=0.1,
         The data used for plotting
     """
     # Get differential expression results for the target and condition
-    pl_df = get_DE_results_long(adata_de, targets=[target], 
-                               effect_estimates=effect_estimates, 
-                               target_metadata_cols=target_metadata_cols)
+    if on=='perturbation':
+        pl_df = get_DE_results_long(adata_de, targets=[target], 
+                                   effect_estimates=effect_estimates, 
+                                   target_metadata_cols=target_metadata_cols)
+    elif on=='downstream':
+        pl_df = get_DE_results_long(adata_de, genes=[target], 
+                                   effect_estimates=effect_estimates, 
+                                   target_metadata_cols=target_metadata_cols)        
+    
     pl_df = pl_df[pl_df['culture_condition'] == condition]
     
     # Create figure
@@ -595,16 +604,32 @@ def plot_volcano(adata_de, target, condition, significance_threshold=0.1,
     
     # Add labels for the most significant genes
     top_genes = pl_df.nlargest(top_n_genes, '-log10_adj_p_value')
+    texts = []
     for _, gene in top_genes.iterrows():
-        plt.text(
-            gene['log_fc'], 
-            gene['-log10_adj_p_value'],
-            gene['gene_name'],
-            fontsize=8,
-            ha='center',
-            va='bottom',
-            bbox=dict(facecolor='white', alpha=0.7, edgecolor='none', pad=1)
-        )
+        if on=='perturbation':
+            txt = plt.text(
+                gene['log_fc'], 
+                gene['-log10_adj_p_value'],
+                gene['gene_name'],
+                fontsize=8,
+                ha='center',
+                va='bottom',
+                bbox=dict(facecolor='white', alpha=0.7, edgecolor='none', pad=1)
+            )
+        elif on=='downstream':
+            txt = plt.text(
+                gene['log_fc'], 
+                gene['-log10_adj_p_value'],
+                gene['target_contrast_gene_name'],
+                fontsize=8,
+                ha='center',
+                va='bottom',
+                bbox=dict(facecolor='white', alpha=0.7, edgecolor='none', pad=1)
+            )
+        texts.append(txt)
+
+    adjustText.adjust_text(texts, arrowprops={"arrowstyle": "-", "color": "k", "zorder": 5})
+
     # Add horizontal line for significance threshold
     plt.axhline(y=-np.log10(significance_threshold), color='gray', linestyle='--', alpha=0.7)
     # Add vertical lines for log fold change thresholds
