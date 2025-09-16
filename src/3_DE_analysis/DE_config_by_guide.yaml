@@ -1,6 +1,6 @@
 # Configuration for Differential Expression Analysis
 experiment_name: "CD4i_final" 
-datadir: "/oak/stanford/groups/pritch/users/emma/data/GWT/"
+datadir: "/mnt/oak/users/emma/data/GWT/"
 run_name: "single_guide"
 
 # Perturbation selection params
@@ -28,5 +28,5 @@ run_DE_params:
 # File paths (relative to datadir)
 file_paths:
   no_effect_guides_file: "no_effect_guides.txt"
-  de_test_genes_file: "DE_single_guide_test_genes.txt"
+  de_test_genes_file: "DE_test_genes.txt"
   target2chunk_file: "DE_single_guide_target2chunk.csv.gz"

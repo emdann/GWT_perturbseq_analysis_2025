@@ -8,7 +8,7 @@ fi
 
 CONFIG=$1
 CONDITION=$2
-DATADIR=${3:-"/oak/stanford/groups/pritch/users/emma/data/GWT/"}  # Default path or override with arg
+DATADIR=${3:-"/mnt/oak/users/emma/data/GWT/"}  # Default path or override with arg
 
 # Extract experiment_name and datadir from the YAML config file
 EXPERIMENT_NAME=$(grep "experiment_name:" "$CONFIG" | sed 's/.*experiment_name:[[:space:]]*//' | sed 's/[[:space:]]*$//' | tr -d '"')
@@ -64,55 +64,25 @@ fi
 
 echo "Found ${#MISSING_CHUNKS[@]} missing chunks: ${MISSING_CHUNKS[*]}"
 
-# Convert missing chunks array to comma-separated list for SLURM array
-if [ ${#MISSING_CHUNKS[@]} -eq 1 ]; then
-    # Single chunk
-    ARRAY_SPEC="${MISSING_CHUNKS[0]}"
-else
-    # Multiple chunks - create comma-separated list
-    ARRAY_SPEC=$(IFS=,; echo "${MISSING_CHUNKS[*]}")
-fi
-
 conda activate pertpy-milo
 
-echo "Submitting ${#MISSING_CHUNKS[@]} DE analysis jobs for experiment $EXPERIMENT_NAME, condition $CONDITION"
-echo "Missing chunks: $ARRAY_SPEC"
+echo "Submitting ${#MISSING_CHUNKS[@]} individual DE analysis jobs for experiment $EXPERIMENT_NAME, condition $CONDITION"
+echo "Missing chunks: ${MISSING_CHUNKS[*]}"
 
-# Create a job array for missing chunks only
-sbatch \
-    --partition=pritch \
-    --job-name=DE_guide_${EXPERIMENT_NAME}_${CONDITION} \
-    --output=$GROUP_SCRATCH/emma/slurm-DE_guide_%A_%a.out \
-    --error=$GROUP_SCRATCH/emma/slurm-DE_guide_%A_%a.err \
-    --nodes=1 \
-    --ntasks=1 \
-    --cpus-per-task=12 \
-    --mem=75G \
-    --time=2:00:00 \
-    --array=$ARRAY_SPEC \
-    --wrap="export OMP_NUM_THREADS=\$SLURM_CPUS_PER_TASK; \
-            export MKL_NUM_THREADS=\$SLURM_CPUS_PER_TASK; \
-            export NUMBA_NUM_THREADS=\$SLURM_CPUS_PER_TASK; \
-            export OPENBLAS_NUM_THREADS=\$SLURM_CPUS_PER_TASK; \
-            python run_guide_DE_chunk.py \
-                --config $CONFIG \
-                --test_chunk \$SLURM_ARRAY_TASK_ID \
-                --culture_condition $CONDITION"
+# Submit individual jobs for each missing chunk
+for chunk_id in "${MISSING_CHUNKS[@]}"; do
+    echo "Submitting job for chunk $chunk_id"
+    sbatch \
+        --job-name=DE_guide_${EXPERIMENT_NAME}_${CONDITION}_chunk${chunk_id} \
+        --output=./slurm-DE_guide_${EXPERIMENT_NAME}_${CONDITION}_chunk${chunk_id}.out \
+        --error=./slurm-DE_guide_${EXPERIMENT_NAME}_${CONDITION}_chunk${chunk_id}.err \
+        --mem=75G \
+        --time=2:00:00 \
+        --wrap="python run_guide_DE_chunk.py \
+                    --config $CONFIG \
+                    --test_chunk $chunk_id \
+                    --culture_condition $CONDITION"
+done
 
-echo "Submitted job array with chunks: $ARRAY_SPEC"
-
-# python debug_guide_DE_chunk.py --config DE_config_by_guide.yaml --test_chunk 1 --culture_condition Stim8hr
-# sbatch \
-#     --hold \
-#     --partition=pritch \
-#     --job-name=DE_guide_Stim8hr \
-#     --output=$GROUP_SCRATCH/emma/slurm-debug-DE.out \
-#     --error=$GROUP_SCRATCH/emma/slurm-debug-DE.err \
-#     --nodes=1 \
-#     --ntasks=1 \
-#     --cpus-per-task=3 \
-#     --mem=75G \
-#     --time=2:00:00 \
-#     --wrap="python debug_guide_DE_chunk.py --config DE_config_by_guide.yaml --test_chunk 1 --culture_condition Stim8hr"
-
+echo "Submitted ${#MISSING_CHUNKS[@]} individual jobs for chunks: ${MISSING_CHUNKS[*]}"
 
