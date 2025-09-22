@@ -115,9 +115,8 @@ done
 
 ## QC analysis
 
-- `qc_${EXPERIMENT_NAME}.ipynb` - Plots on quality control stats
+- `qc_${EXPERIMENT_NAME}.ipynb` - Plots on quality control stats for each experiment
 - `estimate_guide_effect.ipynb` - Estimate KD effect of each guide (to exclude ineffective from DE analysis)
-
 
 ## Outputs
 - `QC_summary_stats.csv` - summary of QC metric statistics for each sample and lane

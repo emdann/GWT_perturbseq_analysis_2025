@@ -89,11 +89,32 @@ def add_target_expression(adata, perturbed_gene_col='perturbed_gene_id',
     adata.obs.drop(perturbed_gene_col, axis=1, inplace=True)
     return(adata)
 
-def parse_sample(f, datadir, sgrna_library_metadata, sample_id):
+def parse_sample(f, datadir, sgrna_library_metadata, sample_id, guide_group_only=False):
     adata = ad.experimental.read_lazy(f)
     if not isinstance(adata.obs, pd.DataFrame):
         adata.obs = adata.obs.to_dataframe()
     sgrna_assignments2adata(adata, datadir, sgrna_library_metadata=sgrna_library_metadata, sample_id=sample_id)
+
+    # Get PuroR expression for all cells before filtering
+    puro_expr = adata[:, 'CUSTOM001_PuroR'].X.compute()
+    adata.obs['PuroR'] = puro_expr.toarray().flatten()
+
+    # Calculate guide group stats (before filtering)
+    adata.obs['guide_group'] = 'targeting single sgRNA'
+    adata.obs['guide_group'] = np.where(adata.obs['guide_id'].isna(), 'no sgRNA', adata.obs['guide_group'])
+    adata.obs['guide_group'] = np.where(adata.obs['guide_id'] == 'multi_sgRNA', 'multi sgRNA', adata.obs['guide_group'])
+
+    # Calculate means and SEMs for each guide group
+    means = adata.obs.groupby('guide_group')[['total_counts','n_genes', 'PuroR']].mean()
+    sems = adata.obs.groupby('guide_group')[['total_counts','n_genes', 'PuroR']].sem()
+    means_long = means.reset_index().melt(id_vars='guide_group', var_name='metric', value_name='mean')
+    sems_long = sems.reset_index().melt(id_vars='guide_group', var_name='metric', value_name='sem')
+    guide_group_stats = pd.merge(means_long, sems_long, on=['guide_group', 'metric'])
+    guide_group_stats['sample_id'] = sample_id
+
+    if guide_group_only:
+        return guide_group_stats
+
     qc_summary = get_qc_summary(adata)
     # Exclude low quality transcriptomes & perturbations
     exclude_filt = adata.obs['low_quality'] | (adata.obs['guide_id'] == 'multi_sgRNA') | (adata.obs['guide_id'].isna())
@@ -104,7 +125,7 @@ def parse_sample(f, datadir, sgrna_library_metadata, sample_id):
         'n_cells': adata.obs['guide_id'].value_counts().values,
         'sample_id': sample_id
     })
-    return adata, qc_summary, count_perturbs
+    return adata, qc_summary, count_perturbs, guide_group_stats
     
 def main():
     parser = argparse.ArgumentParser(description='Process single cell RNA-seq data for a specific sample')
@@ -112,6 +133,8 @@ def main():
     parser.add_argument('--sample_id', type=str, required=True, help='Sample ID to process')
     parser.add_argument('--config', type=str, default='../../metadata/experiments_config.yaml',
                        help='Path to the experiment configuration file')
+    parser.add_argument('--guide_group_stats', action='store_true',
+                       help='Only compute guide group stats and exit')
     args = parser.parse_args()
 
     # Read config
@@ -128,21 +151,34 @@ def main():
 
     # Process single sample
     f = f'{datadir}/tmp/{args.sample_id}.scRNA.h5ad'
-    adata, qc_summary, count_perturbs = parse_sample(f, datadir, sgrna_library_metadata, args.sample_id)
-    
+
+    if args.guide_group_stats:
+        # Only compute guide group stats
+        guide_group_stats = parse_sample(f, datadir, sgrna_library_metadata, args.sample_id, guide_group_only=True)
+        # Save guide group stats
+        guide_group_stats.to_csv(f'{datadir}/tmp/{args.sample_id}.guide_group_stats.csv')
+        print(f"Guide group stats saved to {datadir}/tmp/{args.sample_id}.guide_group_stats.csv")
+        return
+
+    # Full processing
+    adata, qc_summary, count_perturbs, guide_group_stats = parse_sample(f, datadir, sgrna_library_metadata, args.sample_id)
+
     if qc_summary is not None:
         # Save QC summary
         qc_summary.to_csv(f'{datadir}/tmp/{args.sample_id}.qc_summary.csv')
-        
+
         # Save perturbation counts
         count_perturbs.to_csv(f'{datadir}/tmp/{args.sample_id}.perturbation_counts.csv')
-        
+
+        # Save guide group stats
+        guide_group_stats.to_csv(f'{datadir}/tmp/{args.sample_id}.guide_group_stats.csv')
+
         # Save processed AnnData for merge
         if not isinstance(adata.var, pd.DataFrame):
             adata.var = adata.var.to_dataframe()
         if not isinstance(adata.obs, pd.DataFrame):
             adata.obs = adata.obs.to_dataframe()
-        
+
         # Store log-normalized expression of target gene
         adata = add_target_expression(adata)
 
