@@ -1,8 +1,8 @@
 #!/bin/bash
 
 if [ -z "$1" ] || [ -z "$2" ]; then
-    echo "Usage: $0 <experiment_name> <culture_condition>"
-    echo "Example: $0 experiment1 baseline"
+    echo "Usage: $0 <config> <culture_condition>"
+    echo "Example: $0 config.yaml Rest"
     exit 1
 fi
 
