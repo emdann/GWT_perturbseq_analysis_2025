@@ -13,6 +13,8 @@ done
 
 # Data ingestion and preprocessing
 
+High-level description of pre-processing steps implemented can be found [here](https://docs.google.com/document/d/1_YVZF0TzwOdIVI96SxNDc0opu9y9JedakkOAvfZS_uw/edit?tab=t.vous61pprujn)
+
 ## Set up 
 
 1. Update experiment config file: add new experiment in `metadata/experiments_config.yaml` - new entry should be called as EXPERIMENT_NAME
