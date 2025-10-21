@@ -81,7 +81,7 @@ def sam_to_dataframe(sam_file_path):
 
 def calculate_tss(row):
     """Calculates the Transcription Start Site (TSS) list."""
-    is_in_ts = isinstance(row['ts_starts'], list) or isinstance(row['ts_starts'], np.ndarray)
+    is_in_ts = isinstance(row['ts_starts'], (np.ndarray, list)) or isinstance(row['ts_starts'], (np.ndarray, list))
     if is_in_ts:
         return row['ts_starts'] if row['strand'] == '+' else row['ts_ends']
     else:
@@ -89,7 +89,7 @@ def calculate_tss(row):
 
 def calculate_cds(row):
     """Calculates the Coding Sequence (CDS) start sites list."""
-    has_cds = isinstance(row['cds_starts'], list) or isinstance(row['cds_starts'], np.ndarray)
+    has_cds = isinstance(row['cds_starts'], (np.ndarray, list)) or isinstance(row['cds_starts'], (np.ndarray, list))
     if has_cds:
         return row['cds_starts'] if row['strand'] == '+' else row['cds_ends']
     else:
@@ -129,7 +129,7 @@ def find_closest_target_info(row, distance_threshold=2000):
     tss_list = row['tss']
     gene_id = row['gene_id']
     gene_name = row['gene_name']
-    if not isinstance(tss_list, list):
+    if not isinstance(tss_list, (np.ndarray, list)):
         return pd.Series([np.nan, np.nan, np.nan])
     distances = [abs(sgrna_pos - tss_pos) for tss_pos in tss_list]
     min_distance = min(distances)
@@ -240,7 +240,7 @@ def find_nearest_nontarget(sgrna_row, genes_df):
     other_pos = sgrna_row['other_alignment_pos']
     other_chrom = sgrna_row['other_alignment_chromosome']
     
-    if isinstance(other_pos, list) and isinstance(other_chrom, list):
+    if isinstance(other_pos, (np.ndarray, list)) and isinstance(other_chrom, (np.ndarray, list)):
         search_locations.extend(list(zip(other_chrom, other_pos)))
 
     # --- 2. Search for the closest non-target gene across all locations ---
