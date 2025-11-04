@@ -49,7 +49,7 @@ figdir = 'figures/'
 resultsdir = 'results/'
 
 load_processed_data = True
-ct = 'B'
+ct = 'CD4T'
 
 h5ad_file_processed = datadir + f"Yazar2022_{ct}_processed.h5ad"
 adata_1k1k = anndata.experimental.read_lazy(h5ad_file_processed)
@@ -59,19 +59,30 @@ adata = anndata.AnnData(
         X = adata_1k1k.X
     )
 adata = adata.to_memory()
-adata.var['highly_variable'] = adata.var_names.isin(adata.var['dispersions_norm'].nlargest(10000).index)
+
+scales_counts = sc.pp.normalize_total(adata, target_sum=None, inplace=False)
+adata.layers["log1p_norm"] = sc.pp.log1p(scales_counts["X"], copy=True)
+aggr_data = sc.get.aggregate(adata, by='pool_number', func='count_nonzero')
+aggr_data.layers['count_nonzero'][aggr_data.layers['count_nonzero'].nonzero()] = 1
+adata.var['n_pools_measured'] = aggr_data.layers['count_nonzero'].sum(0)
+adata = adata[:, adata.var['n_pools_measured'] == adata.var['n_pools_measured'].max()]
+sc.pp.highly_variable_genes(adata, layer='log1p_norm', min_mean=0.1, max_mean=10, n_top_genes=10000)
+sc.pl.highly_variable_genes(adata)
+# adata.var['highly_variable'] = adata.var_names.isin(adata.var['dispersions_norm'].nlargest(10000).index)
+
 # Compute perc of T cells 
 cell_type_counts_full, total_counts_sum_full = process.read_total_counts(h5ad_file, datadir)
 B_T_pct_df = process.calculate_B_T_pct(cell_type_counts_full)
 adata.X.data = adata.X.data.astype(float)
-adata_sums = sc.get.aggregate(adata, by='donor_id', func=['sum'])
+adata_sums = sc.get.aggregate(adata, by=['donor_id', 'predicted.celltype.l2'], func=['sum'])
 metadata_donors = process.calculate_metadata_by_donor(adata, cell_type_counts_full, total_counts_sum_full, B_T_pct_df)
 adata_sums.obs = pd.merge(adata_sums.obs, metadata_donors.reset_index())
 adata_sums.X = adata_sums.layers['sum'].copy()
 del adata_sums.layers['sum']
 adata_sums = process.dimensionality_reduction_summed(adata_sums, figdir)
-adata_sums.obs_names = adata_sums.obs['donor_id'].values
-metadata = metadata_donors.copy()
+adata_sums.obs_names = adata_sums.obs['donor_id'].str.cat(adata_sums.obs['predicted.celltype.l2'], sep=', ')
+adata_sums.obs.index.rename('donor+cell_type', inplace=True)
+metadata = process.calculate_metadata_by_donor_celltype(adata)
 adata_sums.write_h5ad(datadir + f"Yazar2022_{ct}_processed.pbulk.h5ad")
 
 gene_names_dict = dict(zip(adata.var.index, adata.var['feature_name']))
@@ -120,14 +131,23 @@ metadata.loc[metadata['donor_id'].isin(train_donors), 'split'] = 'train'
 
 metadata.to_csv(datadir + f'Yazar2022_{ct}_processed.metadata.csv')
 
+## Feature selection
+adata_sums = adata_sums[:, adata_sums.X.sum(axis=0) >= 10].copy()
+# select genes measured in all pools
+# aggr_data = sc.get.aggregate(adata_sums, by='pool_number', func=['count_nonzero'])
+# aggr_data.layers['count_nonzero'][aggr_data.layers['count_nonzero'].nonzero()] = 1
+# adata_sums.var['n_pools_measured'] = aggr_data.layers['count_nonzero'].sum(0)
+# adata_sums = adata_sums[:, adata_sums.var['n_pools_measured'] == adata_sums.var['n_pools_measured'].max()]
+# sc.pp.highly_variable_genes(adata_sums, layer='log1p_norm', min_mean=0.1, max_mean=10, n_top_genes=10000)
+adata_sums = adata_sums[:, adata_sums.var['highly_variable']].copy()
+
 # Create train and validation metadata/counts
 train_metadata = metadata[metadata['donor_id'].isin(train_donors)]
 val_metadata = metadata[metadata['donor_id'].isin(val_donors)]
 train_counts = sc.get.obs_df(adata_sums, adata_sums.var_names.tolist()).loc[train_metadata.index]
 val_counts = sc.get.obs_df(adata_sums, adata_sums.var_names.tolist()).loc[val_metadata.index]
 
-
-cols_to_drop = ['age', 'donor_id', 'predicted.celltype.l2', 'total_counts', 'cell_counts', 
+cols_to_drop = ['age', 'CD4_TCM', 'CD4_Naive', 'donor_id', 'total_counts', 
                 'avg_count_per_cell', 'log_counts_per_cell', 'split', 'percent_B_cells']
 covars = list(metadata.columns.drop([col for col in cols_to_drop if col in metadata.columns]))
 print(covars)
@@ -137,7 +157,7 @@ train_dds = process.fit_DEseql(train_metadata, train_counts, cols=covars)
 val_dds = process.fit_DEseql(val_metadata, val_counts, cols=covars)
 
 for covar in covars:
-    if covar.startswith('PC') or covar.startswith('CD'): continue
+    if covar.startswith('PC') or covar == 'predicted.celltype.l2': continue
     print(covar)
     
     train_results = run_deseq_analysis(train_dds, covar, f'{ct}_train', figdir, resultsdir)

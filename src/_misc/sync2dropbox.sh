@@ -40,7 +40,7 @@ for f in "${FILES_TO_COPY[@]}"; do
     rclone sync ${EXPDIR} dropbox:${DROPBOX_PATH}${EXPERIMENT_NAME}/ --include "${f}" --checksum --ignore-times -v
 done
 
-## Sharing raw counts wiht Christina
+## Sharing raw counts 
 DATADIR=/mnt/oak/users/emma/data/GWT/
 DROPBOX_PATH=GWT-counts-Christina
 
@@ -53,3 +53,17 @@ EXPERIMENT_NAME=CD4iR2_Psomagen
 EXPDIR=${DATADIR}/${EXPERIMENT_NAME}/
 rclone sync ${DATADIR}/${EXPERIMENT_NAME}/tmp/ dropbox:${DROPBOX_PATH}/ --include "*.scRNA.postQC.h5ad" --checksum -v
 rclone sync ${DATADIR}/${EXPERIMENT_NAME}/ dropbox:${DROPBOX_PATH}/ --include "*.sgrna_assignment.csv" --checksum -v
+
+
+DATADIR=/mnt/oak/users/emma/data/GWT/
+EXPERIMENT_NAME=CD4i_final
+EXPDIR=${DATADIR}/${EXPERIMENT_NAME}/
+DROPBOX_PATH=GRNPerturbSeq/3_expts/processed_data/
+
+rclone sync dropbox:${DROPBOX_PATH}/analysis_largefiles/ ${DATADIR}/${EXPERIMENT_NAME}/ --include "nde50ntotal100_varfiltered_clustering_downstream_genes.csv" --checksum -v
+
+## Reload from backup
+DATADIR=/oak/stanford/groups/pritch/users/emma/data/GWT/
+DROPBOX_PATH=GRNPerturbSeq/3_expts/processed_data/CD4i_final/DE_results_all_confounders/
+rclone copy "dropbox:${DROPBOX_PATH}" "${DATADIR}/CD4i_final/DE_results_all_confounders/" \
+  --checksum -v

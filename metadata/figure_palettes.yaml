@@ -12,3 +12,14 @@ n_donors:
 matched_targets:
   True: '#6baed6'
   False: '#969696'
+
+train_test:
+  train: "#95a5a6"
+  test: "#e67e22"
+
+regulator_predictions:
+  positive: "#9971AD"
+  negative: '#58AF62'
+  control: '#CCC'
+
+regulator_predictions_contrast: "#FFD700"

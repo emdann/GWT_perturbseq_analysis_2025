@@ -150,6 +150,7 @@ main_sync() {
         ["polarization_signatures"]="4_polarization_signatures"
         ["1k1k_analysis"]="7_1k1k_analysis"
         ["perturbation_prediction_LM"]="5_perturbation_prediction_LM"
+        ["preprocess_results"]="1_preprocess/results"
     )
     
     # Sync each analysis folder

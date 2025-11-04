@@ -174,50 +174,6 @@ def gene_expression_sum_mean_var(adata, donor_col='donor_id', celltype_col='pred
 	return counts_sum_sparse, counts_sum, mean_var_expression_donor
 
 
-#def gene_expression_sum_mean_var(adata, donor_col='donor_id', celltype_col='predicted.celltype.l2'):
-#	###### Group by donor and cell type
-#	### Counts sum
-#	group_keys = adata.obs[donor_col].str.cat(adata.obs[celltype_col], sep=', ')
-#	unique_groups, group_indices = np.unique(group_keys, return_inverse=True)
-#	
-#	hvg_sparse_matrix = adata[:, adata.var['highly_variable']].X  # Sparse matrix of HVGs
-#	
-#	n_groups = len(unique_groups)
-#	n_samples = adata.shape[0]
-#	group_indicator = csr_matrix((np.ones(n_samples), (group_indices, np.arange(n_samples))), shape=(n_groups, n_samples))
-#	# Perform sparse matrix multiplication to sum rows by group
-#	counts_sum_sparse = group_indicator @ hvg_sparse_matrix  # Sparse matrix with grouped sums
-#	donor_counts = adata.obs[donor_col].value_counts()
-#	
-#	# Convert the result to a DataFrame
-#	counts_sum = pd.DataFrame.sparse.from_spmatrix(
-#		counts_sum_sparse,
-#		index=unique_groups,
-#		columns=adata.var.index[adata.var['highly_variable']]
-#	)
-#	
-#	### Counts mean and variance
-#	n_cells_per_group = group_indicator.sum(axis=1).A1
-#	gene_means = counts_sum_sparse / n_cells_per_group[:, None]
-#	
-#	gene_means_df = pd.DataFrame.sparse.from_spmatrix(
-#		gene_means,
-#		index=unique_groups,
-#		columns=adata.var.index[adata.var['highly_variable']])
-#	
-#	gene_means_df['cell type'] = gene_means_df.index.str.split(', ').str[1]
-#	
-#	cell_types_list = gene_means_df['cell type'].unique()
-#	mean_var_expression_donor = pd.DataFrame(index=gene_means_df.columns)
-#	for ct in cell_types_list:
-#		means = gene_means_df.loc[gene_means_df['cell type']==ct].drop(columns=['cell type']).astype(float)
-#		mean_var_expression_donor['Mean, '+ct] = means.mean(axis=0)
-#		mean_var_expression_donor['Variance, '+ct] = means.var(axis=0)
-#	mean_var_expression_donor = mean_var_expression_donor.drop('cell type')
-#
-#	return counts_sum_sparse, counts_sum, mean_var_expression_donor
-
-
 def calculate_metadata_by_donor_celltype(adata):
 	adata.obs['male'] = adata.obs['sex']=='male'
 	

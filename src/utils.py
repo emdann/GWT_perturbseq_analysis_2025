@@ -118,7 +118,7 @@ def load_cells(h5ad_files: List[str], obs_filt: dict):
     Returns
     -------
     anndata.AnnData
-        Combined AnnData object containing cells matching filter criteria
+        Combinhttps://vscode-remote+ssh-002dremote-002bcomino-002estanford-002eedu.vscode-resource.vscode-cdn.net/home/emmadann/miniforge3/envs/rpy2-voodoo/lib/python3.12/site-packages/scipy/stats/_stats_py.py:4894ed AnnData object containing cells matching filter criteria
         from all input files, with var indices containing gene_ids and gene_name
     """
     a_ls = []
