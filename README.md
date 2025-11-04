@@ -80,3 +80,47 @@ Files:
 
 
 To sync processed data with Dropbox, see [example script](https://github.com/emdann/GWT_perturbseq_analysis/blob/master/src/_misc/sync2dropbox.sh).  
+
+### Donor robustness DE files
+
+Base paths:
+- Dropbox: `GRNPerturbSeq/3_expts/processed_data/CD4i_final/` 
+
+Files:
+- `CD4i_final.DE_donor_robustness.h5ad` - DE analysis results by 2x2 donor pairs (obs are perturbations x condition, vars are transcriptome genes)
+
+### Donor robustness analysis summary
+
+Base paths:
+- Github: `src/3_DE_analysis/results/` 
+
+Files:
+- `DE_donor_robustness_correlation.csv` - Correlation of DE effects by 2x2 donor pairs
+- `DE_donor_robustness_correlation_summary.csv` - Summary of correlation of DE effects by 2x2 donor pairs
+
+### By guide DE files
+
+Base paths:
+- Dropbox: `GRNPerturbSeq/3_expts/processed_data/CD4i_final/` 
+
+Files:
+- `CD4i_final.merged_DE_results_by_guide.h5ad` - DE analysis results by guide (obs are perturbations x condition, vars are transcriptome genes)
+
+### By guide analysis summary
+
+Base paths:
+- Github: `src/3_DE_analysis/results/` 
+
+Files:
+- `DE_by_guide.correlation_results.csv` - Correlation of DE effects by -1 and -2 guides
+
+### Functional interaction clustering
+
+Base paths:
+- Dropbox: `GRNPerturbSeq/3_expts/processed_data/analysis_largefiles` 
+
+Files:
+- `adata_de_nde75ntotal50_varfiltered_simple.h5ad` - all selected perturbations before clustering (n_de>75, ntotals>50), with simple filtering of vars
+- `nde75ntotal50_varfiltered_simple_clustering.h5ad` - all selected perturbations after clustering
+- `nde75ntotal50_gene_across_condition_correlation_matrix.csv` - Correlation matrix of all selected genes across three perturbations (not just selected perturbations)
+- `nde75ntotal50_varfiltered_simple_clustering_downstream_genes.csv` - Top 100 downstream genes
