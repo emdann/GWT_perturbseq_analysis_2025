@@ -148,6 +148,7 @@ main_sync() {
     declare -A analysis_folders=(
         ["DE_analysis"]="3_DE_analysis"
         ["polarization_signatures"]="4_polarization_signatures"
+        ["functional_interaction"]="6_functional_interaction"
         ["1k1k_analysis"]="7_1k1k_analysis"
         ["perturbation_prediction_LM"]="5_perturbation_prediction_LM"
         ["preprocess_results"]="1_preprocess/results"
