@@ -6,7 +6,9 @@ from matplotlib.lines import Line2D
 
 mpl.rcParams['font.family'] = 'NimbusSanL'
 
-def plot_gene_block(gene_name: str, measurements: np.ndarray, vmin=-0.8, vmax=0.8, colormap: str = 'Blues', incluster=True, output_filename: str = None):
+mpl.rcParams['font.family'] = 'NimbusSanL'
+def plot_gene_block(gene_name: str, measurements: np.ndarray, vmin=-0.8, vmax=0.8,
+                    colormap: str = 'BrBG_r', figsize=(2,1), incluster=True, output_filename: str = None):
     """
     Generates a 1x2 gene visualization block with a central gene name overlay.
 
@@ -22,7 +24,7 @@ def plot_gene_block(gene_name: str, measurements: np.ndarray, vmin=-0.8, vmax=0.
     """
     # 1. Setup the figure and axis
     # Adjusted figsize for a 1x2 horizontal look
-    fig, ax = plt.subplots(figsize=(2, 1)) 
+    fig, ax = plt.subplots(figsize=(figsize[0], figsize[1]))
     
     # Reshape the 1D array (2 elements) into a 1x2 2D array for imshow.
     data_2d = measurements.reshape(1, 2)
@@ -30,7 +32,7 @@ def plot_gene_block(gene_name: str, measurements: np.ndarray, vmin=-0.8, vmax=0.
     # 2. Plot the 1x2 data using imshow (creates the colored blocks)
     # extent=[xmin, xmax, ymin, ymax]. x runs from 0 to 2, y runs from 0 to 1.
     img = ax.imshow(data_2d, cmap=colormap, vmin=vmin, vmax=vmax, 
-                    interpolation='nearest', extent=[0, 2, 0, 1]) 
+                    interpolation='nearest', extent=[0, figsize[0], 0, figsize[1]]) 
 
     # 3. Apply plot aesthetics and add black line borders/separators
     ax.set_xticks([]) # Remove x ticks
@@ -38,12 +40,12 @@ def plot_gene_block(gene_name: str, measurements: np.ndarray, vmin=-0.8, vmax=0.
 
     if incluster:
         line_style = '-'
-        line_width = 4
+        line_width = 3.5
         font_weight = 'bold'
         custom_dashes = [2,0]
     else:
         line_style = '--'
-        line_width = 4
+        line_width = 3.5
         font_weight = 'normal'
         custom_dashes = [2,2]
     
@@ -52,25 +54,25 @@ def plot_gene_block(gene_name: str, measurements: np.ndarray, vmin=-0.8, vmax=0.
         spine.set_linewidth(line_width)
         spine.set_linestyle(line_style)
         spine.set_edgecolor('black')
-        spine.set_visible(True) # Ensure all four borders are visible
-        spine.set_linestyle((0, custom_dashes))
+        spine.set_visible(True)
+        #spine.set_linestyle((0, custom_dashes))
     
     # Add a black vertical line to separate the two blocks (at x=1.0)
     
-    line = Line2D([1.0, 1.0], [0, 1], color='black', linewidth=line_width/2, zorder=1)
+    line = Line2D([figsize[0]/2, figsize[0]/2], [0, figsize[1]], color='black', linewidth=line_width/2, zorder=1)
     line.set_linestyle((0, custom_dashes)) # Apply custom dashes
     ax.add_line(line)
 
     # Ensure the aspect ratio and limits are correct
-    ax.set_xlim(0, 2)
-    ax.set_ylim(0, 1) # Y-limit is now 1 for the 1x2 shape
+    ax.set_xlim(0, figsize[0])
+    ax.set_ylim(0, figsize[1]) # Y-limit is now 1 for the 1x2 shape
 
     # 4. Draw the central white box (Rectangle patch)
     # The center of the 1x2 grid is now at (1.0, 0.5)
-    box_width = 1.5
+    box_width = 1.7
     box_height = 0.5
-    center_x = 1.0
-    center_y = 0.5
+    center_x = figsize[0]/2
+    center_y = figsize[1]/2
     
     # Create the white rectangle
     rect = patches.Rectangle(
@@ -86,12 +88,16 @@ def plot_gene_block(gene_name: str, measurements: np.ndarray, vmin=-0.8, vmax=0.
     rect.set_linestyle((0, custom_dashes)) 
     ax.add_patch(rect)
 
+    if len(gene_name)<8:
+        fontsize=24
+    else:
+        fontsize=20
     # 5. Add the gene name text
     ax.text(
-        center_x, center_y, # Position at the center of the plot (1.0, 0.5)
+        center_x, center_y*0.95,
         gene_name,
         color='black',
-        fontsize=18,
+        fontsize=fontsize,
         fontweight=font_weight,
         ha='center', # Horizontal alignment: Center
         va='center', # Vertical alignment: Center
