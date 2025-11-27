@@ -37,10 +37,6 @@ def run_deseq_analysis(dds, covar, output_suffix, figdir, resultsdir):
     ds.summary()
     ds.results_df.to_csv(resultsdir+'DE_'+covar+f'_{output_suffix}.csv')
     results_df = ds.results_df
-
-    pvalues = results_df["pvalue"].dropna()
-    plot.plot_pval_distribution(pvalues, covar+f'_{output_suffix}', figdir)
-    
     return results_df
 
 h5ad_file = '/mnt/oak/users/emma/data/cxg_datasets/Yazar2022.h5ad'
@@ -133,12 +129,6 @@ metadata.to_csv(datadir + f'Yazar2022_{ct}_processed.metadata.csv')
 
 ## Feature selection
 adata_sums = adata_sums[:, adata_sums.X.sum(axis=0) >= 10].copy()
-# select genes measured in all pools
-# aggr_data = sc.get.aggregate(adata_sums, by='pool_number', func=['count_nonzero'])
-# aggr_data.layers['count_nonzero'][aggr_data.layers['count_nonzero'].nonzero()] = 1
-# adata_sums.var['n_pools_measured'] = aggr_data.layers['count_nonzero'].sum(0)
-# adata_sums = adata_sums[:, adata_sums.var['n_pools_measured'] == adata_sums.var['n_pools_measured'].max()]
-# sc.pp.highly_variable_genes(adata_sums, layer='log1p_norm', min_mean=0.1, max_mean=10, n_top_genes=10000)
 adata_sums = adata_sums[:, adata_sums.var['highly_variable']].copy()
 
 # Create train and validation metadata/counts
