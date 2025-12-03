@@ -123,4 +123,13 @@ Files:
 - `adata_de_nde75ntotal50_varfiltered_simple.h5ad` - all selected perturbations before clustering (n_de>75, ntotals>50), with simple filtering of vars
 - `nde75ntotal50_varfiltered_simple_clustering.h5ad` - all selected perturbations after clustering
 - `nde75ntotal50_gene_across_condition_correlation_matrix.csv` - Correlation matrix of all selected genes across three perturbations (not just selected perturbations)
-- `nde75ntotal50_varfiltered_simple_clustering_downstream_genes.csv` - Top 100 downstream genes
+- `nde75ntotal50_varfiltered_simple_clustering_downstream_genes.csv` - Downstream genes by conditions
+
+### Functional cluster analysis results
+
+Base paths:
+- Github: `src/6_functional_interaction/results/` 
+
+Files:
+- `nde75ntotal50_cluster_specificity.csv` - condition specificity labels
+
