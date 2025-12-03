@@ -5,8 +5,7 @@ import numpy as np
 from matplotlib.lines import Line2D
 
 mpl.rcParams['font.family'] = 'NimbusSanL'
-
-mpl.rcParams['font.family'] = 'NimbusSanL'
+plt.rcParams['pdf.fonttype'] = 42
 def plot_gene_block(gene_name: str, measurements: np.ndarray, vmin=-0.8, vmax=0.8,
                     colormap: str = 'BrBG_r', figsize=(2,1), incluster=True, output_filename: str = None):
     """
