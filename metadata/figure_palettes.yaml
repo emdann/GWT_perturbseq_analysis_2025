@@ -3,6 +3,11 @@ culture_condition:
   Stim8hr: "#e31a1c"   # Dark red 
   Stim48hr: "#ff7f00"  # Dark orange 
 
+DE_effects_cmap: 'vlag' 
+DE_effects_regulator_class: 
+    'Positive': '#2D6CBC'
+    'Negative': '#A8373A'
+
 n_donors:
     1: '#b6de2b'  # yellow-green
     2: '#1f9d8a'  # teal
@@ -23,3 +28,4 @@ regulator_predictions:
   control: '#CCC'
 
 regulator_predictions_contrast: "#FFD700"
+

@@ -9,12 +9,13 @@ th2:
   - TRAF3
   - RARA
   - PTPN2
+  - IL4
+  - ICOS # https://pubmed.ncbi.nlm.nih.gov/15699127/
 th1:
   - STAT1
   - IFNGR2
   - IFNGR1
   - IKFZ1
-  - IL4
   - TBX21
   - STAT4
   - RASGRP1
