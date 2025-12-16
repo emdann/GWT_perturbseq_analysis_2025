@@ -1,9 +1,12 @@
+results/
 **/*.html
 **/*.h5ad
 **/*.h5mu
 **/czi-psomagen/
 **/power_analysis/power_analysis.*.DE_results.csv
+metadata/aging_DE_analysis/Wells2025_DEgenes.csv
 .vscode
+.DS_Store
 **/.claude
 # SLURM files
 **/*.err
