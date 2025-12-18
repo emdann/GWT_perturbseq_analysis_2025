@@ -3,7 +3,7 @@ options("scipen"=10)
 FILE<-as.character( args[1] ) ##exp. "Backman_2021_86.per_gene_estimates.tsv"
 FILE_perturb<-as.character( args[2] ) ##exp. "K562GW_limma_logFC_sum.txt"
 
-LOF<-read.table(paste0("input/burden/", FILE), sep="\t", quote="", header=T, stringsAsFactor=F)
+LOF<-read.table(paste0("input/", FILE), sep="\t", quote="", header=T, stringsAsFactor=F)
 LOF$post_mean[is.element(LOF$post_mean, "Inf")]<-max(LOF$post_mean[!is.infinite(LOF$post_mean)])
 LOF$post_mean[is.element(LOF$post_mean, "-Inf")]<-min(LOF$post_mean[!is.infinite(LOF$post_mean)])
 
@@ -12,14 +12,14 @@ df1<-fread(paste0(FILE2), data.table=F, header=T)
 row.names(df1)<-df1[,1]
 df1<-df1[,-1]
 
-corresp<-read.table("gencode_v41_gname_gid_ALL_sorted", header=F, stringsAsFactor=F)
+corresp<-read.table("input/gencode_v41_gname_gid_ALL_sorted", header=F, stringsAsFactor=F)
 corresp[,1]<-sapply(strsplit(as.character(corresp[,1]), "\\."), function(x){x[1]})
 corresp<-corresp[!duplicated(corresp[,1]),]
 corresp<-corresp[!duplicated(corresp[,2]),]
 row.names(corresp)<-corresp[,2]
 library("boot")
 
-shet<-read.table("shet_10bins.txt", header=T, stringsAsFactor=F)
+shet<-read.table("input/shet_10bins.txt", header=T, stringsAsFactor=F)
 shet<-shet[is.element(shet$ensg, LOF$ensg),]
 
 summary<-data.frame()
@@ -57,7 +57,7 @@ hoge<-data.frame(ensg=row.names(df1)[i], P_withShet=P_withShet, beta_withShet=be
 summary<-rbind(summary, hoge)
 }
 
-corresp<-read.table("data/gencode_v41_gname_gid_ALL_sorted", header=F, stringsAsFactor=F)
+corresp<-read.table("input/gencode_v41_gname_gid_ALL_sorted", header=F, stringsAsFactor=F)
 corresp[,1]<-sapply(strsplit(as.character(corresp[,1]), "\\."), function(x){x[1]})
 corresp<-corresp[!duplicated(corresp[,1]),]
 corresp<-corresp[!duplicated(corresp[,2]),]

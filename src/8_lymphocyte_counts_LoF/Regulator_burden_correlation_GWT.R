@@ -2,7 +2,7 @@ args   <- commandArgs(trailingOnly = T)
 options("scipen"=10) 
 FILE<-as.character( args[1] ) ##exp. "Backman_2021_86.per_gene_estimates.tsv"
 
-LOF<-read.table(paste0("input/burden/", FILE), sep="\t", quote="", header=T, stringsAsFactor=F)
+LOF<-read.table(paste0("input/", FILE), sep="\t", quote="", header=T, stringsAsFactor=F)
 LOF$post_mean[is.element(LOF$post_mean, "Inf")]<-max(LOF$post_mean[!is.infinite(LOF$post_mean)])
 LOF$post_mean[is.element(LOF$post_mean, "-Inf")]<-min(LOF$post_mean[!is.infinite(LOF$post_mean)])
 
@@ -19,14 +19,14 @@ row.names(df)<-genes$gene_ids
 
 library("boot")
 
-shet<-read.table("shet_10bins.txt", header=T, stringsAsFactor=F)
+shet<-read.table("input/shet_10bins.txt", header=T, stringsAsFactor=F)
 shet<-shet[is.element(shet$ensg, LOF$ensg),]
 
 
 for(COND in c("Rest",  "Stim8hr", "Stim48hr")){
 df1<-df[,grep(COND, colnames(df))]
 colnames(df1)<-sapply(strsplit(colnames(df1), "_"), function(x){x[2]})
-corresp<-read.table("gencode_v41_gname_gid_ALL_sorted", header=F, stringsAsFactor=F)
+corresp<-read.table("input/gencode_v41_gname_gid_ALL_sorted", header=F, stringsAsFactor=F)
 corresp<-corresp[!duplicated(corresp[,1]),]
 corresp<-corresp[!duplicated(corresp[,2]),]
 row.names(corresp)<-corresp[,2]
@@ -70,7 +70,7 @@ summary<-rbind(summary, hoge)
 }
 
 
-corresp<-read.table("gencode_v41_gname_gid_ALL_sorted", header=F, stringsAsFactor=F)
+corresp<-read.table("input/gencode_v41_gname_gid_ALL_sorted", header=F, stringsAsFactor=F)
 corresp<-corresp[!duplicated(corresp[,1]),]
 corresp<-corresp[!duplicated(corresp[,2]),]
 row.names(corresp)<-corresp[,1]

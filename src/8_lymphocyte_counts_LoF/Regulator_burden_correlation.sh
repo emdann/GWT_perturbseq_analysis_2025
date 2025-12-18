@@ -32,7 +32,7 @@ adata.var.to_csv("CD4i_final_merged.DE_pseudobulk_genes.csv")
 
 mkdir -p BurdenRegCor/GeneLevel/
 
-file_list=$( ls input/burden )
+file_list=$( ls input/ | grep per_gene_estimates )
 
 for FILE in $file_list; do
 sbatch  --error="Regulator_burden_cor.err"  --output="Regulator_burden_cor.log" --time=24:00:00  --mem=64GB  R_4.2_execute.sh  Regulator_burden_correlation_GWT.R ${FILE} 
