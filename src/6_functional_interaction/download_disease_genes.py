@@ -62,10 +62,8 @@ AUTOIMMUNE_DISEASES = [
     # Neg controls
     "EFO_0001645", # CAD
     "EFO_0001365", # macular degeneration
-    "EFO_0000249", # alzxheimers
+    "EFO_0000249", # alzheimers
     "EFO_0003884" # chronic kidney disease
-
-
 ]
 
 
