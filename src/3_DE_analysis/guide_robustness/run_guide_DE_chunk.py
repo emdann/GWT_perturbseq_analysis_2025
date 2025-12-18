@@ -20,7 +20,7 @@ import seaborn as sns
 import yaml
 import shutil
 
-sys.path.append(os.path.abspath('../'))
+sys.path.append(os.path.abspath('../../'))
 from utils import _convert_oak_path
 
 from copy import deepcopy
