@@ -1,0 +1,5 @@
+,Age,Sex,Ethnicity,Weight (kg),Height (cm),Smoker,Blood Type,Anticoagulant,Harvest Date,Donor#
+Donor 1,29,Female,Hispanic,87,160,No,O+,ACDA,1/28/25,CE0008162
+Donor 2,22,Female,African American,63,160,No,O+,ACDA,2/3/25,CE0010866
+Donor 3,23,Female,African American,58,160,No,O+,ACDA,2/3/25,CE0008678
+Donor 4,34,Male,Asian,80,180,No,O+,ACDA,3/20/25,CE0006864
