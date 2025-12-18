@@ -22,7 +22,7 @@ LOG_FILE="${LOG_DIR}/plot_sync_$(date +%Y%m%d_%H%M%S).log"
 SUMMARY_LOG="${LOG_DIR}/sync_summary.log"
 
 # rclone options
-RCLONE_OPTIONS="--checksum --ignore-times --progress --log-level INFO"
+RCLONE_OPTIONS="--progress --log-level INFO"
 DRY_RUN=false
 BANDWIDTH_LIMIT=""
 
@@ -97,7 +97,7 @@ create_log_dir() {
 
 count_plots() {
     local dir="$1"
-    find "$dir" -type f \( -name "*.pdf" -o -name "*.png" \) 2>/dev/null | wc -l
+    find "$dir" -type f \( -name "*.pdf" -name "*.svg" -o -name "*.png" \) 2>/dev/null | wc -l
 }
 
 sync_analysis_folder() {
@@ -115,7 +115,7 @@ sync_analysis_folder() {
     
     log "INFO" "Syncing $analysis_name ($plot_count plots): $src_path -> $dest_path"
     
-    local sync_cmd="rclone sync \"$src_path\" \"$dest_path\" --include \"*.pdf\" --include \"*.png\" $RCLONE_OPTIONS"
+    local sync_cmd="rclone sync \"$src_path\" \"$dest_path\" --include \"*.pdf\" --include \"*.svg\" --include \"*.png\" $RCLONE_OPTIONS"
     
     if [[ "$DRY_RUN" == "true" ]]; then
         sync_cmd="$sync_cmd --dry-run"
@@ -150,7 +150,6 @@ main_sync() {
         ["polarization_signatures"]="4_polarization_signatures"
         ["functional_interaction"]="6_functional_interaction"
         ["1k1k_analysis"]="7_1k1k_analysis"
-        ["perturbation_prediction_LM"]="5_perturbation_prediction_LM"
         ["preprocess_results"]="1_preprocess/results"
     )
     
