@@ -7,6 +7,7 @@ results/
 metadata/aging_DE_analysis/Wells2025_DEgenes.csv
 .vscode
 .DS_Store
+**/.DS_Store
 **/.claude
 # SLURM files
 **/*.err

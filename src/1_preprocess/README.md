@@ -27,6 +27,10 @@ python make_GWT_directories.py $EXPERIMENT_NAME
 # rclone copy gdrive:GWT_perturbseq_analysis/metadata/GWT_sample_metadata.xlsx /oak/stanford/groups/pritch/users/emma/data/GWT/
 python process_sample_metadata.py --experiment_name $EXPERIMENT_NAME --datadir /mnt/oak/users/emma/data/GWT/
 ```
+4. Make sgRNA library metadata
+```bash
+prep_sgrna_library_metadata.ipynb
+```
 
 ## Run preprocessing workflow locally
 
