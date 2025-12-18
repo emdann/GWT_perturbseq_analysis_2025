@@ -13,18 +13,15 @@ done
 
 # Data ingestion and preprocessing
 
-High-level description of pre-processing steps implemented can be found [here](https://docs.google.com/document/d/1_YVZF0TzwOdIVI96SxNDc0opu9y9JedakkOAvfZS_uw/edit?tab=t.vous61pprujn)
-
 ## Set up 
 
 1. Update experiment config file: add new experiment in `metadata/experiments_config.yaml` - new entry should be called as EXPERIMENT_NAME
 2. Make folder structure
 ```bash
-# Setup folders in Sherlock
 EXPERIMENT_NAME=CD4iR2_Psomagen
 python make_GWT_directories.py $EXPERIMENT_NAME
 ```
-3. Download sample metadata 
+3. Process sample metadata 
 ```bash
 # Often easier to first download GWT_sample_metadata.xlsx separately:
 # rclone copy gdrive:GWT_perturbseq_analysis/metadata/GWT_sample_metadata.xlsx /oak/stanford/groups/pritch/users/emma/data/GWT/
@@ -33,7 +30,7 @@ python process_sample_metadata.py --experiment_name $EXPERIMENT_NAME --datadir /
 
 ## Run preprocessing workflow locally
 
-No parallelization and no SLURM (suitable only for small experiments)
+No SLURM (suitable only for small experiments)
 
 ```bash
 # Ingest cellranger outputs and merge
@@ -117,7 +114,7 @@ done
 
 ## QC analysis
 
-- `qc_${EXPERIMENT_NAME}.ipynb` - Plots on quality control stats for each experiment
+- `qc_final.ipynb` - Plots on quality control stats for each experiment
 - `estimate_guide_effect.ipynb` - Estimate KD effect of each guide (to exclude ineffective from DE analysis)
 
 ## Outputs
