@@ -1,4 +1,4 @@
-,cell_sample_id,10xrun_id,donor_id,culture_condition,library_id,library_prep_kit,probe_hyb_loading,GEM_loading,sequencing_platform,age,sex,ethnicity,weight_kg,height_cm,smoker,blood type,anticoagulant,harvest_date
+,cell_sample_id,10xrun_id,donor_id,culture_condition,library_id,library_prep_kit,probe_hyb_loading,GEM_loading,sequencing_platform,age,sex,ethnicity,weight_kg,height_cm,smoker,blood_type,anticoagulant,harvest_date
 0,CD4i_R1_D1_Rest,CD4i_R1,CE0008162,Rest,CD4i_R1_D1_Rest_CD4i_R1_Ultima,GEMX_flex_v2,"2M cells/probe, 40uL GEX probe, BC001-004, CRISPR probe, CR001-004",1M cells/GEM,Ultima,29,Female,Hispanic,87,160,No,O+,ACDA,1/28/25
 1,CD4i_R1_D2_Rest,CD4i_R1,CE0010866,Rest,CD4i_R1_D2_Rest_CD4i_R1_Ultima,GEMX_flex_v2,"2M cells/probe, 40uL GEX probe, BC005-008, CRISPR probe, CR005-008",1M cells/GEM,Ultima,22,Female,African American,63,160,No,O+,ACDA,2/3/25
 2,CD4i_R1_D1_Stim8hr,CD4i_R1,CE0008162,Stim8hr,CD4i_R1_D1_Stim8hr_CD4i_R1_Ultima,GEMX_flex_v2,"2M cells/probe, 40uL GEX probe, BC009-012, CRISPR probe, CR009-012",1M cells/GEM,Ultima,29,Female,Hispanic,87,160,No,O+,ACDA,1/28/25
