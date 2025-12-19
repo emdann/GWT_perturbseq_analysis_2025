@@ -7,8 +7,8 @@
 | Figure 1E | Comparison with Arrayed RNA-seq screens. | `3_DE_analysis/ArrayedRNAseq_comparison.ipynb` |
 | Figure 1F | Comparison with FACS screens. | `3_DE_analysis/FACS_comparison_full.ipynb` |
 | Figure 1G | Power analysis. | `3_DE_analysis/power_analysis/power_analysis.ipynb` |
-| Figure 2A-B | Overview of cytokine regualators. | `3_DE_analysis/cytokine_regulators_overview.ipynb` |
-| Figure 2C-F | Cytokine regualators validation | `3_DE_analysis/cytokine_followup_regulator.ipynb` |
+| Figure 2A-B | Overview of cytokine regualators. | `5_cytokine_regulators/cytokine_regulators_overview.ipynb` |
+| Figure 2C-F | Cytokine regualators validation | `5_cytokine_regulators/cytokine_followup_regulator.ipynb` |
 | Figure 3 | Functional clustering. | [here] |
 | Figure 3 | Functional clustering. | [here] |
 | Figure 4C | Th2/Th1 polarization signatures. | `4_polarization_signatures/polarization_signature.ipynb` |
@@ -16,7 +16,7 @@
 | Figure 5B | Age-associated signatures. | `7_1k1k_analysis/1k1k_DE_analysis.ipynb` |
 | Figure 5C-F | Regulators of Age-associated signatures. | `7_1k1k_analysis/1k1k_pert2state_model.ipynb` | 
 | Figure 6 | Regulator-LoF burden correlation | `8_lymphocyte_counts_LoF/lymph_reg_burden_correlation.ipynb` | 
-| Figure 7 | Autoimmune disease-associated genes | `6_functional_interaction/opentargets_autoimmune_analysis.ipynb` |
+| Figure 7 | Autoimmune disease-associated genes | `6_functional_interaction/autoimmune_analysis/opentargets_autoimmune_analysis.ipynb` |
 
 ## Supplementary figures
 
@@ -34,8 +34,8 @@
 | Supplementary Figure 7  | Comparison with trans-effects in K562 genome-wide screen. | `3_DE_analysis/K562_DE/K562_vs_CD4T_analysis.ipynb` |
 | Supplementary Figure 8  | Power analysis for perturb-seq dataset. | `3_DE_analysis/power_analysis/power_analysis.ipynb` |
 | Supplementary Figure 9  | Power analysis results for each perturbed gene | `3_DE_analysis/power_analysis/power_analysis.ipynb` |
-| Supplementary Figure 10 | Overview of trans-effects on 30 cytokines. | `3_DE_analysis/cytokine_regulators_overview.ipynb` |
-| Supplementary Figure 11 | Arrayed validation of IL10/IL21 regulation. | `3_DE_analysis/cytokine_followup_regulator.ipynb` |
+| Supplementary Figure 10 | Overview of trans-effects on 30 cytokines. | `5_cytokine_regulators/cytokine_regulators_overview.ipynb` |
+| Supplementary Figure 11 | Arrayed validation of IL10/IL21 regulation. | `5_cytokine_regulators/cytokine_followup_regulator.ipynb` |
 | Supplementary Figure 12 | Gene Ontology enrichment of downstream genes and an unknown regulator cluster. |  |
 | Supplementary Figure 13 | Condition specificity regulator clusters. | `6_functional_interaction/condition_specificity.ipynb` |
 | Supplementary Figure 14 | Tissue-specific expression patterns of gene clusters with or without gene set enrichment. | `6_functional_interaction/tissue_specificity.ipynb` |
@@ -47,6 +47,6 @@
 | Supplementary Figure 19 | Predicting regulators of CD4+T cell aging signatures. | `7_1k1k_analysis/1k1k_pert2state_model.ipynb` | #rename
 | Supplementary Figure 20 | Predicted regulators of CD4+T cell aging signature. | `7_1k1k_analysis/1k1k_pert2state_model.ipynb` | #rename
 | Supplementary Figure 21 | Regulator-burden correlation on lymphocyte traits. | `8_lymphocyte_counts_LoF/lymph_reg_burden_correlation.ipynb` | 
-| Supplementary Figure 22 | GWAS gene enrichment analysis across regulator clusters. | `6_functional_interaction/opentargets_autoimmune_analysis.ipynb` |
-| Supplementary Figure 23 | Enrichment of autoimmune disease GWAS genes across regulatory clusters and their downstream targets. |  `6_functional_interaction/opentargets_autoimmune_analysis.ipynb` |
-| Supplementary Figure 24 | Effects of perturbations of autoimmune associated genes in regulator clusters. |  `6_functional_interaction/opentargets_autoimmune_analysis.ipynb` |
+| Supplementary Figure 22 | GWAS gene enrichment analysis across regulator clusters. | `6_functional_interaction/autoimmune_analysis/opentargets_autoimmune_analysis.ipynb` |
+| Supplementary Figure 23 | Enrichment of autoimmune disease GWAS genes across regulatory clusters and their downstream targets. |  `6_functional_interaction/autoimmune_analysis/opentargets_autoimmune_analysis.ipynb` |
+| Supplementary Figure 24 | Effects of perturbations of autoimmune associated genes in regulator clusters. |  `6_functional_interaction/autoimmune_analysis/opentargets_autoimmune_analysis.ipynb` |
