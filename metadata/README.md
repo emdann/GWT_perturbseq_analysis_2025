@@ -5,7 +5,7 @@
 - `figure_map.md` - Mapping of all figures in the paper to scripts/notebooks
 
 ## Supplementary Tables Subfolder (`suppl_tables/`)
-Curated supplementary tables for paper:
+Curated supplementary tables for paper (see detailed descriptions [here](https://github.com/emdann/GWT_perturbseq_analysis_2025/blob/master/metadata/data_sharing_readme.md#supplementary-tables))
 - `CD4T_aging_signature_DE_results_full.suppl_table.csv` - Full CD4+ T cell aging signature DE results
 - `DE_stats.suppl_table.csv` - DE statistics summary
 - `Th2_Th1_polarization_signature_DE_results_full.suppl_table.csv` - Full Th2/Th1 polarization DE results
