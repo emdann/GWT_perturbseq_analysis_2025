@@ -11,9 +11,12 @@ dependencies:
     - rapids-singlecell
     - jupyter
     - git+https://github.com/scverse/anndata.git
+    - git+https://github.com/emdann/pert2state_model.git@main
     - genomic_features
     - ibis-framework==8.0.0
     - scipy
+    - numpy
+    - pandas
     - openpyxl
     - mudata
     - scvi
@@ -24,5 +27,15 @@ dependencies:
     - Bio
     - pysam
     - gffutils
-    - pysam
     - pyfaidx
+    - matplotlib
+    - seaborn
+    - scikit-learn
+    - statsmodels
+    - requests
+    - pyyaml
+    - tqdm
+    - xarray
+    - dask
+    - adjustText
+    - pyensembl
