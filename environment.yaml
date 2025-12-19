@@ -26,4 +26,3 @@ dependencies:
     - gffutils
     - pysam
     - pyfaidx
-    # - git+https://github.com/emdann/perturbseq-tools.git@main
