@@ -12,8 +12,10 @@ Analysis of genome-wide perturb-seq screen on primary T cells (see our [manuscri
     - `6_functional_interaction/` - functional interaction analysis
     - `7_1k1k_analysis/` - 1k1k dataset analysis
     - `8_lymphocyte_counts_LoF/` - lymphocyte counts loss-of-function analysis
-    - `_misc/` - miscellaneous / old code
+    - `_misc/` - miscellaneous utility scripts
 - `metadata` - sample and experimental metadata, configs, gene annotations etc
+
+Please refer to the [figure map](https://github.com/emdann/GWT_perturbseq_analysis_2025/blob/master/metadata/figure_map.md) to find which scripts were used to generate a specific figure in the manuscript.
 
 ## Set-up compute environment
 
@@ -21,6 +23,13 @@ Analysis of genome-wide perturb-seq screen on primary T cells (see our [manuscri
 conda env create -f environment.yaml
 conda activate gwt-env
 ```
+
+## Data pointers
+
+- Processed data (cell-level count matrices, pseudobulk-level count matrices and differential expression estimates, analysis results) are available via the [Biohub Virtual Cells Platform](https://virtualcellmodels.cziscience.com/dataset/genome-scale-tcell-perturb-seq). A detailed description of shared files can be found [here](https://github.com/emdann/GWT_perturbseq_analysis_2025/blob/master/metadata/data_sharing_readme.md).
+- Additional supplementary tables and metadata are available [here](https://github.com/emdann/GWT_perturbseq_analysis/tree/master/metadata)
+- Raw sequencing data and cellranger outputs will be made available through SRA/GEO (accession: SRP643211 / GSE314342)
+
 
 ## Citation
 
