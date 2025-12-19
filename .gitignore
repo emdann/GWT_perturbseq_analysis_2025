@@ -1,4 +1,5 @@
-results/
+**.png
+**.pdf
 **/genome/*
 **/*.html
 **/*.h5ad

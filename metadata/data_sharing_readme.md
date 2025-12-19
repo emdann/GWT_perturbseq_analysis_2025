@@ -126,17 +126,26 @@ Differential expression statistics for each perturbation-gene pair (from DESeq2)
 
 Filename: `sample_metadata.suppl_table.csv`
 
-This supplementary table contains experimental metadata for all samples in the perturb-seq screen. Each row represents a unique biological sample with information about the experimental setup, library preparation, and sequencing details.
+This supplementary table contains experimental metadata for all samples in the perturb-seq screen. Each row represents a unique biological sample with information about the experimental setup, library preparation, sequencing details, and donor demographics.
 
+- **`cell_sample_id`**: Unique identifier for the biological sample
 - **`10xrun_id`**: Unique identifier for run/batch (R1 or R2)
-- **`cell_sample_id`**: Unique identifier for the biological sample 
-- **`donor_id`**: Donor identifier for the donor
+- **`donor_id`**: Donor identifier
 - **`culture_condition`**: Culture condition applied to the cells (Rest, Stim8hr, Stim48hr)
 - **`library_id`**: Unique identifier for the sequencing library (matches cellranger outputs)
-- **`library_prep_kit`**: Library preparation kit used for sample processing
-- **`probe_hyb_loading`**: Probe hybridization loading information 
+- **`library_prep_kit`**: Library preparation kit used for sample processing (e.g., GEMX_flex_v2)
+- **`probe_hyb_loading`**: Probe hybridization loading information (cell count and probe details)
 - **`GEM_loading`**: GEM loading information for 10x Genomics workflow
-- **`sequencing_platform`**: Sequencing platform used
+- **`sequencing_platform`**: Sequencing platform used (e.g., Ultima)
+- **`age`**: Donor age in years
+- **`sex`**: Donor sex (Male/Female)
+- **`ethnicity`**: Donor ethnicity
+- **`weight_kg`**: Donor weight in kilograms
+- **`height_cm`**: Donor height in centimeters
+- **`smoker`**: Smoking status (Yes/No)
+- **`blood type`**: Donor blood type
+- **`anticoagulant`**: Anticoagulant used for blood collection
+- **`harvest_date`**: Date of blood sample collection
 
 ### Differential expression statistics for each perturbation-condition pair
 
@@ -176,3 +185,114 @@ Contains metadata for the sgRNA guide library used in the genome-wide CRISPR per
 - **`putative_bidirectional_promoter`**: Flag indicating potential bidirectional promoter region (may affect multiple genes)
 - **`other_alignment_chromosome`**: Chromosome with potential off-target alignment
 - **`other_alignment_pos`**: Genomic position of potential off-target alignment
+
+### Guide knockdown efficiency
+
+Filename: `guide_kd_efficiency.suppl_table.csv`
+
+Summary statistics on knockdown efficiency of each sgRNA guide across three culture conditions.
+
+- **`index`**: sgRNA ID
+- **`guide_mean_expr`**: Mean log-normalized expression of the target gene in cells carrying this guide
+- **`guide_std_expr`**: Standard deviation of log-normalized target gene expression in cells carrying this guide (set to 0.01 for guides with zero variance, 100 for guides with only one cell)
+- **`guide_n`**: Number of cells carrying this guide
+- **`ntc_mean_expr`**: Mean log-normalized expression of the target gene in non-targeting control cells
+- **`ntc_std_expr`**: Standard deviation of log-normalized target gene expression in non-targeting control cells
+- **`ntc_n`**: Total number of non-targeting control cells across all samples
+- **`t_statistic`**: Welch's t-test statistic comparing guide expression vs NTC expression (negative values indicate knockdown)
+- **`p_value`**: Nominal p-value from Welch's t-test
+- **`adj_p_value`**: Benjamini-Hochberg FDR-adjusted p-value (minimum value capped at 1e-16)
+- **`signif_knockdown`**: Boolean indicating significant knockdown (adj_p_value < 0.1 AND t_statistic < 0)
+- **`perturbed_gene_id`**: Ensembl gene ID of the target gene
+- **`rank`**: Rank of the target gene based on mean expression in NTC cells (1 = lowest expressed)
+- **`high_confidence_no_effect_guides`**: Boolean indicating guides with high confidence of having no knockdown effect (criteria: non-significant knockdown, >10 cells with guide, target expression in NTCs >0.001)
+- **`culture_condition`**: Culture condition for this measurement (Rest, Stim8hr, or Stim48hr)
+
+### CD4+ T cell aging signature differential expression results
+
+Filename: `CD4T_aging_signature_DE_results_full.suppl_table.csv`
+
+Full differential expression results for DE analysis of age-associated changes in CD4+ T cells across all cohorts.
+
+- **`variable`**: Ensembl gene ID of the measured gene
+- **`gene_name`**: Gene symbol
+- **`baseMean`**: Mean baseline expression of the gene
+- **`log_fc`**: Log2 fold change
+- **`lfcSE`**: Standard error of log fold change
+- **`stat`**: Test statistic
+- **`p_value`**: Raw p-value from differential expression testing
+- **`adj_p_value`**: FDR-adjusted p-value
+- **`contrast`**: comparison cohort
+- **`zscore`**: Z-score for differential expression (log_fc / lfcSE)
+
+### Th2/Th1 polarization signature differential expression results
+
+Filename: `Th2_Th1_polarization_signature_DE_results_full.suppl_table.csv`
+
+
+Full differential expression results for DE analysis of Th2 vs Th1 changes in CD4+ T cells across all cohorts.
+
+
+- **`variable`**: Gene symbol
+- **`baseMean`**: Mean baseline expression of the gene
+- **`log_fc`**: Log2 fold change
+- **`lfcSE`**: Standard error of log fold change
+- **`stat`**: Test statistic
+- **`p_value`**: Raw p-value from differential expression testing
+- **`adj_p_value`**: FDR-adjusted p-value
+- **`contrast`**: comparison cohort
+- **`zscore`**: Z-score for differential expression (log_fc / lfcSE)
+
+### Cluster autoimmune disease enrichment results
+
+Filename: `cluster_autoimmune_enrichment_results.suppl_table.csv`
+
+Enrichment analysis results for autoimmune disease-associated genes within perturbation effect clusters.
+
+- **`cluster`**: Cluster identifier
+- **`disease`**: Disease category (autoimmune disease)
+- **`gene_set`**: Gene set being tested (downstream effects by condition)
+- **`odds_ratio`**: Odds ratio from Fisher's exact test
+- **`ci_low`**: Lower bound of 95% confidence interval for odds ratio
+- **`ci_high`**: Upper bound of 95% confidence interval for odds ratio
+- **`p_value`**: Raw p-value from Fisher's exact test
+- **`p_adj_fdr`**: FDR-adjusted p-value
+- **`cluster_size`**: Number of genes in the cluster
+- **`in_cluster_in_disease`**: Count of genes both in cluster and associated with disease
+- **`in_cluster_not_disease`**: Count of genes in cluster but not associated with disease
+- **`not_cluster_in_disease`**: Count of disease-associated genes not in cluster
+- **`not_cluster_not_disease`**: Count of genes neither in cluster nor associated with disease
+- **`intersecting_genes`**: List of genes that overlap between cluster and disease association
+- **`negative_control_disease`**: Boolean flag indicating if this is a negative control disease category
+
+### Aging prediction regulator coefficients
+
+Filename: `aging_prediction_condition_comparison_regulator_coefficients.csv`
+
+Model coefficients for regulators predicting aging-related gene expression changes, with comparisons across different culture conditions and datasets.
+
+- **`coef_mean`**: Mean coefficient value for the regulator across model fits
+- **`coef_sem`**: Standard error of the mean for the coefficient
+- **`coef_rank`**: Rank of the regulator coefficient (0-1 scale, higher = stronger effect)
+- **`regulator`**: Gene symbol of the regulator
+- **`known_regulators`**: Boolean indicating if this is a known regulator of aging
+- **`dataset_key`**: Dataset identifier (e.g., CD4T_K562 for comparison between CD4+ T cells and K562 cells)
+- **`regulator_type`**: Type/category of regulator (if applicable)
+- **`celltype`**: Cell type context (K562, Rest, Stim8hr, or Stim48hr)
+- **`signature`**: Signature being predicted (CD4T aging signature)
+
+### Polarization prediction regulator coefficients
+
+Filename: `polarization_prediction_condition_comparison_regulator_coefficients.csv`
+
+Model coefficients for regulators predicting Th1/Th2 polarization, with comparisons across different culture conditions.
+
+- **`coef_mean`**: Mean coefficient value for the regulator across model fits
+- **`coef_sem`**: Standard error of the mean for the coefficient
+- **`coef_rank`**: Rank of the regulator coefficient (0-1 scale, higher = stronger effect)
+- **`regulator`**: Gene symbol of the regulator
+- **`known_regulators`**: Boolean indicating if this is a known regulator of polarization
+- **`dataset_key`**: Dataset identifier (e.g., activation_Rest for activation signature in resting condition)
+- **`regulator_type`**: Type/category of regulator (if applicable)
+- **`celltype`**: Cell type/culture condition context (Rest, Stim8hr, or Stim48hr)
+- **`signature`**: Signature being predicted (activation or polarization)
