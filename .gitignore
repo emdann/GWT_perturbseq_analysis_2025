@@ -1,5 +1,5 @@
 results/
-**/genome/
+**/genome/*
 **/*.html
 **/*.h5ad
 **/*.h5mu
