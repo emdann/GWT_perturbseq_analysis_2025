@@ -269,30 +269,30 @@ Enrichment analysis results for autoimmune disease-associated genes within pertu
 
 Filename: `aging_prediction_condition_comparison_regulator_coefficients.csv`
 
-Model coefficients for regulators predicting aging-related gene expression changes, with comparisons across different culture conditions and datasets.
+Model coefficients from linear models predicting the CD4+ T cell aging signature across different datasets (perturb-seq in CD4+ T cells vs K562 cells).
 
 - **`coef_mean`**: Mean coefficient value for the regulator across model fits
 - **`coef_sem`**: Standard error of the mean for the coefficient
 - **`coef_rank`**: Rank of the regulator coefficient (0-1 scale, higher = stronger effect)
 - **`regulator`**: Gene symbol of the regulator
 - **`known_regulators`**: Boolean indicating if this is a known regulator of aging
-- **`dataset_key`**: Dataset identifier (e.g., CD4T_K562 for comparison between CD4+ T cells and K562 cells)
-- **`regulator_type`**: Type/category of regulator (if applicable)
-- **`celltype`**: Cell type context (K562, Rest, Stim8hr, or Stim48hr)
-- **`signature`**: Signature being predicted (CD4T aging signature)
+- **`dataset_key`**: Dataset identifier for model comparison (e.g., CD4T_K562)
+- **`regulator_type`**: Type/category of regulator
+- **`celltype`**: Cell type or condition context (K562, Rest, Stim8hr, Stim48hr)
+- **`signature`**: Signature being predicted (CD4T)
 
 ### Polarization prediction regulator coefficients
 
 Filename: `polarization_prediction_condition_comparison_regulator_coefficients.csv`
 
-Model coefficients for regulators predicting Th1/Th2 polarization, with comparisons across different culture conditions.
+Model coefficients from linear models predicting T cell activation and polarization signatures across different culture conditions.
 
 - **`coef_mean`**: Mean coefficient value for the regulator across model fits
 - **`coef_sem`**: Standard error of the mean for the coefficient
 - **`coef_rank`**: Rank of the regulator coefficient (0-1 scale, higher = stronger effect)
 - **`regulator`**: Gene symbol of the regulator
-- **`known_regulators`**: Boolean indicating if this is a known regulator of polarization
-- **`dataset_key`**: Dataset identifier (e.g., activation_Rest for activation signature in resting condition)
-- **`regulator_type`**: Type/category of regulator (if applicable)
-- **`celltype`**: Cell type/culture condition context (Rest, Stim8hr, or Stim48hr)
+- **`known_regulators`**: Boolean indicating if this is a known regulator of the signature
+- **`dataset_key`**: Dataset identifier for model comparison (e.g., activation_Rest, polarization_Stim8hr)
+- **`regulator_type`**: Type/category of regulator
+- **`celltype`**: Culture condition context (Rest, Stim8hr, Stim48hr)
 - **`signature`**: Signature being predicted (activation or polarization)
