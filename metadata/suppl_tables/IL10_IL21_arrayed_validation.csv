@@ -1,4 +1,4 @@
-﻿Sample:,IL10_perc,IL21_perc,Donor,Perturbation
+﻿Sample,IL10_perc,IL21_perc,Donor,Perturbation
 000047245_NTC.fcs,0.91,0.36,000047245,NTC
 000047245_CYB5R4.fcs,10.5,0.19,000047245,CYB5R4
 000047245_SGF29.fcs,3.59,0.74,000047245,SGF29
