@@ -10,7 +10,6 @@
 | Figure 2A-B | Overview of cytokine regualators. | `5_cytokine_regulators/cytokine_regulators_overview.ipynb` |
 | Figure 2C-F | Cytokine regualators validation | `5_cytokine_regulators/cytokine_followup_regulator.ipynb` |
 | Figure 3 | Functional clustering. | [here] |
-| Figure 3 | Functional clustering. | [here] |
 | Figure 4C | Th2/Th1 polarization signatures. | `4_polarization_signatures/polarization_signature.ipynb` |
 | Figure 4D-H | Regulators of Th2/Th1 polarization | `4_polarization_signatures/pert2state_polarization.ipynb` |
 | Figure 5B | Age-associated signatures. | `7_1k1k_analysis/1k1k_DE_analysis.ipynb` |
