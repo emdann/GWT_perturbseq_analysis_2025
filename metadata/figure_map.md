@@ -9,7 +9,10 @@
 | Figure 1G | Power analysis. | `3_DE_analysis/power_analysis/power_analysis.ipynb` |
 | Figure 2A-B | Overview of cytokine regualators. | `5_cytokine_regulators/cytokine_regulators_overview.ipynb` |
 | Figure 2C-F | Cytokine regualators validation | `5_cytokine_regulators/cytokine_followup_regulator.ipynb` |
-| Figure 3 | Functional clustering. | [here] |
+| Figure 3A | Functional clustering. | `6_functional_interaction/cluster_plot.ipynb` |
+| Figure 3B | Functional clustering heatmap. | `6_functional_interaction/condition_specificity.ipynb` `6_functional_interaction/enrichment_analysis.ipynb` |
+| Figure 3C-D | Functional clustering examples. | `6_functional_interaction/cluster_plot.ipynb` `6_functional_interaction/get_downstream_genes.ipynb` `6_functional_interaction/downstream_go_enrichment.ipynb` |
+| Figure 3E | `6_functional_interaction/Tact_regulators.ipynb` |
 | Figure 4C | Th2/Th1 polarization signatures. | `4_polarization_signatures/polarization_signature.ipynb` |
 | Figure 4D-H | Regulators of Th2/Th1 polarization | `4_polarization_signatures/pert2state_polarization.ipynb` |
 | Figure 5B | Age-associated signatures. | `7_1k1k_analysis/1k1k_DE_analysis.ipynb` |
@@ -32,10 +35,10 @@
 | Supplementary Figure 9  | Power analysis results for each perturbed gene | `3_DE_analysis/power_analysis/power_analysis.ipynb` |
 | Supplementary Figure 10 | Overview of trans-effects on 30 cytokines. | `5_cytokine_regulators/cytokine_regulators_overview.ipynb` |
 | Supplementary Figure 11 | Arrayed validation of IL10/IL21 regulation. | `5_cytokine_regulators/cytokine_followup_regulator.ipynb` |
-| Supplementary Figure 12 | IL10/IL21 arrayed validation flow cytometry plots. |  |
+| Supplementary Figure 12 | IL10/IL21 arrayed validation flow cytometry plots. | |
 | Supplementary Figure 13 | Tissue-specific expression patterns of gene clusters with or without gene set enrichment. | `6_functional_interaction/tissue_specificity.ipynb` |
-| Supplementary Figure 14 | Condition specificity regulator clusters. | `6_functional_interaction/condition_specificity.ipynb` |
-| Supplementary Figure 15 | Gene Ontology enrichment of downstream genes. | [here] |
+| Supplementary Figure 14 | Condition specificity regulator clusters. | `6_functional_interaction/condition_specificity.ipynb` `6_functional_interaction/Tact_regulators.ipynb` |
+| Supplementary Figure 15 | Gene Ontology enrichment of downstream genes. | `6_functional_interaction/downstream_go_enrichment.ipynb` |
 | Supplementary Figure 16 |  Predicting regulators of Th2/Th1 polarization. | `4_polarization_signatures/pert2state_polarization.ipynb` `4_polarization_signatures/polarization_signature.ipynb` | # rename
 | Supplementary Figure 17 |  Effect of predicted polarization regulators on Th1 and Th2 genes. | `4_polarization_signatures/pert2state_polarization.ipynb` |
 | Supplementary Figure 18 | Predicting regulators of Th2/Th1 polarization across CD4+T conditions.  |  `4_polarization_signatures/pert2state_polarization.ipynb` |
