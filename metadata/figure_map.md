@@ -12,7 +12,7 @@
 | Figure 3A | Functional clustering. | `6_functional_interaction/cluster_plot.ipynb` |
 | Figure 3B | Functional clustering heatmap. | `6_functional_interaction/condition_specificity.ipynb` `6_functional_interaction/enrichment_analysis.ipynb` |
 | Figure 3C-D | Functional clustering examples. | `6_functional_interaction/cluster_plot.ipynb` `6_functional_interaction/get_downstream_genes.ipynb` `6_functional_interaction/downstream_go_enrichment.ipynb` |
-| Figure 3E | `6_functional_interaction/Tact_regulators.ipynb` |
+| Figure 3E | T cell activation regulators. | `6_functional_interaction/Tact_regulators.ipynb` |
 | Figure 4C | Th2/Th1 polarization signatures. | `4_polarization_signatures/polarization_signature.ipynb` |
 | Figure 4D-H | Regulators of Th2/Th1 polarization | `4_polarization_signatures/pert2state_polarization.ipynb` |
 | Figure 5B | Age-associated signatures. | `7_1k1k_analysis/1k1k_DE_analysis.ipynb` |
