@@ -1,5 +1,5 @@
 # GWT_perturbseq_analysis
-Analysis of genome-wide perturb-seq screen on primary T cells (see our [manuscript]())
+Analysis of genome-wide perturb-seq screen on primary T cells (see our [manuscript](https://www.biorxiv.org/content/10.64898/2025.12.23.696273v1))
 
 ## Contents
 
