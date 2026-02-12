@@ -5,17 +5,18 @@
 - `figure_map.md` - Mapping of all figures in the paper to scripts/notebooks
 
 ## Supplementary Tables Subfolder (`suppl_tables/`)
-Curated supplementary tables for paper (see detailed descriptions [here](https://github.com/emdann/GWT_perturbseq_analysis_2025/blob/master/metadata/data_sharing_readme.md#supplementary-tables))
-- `CD4T_aging_signature_DE_results_full.suppl_table.csv` - Full CD4+ T cell aging signature DE results
-- `DE_stats.suppl_table.csv` - DE statistics summary
-- `Th2_Th1_polarization_signature_DE_results_full.suppl_table.csv` - Full Th2/Th1 polarization DE results
-- `aging_prediction_condition_comparison_regulator_coefficients.csv` - Aging prediction regulator coefficients
-- `cluster_autoimmune_enrichment_results.suppl_table.csv` - Cluster autoimmune enrichment results
-- `guide_kd_efficiency.suppl_table.csv` - Guide knockdown efficiency
-- `guide_kd_efficiency.suppl_table.README.md` - Guide knockdown efficiency README
-- `polarization_prediction_condition_comparison_regulator_coefficients.csv` - Polarization prediction regulator coefficients
-- `sample_metadata.suppl_table.csv` - Sample metadata
-- `sgrna_library_metadata.suppl_table.csv` - sgRNA library metadata
+Curated supplementary tables for paper (see detailed column descriptions [here](https://github.com/emdann/GWT_perturbseq_analysis_2025/blob/master/metadata/data_sharing_readme.md#supplementary-tables))
+- `sample_metadata.suppl_table.csv` - Experimental metadata for all samples including donor demographics, culture conditions, and sequencing details
+- `sgrna_library_metadata.suppl_table.csv` - sgRNA guide library metadata with genomic targeting information and off-target annotations
+- `guide_kd_efficiency.suppl_table.csv` - Guide knockdown efficiency statistics across culture conditions
+- `DE_stats.suppl_table.csv` - Summary statistics for each perturbation-condition pair including DE gene counts, on-target effects, and cross-donor/cross-guide correlations
+- `CD4T_aging_signature_DE_results_full.suppl_table.csv` - Full differential expression results for age-associated changes in CD4+ T cells
+- `Th2_Th1_polarization_signature_DE_results_full.suppl_table.csv` - Full differential expression results for Th2 vs Th1 polarization signatures
+- `clustering_results_and_annotations.csv` - Perturbation effect clustering results with functional annotations
+- `cluster_autoimmune_enrichment_results.suppl_table.csv` - Enrichment analysis for autoimmune disease-associated genes within clusters
+- `aging_prediction_condition_comparison_regulator_coefficients.csv` - Linear model coefficients for predicting CD4+ T cell aging signature (CD4T vs K562 comparison)
+- `polarization_prediction_condition_comparison_regulator_coefficients.csv` - Linear model coefficients for predicting T cell activation and polarization signatures across conditions
+- `K562_comparison.suppl_table.csv` - Correlation analysis of perturbation effects between K562 cells and CD4+ T cells
 
 ## Configuration Files
 - `experiments_config.yaml` - Config file to preprocess experiments (input to `src/1_preprocess/preprocess.py`)

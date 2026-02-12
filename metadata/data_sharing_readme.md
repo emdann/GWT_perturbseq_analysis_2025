@@ -151,7 +151,10 @@ This supplementary table contains experimental metadata for all samples in the p
 
 Filename: `DE_stats.suppl_table.csv`
 
-See `.obs` of "Differential expression results"
+See `.obs` of "Differential expression results", plus
+- **`crossdonor_correlation_mean`**: Mean cross-donor correlation (Pearson correlation between logFC effects estimated in disjoint pairs of donors). If NA, the perturbation was not tested across donors.
+- **`crossdonor_correlation_min`**: Minimum cross-donor correlation (Pearson correlation between logFC effects estimated in disjoint pairs of donors). If NA, the perturbation was not tested across donors.
+- **`crossguide_correlation`**: Cross-guide correlation (Pearson correlation between logFC effects estimated with individual gRNAs). If NA, the perturbation was not tested across guides.
 
 ### Guide library metadata
 
@@ -296,3 +299,23 @@ Model coefficients from linear models predicting T cell activation and polarizat
 - **`regulator_type`**: Type/category of regulator
 - **`celltype`**: Culture condition context (Rest, Stim8hr, Stim48hr)
 - **`signature`**: Signature being predicted (activation or polarization)
+
+### K562 vs CD4+ T cell comparison results
+
+Filename: `K562_comparison.suppl_table.csv`
+
+Cross-cell-type comparison of perturbation effects between K562 cells and CD4+ T cells. Each row represents a gene perturbed in both cell types, with correlation analysis of differential expression profiles.
+
+- **`target_contrast_gene_name`**: Name of the perturbed gene being compared between cell types
+- **`logfc_pearson_r`**: Pearson correlation coefficient comparing log fold change profiles between K562 and CD4+ T cells
+- **`logfc_pearson_pval`**: P-value for the Pearson correlation
+- **`random_r1`**: Pearson correlation with first random perturbation (negative control)
+- **`random_r2`**: Pearson correlation with second random perturbation (negative control)
+- **`random_r3`**: Pearson correlation with third random perturbation (negative control)
+- **`comparison`**: Comparison identifier (e.g., "K562 vs CD4+T (Rest)")
+- **`condition`**: Culture condition for the CD4+ T cell dataset (Rest, Stim8hr, or Stim48hr)
+- **`donor_correlation_mean`**: Mean correlation of log fold change profiles across donors (measure of reproducibility)
+- **`n_degs_MASH_K562`**: Number of differentially expressed genes (DEGs) identified by MASH in K562 cells
+- **`n_degs_MASH_Rest`**: Number of DEGs identified by MASH in CD4+ T cells (Rest condition)
+- **`n_degs_MASH_Stim48hr`**: Number of DEGs identified by MASH in CD4+ T cells (48-hour stimulation condition)
+- **`n_degs_MASH_Stim8hr`**: Number of DEGs identified by MASH in CD4+ T cells (8-hour stimulation condition)
