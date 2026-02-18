@@ -147,11 +147,38 @@ This supplementary table contains experimental metadata for all samples in the p
 - **`anticoagulant`**: Anticoagulant used for blood collection
 - **`harvest_date`**: Date of blood sample collection
 
+### Sample- and lane-level summary of QC metrics
+
+Filename: `QC_summaries_per_sample_lane.csv`
+
+Summary of quality control metrics per sample and 10x lane, with columns:
+- **`library_id`**: Library identifier (sample)
+- **`lane_id`**: 10x lane identifier
+- **`mean_total_counts`**: Mean total mRNA UMI counts per cell
+- **`mean_n_genes`**: Mean number of measured genes per cell
+- **`mean_pct_counts_mt`**: Mean percentage of mitochondrial counts per cell
+- **`mean_guide_UMI_counts`**: Mean raw guide UMI counts per cell (output from cellranger, before guide assignment)
+- **`mean_top_guide_UMI_counts`**: Mean guide UMI counts for the top-assigned guide per cell
+- **`n_cells`**: Number of cells
+- **`n_low_quality_cells`**: Number of low-quality cells removed
+- **`NTC single sgRNA`**: Number of cells assigned a single non-targeting control sgRNA
+- **`multi sgRNA`**: Number of cells assigned multiple sgRNAs
+- **`no sgRNA (>= 3 UMIs)`**: Number of cells with no sgRNA assignment (with >= 3 UMIs)
+- **`targeting single sgRNA`**: Number of cells assigned a single targeting sgRNA
+- **`n_unique_guides`**: Number of unique guides detected across all cells
+- **`n_unique_perturbed_genes`**: Number of unique perturbed genes detected across all cells
+- **`mean_cells_x_guide`**: Mean number of cells per guide
+- **`mean_cells_x_perturbed_gene`**: Mean number of cells per perturbed gene
+- **`experiment`**: Experiment identifier
+
 ### Differential expression statistics for each perturbation-condition pair
 
 Filename: `DE_stats.suppl_table.csv`
 
-See `.obs` of "Differential expression results"
+See `.obs` of "Differential expression results", plus
+- **`crossdonor_correlation_mean`**: Mean cross-donor correlation (Pearson correlation between logFC effects estimated in disjoint pairs of donors). If NA, the perturbation was not tested across donors.
+- **`crossdonor_correlation_min`**: Minimum cross-donor correlation (Pearson correlation between logFC effects estimated in disjoint pairs of donors). If NA, the perturbation was not tested across donors.
+- **`crossguide_correlation`**: Cross-guide correlation (Pearson correlation between logFC effects estimated with individual gRNAs). If NA, the perturbation was not tested across guides.
 
 ### Guide library metadata
 
@@ -296,3 +323,38 @@ Model coefficients from linear models predicting T cell activation and polarizat
 - **`regulator_type`**: Type/category of regulator
 - **`celltype`**: Culture condition context (Rest, Stim8hr, Stim48hr)
 - **`signature`**: Signature being predicted (activation or polarization)
+
+### K562 vs CD4+ T cell comparison results
+
+Filename: `K562_comparison.suppl_table.csv`
+
+Cross-cell-type comparison of perturbation effects between K562 cells and CD4+ T cells. Each row represents a gene perturbed in both cell types, with correlation analysis of differential expression profiles.
+
+- **`target_contrast_gene_name`**: Name of the perturbed gene being compared between cell types
+- **`logfc_pearson_r`**: Pearson correlation coefficient comparing log fold change profiles between K562 and CD4+ T cells
+- **`logfc_pearson_pval`**: P-value for the Pearson correlation
+- **`random_r1`**: Pearson correlation with first random perturbation (negative control)
+- **`random_r2`**: Pearson correlation with second random perturbation (negative control)
+- **`random_r3`**: Pearson correlation with third random perturbation (negative control)
+- **`comparison`**: Comparison identifier (e.g., "K562 vs CD4+T (Rest)")
+- **`condition`**: Culture condition for the CD4+ T cell dataset (Rest, Stim8hr, or Stim48hr)
+- **`donor_correlation_mean`**: Mean correlation of log fold change profiles across donors (measure of reproducibility)
+- **`n_degs_MASH_K562`**: Number of differentially expressed genes (DEGs) identified by MASH in K562 cells
+- **`n_degs_MASH_Rest`**: Number of DEGs identified by MASH in CD4+ T cells (Rest condition)
+- **`n_degs_MASH_Stim48hr`**: Number of DEGs identified by MASH in CD4+ T cells (48-hour stimulation condition)
+- **`n_degs_MASH_Stim8hr`**: Number of DEGs identified by MASH in CD4+ T cells (8-hour stimulation condition)
+
+### Clustering of downstream genes
+
+Filename: `clustering_downstream_genes.csv`
+
+Downstream genes of regulator clusters.
+
+- **hdbscan\_cluster:** Unique numeric identifier for the cluster from HDBSCAN.  
+- **downstream\_gene:** Name of the downstream target gene identified as differentially expressed (fdr \< 0.1) for at least one cluster member regulator.  
+- **downstream\_gene\_ids:** Unique gene identifier corresponding to the downstream gene name.  
+- **num\_of\_upstream:** Count of cluster member regulators that significantly (fdr \< 0.1) perturb the downstream gene.  
+- **sign\_coherence:** Measure of the consistency of regulation direction among significant upstream regulators (where \+1 indicates consistent upregulation and \-1 indicates consistent downregulation).  
+- **zscore\_rank\_negative\_regulation:** Rank-based ranking of the downstream gene based on summation of ranks of z-scores across cluster members, prioritizing strong downregulation.  
+- **zscore\_rank\_positive\_regulation:** Rank-based ranking of the downstream gene based on summation of inverted ranks of z-scores across cluster members, prioritizing strong upregulation.  
+- **condition:** Experimental condition under which the downstream effects were observed (Rest, Stim8hr, or Stim48hr).
