@@ -211,7 +211,7 @@ def get_de_stats(adata_de, alpha=0.1, signif_col='MASH_lfsr', effect_col='MASH_P
         raise ValueError('axis is either genes or targets')
     return de_counts
 
-def get_ontarget_effect(adata_de, signif_estimate='MASH_lfsr', signif_alpha=0.1):
+def get_ontarget_effect(adata_de, target_col = 'target_contrast', signif_estimate='MASH_lfsr', signif_alpha=0.1):
     """
     Extract on-target effects from differential expression results.
     
@@ -229,22 +229,34 @@ def get_ontarget_effect(adata_de, signif_estimate='MASH_lfsr', signif_alpha=0.1)
     pandas.DataFrame
         DataFrame containing on-target effects
     """
-    all_targets = adata_de.obs['target_contrast'].astype(str).unique()
-    measured_targets = adata_de.var_names[adata_de.var_names.isin(all_targets)].tolist()
-    measured_targets_names = adata_de.var['gene_name'][adata_de.var_names.isin(all_targets)].tolist()
+    all_targets = adata_de.obs[target_col].astype(str).unique()
+    measured_targets = adata_de.var_names[adata_de.var_names.isin(all_targets)]
 
-    ontarget_df = get_DE_results_long(
-        adata_de, 
-        targets=measured_targets, genes=measured_targets_names, 
-        effect_estimates=['log_fc', 'zscore', 'baseMean'],
-        signif_estimate=signif_estimate,
-        signif_alpha=signif_alpha,
-        target_id_col='target_contrast', 
-        target_metadata_cols=['culture_condition']
-    )
+    # Restrict to only the relevant contrasts and genes upfront
+    obs_mask = adata_de.obs[target_col].isin(measured_targets)
+    adata_sub = adata_de[obs_mask, measured_targets]
 
-    ontarget_df = ontarget_df[ontarget_df['gene'] == ontarget_df['target_contrast']].copy()
-    return(ontarget_df)
+    # Map each contrast row → column index of its target gene
+    var_pos = pd.Series(np.arange(len(adata_sub.var_names)), index=adata_sub.var_names)
+    row_idx = np.arange(len(adata_sub))
+    col_idx = var_pos[adata_sub.obs[target_col].values].values
+
+    # Build result directly from obs metadata — no melt/merge needed
+    result = adata_sub.obs[['culture_condition', target_col]].copy()
+    result['gene'] = adata_sub.obs[target_col].values
+    result['gene_name'] = adata_sub.var.loc[adata_sub.obs[target_col].values, 'gene_name'].values
+
+    # Extract the diagonal of each layer in one vectorized step
+    for col in ['log_fc', 'zscore', 'baseMean']:
+        if col in adata_sub.layers:
+            result[col] = np.asarray(adata_sub.layers[col][row_idx, col_idx]).flatten()
+
+    if signif_estimate in adata_sub.layers:
+        result[signif_estimate] = np.asarray(adata_sub.layers[signif_estimate][row_idx, col_idx]).flatten()
+        result['significant'] = result[signif_estimate] < signif_alpha
+
+    return result.reset_index()
+
 
 
 ## --- PLOTTING UTILS --- ##

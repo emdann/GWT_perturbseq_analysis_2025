@@ -190,3 +190,5 @@ cython_debug/
 *.pkl
 *.tar
 *.gz
+# but keep compressed supplementary tables
+!metadata/suppl_tables/*.csv.gz
