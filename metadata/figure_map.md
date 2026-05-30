@@ -14,7 +14,8 @@
 | Figure 3C-D | Functional clustering examples. | `6_functional_interaction/cluster_plot.ipynb` `6_functional_interaction/get_downstream_genes.ipynb` `6_functional_interaction/downstream_go_enrichment.ipynb` |
 | Figure 3E | T cell activation regulators. | `6_functional_interaction/Tact_regulators.ipynb` |
 | Figure 4C | Th2/Th1 polarization signatures. | `4_polarization_signatures/polarization_signature.ipynb` |
-| Figure 4D-H | Regulators of Th2/Th1 polarization | `4_polarization_signatures/pert2state_polarization.ipynb` |
+| Figure 4D-F, H | Regulators of Th2/Th1 polarization | `4_polarization_signatures/pert2state_polarization.ipynb` |
+| Figure 4G | Arrayed validation of predicted Th1/Th2 regulators. | `4_polarization_signatures/Th1Th2_validation.ipynb` |
 | Figure 5B | Age-associated signatures. | `7_1k1k_analysis/1k1k_DE_analysis.ipynb` |
 | Figure 5C-F | Regulators of Age-associated signatures. | `7_1k1k_analysis/1k1k_pert2state_model.ipynb` | 
 | Figure 6 | Regulator-LoF burden correlation | `8_lymphocyte_counts_LoF/lymph_reg_burden_correlation.ipynb` | 

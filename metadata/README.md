@@ -5,18 +5,30 @@
 - `figure_map.md` - Mapping of all figures in the paper to scripts/notebooks
 
 ## Supplementary Tables Subfolder (`suppl_tables/`)
-Curated supplementary tables for paper (see detailed column descriptions [here](https://github.com/emdann/GWT_perturbseq_analysis_2025/blob/master/metadata/data_sharing_readme.md#supplementary-tables))
-- `sample_metadata.suppl_table.csv` - Experimental metadata for all samples including donor demographics, culture conditions, and sequencing details
-- `sgrna_library_metadata.suppl_table.csv` - sgRNA guide library metadata with genomic targeting information and off-target annotations
-- `guide_kd_efficiency.suppl_table.csv` - Guide knockdown efficiency statistics across culture conditions
-- `DE_stats.suppl_table.csv` - Summary statistics for each perturbation-condition pair including DE gene counts, on-target effects, and cross-donor/cross-guide correlations
-- `CD4T_aging_signature_DE_results_full.suppl_table.csv` - Full differential expression results for age-associated changes in CD4+ T cells
-- `Th2_Th1_polarization_signature_DE_results_full.suppl_table.csv` - Full differential expression results for Th2 vs Th1 polarization signatures
-- `clustering_results_and_annotations.csv` - Perturbation effect clustering results with functional annotations
-- `cluster_autoimmune_enrichment_results.suppl_table.csv` - Enrichment analysis for autoimmune disease-associated genes within clusters
-- `aging_prediction_condition_comparison_regulator_coefficients.csv` - Linear model coefficients for predicting CD4+ T cell aging signature (CD4T vs K562 comparison)
-- `polarization_prediction_condition_comparison_regulator_coefficients.csv` - Linear model coefficients for predicting T cell activation and polarization signatures across conditions
-- `K562_comparison.suppl_table.csv` - Correlation analysis of perturbation effects between K562 cells and CD4+ T cells
+Curated supplementary tables for paper (see detailed column descriptions [here](https://github.com/emdann/GWT_perturbseq_analysis_2025/blob/master/metadata/data_sharing_readme.md#supplementary-tables)). Listed in manuscript supplementary-table order; `table_name_conversion.md` maps each source file to its renamed manuscript table.
+- `sample_metadata.suppl_table.csv` (Table 1) - Experimental metadata for all samples including donor demographics, culture conditions, and sequencing details
+- `stabl_constructs.csv` (Table 2) - Plasmid constructs (sequences) used in the perturb-seq screen and arrayed validation experiments
+- `sgrna_library_metadata.suppl_table.csv` (Table 3) - sgRNA guide library metadata with genomic targeting information and off-target annotations
+- `QC_summaries_per_sample_lane.csv` (Table 4) - Per-sample and per-lane summary of QC metrics
+- `guide_kd_efficiency.suppl_table.csv` (Table 5) - Guide knockdown efficiency statistics across culture conditions
+- `guide_offtarget_analysis_results.csv` (Table 6) - Candidate distal off-target effects identified from guide-level DE and seed-match analysis
+- `DE_stats.suppl_table.csv` (Table 7) - Summary statistics for each perturbation-condition pair including DE gene counts, on-target effects, and cross-donor/cross-guide correlations
+- `K562_comparison.suppl_table.csv` (Table 8) - Correlation analysis of perturbation effects between K562 cells and CD4+ T cells
+- `IL10IL21bulkRNAseq_DESeq2_results_byguide.csv` (Table 9) - Bulk RNA-seq DESeq2 differential expression results (by guide) for IL10/IL21 arrayed validation
+- `IL10IL21bulkRNAseq_DESeq2_results_bygene.csv` (Table 10) - Bulk RNA-seq DESeq2 differential expression results (by gene) for IL10/IL21 arrayed validation
+- `IL10_IL21_arrayed_validation_combined.csv` (Table 11) - Flow cytometry measurements from IL10/IL21 arrayed CRISPRi validation experiments
+- `proliferation_stats_IL10IL21.csv` (Table 12) - Proliferation statistics from IL10/IL21 arrayed validation experiments
+- `clustering_results_and_annotations.csv` (Table 13) - Perturbation effect clustering results with functional annotations
+- `clustering_downstream_genes.csv.gz` (Table 14) - Downstream genes of regulator clusters
+- `clusterTCR_deseq2_results.csv` (Table 15) - DESeq2 differential expression results for TCR-signaling cluster validation
+- `Th2_Th1_polarization_signature_DE_results_full.suppl_table.csv` (Table 16) - Full differential expression results for Th2 vs Th1 polarization signatures
+- `polarization_prediction_condition_comparison_regulator_coefficients.csv` (Table 17) - Linear model coefficients for predicting T cell activation and polarization signatures across conditions
+- `Th1Th2_validation_summary.suppl_table.csv` (Table 18) - Combined summary of arrayed CRISPRi validation for predicted Th1/Th2 regulators
+- `Th1Th2bulkRNAseq_DESeq2_results.csv.gz` (Table 19) - Bulk RNA-seq DESeq2 differential expression results for Th1/Th2 arrayed validation
+- `CD4T_aging_signature_DE_results_full.suppl_table.csv` (Table 20) - Full differential expression results for age-associated changes in CD4+ T cells
+- `aging_prediction_condition_comparison_regulator_coefficients.csv` (Table 21) - Linear model coefficients for predicting CD4+ T cell aging signature (CD4T vs K562 comparison)
+- `cluster_autoimmune_enrichment_results.suppl_table.csv` (Table 22) - Enrichment analysis for autoimmune disease-associated genes within clusters
+- `validation_donor_metadata.csv` (Table 23) - Donor metadata for follow-up arrayed validation experiments
 
 ## Configuration Files
 - `experiments_config.yaml` - Config file to preprocess experiments (input to `src/1_preprocess/preprocess.py`)
@@ -27,6 +39,7 @@ Curated supplementary tables for paper (see detailed column descriptions [here](
 - `sgRNA_library_curated.csv` - clean sgRNA library metadata (generated by `src/1_preprocess/prep_sgrna_library_metadata.ipynb`)
 - `sgrna_df_final.csv` / `sgrna_df_final.parquet` - Final processed sgRNA metadata with annotations
 - `donor_info.csv` - Donor metadata
+- `tss_map.csv` - Transcription start site (TSS) coordinates per gene (used for guide and off-target annotation)
 
 ## Reference Gene Lists
 - `immune_effector_genes.csv` - Immune effector genes list
@@ -66,6 +79,7 @@ Curated gene lists by functional category:
 - `TableS4_weinstock_et_al_DE.csv` - Weinstock et al. DE results
 - `Umhoefer2025_FOXP3_Teff.csv` - Umhoefer et al. 2025 FOXP3 Teff data
 - `Tahoe100M_cellline_stats.csv` - Cell line statistics for Tahoe-100M dataset
+- `Replogle_k562_library_table.csv` - Genome-wide perturb-seq library table from Replogle et al. 2022 (K562 cells)
 
 Tissue Expression Data from Human Protein Atlas
 - `rna_single_cell_datasets.tsv.zip` - Single-cell RNA datasets (from HPA)
@@ -76,8 +90,16 @@ Aging-related differential expression analysis data (`aging_DE_analysis/`)
 - `Terekhova2023_DEgenes.csv` - DE genes from Terekhova et al. 2023
 - `Wells2025_variance_decomp.csv` - Variance decomposition from Wells et al. 2025
 
+## Arrayed validation data
+Raw inputs for the arrayed CRISPRi validation experiments
+- `IL10_IL21_bulkRNAseq_all/` - Raw bulk RNA-seq gene count tables for IL10/IL21 arrayed validation (one file per donor)
+- `Th1Th2_validation_flow.csv` - Flow cytometry measurements from the Th1/Th2 arrayed validation experiments
+- `th1_th2_validation_heatmap_regulators.txt` - List of predicted Th1/Th2 regulators shown in the validation summary heatmap
+
 ## Analysis Results
 - `nde75ntotal50_cluster_specificity.csv` - Cluster specificity analysis results
+- `DE_by_guide.correlation_results.csv` - Correlation of DE effects between the two guides (guide-1 vs guide-2) targeting each gene
+- `DE_donor_robustness_correlation_summary.csv` - Summary of cross-donor correlation of DE effects (donor robustness)
 
 
 

@@ -12,6 +12,7 @@ Analysis of genome-wide perturb-seq screen on primary T cells (see our [manuscri
     - `6_functional_interaction/` - functional interaction analysis
     - `7_1k1k_analysis/` - 1k1k dataset analysis
     - `8_lymphocyte_counts_LoF/` - lymphocyte counts loss-of-function analysis
+    - `9_ChIP_analysis/` - ChIP-seq analysis of direct/indirect trans-effects
     - `_misc/` - miscellaneous utility scripts
 - `metadata` - sample and experimental metadata, configs, gene annotations etc
 
