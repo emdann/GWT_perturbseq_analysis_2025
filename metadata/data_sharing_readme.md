@@ -173,7 +173,7 @@ This supplementary table contains experimental metadata for all samples in the p
 - **`weight_kg`**: Donor weight in kilograms
 - **`height_cm`**: Donor height in centimeters
 - **`smoker`**: Smoking status (Yes/No)
-- **`blood type`**: Donor blood type
+- **`blood_type`**: Donor blood type
 - **`anticoagulant`**: Anticoagulant used for blood collection
 - **`harvest_date`**: Date of blood sample collection
 
@@ -205,10 +205,7 @@ Summary of quality control metrics per sample and 10x lane, with columns:
 
 Filename: `DE_stats.suppl_table.csv`
 
-Tabular form of `.obs` from "Differential Expression Results" (`GWCD4i.DE_stats.h5ad`). See that section for column descriptions, plus
-- **`crossdonor_correlation_mean`**: Mean cross-donor correlation (Pearson correlation between logFC effects estimated in disjoint pairs of donors). If NA, the perturbation was not tested across donors.
-- **`crossdonor_correlation_min`**: Minimum cross-donor correlation (Pearson correlation between logFC effects estimated in disjoint pairs of donors). If NA, the perturbation was not tested across donors.
-- **`crossguide_correlation`**: Cross-guide correlation (Pearson correlation between logFC effects estimated with individual gRNAs). If NA, the perturbation was not tested across guides.
+Tabular form of `.obs` from "Differential Expression Results" (`GWCD4i.DE_stats.h5ad`). All 27 columns are described in that section; the CSV additionally carries the observation key as a leading `index` column (`{target_contrast}_{culture_condition}`).
 
 ### Guide library metadata
 
@@ -254,7 +251,7 @@ Filename: `guide_kd_efficiency.suppl_table.csv`
 
 Summary statistics on knockdown efficiency of each sgRNA guide across three culture conditions.
 
-- **`index`**: sgRNA ID
+- **(unnamed first column)**: sgRNA ID
 - **`guide_mean_expr`**: Mean log-normalized expression of the target gene in cells carrying this guide
 - **`guide_std_expr`**: Standard deviation of log-normalized target gene expression in cells carrying this guide (set to 0.01 for guides with zero variance, 100 for guides with only one cell)
 - **`guide_n`**: Number of cells carrying this guide
@@ -440,6 +437,7 @@ Clustering results and annotations for HDBSCAN clusters of perturbation effects,
 - **`complex_size_corum`**: Size of the CORUM complex.
 - **`overlap_size_corum`**: Count of overlapping genes (CORUM).
 - **`fdr_corum`**: Benjamini-Hochberg FDR for CORUM enrichment.
+- **`cluster_size_corum`**: Number of unique cluster genes used as the cluster-side size in the CORUM hypergeometric test (equal to `cluster_gene_size`).
 - **`complex_stringdb`**: Top enriched STRING cluster ID.
 - **`best_described_by`**: Functional description of the STRING cluster.
 - **`overlap_genes_stringdb`**: Genes overlapping with the STRING cluster.
@@ -448,6 +446,7 @@ Clustering results and annotations for HDBSCAN clusters of perturbation effects,
 - **`complex_size_stringdb`**: Size of the STRING cluster.
 - **`overlap_size_stringdb`**: Count of overlapping genes (STRING).
 - **`fdr_stringdb`**: Benjamini-Hochberg FDR for STRING enrichment.
+- **`cluster_size_stringdb`**: Number of unique cluster genes used as the cluster-side size in the STRING hypergeometric test (equal to `cluster_gene_size`).
 - **`complex_kegg`**: Top enriched KEGG pathway name.
 - **`overlap_genes_kegg`**: Genes overlapping with the KEGG pathway.
 - **`overlap_fraction_kegg`**: Fraction of cluster genes in the KEGG pathway.
@@ -455,6 +454,7 @@ Clustering results and annotations for HDBSCAN clusters of perturbation effects,
 - **`complex_size_kegg`**: Size of the KEGG pathway.
 - **`overlap_size_kegg`**: Count of overlapping genes (KEGG).
 - **`fdr_kegg`**: Benjamini-Hochberg FDR for KEGG enrichment.
+- **`cluster_size_kegg`**: Number of unique cluster genes used as the cluster-side size in the KEGG hypergeometric test (equal to `cluster_gene_size`).
 - **`complex_reactome`**: Top enriched Reactome pathway name.
 - **`overlap_genes_reactome`**: Genes overlapping with the Reactome pathway.
 - **`overlap_fraction_reactome`**: Fraction of cluster genes in the Reactome pathway.
@@ -462,11 +462,30 @@ Clustering results and annotations for HDBSCAN clusters of perturbation effects,
 - **`complex_size_reactome`**: Size of the Reactome pathway.
 - **`overlap_size_reactome`**: Count of overlapping genes (Reactome).
 - **`fdr_reactome`**: Benjamini-Hochberg FDR for Reactome enrichment.
+- **`cluster_size_reactome`**: Number of unique cluster genes used as the cluster-side size in the Reactome hypergeometric test (equal to `cluster_gene_size`).
 - **`corr_rest`**: Mean correlation of regulator perturbation effects in Rest condition.
 - **`corr_stim8hr`**: Mean correlation of regulator perturbation effects in Stim8hr condition.
 - **`corr_stim48hr`**: Mean correlation of regulator perturbation effects in Stim48hr condition.
 - **`corr_shared`**: Mean correlation of regulator perturbation effects for all pairwise perturbations that are not between the same condition.
 - **`condition_specificity`**: Condition specificity of regulator clusters.
+
+### TCR-signalling cluster arrayed validation bulk RNA-seq differential expression results
+
+Filename: `clusterTCR_deseq2_results.csv.gz`
+
+Full DESeq2 differential expression results from bulk RNA-seq of arrayed CRISPRi validation experiments for regulators clustering with the core TCR-signalling machinery. A separate model was fit within each culture condition (design `~ donor + PC1 + target_gene`, restricted to protein-coding genes), where `PC1` is the first principal component computed within that condition's samples and used as a sequencing-depth covariate, and the replicate batch is folded into the donor label so it is absorbed by the donor term. Each contrast compares one perturbed target against the pooled non-targeting controls. Each row is a (perturbed gene, culture condition, measured gene) result.
+
+- **`variable`**: Ensembl gene ID of the measured gene
+- **`baseMean`**: Mean baseline expression of the measured gene
+- **`log_fc`**: Log2 fold change
+- **`lfcSE`**: Standard error of log fold change
+- **`stat`**: DESeq2 test statistic
+- **`p_value`**: Raw p-value from differential expression testing
+- **`adj_p_value`**: FDR-adjusted p-value
+- **`contrast`**: Perturbed gene (CRISPRi target) tested against non-targeting controls. Candidate regulators are `ATP2A2`, `ATP2A3`, `HEXD` (early), `GPI`, `MEN1`, `SIK3` (late); `CD3G`, `LAT` and `VAV1` are core TCR-signalling reference perturbations.
+- **`condition`**: Culture condition in which the model was fit (`Stim8hr` or `Stim48hr`)
+- **`gene_name`**: Gene symbol of the measured gene
+- **`gene_biotype`**: Gene biotype of the measured gene (`protein_coding` for all rows)
 
 ### Th1/Th2 arrayed validation summary
 
@@ -492,27 +511,44 @@ Combined summary of arrayed CRISPRi validation experiments for predicted Th1/Th2
 - **bulkRNA_Th2_adj_pvalue**: Benjamini–Hochberg-adjusted p-value
 - **flow_batch**: Flow cytometry batch
 - **flow_{protein}_log2FC**: Mean across donors of `log2(protein % / NTC mean)`, with the NTC mean computed within `(batch, donor, condition)`.
-- **flow_{protein}_pval**: Welch's two-sample t-test of the perturbation's per-donor IFN-γ log2FCs vs the same-batch NTC log2FCs.
+- **flow_{protein}_pval**: Welch's two-sample t-test of the perturbation's per-donor log2FCs for that protein vs the same-batch NTC log2FCs. `{protein}` is one of `IFNG`, `IL5`, `Tbet`, `GATA3`.
 - **flow_{protein}_fdr**: BH-adjusted p-value
 
 ### IL10/IL21 arrayed validation flow cytometry results
 
-Filename: `IL10_IL21_arrayed_validation.csv`
+Filename: `IL10_IL21_arrayed_validation_combined.csv`
 
-Flow cytometry measurements from arrayed CRISPRi validation experiments for predicted IL10/IL21 regulators. Each row is one sample (one donor × one perturbation).
+Flow cytometry measurements from arrayed CRISPRi validation experiments for predicted IL10/IL21 regulators, pooled across differentiation batches. Each row is one sample (one batch × one donor × one guide).
 
 - **`Sample`**: Sample identifier (FCS filename)
 - **`IL10_perc`**: Percentage of IL10+ cells measured by flow cytometry
 - **`IL21_perc`**: Percentage of IL21+ cells measured by flow cytometry
-- **`Donor`**: Donor identifier
-- **`Perturbation`**: Perturbed gene name (CRISPRi target). `NTC` for non-targeting controls.
+- **`Donor`**: Donor identifier (matches `donor_name` in `validation_donor_metadata.csv`)
+- **`Perturbation`**: CRISPRi guide identifier, formatted `{target gene}-{guide number}` (e.g. `MEN1-1`). Non-targeting controls are `NTC`, `NTC1`, `NTC2` and `NTC3`.
+- **`Batch`**: Differentiation batch (`Diff067`, `Diff068`, `Diff070`, `Diff087`, `Diff092`)
+
+### IL10/IL21 arrayed validation proliferation
+
+Filename: `proliferation_stats_IL10IL21.csv`
+
+Cell proliferation measurements from the same arrayed CRISPRi validation experiments. Each row is one well (one batch × one donor × one guide).
+
+- **`Batch`**: Differentiation batch (`Diff067`, `Diff068`, `Diff070`, `Diff087`, `Diff092`)
+- **`Donor`**: Donor identifier (matches `donor_name` in `validation_donor_metadata.csv`)
+- **`Perturbation`**: CRISPRi guide identifier, formatted `{target gene}-{guide number}` (e.g. `MEN1-1`). Non-targeting controls are `NTC`, `NTC1`, `NTC2` and `NTC3`.
+- **`fold_expansion`**: Fold change in cell number from seeding to harvest for the corresponding (Batch, Donor, Perturbation) well
 
 ### IL10/IL21 arrayed validation bulk RNA-seq differential expression results
 
-Filename: `IL10IL21bulkRNAseq_DESeq2_results.csv`
+Two files, differing in whether guides targeting the same gene are collapsed. Both were fit with PyDESeq2 on protein-coding genes, using donor as a blocking factor and the first principal component of the log-CPM matrix as a sequencing-depth covariate, and both contrast each perturbation against the pooled non-targeting controls.
 
-Full DESeq2 differential expression results from bulk RNA-seq of arrayed CRISPRi validation experiments for predicted IL10/IL21 regulators (perturbed target vs NTC). Each row is a (perturbed gene, measured gene) result.
+#### By guide
 
+Filename: `IL10IL21bulkRNAseq_DESeq2_results_byguide.csv`
+
+Results computed independently for each individual guide (design `~ donor + PC1 + guide_label`, 18 guides). Each row is a (guide, measured gene) result.
+
+- **(unnamed first column)**: Row index
 - **`variable`**: Ensembl gene ID of the measured gene
 - **`baseMean`**: Mean baseline expression of the measured gene
 - **`log_fc`**: Log2 fold change
@@ -520,7 +556,15 @@ Full DESeq2 differential expression results from bulk RNA-seq of arrayed CRISPRi
 - **`stat`**: DESeq2 test statistic
 - **`p_value`**: Raw p-value from differential expression testing
 - **`adj_p_value`**: FDR-adjusted p-value
-- **`contrast`**: Perturbed gene contrast (target vs NTC)
+- **`contrast`**: CRISPRi guide identifier tested against non-targeting controls, formatted `{target gene}-{guide number}`
+
+#### By gene
+
+Filename: `IL10IL21bulkRNAseq_DESeq2_results_bygene.csv`
+
+Results with guides collapsed to their parent target gene, so that (guide × donor) combinations act as replicates of the same perturbation (design `~ donor + PC1 + target_gene`, 9 genes). Each row is a (perturbed gene, measured gene) result. Columns are as for the by-guide table, except:
+
+- **`contrast`**: Perturbed gene (CRISPRi target) tested against non-targeting controls: `ATP2A2`, `CYB5R4`, `ELOB`, `GATA3`, `KDM1A`, `MED24`, `MEN1`, `NFKB2`, `SGF29`
 
 ### Plasmid constructs used in validation experiments
 
@@ -551,3 +595,21 @@ Full DESeq2 differential expression results from bulk RNA-seq of arrayed CRISPRi
 - **`zscore`**: Z-score for differential expression (log_fc / lfcSE)
 - **`p_value`**: Raw p-value from differential expression testing
 - **`adj_p_value`**: FDR-adjusted p-value
+
+### Follow-up validation donor metadata
+
+Filename: `validation_donor_metadata.csv`
+
+Donor demographics for the donors used in the arrayed CRISPRi validation experiments (IL10/IL21 and Th1/Th2 flow cytometry, proliferation, and bulk RNA-seq). Each row is one donor. Note that this table covers the follow-up validation donors only; donors in the genome-wide perturb-seq screen are described in `sample_metadata.suppl_table.csv`.
+
+- **`donor_name`**: Donor label used in the validation result tables (e.g. `Donor5`, `DonorA`)
+- **`donor_id`**: Internal donor identifier
+- **`age`**: Donor age in years
+- **`sex`**: Donor sex (Male/Female)
+- **`ethnicity`**: Donor ethnicity
+- **`weight_kg`**: Donor weight in kilograms
+- **`height_cm`**: Donor height in centimeters
+- **`smoker`**: Smoking status (Yes/No)
+- **`blood_type`**: Donor blood type
+- **`anticoagulant`**: Anticoagulant used for blood collection
+- **`harvest_date`**: Date of blood sample collection
