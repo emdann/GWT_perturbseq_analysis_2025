@@ -190,3 +190,9 @@ cython_debug/
 *.pkl
 *.tar
 *.gz
+# but keep compressed supplementary tables
+!metadata/suppl_tables/*.csv.gz
+
+# uncompressed local copies of suppl tables tracked as .csv.gz
+metadata/suppl_tables/clustering_downstream_genes.csv
+metadata/suppl_tables/clusterTCR_deseq2_results.csv
