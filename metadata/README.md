@@ -20,7 +20,7 @@ Curated supplementary tables for paper (see detailed column descriptions [here](
 - `proliferation_stats_IL10IL21.csv` (Table 12) - Proliferation statistics from IL10/IL21 arrayed validation experiments
 - `clustering_results_and_annotations.csv` (Table 13) - Perturbation effect clustering results with functional annotations
 - `clustering_downstream_genes.csv.gz` (Table 14) - Downstream genes of regulator clusters
-- `clusterTCR_deseq2_results.csv` (Table 15) - DESeq2 differential expression results for TCR-signaling cluster validation
+- `clusterTCR_deseq2_results.csv.gz` (Table 15) - DESeq2 differential expression results for TCR-signaling cluster validation
 - `Th2_Th1_polarization_signature_DE_results_full.suppl_table.csv` (Table 16) - Full differential expression results for Th2 vs Th1 polarization signatures
 - `polarization_prediction_condition_comparison_regulator_coefficients.csv` (Table 17) - Linear model coefficients for predicting T cell activation and polarization signatures across conditions
 - `Th1Th2_validation_summary.suppl_table.csv` (Table 18) - Combined summary of arrayed CRISPRi validation for predicted Th1/Th2 regulators

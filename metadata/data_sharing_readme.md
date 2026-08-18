@@ -404,7 +404,7 @@ Cross-cell-type comparison of perturbation effects between K562 cells and CD4+ T
 
 ### Clustering of downstream genes
 
-Filename: `clustering_downstream_genes.csv`
+Filename: `clustering_downstream_genes.csv.gz`
 
 Downstream genes of regulator clusters.
 
