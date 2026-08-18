@@ -205,7 +205,10 @@ Summary of quality control metrics per sample and 10x lane, with columns:
 
 Filename: `DE_stats.suppl_table.csv`
 
-Tabular form of `.obs` from "Differential Expression Results" (`GWCD4i.DE_stats.h5ad`). See that section for column descriptions.
+Tabular form of `.obs` from "Differential Expression Results" (`GWCD4i.DE_stats.h5ad`). See that section for column descriptions, plus
+- **`crossdonor_correlation_mean`**: Mean cross-donor correlation (Pearson correlation between logFC effects estimated in disjoint pairs of donors). If NA, the perturbation was not tested across donors.
+- **`crossdonor_correlation_min`**: Minimum cross-donor correlation (Pearson correlation between logFC effects estimated in disjoint pairs of donors). If NA, the perturbation was not tested across donors.
+- **`crossguide_correlation`**: Cross-guide correlation (Pearson correlation between logFC effects estimated with individual gRNAs). If NA, the perturbation was not tested across guides.
 
 ### Guide library metadata
 
