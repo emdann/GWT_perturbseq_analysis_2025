@@ -1,5 +1,5 @@
 # GWT_perturbseq_analysis
-Analysis of genome-wide perturb-seq screen on primary T cells (see our [manuscript](https://www.biorxiv.org/content/10.64898/2025.12.23.696273v1))
+Analysis of genome-wide perturb-seq screen on primary T cells (see our [manuscript](https://urldefense.com/v3/__https://kwnsfk27.r.eu-west-1.awstrack.me/L0/https:*2F*2Fauthors.elsevier.com*2Fsd*2Farticle*2FS0092-8674(26)00929-3/1/010201a048e35ea6-6688df17-b320-4de3-8aba-096d4f5be26f-000000/rURbivJIptX9Fm8r7lDPxZmCeow=473__;JSUlJSU!!G92We9drHetJ8EofZw!fAtxxwDXcuX14X51Gp86Giy2pLU--OiX92LO_zkFiL7vOpdBUxqMO0ZtwUv28RxazWc_YK3CpWt0N4iW_erRsas$))
 
 ## Contents
 
@@ -40,7 +40,7 @@ Raw sequencing data and cellranger outputs will be made available through SRA/GE
 
 If you use this data or code in your work, please cite
 
-Zhu R., Dann E. et al. (2025) Genome-scale perturb-seq in primary human CD4+ T cells maps context-specific regulators of T cell programs and human immune traits. _bioRxiv_
+Zhu R., Dann E. et al. (2026) Genome-scale perturb-seq in primary human CD4+ T cells maps context-specific regulators of T cell programs and human immune traits. _Cell_
 
 ## Contact
 
